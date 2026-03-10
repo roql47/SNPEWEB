@@ -1,0 +1,137 @@
+/**
+Theme Name: SNPE
+Author: FuryPark
+Author URI: http://www.snpe.co.kr/
+Description: Astra is the fastest, fully customizable & beautiful theme suitable for blogs, personal portfolios and business websites. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with schema.org code integrated so search engines will love your site. Astra offers plenty of sidebar options and widget areas giving you a full control for customizations. Furthermore, we have included special features and templates so feel free to choose any of your favorite page builder plugin to create pages flexibly. Some of the other features: # WooCommerce Ready # Responsive # Compatible with major plugins # Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and beautiful theme!
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: snpe
+Template: astra
+*/
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-weight: 200;
+    src: url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicUltraLightSubset.eot);
+    src: url('/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicUltraLightSubset.eot?#iefix') format('embedded-opentype'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicUltraLightSubset.woff2) format('woff2'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicUltraLightSubset.woff) format('woff'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicUltraLightSubset.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-weight: 300;
+    src: url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicLightSubset.eot);
+    src: url('/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicLightSubset.eot?#iefix') format('embedded-opentype'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicLightSubset.woff2) format('woff2'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicLightSubset.woff) format('woff'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicLightSubset.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-weight: 400;
+    src: url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicSubset.eot);
+    src: url('/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicSubset.eot?#iefix') format('embedded-opentype'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicSubset.woff2) format('woff2'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicSubset.woff) format('woff'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicSubset.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumBarunGothic';
+    font-weight: 700;
+    src: url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicBoldSubset.eot);
+    src: url('/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicBoldSubset.eot?#iefix') format('embedded-opentype'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicBoldSubset.woff2) format('woff2'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicBoldSubset.woff) format('woff'),
+         url(/wp-content/themes/astra_child_snpe/fonts/NanumBarunGothicBoldSubset.ttf) format('truetype');
+}
+
+@font-face
+{
+	font-family: 'HelveticaNeue';
+	font-weight: 900;
+	src: url(/wp-content/themes/astra_child_snpe/fonts/HelveticaNeue/HelveticaNeue-Black.woff) format('woff'),
+		url(/wp-content/themes/astra_child_snpe/fonts/HelveticaNeue/HelveticaNeue-Black.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Noto Sans Thin'), local('NotoSans-Thin'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Thin-Hestia.eot),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Thin-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/woff/NotoSansKR-Thin-Hestia.woff) format('woff'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/otf/NotoSansKR-Thin-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Noto Sans Light'), local('NotoSans-Light'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Light-Hestia.eot),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Light-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/woff/NotoSansKR-Light-Hestia.woff) format('woff'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/otf/NotoSansKR-Light-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Noto Sans Regular'), local('NotoSans-Regular'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Regular-Hestia.eot),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Regular-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/woff/NotoSansKR-Regular-Hestia.woff) format('woff'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/otf/NotoSansKR-Regular-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Noto Sans Medium'), local('NotoSans-Medium'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Medium-Hestia.eot),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Medium-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/woff/NotoSansKR-Medium-Hestia.woff) format('woff'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/otf/NotoSansKR-Medium-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Noto Sans Bold'), local('NotoSans-Bold'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Bold-Hestia.eot),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Bold-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/woff/NotoSansKR-Bold-Hestia.woff) format('woff'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/otf/NotoSansKR-Bold-Hestia.otf) format('opentype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Korean';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Noto Sans Black'), local('NotoSans-Black'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Black-Hestia.eot),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/eot/NotoSansKR-Black-Hestia.eot?#iefix) format('embedded-opentype'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/woff/NotoSansKR-Black-Hestia.woff) format('woff'),
+    url(/wp-content/themes/astra_child_snpe/fonts/NotoSansKR/otf/NotoSansKR-Black-Hestia.otf) format('opentype');
+}
+
+.NotoSansKR
+{
+	font-family: 'Noto Sans Korean', Sans-Serif !important;
+}
+
+.main-header-bar {
+  z-index: 4;
+  position: relative;
+  line-height: 60px;
+}
+   
