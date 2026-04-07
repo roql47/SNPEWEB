@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Play, Clock, Eye } from 'lucide-react'
 
@@ -13,12 +14,14 @@ const videos = [
 ]
 
 export default function SnpeVideo() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="운동 영상"
-        subtitle="SNPE 운동 영상을 확인하세요"
-        breadcrumb={[{ label: '운동 정보', path: '/beginnerguide' }, { label: '운동영상' }]}
+        title={t('pages.snpeVideo')}
+        subtitle={t('pages.snpeVideoSub')}
+        breadcrumb={[{ label: t('nav.exercise'), path: '/beginnerguide' }, { label: t('pages.snpeVideo') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -29,7 +32,7 @@ export default function SnpeVideo() {
               href="https://www.youtube.com/c/SNPElife"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-snpe font-medium hover:underline"
+              className="text-sm text-snpe-dark font-medium hover:underline"
             >
               YouTube 채널 →
             </a>
@@ -45,7 +48,7 @@ export default function SnpeVideo() {
                 className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-shadow group"
               >
                 <div className="relative bg-gray-200 aspect-video flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-snpe/80 text-white flex items-center justify-center group-hover:bg-snpe transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-snpe-darker/80 text-white flex items-center justify-center group-hover:bg-snpe-darker transition-colors">
                     <Play size={20} fill="white" />
                   </div>
                   <span className="absolute top-2 right-2 text-xs bg-black/60 text-white px-2 py-0.5 rounded">

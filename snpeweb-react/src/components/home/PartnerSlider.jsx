@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
+import { useTranslation } from 'react-i18next'
 import 'swiper/css'
 
 const partners = [
@@ -11,11 +12,13 @@ const partners = [
 ]
 
 export default function PartnerSlider() {
+  const { t } = useTranslation()
+
   return (
     <section className="py-6 md:py-8 bg-snpe/30 border-t border-snpe-hover/40">
       <div className="max-w-[1440px] mx-auto px-4">
         <h2 className="text-center text-lg md:text-xl font-bold text-snpe-darker uppercase tracking-widest mb-6">
-          SNPE Partners
+          {t('home.partnersTitle')}
         </h2>
         <Swiper
           modules={[Autoplay]}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { ChevronDown } from 'lucide-react'
 
@@ -19,15 +20,16 @@ const faqs = [
 export default function Faq() {
   const [activeCategory, setActiveCategory] = useState('전체')
   const [openIndex, setOpenIndex] = useState(null)
+  const { t } = useTranslation()
 
   const filtered = activeCategory === '전체' ? faqs : faqs.filter((f) => f.category === activeCategory)
 
   return (
     <>
       <PageBanner
-        title="자주하는 질문"
-        subtitle="궁금한 점을 확인하세요"
-        breadcrumb={[{ label: '고객지원', path: '/search-center' }, { label: '자주하는 질문' }]}
+        title={t('pages.faq')}
+        subtitle={t('pages.faqSub')}
+        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.faq') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -39,7 +41,7 @@ export default function Faq() {
                 key={c}
                 onClick={() => { setActiveCategory(c); setOpenIndex(null) }}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeCategory === c ? 'bg-snpe text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  activeCategory === c ? 'bg-snpe-darker text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
                 {c}
@@ -56,7 +58,7 @@ export default function Faq() {
                   className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-snpe text-white text-xs font-bold flex items-center justify-center">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-snpe-darker text-white text-xs font-bold flex items-center justify-center">
                       Q
                     </span>
                     <span className="text-sm font-medium text-gray-800">{f.q}</span>
@@ -68,7 +70,7 @@ export default function Faq() {
                 </button>
                 <div className={`overflow-hidden transition-all duration-300 ${openIndex === i ? 'max-h-96' : 'max-h-0'}`}>
                   <div className="px-6 pb-5 flex items-start gap-3">
-                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-snpe/10 text-snpe text-xs font-bold flex items-center justify-center">
+                    <span className="flex-shrink-0 w-7 h-7 rounded-full bg-snpe-dark/10 text-snpe-dark text-xs font-bold flex items-center justify-center">
                       A
                     </span>
                     <p className="text-sm text-gray-600 leading-relaxed">{f.a}</p>

@@ -3,10 +3,12 @@
 @theme {
   --color-snpe: #e4dcd5;
   --color-snpe-light: #f3efec;
-  --color-snpe-dark: #6d9293;
-  --color-snpe-darker: #4f6f70;
+  --color-snpe-dark: #7a6d62;
+  --color-snpe-darker: #5c4f44;
   --color-snpe-hover: #d5cbc2;
   --color-snpe-research: #eee8e3;
+  --color-snpe-accent: #6b5e53;
+  --color-snpe-accent-light: #8a7d72;
 
   --font-sans: 'NanumBarunGothic', 'Noto Sans KR', sans-serif;
   --font-heading: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

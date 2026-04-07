@@ -1,9 +1,12 @@
+import { useTranslation } from 'react-i18next'
+
 export default function AppSection() {
+  const { t } = useTranslation()
+
   return (
     <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-          {/* App mockup */}
           <div className="md:w-1/2 flex justify-center">
             <img
               src="/images/app-1-1.png"
@@ -12,17 +15,15 @@ export default function AppSection() {
             />
           </div>
 
-          {/* Text */}
           <div className="md:w-1/2 text-center md:text-left">
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-              SNPE APP
+              {t('home.appTitle')}
             </h2>
-            <p className="text-snpe text-lg font-medium mb-6">
-              혼자서도 똑똑하게 관리하는 셀프테라피
+            <p className="text-snpe-dark text-lg font-medium mb-6">
+              {t('home.appSubtitle')}
             </p>
             <p className="text-gray-600 leading-relaxed mb-8">
-              SNPE 앱에서는 AI 자세분석을 통해 나의 체형 상태를 측정하고
-              맞춤형 운동 프로그램을 제공합니다.
+              {t('home.appDesc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
               <a

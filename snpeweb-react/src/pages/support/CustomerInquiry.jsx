@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Send } from 'lucide-react'
 
@@ -18,6 +19,7 @@ export default function CustomerInquiry() {
     agree: false,
   })
   const [submitted, setSubmitted] = useState(false)
+  const { t } = useTranslation()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -34,13 +36,13 @@ export default function CustomerInquiry() {
     return (
       <>
         <PageBanner
-          title="기업특강 신청"
-          subtitle="신청해 주셔서 감사합니다"
-          breadcrumb={[{ label: '고객지원', path: '/search-center' }, { label: '기업특강 신청' }]}
+          title={t('pages.customerInquiry')}
+          subtitle={t('pages.customerInquiryThanksSub')}
+          breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.customerInquiry') }]}
         />
         <section className="py-24">
           <div className="max-w-lg mx-auto px-4 text-center">
-            <div className="w-20 h-20 rounded-full bg-snpe/10 text-snpe flex items-center justify-center mx-auto mb-6">
+            <div className="w-20 h-20 rounded-full bg-snpe-dark/10 text-snpe-dark flex items-center justify-center mx-auto mb-6">
               <Send size={32} />
             </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">기업특강 신청이 접수되었습니다</h2>
@@ -66,7 +68,7 @@ export default function CustomerInquiry() {
                   agree: false,
                 })
               }}
-              className="px-6 py-2.5 bg-snpe text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors"
+              className="px-6 py-2.5 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors"
             >
               새 신청 작성
             </button>
@@ -79,9 +81,9 @@ export default function CustomerInquiry() {
   return (
     <>
       <PageBanner
-        title="기업특강 신청"
-        subtitle="기업 맞춤형 SNPE 특강을 신청해 주세요"
-        breadcrumb={[{ label: '고객지원', path: '/search-center' }, { label: '기업특강 신청' }]}
+        title={t('pages.customerInquiry')}
+        subtitle={t('pages.customerInquirySub')}
+        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.customerInquiry') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -237,7 +239,7 @@ export default function CustomerInquiry() {
                 required
                 checked={form.agree}
                 onChange={update('agree')}
-                className="mt-0.5 rounded border-gray-300 text-snpe focus:ring-snpe"
+                className="mt-0.5 rounded border-gray-300 text-snpe-dark focus:ring-snpe-dark"
               />
               <span>
                 개인정보 수집 및 이용에 동의합니다. 수집된 정보는 기업특강 신청 상담 및 운영 목적에 한하여 사용됩니다.
@@ -246,7 +248,7 @@ export default function CustomerInquiry() {
 
             <button
               type="submit"
-              className="w-full h-12 bg-snpe text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors flex items-center justify-center gap-2"
+              className="w-full h-12 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors flex items-center justify-center gap-2"
             >
               <Send size={16} />
               기업특강 신청하기

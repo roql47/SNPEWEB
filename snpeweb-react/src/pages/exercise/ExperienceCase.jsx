@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Quote } from 'lucide-react'
 
@@ -47,12 +48,14 @@ const cases = [
 ]
 
 export default function ExperienceCase() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="체험사례"
-        subtitle="SNPE 운동 체험자들의 이야기"
-        breadcrumb={[{ label: '운동 정보', path: '/beginnerguide' }, { label: '체험 신청' }]}
+        title={t('pages.experienceCase')}
+        subtitle={t('pages.experienceCaseSub')}
+        breadcrumb={[{ label: t('nav.exercise'), path: '/beginnerguide' }, { label: t('pages.experienceCase') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -67,7 +70,7 @@ export default function ExperienceCase() {
                 <div className="border-t border-gray-100 pt-4">
                   <p className="text-sm font-bold text-gray-900">{c.name} · {c.age}</p>
                   <div className="flex items-center gap-3 mt-2 text-xs text-gray-400">
-                    <span className="bg-snpe/10 text-snpe-dark px-2 py-0.5 rounded-full">{c.issue}</span>
+                    <span className="bg-snpe-dark/10 text-snpe-dark px-2 py-0.5 rounded-full">{c.issue}</span>
                     <span>수련기간: {c.period}</span>
                   </div>
                 </div>

@@ -1,0 +1,38 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/pages/about/index.html" },
+    { "source": "/activity", "destination": "/pages/activity/index.html" },
+    { "source": "/baseexercise", "destination": "/pages/baseexercise/index.html" },
+    { "source": "/beginnerguide", "destination": "/pages/beginnerguide/index.html" },
+    { "source": "/bi", "destination": "/pages/bi/index.html" },
+    { "source": "/certification", "destination": "/pages/certification/index.html" },
+    { "source": "/certification-teacher", "destination": "/pages/certification-teacher/index.html" },
+    { "source": "/companyclass", "destination": "/pages/companyclass/index.html" },
+    { "source": "/culturecenter", "destination": "/pages/culturecenter/index.html" },
+    { "source": "/customerinquiry", "destination": "/pages/customerinquiry/index.html" },
+    { "source": "/degree", "destination": "/pages/degree/index.html" },
+    { "source": "/experiencecase", "destination": "/pages/experiencecase/index.html" },
+    { "source": "/faq", "destination": "/pages/faq/index.html" },
+    { "source": "/franchise", "destination": "/pages/franchise/index.html" },
+    { "source": "/history", "destination": "/pages/history/index.html" },
+    { "source": "/login", "destination": "/pages/login/index.html" },
+    { "source": "/mypage", "destination": "/pages/mypage/index.html" },
+    { "source": "/news", "destination": "/pages/news/index.html" },
+    { "source": "/notice", "destination": "/pages/notice/index.html" },
+    { "source": "/online", "destination": "/pages/online/index.html" },
+    { "source": "/provision", "destination": "/pages/provision/index.html" },
+    { "source": "/research", "destination": "/pages/research/index.html" },
+    { "source": "/search-center", "destination": "/pages/search-center/index.html" },
+    { "source": "/snpeapp", "destination": "/pages/snpeapp/index.html" },
+    { "source": "/snpevideo", "destination": "/pages/snpevideo/index.html" },
+    { "source": "/training", "destination": "/pages/training/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/wp-content/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

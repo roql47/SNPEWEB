@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Search, User, Award } from 'lucide-react'
 
@@ -13,17 +14,18 @@ const teachers = [
 
 export default function CertTeacher() {
   const [query, setQuery] = useState('')
+  const { t } = useTranslation()
 
-  const filtered = teachers.filter((t) =>
-    !query || t.name.includes(query) || t.region.includes(query) || t.center.includes(query)
+  const filtered = teachers.filter((teacher) =>
+    !query || teacher.name.includes(query) || teacher.region.includes(query) || teacher.center.includes(query)
   )
 
   return (
     <>
       <PageBanner
-        title="인증강사 검색"
-        subtitle="SNPE 인증강사를 찾아보세요"
-        breadcrumb={[{ label: '고객지원', path: '/search-center' }, { label: '인증강사 검색' }]}
+        title={t('pages.certTeacher')}
+        subtitle={t('pages.certTeacherSub')}
+        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.certTeacher') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -40,17 +42,17 @@ export default function CertTeacher() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filtered.map((t, i) => (
+            {filtered.map((teacher, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition-shadow text-center">
                 <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4">
                   <User size={24} className="text-gray-400" />
                 </div>
-                <h3 className="font-bold text-gray-900">{t.name}</h3>
-                <span className="inline-flex items-center gap-1 text-xs text-snpe font-medium mt-1">
-                  <Award size={12} /> {t.level}
+                <h3 className="font-bold text-gray-900">{teacher.name}</h3>
+                <span className="inline-flex items-center gap-1 text-xs text-snpe-dark font-medium mt-1">
+                  <Award size={12} /> {teacher.level}
                 </span>
-                <p className="text-sm text-gray-500 mt-2">{t.center}</p>
-                <p className="text-xs text-gray-400 mt-1">{t.specialty}</p>
+                <p className="text-sm text-gray-500 mt-2">{teacher.center}</p>
+                <p className="text-xs text-gray-400 mt-1">{teacher.specialty}</p>
               </div>
             ))}
           </div>

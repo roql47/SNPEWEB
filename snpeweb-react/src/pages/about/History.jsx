@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 
 const timeline = [
@@ -12,12 +13,14 @@ const timeline = [
 ]
 
 export default function History() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="연혁"
-        subtitle="SNPE의 발자취를 소개합니다"
-        breadcrumb={[{ label: 'SNPE 운동이란?', path: '/about' }, { label: '연혁' }]}
+        title={t('pages.history')}
+        subtitle={t('pages.historySub')}
+        breadcrumb={[{ label: t('nav.about'), path: '/about' }, { label: t('pages.history') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -26,21 +29,21 @@ export default function History() {
             {/* Vertical line */}
             <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-snpe/20 -translate-x-1/2" />
 
-            {timeline.map((t, i) => (
-              <div key={t.year} className={`relative flex flex-col md:flex-row items-start mb-12 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+            {timeline.map((row, i) => (
+              <div key={row.year} className={`relative flex flex-col md:flex-row items-start mb-12 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                 {/* Year bubble */}
-                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-snpe text-white text-sm font-bold flex items-center justify-center z-10">
-                  {t.year.slice(2)}
+                <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-snpe-darker text-white text-sm font-bold flex items-center justify-center z-10">
+                  {row.year.slice(2)}
                 </div>
 
                 {/* Content card */}
                 <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
                   <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 className="text-xl font-bold text-snpe mb-3">{t.year}</h3>
+                    <h3 className="text-xl font-bold text-snpe-dark mb-3">{row.year}</h3>
                     <ul className="space-y-2">
-                      {t.events.map((e, j) => (
+                      {row.events.map((e, j) => (
                         <li key={j} className="flex items-start gap-2 text-sm text-gray-600">
-                          <span className="text-snpe mt-1">•</span>
+                          <span className="text-snpe-dark mt-1">•</span>
                           {e}
                         </li>
                       ))}

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Monitor, Users, Calendar, Clock } from 'lucide-react'
 
@@ -39,30 +40,31 @@ const courses = [
 
 export default function Online() {
   const [selectedType, setSelectedType] = useState('전체')
+  const { t } = useTranslation()
 
   const filtered = selectedType === '전체' ? courses : courses.filter((c) => c.type === selectedType)
 
   return (
     <>
       <PageBanner
-        title="온라인 수강신청"
-        subtitle="온라인으로 SNPE 운동을 배워보세요"
-        breadcrumb={[{ label: '고객지원', path: '/search-center' }, { label: '온라인 수강신청' }]}
+        title={t('pages.online')}
+        subtitle={t('pages.onlineSub')}
+        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.online') }]}
       />
 
       <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-4">
           <div className="flex gap-3 justify-center mb-10">
-            {['전체', '실시간', '녹화'].map((t) => (
+            {['전체', '실시간', '녹화'].map((tab) => (
               <button
-                key={t}
-                onClick={() => setSelectedType(t)}
+                key={tab}
+                onClick={() => setSelectedType(tab)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedType === t ? 'bg-snpe text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  selectedType === tab ? 'bg-snpe-darker text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
-                {t === '실시간' && <Monitor size={14} className="inline mr-1" />}
-                {t}
+                {tab === '실시간' && <Monitor size={14} className="inline mr-1" />}
+                {tab}
               </button>
             ))}
           </div>
@@ -73,11 +75,11 @@ export default function Online() {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
                     <span className={`text-xs font-medium px-3 py-1 rounded-full ${
-                      c.type === '실시간' ? 'bg-snpe/10 text-snpe-dark' : 'bg-purple-100 text-purple-700'
+                      c.type === '실시간' ? 'bg-snpe-dark/10 text-snpe-dark' : 'bg-purple-100 text-purple-700'
                     }`}>
                       {c.type === '실시간' ? '🔴 실시간' : '📹 VOD'}
                     </span>
-                    <span className="text-lg font-bold text-snpe">{c.price}</span>
+                    <span className="text-lg font-bold text-snpe-dark">{c.price}</span>
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{c.title}</h3>
                   <p className="text-sm text-gray-600 mb-4">{c.desc}</p>
@@ -87,7 +89,7 @@ export default function Online() {
                   </div>
                 </div>
                 <div className="px-6 pb-6">
-                  <button className="w-full h-10 bg-snpe text-white rounded-lg text-sm font-medium hover:bg-snpe-dark transition-colors">
+                  <button className="w-full h-10 bg-snpe-darker text-white rounded-lg text-sm font-medium hover:bg-snpe-dark transition-colors">
                     수강 신청하기
                   </button>
                 </div>

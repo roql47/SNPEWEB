@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Link } from 'react-router-dom'
 
@@ -10,12 +11,14 @@ const steps = [
 ]
 
 export default function BeginnerGuide() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="입문자 가이드"
-        subtitle="SNPE를 처음 시작하시는 분을 위한 안내"
-        breadcrumb={[{ label: '운동 정보', path: '/beginnerguide' }, { label: '입문자 가이드' }]}
+        title={t('pages.beginnerGuide')}
+        subtitle={t('pages.beginnerGuideSub')}
+        breadcrumb={[{ label: t('nav.exercise'), path: '/beginnerguide' }, { label: t('pages.beginnerGuide') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -32,11 +35,11 @@ export default function BeginnerGuide() {
                 to={s.link}
                 className="flex items-start gap-6 bg-white border border-gray-100 rounded-2xl p-6 md:p-8 hover:shadow-lg hover:border-snpe/30 transition-all group"
               >
-                <span className="flex-shrink-0 text-4xl md:text-5xl font-heading font-bold text-snpe/20 group-hover:text-snpe/40 transition-colors">
+                <span className="flex-shrink-0 text-4xl md:text-5xl font-heading font-bold text-snpe/20 group-hover:text-snpe-dark/40 transition-colors">
                   {s.num}
                 </span>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-snpe transition-colors">
+                  <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-snpe-dark transition-colors">
                     {s.title}
                   </h3>
                   <p className="text-sm text-gray-500">{s.desc}</p>

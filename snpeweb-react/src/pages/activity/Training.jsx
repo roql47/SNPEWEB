@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 
 const levels = [
@@ -25,12 +26,14 @@ const levels = [
 ]
 
 export default function Training() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="전문가 양성"
-        subtitle="SNPE 인증강사 양성 프로그램"
-        breadcrumb={[{ label: '교육과정', path: '/degree' }, { label: '전문가 양성' }]}
+        title={t('pages.training')}
+        subtitle={t('pages.trainingSub')}
+        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.training') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -55,7 +58,7 @@ export default function Training() {
                   <ul className="space-y-2">
                     {l.topics.map((t, j) => (
                       <li key={j} className="flex items-center gap-2 text-sm text-gray-700">
-                        <span className="w-1.5 h-1.5 rounded-full bg-snpe flex-shrink-0" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-snpe-dark flex-shrink-0" />
                         {t}
                       </li>
                     ))}
@@ -66,7 +69,7 @@ export default function Training() {
           </div>
 
           <div className="mt-16 text-center">
-            <a href="/online" className="inline-block px-8 py-3 bg-snpe text-white rounded-full font-medium hover:bg-snpe-dark transition-colors">
+            <a href="/online" className="inline-block px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors">
               수강 신청하기 →
             </a>
           </div>

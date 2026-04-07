@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 
 export default function About() {
+  const { t } = useTranslation()
   const storySections = [
     {
       title: '타인에 의한 방법의 한계를 넘어',
@@ -47,9 +49,9 @@ export default function About() {
   return (
     <>
       <PageBanner
-        title="개요"
-        subtitle="SNPE 바른자세 척추운동을 소개합니다"
-        breadcrumb={[{ label: 'SNPE 운동이란?', path: '/about' }, { label: '개요' }]}
+        title={t('pages.about')}
+        subtitle={t('pages.aboutSub')}
+        breadcrumb={[{ label: t('nav.about'), path: '/about' }, { label: t('pages.about') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -59,10 +61,10 @@ export default function About() {
               SNPE란?
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              <strong className="text-snpe">S</strong>elf{' '}
-              <strong className="text-snpe">N</strong>atural{' '}
-              <strong className="text-snpe">P</strong>osture{' '}
-              <strong className="text-snpe">E</strong>xercise
+              <strong className="text-snpe-dark">S</strong>elf{' '}
+              <strong className="text-snpe-dark">N</strong>atural{' '}
+              <strong className="text-snpe-dark">P</strong>osture{' '}
+              <strong className="text-snpe-dark">E</strong>xercise
             </p>
             <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl mx-auto">
               SNPE 바른자세 척추운동은 바른자세벨트와 다양한 도구를 활용하여
@@ -115,7 +117,7 @@ export default function About() {
                   <ul className="space-y-2">
                     {section.points.map((point) => (
                       <li key={point} className="flex items-start gap-2.5 text-sm md:text-base text-gray-700">
-                        <span className="mt-1 w-2 h-2 rounded-full bg-snpe" />
+                        <span className="mt-1 w-2 h-2 rounded-full bg-snpe-dark" />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -137,7 +139,7 @@ export default function About() {
                 '전문센터 교육과 일상 루틴을 연결하는 지속 가능한 운동법',
               ].map((f, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-snpe text-white text-xs flex items-center justify-center font-bold mt-0.5">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-snpe-darker text-white text-xs flex items-center justify-center font-bold mt-0.5">
                     ✓
                   </span>
                   <span className="text-gray-700">{f}</span>

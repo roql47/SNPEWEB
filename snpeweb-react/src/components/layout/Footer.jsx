@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const socialLinks = [
   { title: 'Book', img: '/images/more_01.png', url: 'http://smuv.co.kr/goods/goods_list.php?cateCd=011' },
@@ -11,13 +12,15 @@ const socialLinks = [
   { title: 'SNPE SHOP', img: '/images/more_01.png', url: 'https://www.snpeshop.com/' },
 ]
 
-const footerNav = [
-  { label: '회사소개', path: '/about' },
-  { label: '개인정보처리방침', path: '/about' },
-  { label: '이용약관', path: '/about' },
-]
-
 export default function Footer() {
+  const { t } = useTranslation()
+
+  const footerNav = [
+    { labelKey: 'footer.about', path: '/about' },
+    { labelKey: 'footer.privacy', path: '/about' },
+    { labelKey: 'footer.terms', path: '/about' },
+  ]
+
   return (
     <footer className="bg-[#2f2f2f] text-gray-400">
       {/* Top bar */}
@@ -26,11 +29,11 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-4 text-xs">
             {footerNav.map((item) => (
               <Link
-                key={item.label}
+                key={item.labelKey}
                 to={item.path}
                 className="hover:text-white transition-colors"
               >
-                {item.label}
+                {t(item.labelKey)}
               </Link>
             ))}
           </div>
@@ -55,18 +58,18 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto px-6 py-8 md:py-10">
         <div className="flex flex-col md:flex-row md:justify-between gap-6">
           <div>
-            <p className="text-white font-semibold text-sm mb-3">(주)큐링 Curing Co.</p>
+            <p className="text-white font-semibold text-sm mb-3">{t('footer.company')}</p>
             <div className="text-xs leading-[1.8] space-y-0.5">
               <p>
-                <span className="text-gray-500 mr-1.5">주소 :</span>
-                서울특별시 강남구 봉은사로 68길 8, 4층
+                <span className="text-gray-500 mr-1.5">Address :</span>
+                {t('footer.address')}
               </p>
               <p>
-                <span className="text-gray-500 mr-1.5">사업자등록번호 :</span>
-                393-87-01993
+                <span className="text-gray-500 mr-1.5">Biz No. :</span>
+                {t('footer.bizNum')}
                 <span className="text-gray-500 mx-2">|</span>
-                <span className="text-gray-500 mr-1.5">대표이사 :</span>
-                조나라
+                <span className="text-gray-500 mr-1.5">CEO :</span>
+                {t('footer.ceo')}
               </p>
               <p>
                 <span className="text-gray-500 mr-1.5">TEL :</span>
@@ -99,7 +102,7 @@ export default function Footer() {
       {/* Copyright */}
       <div className="border-t border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 py-4 text-center text-[11px] text-gray-500">
-          ⓒ 2024 SNPE. All rights reserved.
+          {t('footer.copyright')}
         </div>
       </div>
     </footer>

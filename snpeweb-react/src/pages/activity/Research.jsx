@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { FileText, ExternalLink } from 'lucide-react'
 
@@ -33,12 +34,14 @@ const papers = [
 ]
 
 export default function Research() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="연구논문"
-        subtitle="SNPE 운동의 과학적 효과 연구"
-        breadcrumb={[{ label: '교육과정', path: '/degree' }, { label: '연구논문' }]}
+        title={t('pages.research')}
+        subtitle={t('pages.researchSub')}
+        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.research') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -47,7 +50,7 @@ export default function Research() {
             {papers.map((p, i) => (
               <article key={i} className="bg-white border border-gray-100 rounded-2xl p-6 md:p-8 hover:shadow-lg transition-shadow">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-snpe/10 text-snpe flex items-center justify-center mt-1">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center mt-1">
                     <FileText size={20} />
                   </div>
                   <div className="flex-1">
@@ -57,7 +60,7 @@ export default function Research() {
                       href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-snpe font-medium hover:underline mt-2"
+                      className="inline-flex items-center gap-1.5 text-sm text-snpe-dark font-medium hover:underline mt-2"
                     >
                       논문 보기 <ExternalLink size={14} />
                     </a>

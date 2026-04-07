@@ -48,7 +48,7 @@ export default function Login() {
 
             <button
               type="submit"
-              className="w-full h-11 bg-snpe text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors flex items-center justify-center gap-2"
+              className="w-full h-11 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors flex items-center justify-center gap-2"
             >
               <LogIn size={16} />
               로그인
@@ -56,10 +56,10 @@ export default function Login() {
           </form>
 
           <div className="mt-6 flex items-center justify-between text-sm">
-            <button className="text-gray-400 hover:text-snpe transition-colors">
+            <button className="text-gray-400 hover:text-snpe-dark transition-colors">
               비밀번호 찾기
             </button>
-            <Link to="/provision" className="text-snpe font-medium hover:underline">
+            <Link to="/provision" className="text-snpe-dark font-medium hover:underline">
               회원가입
             </Link>
           </div>

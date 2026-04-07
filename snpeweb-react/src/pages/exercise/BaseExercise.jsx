@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 
 const exercises = [
@@ -60,12 +61,14 @@ const exercises = [
 ]
 
 export default function BaseExercise() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="기본 동작"
-        subtitle="SNPE 8가지 기본 동작을 알아보세요"
-        breadcrumb={[{ label: '운동 정보', path: '/beginnerguide' }, { label: '기본동작' }]}
+        title={t('pages.baseExercise')}
+        subtitle={t('pages.baseExerciseSub')}
+        breadcrumb={[{ label: t('nav.exercise'), path: '/beginnerguide' }, { label: t('pages.baseExercise') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -74,7 +77,7 @@ export default function BaseExercise() {
             {exercises.map((ex, i) => (
               <div key={i} className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-shadow">
                 <div className="flex items-start justify-between mb-4">
-                  <span className="inline-block px-3 py-1 rounded-full bg-snpe text-white text-xs font-bold">
+                  <span className="inline-block px-3 py-1 rounded-full bg-snpe-darker text-white text-xs font-bold">
                     {ex.num}
                   </span>
                   <img src={ex.img} alt={ex.title} className="w-14 h-14 object-contain opacity-60" />
@@ -83,7 +86,7 @@ export default function BaseExercise() {
                 <p className="text-sm text-gray-600 mb-4 leading-relaxed">{ex.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {ex.tags.map((tag) => (
-                    <span key={tag} className="text-xs bg-snpe/10 text-snpe-dark px-2.5 py-1 rounded-full">
+                    <span key={tag} className="text-xs bg-snpe-dark/10 text-snpe-dark px-2.5 py-1 rounded-full">
                       {tag}
                     </span>
                   ))}

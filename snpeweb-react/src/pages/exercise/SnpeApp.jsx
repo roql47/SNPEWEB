@@ -1,13 +1,16 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Smartphone, Camera, BarChart3, Dumbbell } from 'lucide-react'
 
 export default function SnpeApp() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="셀프 체형분석"
-        subtitle="SNPE APP으로 나의 자세를 분석해 보세요"
-        breadcrumb={[{ label: '운동 정보', path: '/beginnerguide' }, { label: '셀프 체형분석' }]}
+        title={t('pages.snpeApp')}
+        subtitle={t('pages.snpeAppSub')}
+        breadcrumb={[{ label: t('nav.exercise'), path: '/beginnerguide' }, { label: t('pages.snpeApp') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -35,7 +38,7 @@ export default function SnpeApp() {
                   { icon: Smartphone, title: '기록 관리', desc: '변화 추이 모니터링' },
                 ].map((f, i) => (
                   <div key={i} className="bg-gray-50 rounded-xl p-4">
-                    <f.icon size={20} className="text-snpe mb-2" />
+                    <f.icon size={20} className="text-snpe-dark mb-2" />
                     <h3 className="text-sm font-bold text-gray-900">{f.title}</h3>
                     <p className="text-xs text-gray-500 mt-1">{f.desc}</p>
                   </div>

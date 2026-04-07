@@ -1,12 +1,15 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 
 export default function Level1() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="LEVEL 1"
-        subtitle="SNPE 기초 수료 과정"
-        breadcrumb={[{ label: '교육과정', path: '/degree' }, { label: 'LEVEL 1' }]}
+        title={t('pages.level1')}
+        subtitle={t('pages.level1Sub')}
+        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.level1') }]}
       />
 
       <section className="py-16 md:py-24">

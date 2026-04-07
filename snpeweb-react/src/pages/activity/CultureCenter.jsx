@@ -1,13 +1,16 @@
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { MapPin, Calendar, Users } from 'lucide-react'
 
 export default function CultureCenter() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="문화센터 / 자치센터"
-        subtitle="지역 문화센터 및 자치센터에서 만나는 SNPE"
-        breadcrumb={[{ label: '교육과정', path: '/degree' }, { label: '문화센터/자치센터' }]}
+        title={t('pages.cultureCenter')}
+        subtitle={t('pages.cultureCenterSub')}
+        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.cultureCenter') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -26,7 +29,7 @@ export default function CultureCenter() {
               { icon: Users, title: '소그룹 수업', desc: '10~20명 소규모 인원으로 밀착 지도' },
             ].map((item, i) => (
               <div key={i} className="bg-gray-50 rounded-2xl p-8 text-center">
-                <div className="w-14 h-14 rounded-full bg-snpe/10 text-snpe flex items-center justify-center mx-auto mb-4">
+                <div className="w-14 h-14 rounded-full bg-snpe-dark/10 text-snpe-dark flex items-center justify-center mx-auto mb-4">
                   <item.icon size={24} />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-3">{item.title}</h3>
@@ -35,7 +38,7 @@ export default function CultureCenter() {
             ))}
           </div>
 
-          <div className="bg-snpe text-white rounded-3xl p-8 md:p-12 text-center">
+          <div className="bg-snpe-darker text-white rounded-3xl p-8 md:p-12 text-center">
             <h3 className="text-xl font-bold mb-4">가까운 문화센터 찾기</h3>
             <p className="text-white/80 mb-6">SNPE 수업이 진행되는 문화센터를 검색해 보세요.</p>
             <a href="/search-center" className="inline-block px-8 py-3 bg-white text-snpe-dark rounded-full font-medium hover:bg-gray-100 transition-colors">

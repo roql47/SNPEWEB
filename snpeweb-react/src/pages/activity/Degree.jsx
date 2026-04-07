@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { BookOpen, Users, Target, Layers } from 'lucide-react'
 
@@ -22,12 +23,14 @@ const scheduleRows = [
 ]
 
 export default function Degree() {
+  const { t } = useTranslation()
+
   return (
     <>
       <PageBanner
-        title="자격증안내"
-        subtitle="SNPE 교육 소개 및 과정 안내"
-        breadcrumb={[{ label: '교육과정', path: '/degree' }, { label: '자격증안내' }]}
+        title={t('pages.degree')}
+        subtitle={t('pages.degreeSub')}
+        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.degree') }]}
       />
 
       <section className="py-16 md:py-24">
@@ -59,7 +62,7 @@ export default function Degree() {
             <div className="grid md:grid-cols-2 gap-6">
               {features.map((f) => (
                 <div key={f.title} className="flex gap-4 p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-snpe/10 text-snpe-dark flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center flex-shrink-0">
                     <f.icon size={22} />
                   </div>
                   <div>
@@ -83,10 +86,10 @@ export default function Degree() {
                   '건강 관리 및 운동 분야에 관심이 있는 분',
                   '운동 지도자로 활동하고 싶은 분',
                   '기존 운동 지도 경험에 전문성을 더하고 싶은 분',
-                ].map((t) => (
-                  <li key={t} className="flex items-start gap-2.5">
+                ].map((line) => (
+                  <li key={line} className="flex items-start gap-2.5">
                     <span className="text-snpe-dark mt-0.5">✓</span>
-                    <span>{t}</span>
+                    <span>{line}</span>
                   </li>
                 ))}
               </ul>
