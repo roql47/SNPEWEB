@@ -33,7 +33,6 @@ export default function Training() {
       <PageBanner
         title={t('pages.training')}
         subtitle={t('pages.trainingSub')}
-        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.training') }]}
       />
 
       <section className="py-16 md:py-24">

@@ -10,7 +10,6 @@ export default function CultureCenter() {
       <PageBanner
         title={t('pages.cultureCenter')}
         subtitle={t('pages.cultureCenterSub')}
-        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.cultureCenter') }]}
       />
 
       <section className="py-16 md:py-24">

@@ -49,7 +49,6 @@ export default function Online() {
       <PageBanner
         title={t('pages.online')}
         subtitle={t('pages.onlineSub')}
-        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.online') }]}
       />
 
       <section className="py-16 md:py-24">

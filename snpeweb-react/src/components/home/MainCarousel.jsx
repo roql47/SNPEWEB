@@ -1,57 +1,69 @@
-import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
+import { MapPin, ExternalLink } from 'lucide-react'
 
-const branchCards = [
+const branches = [
   {
-    nameKey: '강남점',
-    subtitleKey: '강남본원',
-    href: 'https://map.naver.com/p/entry/place/1344095407?placePath=/home?entry=plt&from=map&fromPanelNum=1&additionalHeight=76&timestamp=202602271718&locale=ko&svcName=map_pcv5&searchType=place&lng=127.0393899&lat=37.5256155&c=15.00,0,0,0,dh',
+    name: '강남점',
+    subtitle: '강남본원',
+    address: '서울시 강남구 봉은사로 68길 8, 4층',
+    mapUrl: 'https://map.naver.com/p/entry/place/1344095407',
   },
   {
-    nameKey: '대치점',
-    subtitleKey: '대치본점',
-    href: 'https://map.naver.com/p/entry/place/1203617850?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202602271720&locale=ko&svcName=map_pcv5',
+    name: '대치점',
+    subtitle: '대치본점',
+    address: '서울시 강남구 역삼로 542, 2층',
+    mapUrl: 'https://map.naver.com/p/entry/place/1203617850',
   },
   {
-    nameKey: '잠실점',
-    subtitleKey: '잠실본점',
-    href: 'https://map.naver.com/p/entry/place/1172997051?c=15.00,0,0,0,dh&placePath=/home?fromPanelNum=1&additionalHeight=76&timestamp=202602271720&locale=ko&svcName=map_pcv5&additionalHeight=76&timestamp=202602271720&locale=ko&svcName=map_pcv5&fromPanelNum=1',
+    name: '잠실점',
+    subtitle: '잠실본점',
+    address: '서울시 송파구 올림픽로 289, 3층',
+    mapUrl: 'https://map.naver.com/p/entry/place/1172997051',
   },
 ]
 
 export default function MainCarousel() {
-  const { t } = useTranslation()
-
   return (
-    <section id="main-carousel" className="py-16 md:py-24 bg-gray-50">
-      <div className="max-w-[1440px] mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-4">{t('home.snpeTitle')}</h2>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            {t('home.snpeDesc1')}<br />
-            {t('home.snpeDesc2')}<br />
-            <span className="text-snpe-dark font-semibold">{t('home.snpeAccent')}</span>
-          </p>
+    <section className="py-16 md:py-20 bg-gray-50">
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">SNPE 직영점</h2>
+          <p className="text-sm text-gray-500">SNPE 본사 직영 센터에서 전문 수업을 만나보세요</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {branchCards.map((branch) => (
-            <article
-              key={branch.nameKey}
-              className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow min-h-[280px] flex flex-col justify-between"
+
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          {branches.map((b) => (
+            <div
+              key={b.name}
+              className="bg-white border border-gray-200 rounded-xl p-5 flex items-center gap-4 hover:shadow-md transition-shadow"
             >
-              <div>
-                <p className="text-sm text-gray-500 mb-2">{branch.subtitleKey}</p>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{branch.nameKey}</h3>
+              <div className="w-10 h-10 rounded-lg bg-snpe-dark/10 text-snpe-dark flex items-center justify-center flex-shrink-0">
+                <MapPin size={18} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-bold text-gray-900 text-sm">{b.name}</h3>
+                <p className="text-xs text-gray-500 truncate">{b.address}</p>
               </div>
               <a
-                href={branch.href}
+                href={b.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-6 px-5 py-2.5 rounded-full bg-snpe-darker text-white text-sm font-medium hover:bg-snpe-dark transition-colors"
+                className="flex-shrink-0 w-8 h-8 rounded-lg bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition-colors"
+                title="지도 보기"
               >
-                {t('home.naverMap')}
+                <ExternalLink size={14} />
               </a>
-            </article>
+            </div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <Link
+            to="/search-center"
+            className="inline-flex items-center gap-2 px-6 py-2.5 border border-gray-300 rounded-full text-sm text-gray-700 font-medium hover:border-snpe-dark hover:text-snpe-dark transition-colors"
+          >
+            <MapPin size={16} /> 전국 전문센터 찾기
+          </Link>
         </div>
       </div>
     </section>

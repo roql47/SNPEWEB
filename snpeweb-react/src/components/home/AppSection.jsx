@@ -19,10 +19,10 @@ export default function AppSection() {
             <h2 className="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-2">
               {t('home.appTitle')}
             </h2>
-            <p className="text-snpe-dark text-lg font-medium mb-6">
+            <p className="text-snpe-dark text-lg font-semibold mb-5 tracking-tight">
               {t('home.appSubtitle')}
             </p>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-gray-600 text-[15px] leading-[1.75] tracking-normal mb-8">
               {t('home.appDesc')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">

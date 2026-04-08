@@ -10,7 +10,6 @@ export default function SnpeApp() {
       <PageBanner
         title={t('pages.snpeApp')}
         subtitle={t('pages.snpeAppSub')}
-        breadcrumb={[{ label: t('nav.exercise'), path: '/beginnerguide' }, { label: t('pages.snpeApp') }]}
       />
 
       <section className="py-16 md:py-24">

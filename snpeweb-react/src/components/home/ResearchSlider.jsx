@@ -1,53 +1,41 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper/modules'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import 'swiper/css'
-import 'swiper/css/pagination'
+import { Award, BookOpen, GraduationCap } from 'lucide-react'
 
-const paperDefs = [
-  { titleKey: 'research.paper1title', descKey: 'research.paper1desc', link: 'https://www.kci.go.kr' },
-  { titleKey: 'research.paper2title', descKey: 'research.paper2desc', link: 'https://www.kci.go.kr' },
-  { titleKey: 'research.paper3title', descKey: 'research.paper3desc', link: 'https://www.kci.go.kr' },
+const highlights = [
+  { icon: BookOpen, label: '서울대 15년 종단연구' },
+  { icon: Award, label: 'ACSM / SSCI 논문 등재' },
+  { icon: GraduationCap, label: '차의과대 석사과정 개설' },
 ]
 
 export default function ResearchSlider() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-20 md:py-28 bg-snpe-darker">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-white text-center mb-4">
+    <section className="py-14 md:py-20 bg-snpe-darker">
+      <div className="max-w-5xl mx-auto px-4 text-center">
+        <h2 className="font-heading text-2xl md:text-3xl font-bold text-white mb-2">
           {t('home.researchTitle')}
         </h2>
-        <p className="text-white/70 text-center mb-12">
+        <p className="text-white/60 text-sm mb-8">
           {t('home.researchDesc')}
         </p>
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          spaceBetween={24}
-          slidesPerView={1}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          loop
-          className="research-swiper"
-        >
-          {paperDefs.map((p, i) => (
-            <SwiperSlide key={i}>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12 text-center text-white">
-                <h3 className="text-xl md:text-2xl font-bold mb-4">{t(p.titleKey)}</h3>
-                <p className="text-white/80 mb-6">{t(p.descKey)}</p>
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-8 py-3 rounded-full bg-white text-snpe-darker font-medium text-sm hover:bg-snpe-light transition-colors"
-                >
-                  {t('home.viewPaper')}
-                </a>
-              </div>
-            </SwiperSlide>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {highlights.map((h) => (
+            <div key={h.label} className="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2">
+              <h.icon size={16} className="text-white/70" />
+              <span className="text-white text-xs font-medium">{h.label}</span>
+            </div>
           ))}
-        </Swiper>
+        </div>
+
+        <Link
+          to="/research"
+          className="inline-block px-6 py-2.5 rounded-full bg-white text-snpe-darker font-medium text-sm hover:bg-snpe-light transition-colors"
+        >
+          연구논문 전체 보기 →
+        </Link>
       </div>
     </section>
   )

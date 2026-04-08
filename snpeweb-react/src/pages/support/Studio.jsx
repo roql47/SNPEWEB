@@ -18,7 +18,6 @@ export default function Studio() {
       <PageBanner
         title={t('pages.studio')}
         subtitle={t('pages.studioSub')}
-        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.studio') }]}
       />
 
       <section className="py-16 md:py-24">

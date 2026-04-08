@@ -12,7 +12,6 @@ export default function Notice() {
       <PageBanner
         title={t('pages.notice')}
         subtitle={t('pages.noticeSub')}
-        breadcrumb={[{ label: t('nav.news'), path: '/notice' }, { label: t('pages.notice') }]}
       />
 
       <section className="py-16 md:py-24">

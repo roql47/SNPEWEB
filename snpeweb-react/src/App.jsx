@@ -13,7 +13,9 @@ import Level1 from './pages/activity/Level1'
 import Level2 from './pages/activity/Level2'
 import Level3 from './pages/activity/Level3'
 import Master from './pages/activity/Master'
-import Research from './pages/activity/Research'
+import ResearchRedirect from './pages/activity/Research'
+import IntellectualProperty from './pages/about/IntellectualProperty'
+import Research from './pages/about/Research'
 import BeginnerGuide from './pages/exercise/BeginnerGuide'
 import SnpeApp from './pages/exercise/SnpeApp'
 import BaseExercise from './pages/exercise/BaseExercise'
@@ -38,6 +40,9 @@ import AdminStudios from './pages/admin/AdminStudios'
 import AdminNotices from './pages/admin/AdminNotices'
 import AdminNews from './pages/admin/AdminNews'
 import AdminActivities from './pages/admin/AdminActivities'
+import AdminCertTeachers from './pages/admin/AdminCertTeachers'
+import AdminExperienceCases from './pages/admin/AdminExperienceCases'
+import AdminResearch from './pages/admin/AdminResearch'
 
 export default function App() {
   return (
@@ -49,6 +54,7 @@ export default function App() {
         <Route path="history" element={<History />} />
         <Route path="bi" element={<Bi />} />
         <Route path="certification" element={<Certification />} />
+        <Route path="intellectual-property" element={<IntellectualProperty />} />
         <Route path="companyclass" element={<CompanyClass />} />
         <Route path="culturecenter" element={<CultureCenter />} />
         <Route path="training" element={<Training />} />
@@ -61,7 +67,7 @@ export default function App() {
         <Route path="beginnerguide" element={<BeginnerGuide />} />
         <Route path="snpeapp" element={<SnpeApp />} />
         <Route path="baseexercise" element={<BaseExercise />} />
-        <Route path="snpevideo" element={<SnpeVideo />} />
+        <Route path="snpevideo" element={<Navigate to="/baseexercise" replace />} />
         <Route path="experiencecase" element={<ExperienceCase />} />
         <Route path="notice" element={<Notice />} />
         <Route path="news" element={<News />} />
@@ -87,6 +93,9 @@ export default function App() {
         <Route path="notices" element={<AdminNotices />} />
         <Route path="news" element={<AdminNews />} />
         <Route path="activities" element={<AdminActivities />} />
+        <Route path="cert-teachers" element={<AdminCertTeachers />} />
+        <Route path="experience-cases" element={<AdminExperienceCases />} />
+        <Route path="research" element={<AdminResearch />} />
       </Route>
     </Routes>
   )

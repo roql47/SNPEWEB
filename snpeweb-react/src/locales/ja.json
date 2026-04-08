@@ -1,20 +1,24 @@
 {
   "nav": {
-    "about": "SNPEとは？",
+    "about": "About SNPE",
     "exercise": "運動情報",
     "education": "教育課程",
     "news": "お知らせ",
     "support": "サポート"
   },
   "subnav": {
+    "aboutSnpe": "概要",
     "overview": "概要",
     "history": "沿革",
+    "historyCert": "沿革・認証",
     "bi": "BI紹介",
     "certification": "受賞・認証",
+    "intellectualProperty": "知的財産権",
     "beginnerGuide": "初心者ガイド",
     "baseExercise": "基本動作",
     "snpeVideo": "運動動画",
-    "experienceCase": "体験申込",
+    "snpeApp": "セルフ体型分析",
+    "experienceCase": "体験事例",
     "degree": "資格案内",
     "level1": "LEVEL 1",
     "level2": "LEVEL 2",
@@ -28,7 +32,8 @@
     "studio": "SNPE STUDIO検索",
     "franchise": "加盟店案内",
     "faq": "よくある質問",
-    "corporate": "企業研修申込"
+    "corporate": "企業研修申込",
+    "research": "研究論文"
   },
   "header": {
     "shop": "SNPE SHOP",
@@ -115,10 +120,14 @@
     "aboutSub": "SNPE正しい姿勢脊椎運動をご紹介します",
     "history": "沿革",
     "historySub": "SNPEの歩み",
+    "historyCert": "沿革・認証",
+    "historyCertSub": "SNPEの歩みと認証状況をご紹介します",
     "bi": "BI紹介",
     "biSub": "SNPE正しい姿勢運動は、人間本来の姿勢への回復を目指す新しいパラダイムの運動法です。",
     "certification": "受賞・認証",
     "certSub": "SNPEの受賞歴と認証状況をご紹介します",
+    "intellectualProperty": "知的財産権",
+    "intellectualPropertySub": "SNPEの知的財産権ポートフォリオをご紹介します",
     "beginnerGuide": "初心者ガイド",
     "beginnerGuideSub": "SNPE運動を初めて始める方のためのガイド",
     "baseExercise": "基本動作",

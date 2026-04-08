@@ -1,14 +1,17 @@
 import { Navigate, Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useAdminAuth } from '../../contexts/AdminAuth'
-import { LayoutDashboard, MapPin, Building2, Bell, Newspaper, CalendarDays, LogOut, Home } from 'lucide-react'
+import { LayoutDashboard, MapPin, Building2, Bell, Newspaper, CalendarDays, LogOut, Home, UserCheck, BookOpen, FileText } from 'lucide-react'
 
 const navItems = [
   { to: '/admin', icon: LayoutDashboard, label: '대시보드', end: true },
   { to: '/admin/centers', icon: MapPin, label: '전문센터 관리' },
   { to: '/admin/studios', icon: Building2, label: 'STUDIO 관리' },
+  { to: '/admin/cert-teachers', icon: UserCheck, label: '인증강사 관리' },
   { to: '/admin/notices', icon: Bell, label: '공지사항 관리' },
   { to: '/admin/news', icon: Newspaper, label: '언론보도 관리' },
   { to: '/admin/activities', icon: CalendarDays, label: '활동내역 관리' },
+  { to: '/admin/experience-cases', icon: BookOpen, label: '체험사례 관리' },
+  { to: '/admin/research', icon: FileText, label: '연구논문 관리' },
 ]
 
 export default function AdminLayout() {

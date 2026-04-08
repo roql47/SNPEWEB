@@ -51,7 +51,6 @@ export default function About() {
       <PageBanner
         title={t('pages.about')}
         subtitle={t('pages.aboutSub')}
-        breadcrumb={[{ label: t('nav.about'), path: '/about' }, { label: t('pages.about') }]}
       />
 
       <section className="py-16 md:py-24">

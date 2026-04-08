@@ -48,7 +48,6 @@ export default function Franchise() {
       <PageBanner
         title={t('pages.franchise')}
         subtitle={t('pages.franchiseSub')}
-        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.franchise') }]}
       />
 
       <section className="py-16 md:py-24">

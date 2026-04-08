@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { Youtube, Instagram, BookOpen, MessageCircle, PenLine, ShoppingBag } from 'lucide-react'
 
 const socialLinks = [
-  { title: 'Book', img: '/images/more_01.png', url: 'http://smuv.co.kr/goods/goods_list.php?cateCd=011' },
-  { title: 'Naver Cafe', img: '/images/more_02.png', url: 'https://cafe.naver.com/snpe/' },
-  { title: 'YouTube', img: '/images/more_05.png', url: 'https://www.youtube.com/c/SNPElife' },
-  { title: 'Instagram', img: '/images/more_06.png', url: 'https://www.instagram.com/snpe_korea/' },
-  { title: 'Blog', img: '/images/more_07.png', url: 'https://blog.naver.com/snpekorea' },
-  { title: 'Kakao', img: '/images/more_08.png', url: 'http://pf.kakao.com/_Tqyxib' },
-  { title: 'E-Book', img: '/images/more_09.png', url: 'https://www.kyobobook.co.kr' },
-  { title: 'SNPE SHOP', img: '/images/more_01.png', url: 'https://www.snpeshop.com/' },
+  { title: 'YouTube', icon: Youtube, url: 'https://www.youtube.com/c/SNPElife', size: 'lg' },
+  { title: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/snpe_korea/' },
+  { title: 'Naver Cafe', icon: MessageCircle, url: 'https://cafe.naver.com/snpe/' },
+  { title: 'Blog', icon: PenLine, url: 'https://blog.naver.com/snpekorea' },
+  { title: 'E-Book', icon: BookOpen, url: 'https://www.kyobobook.co.kr' },
+  { title: 'Kakao', icon: MessageCircle, url: 'http://pf.kakao.com/_Tqyxib' },
+  { title: 'SNPE SHOP', icon: ShoppingBag, url: 'https://www.snpeshop.com/' },
 ]
 
 export default function Footer() {
@@ -37,17 +37,19 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-2.5">
-            {socialLinks.map((l, i) => (
+          <div className="flex items-center gap-3">
+            {socialLinks.map((l) => (
               <a
-                key={i}
+                key={l.title}
                 href={l.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 title={l.title}
-                className="block w-5 h-5 opacity-60 hover:opacity-100 transition-opacity"
+                className={`flex items-center justify-center rounded-lg opacity-60 hover:opacity-100 transition-opacity ${
+                  l.size === 'lg' ? 'w-7 h-7' : 'w-6 h-6'
+                }`}
               >
-                <img src={l.img} alt={l.title} className="w-full h-full object-contain" />
+                <l.icon size={l.size === 'lg' ? 20 : 16} className="text-gray-400" />
               </a>
             ))}
           </div>
@@ -91,9 +93,9 @@ export default function Footer() {
               href="https://www.snpeshop.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs px-4 py-2 border border-gray-600 rounded hover:border-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-xs px-4 py-2 border border-gray-600 rounded hover:border-gray-400 hover:text-white transition-colors"
             >
-              SNPE SHOP →
+              <ShoppingBag size={14} /> SNPE SHOP →
             </a>
           </div>
         </div>

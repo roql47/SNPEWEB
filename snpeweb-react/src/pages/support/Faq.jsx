@@ -29,7 +29,6 @@ export default function Faq() {
       <PageBanner
         title={t('pages.faq')}
         subtitle={t('pages.faqSub')}
-        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.faq') }]}
       />
 
       <section className="py-16 md:py-24">

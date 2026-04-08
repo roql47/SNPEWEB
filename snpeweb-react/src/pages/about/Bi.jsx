@@ -28,10 +28,6 @@ export default function Bi() {
       <PageBanner
         title="BI 소개"
         subtitle="SNPE 바른자세운동은 인간 본연의 자세로 회복을 지향하는 새로운 패러다임 운동법입니다."
-        breadcrumb={[
-          { label: 'SNPE 운동이란?', path: '/about' },
-          { label: 'BI 소개' },
-        ]}
       />
 
       <section className="py-16 md:py-24">

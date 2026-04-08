@@ -1,20 +1,24 @@
 {
   "nav": {
-    "about": "关于SNPE",
+    "about": "About SNPE",
     "exercise": "运动信息",
     "education": "教育课程",
     "news": "资讯",
     "support": "客户支持"
   },
   "subnav": {
+    "aboutSnpe": "概述",
     "overview": "概述",
     "history": "沿革",
+    "historyCert": "沿革与认证",
     "bi": "BI介绍",
     "certification": "获奖与认证",
+    "intellectualProperty": "知识产权",
     "beginnerGuide": "入门指南",
     "baseExercise": "基本动作",
     "snpeVideo": "运动视频",
-    "experienceCase": "体验申请",
+    "snpeApp": "自助体型分析",
+    "experienceCase": "体验案例",
     "degree": "资格证指南",
     "level1": "LEVEL 1",
     "level2": "LEVEL 2",
@@ -28,7 +32,8 @@
     "studio": "SNPE STUDIO搜索",
     "franchise": "加盟店指南",
     "faq": "常见问题",
-    "corporate": "企业讲座申请"
+    "corporate": "企业讲座申请",
+    "research": "研究论文"
   },
   "header": {
     "shop": "SNPE SHOP",
@@ -115,10 +120,14 @@
     "aboutSub": "介绍SNPE正确姿势脊椎运动",
     "history": "沿革",
     "historySub": "SNPE的发展历程",
+    "historyCert": "沿革与认证",
+    "historyCertSub": "SNPE的发展历程和认证状况",
     "bi": "BI介绍",
     "biSub": "SNPE正确姿势运动是追求回归人体本来姿势的全新范式运动法。",
     "certification": "获奖与认证",
     "certSub": "介绍SNPE的获奖历史和认证状况",
+    "intellectualProperty": "知识产权",
+    "intellectualPropertySub": "介绍SNPE的知识产权组合",
     "beginnerGuide": "入门指南",
     "beginnerGuideSub": "为初次接触SNPE运动的人提供的指南",
     "baseExercise": "基本动作",

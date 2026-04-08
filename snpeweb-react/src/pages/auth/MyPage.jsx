@@ -28,7 +28,7 @@ export default function MyPage() {
 
   return (
     <>
-      <PageBanner title={t('pages.mypage')} breadcrumb={[{ label: t('pages.mypage') }]} />
+      <PageBanner title={t('pages.mypage')} />
 
       <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4">

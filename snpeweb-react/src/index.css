@@ -10,8 +10,8 @@
   --color-snpe-accent: #6b5e53;
   --color-snpe-accent-light: #8a7d72;
 
-  --font-sans: 'NanumBarunGothic', 'Noto Sans KR', sans-serif;
-  --font-heading: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', sans-serif;
+  --font-heading: 'Pretendard Variable', 'Pretendard', 'Helvetica Neue', sans-serif;
 
   --breakpoint-sm: 544px;
   --breakpoint-md: 768px;
@@ -20,25 +20,24 @@
   --breakpoint-2xl: 1440px;
 }
 
-@font-face {
-  font-family: 'NanumBarunGothic';
-  src: url('/fonts/NanumBarunGothicSubset.woff2') format('woff2'),
-       url('/fonts/NanumBarunGothicSubset.woff') format('woff'),
-       url('/fonts/NanumBarunGothicSubset.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply font-sans text-gray-700 bg-white antialiased;
+    @apply font-sans bg-white antialiased;
+    color: #1f1f1f;
   }
   ::selection {
     background-color: #e4dcd5;
     color: #2f2621;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

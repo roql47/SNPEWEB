@@ -3,10 +3,11 @@ export const mainNav = [
     titleKey: 'nav.about',
     path: '/about',
     children: [
-      { titleKey: 'subnav.overview', path: '/about' },
-      { titleKey: 'subnav.history', path: '/history' },
-      { titleKey: 'subnav.certification', path: '/certification' },
+      { titleKey: 'subnav.aboutSnpe', path: '/about' },
+      { titleKey: 'subnav.historyCert', path: '/history' },
       { titleKey: 'subnav.bi', path: '/bi' },
+      { titleKey: 'subnav.intellectualProperty', path: '/intellectual-property' },
+      { titleKey: 'subnav.research', path: '/research' },
     ],
   },
   {
@@ -15,8 +16,8 @@ export const mainNav = [
     children: [
       { titleKey: 'subnav.beginnerGuide', path: '/beginnerguide' },
       { titleKey: 'subnav.baseExercise', path: '/baseexercise' },
-      { titleKey: 'subnav.snpeVideo', path: '/snpevideo' },
       { titleKey: 'subnav.experienceCase', path: '/experiencecase' },
+      { titleKey: 'subnav.snpeApp', path: '/snpeapp' },
     ],
   },
   {
@@ -28,7 +29,6 @@ export const mainNav = [
       { titleKey: 'subnav.level2', path: '/level2' },
       { titleKey: 'subnav.level3', path: '/level3' },
       { titleKey: 'subnav.master', path: '/master' },
-      { titleKey: 'subnav.research', path: '/research' },
     ],
   },
   {

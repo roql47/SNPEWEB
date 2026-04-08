@@ -66,6 +66,70 @@ const defaultNews = [
   { id: '3', title: '차의과대학 SNPE 석사과정 개설', date: '2025-11-15', source: '차의과대학', url: '', summary: '차의과학대학교에서 SNPE 관련 석사과정이 개설되었습니다.' },
 ]
 
+const defaultTeachers = [
+  { id: '1', name: '김영희', level: 'Level 1', region: '서울', photoUrl: '', intro: 'SNPE 인증강사', featured: true },
+  { id: '2', name: '이수진', level: 'Level 1', region: '서울', photoUrl: '', intro: 'SNPE 인증강사', featured: true },
+  { id: '3', name: '박지현', level: 'Level 2', region: '경기', photoUrl: '', intro: 'SNPE 인증강사', featured: true },
+  { id: '4', name: '정민서', level: 'Level 2', region: '부산', photoUrl: '', intro: 'SNPE 인증강사', featured: true },
+  { id: '5', name: '최은아', level: 'Level 1', region: '대구', photoUrl: '', intro: 'SNPE 인증강사', featured: true },
+  { id: '6', name: '한소연', level: 'Level 2', region: '대전', photoUrl: '', intro: 'SNPE 인증강사', featured: false },
+  { id: '7', name: '강미래', level: 'Level 1', region: '인천', photoUrl: '', intro: 'SNPE 인증강사', featured: false },
+  { id: '8', name: '나윤정', level: 'Level 3', region: '서울', photoUrl: '', intro: 'SNPE 인증강사', featured: false },
+  { id: '9', name: '도현수', level: 'Level 1', region: '경기', photoUrl: '', intro: 'SNPE 인증강사', featured: false },
+  { id: '10', name: '라혜진', level: 'Level 2', region: '충청', photoUrl: '', intro: 'SNPE 인증강사', featured: false },
+]
+
+const defaultExperienceCases = [
+  { id: '1', name: '김○○', age: '40대 여성', issue: '만성 허리 통증', period: '6개월', content: 'SNPE 2번 동작을 꾸준히 하면서 만성적이었던 허리 통증이 크게 줄었습니다.' },
+  { id: '2', name: '이○○', age: '30대 남성', issue: '거북목 증후군', period: '3개월', content: 'C-MOVE 동작과 바른자세벨트를 병행하며 거북목이 많이 개선되었습니다.' },
+  { id: '3', name: '박○○', age: '50대 여성', issue: '척추측만증', period: '1년', content: 'T-MOVE와 기본동작 4번을 꾸준히 하면서 척추측만이 개선되고 있습니다.' },
+  { id: '4', name: '정○○', age: '30대 여성', issue: '산후 골반 불균형', period: '4개월', content: '출산 후 골반이 틀어져 고생했는데, SNPE 3번 동작으로 골반 정렬이 많이 좋아졌습니다.' },
+  { id: '5', name: '최○○', age: '60대 남성', issue: '퇴행성 관절염', period: '8개월', content: '무릎 관절이 안 좋아 운동이 어려웠는데, SNPE는 도구를 활용해 무릎에 부담 없이 운동할 수 있어 좋습니다.' },
+  { id: '6', name: '한○○', age: '20대 여성', issue: '오다리 교정', period: '5개월', content: 'SNPE 3번 동작과 벨트 착용으로 오다리가 눈에 띄게 좋아졌어요.' },
+]
+
+const defaultResearchPapers = [
+  { id: '1', title: 'Efficacy of Self-Natural Posture Exercise (SNPE) programs on chronic low back pain: A randomized controlled feasibility trial with waitlist control', authors: 'Billings Clinic, City of Hope 연구팀', journal: 'Journal of Back and Musculoskeletal Rehabilitation', year: '2024', category: '해외', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11612993/', desc: '만성 요통 환자 대상 12주간 대면·비대면 SNPE RCT. ODI, VAS, SF-36 개선 확인.' },
+  { id: '2', title: 'A Healthy Life with Self-Natural Posture Exercise', authors: 'Yongsuk Seo, Dae Taek Lee', journal: 'IntechOpen — New Horizons of Exercise Medicine', year: '2024', category: '해외', url: 'https://www.intechopen.com/chapters/1178063', desc: 'SNPE 운동법의 원리, 도구, 효과를 정리한 국제 학술 서적 챕터.' },
+  { id: '3', title: 'SNPE 프로그램이 만성 요통 환자의 장애지수, 관절가동범위, 근력, 골반 통증에 미치는 영향', authors: '이희진, 윤지유, 윤소미 외 3명', journal: '한국웰니스학회지 제17권 1호 pp.245~252', year: '2022', category: '국내', url: 'https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002815282', desc: '만성 요통 여성 25명 대상 12주 연구. 장애지수 감소, ROM 개선, 배근력 증가, 골반 통증 감소.' },
+  { id: '4', title: 'SNPE 운동이 만성 근골격계 통증 여성의 체력, 기능적 움직임, 관절가동범위 및 통증에 미치는 효과', authors: 'Lee, H., Yoon, J., Kyeong, J., Jeon, J., Kim, H., Kim, S., Lee, H., Lee, D.T.', journal: '유럽스포츠과학회 (ECSS) 2021', year: '2021', category: '해외', url: '', desc: 'ECSS 2021 국제학회 발표.' },
+  { id: '5', title: 'SNPE 프로그램이 만성 요통 여성의 장애지수, 관절가동범위, 근력에 미치는 영향', authors: 'Lee, Heejin; Yoon, Jiyoo; Kyeong, Jihye; Jeon, Jeongmin; Kim, Heeju; Kim, Seyoung; Lee, Hyojung; Lee, Dae Taek', journal: '미국스포츠의학회 (ACSM) 2021', year: '2021', category: '해외', url: '', desc: 'ACSM 2021 국제학회 발표.' },
+  { id: '6', title: 'SNPE(Self Natural Posture Exercise) 프로그램이 여성의 만성 통증, 기능적 움직임 및 자기효능감에 미치는 영향', authors: '노수연 (가톨릭대), 경지혜 (Pacific Intercontinental College), 신명진 (강원대)', journal: '한국여성체육학회지 제35권 1호 pp.33~52', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '7', title: 'SNPE 프로그램이 중년여성의 요부 안정화, 균형 능력 및 요통에 미치는 영향', authors: '공민희 (울산대), 윤소미 (국민대), 김기정 (울산대)', journal: '한국웰니스학회지 제16권 4호 pp.371~376', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '8', title: 'SNPE 운동 프로그램이 만성 근골격계 통증 여성의 통증, 관절가동범위, 체력에 미치는 영향 (석사학위논문)', authors: '김세영 (국민대학교)', journal: '국민대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '9', title: 'SNPE 프로그램이 만성 요통 여성의 장애지수, 관절가동범위, 근력에 미치는 영향 (석사학위논문)', authors: '박서은 (국민대학교)', journal: '국민대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '10', title: 'SNPE 프로그램이 만성 통증 여성의 정서적 복잡성과 자기조절에 미치는 영향 (석사학위논문)', authors: '신연화 (국민대학교)', journal: '국민대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '11', title: 'SNPE 프로그램이 만성 요통 여성의 골반 통증, 배근력에 미치는 영향 (석사학위논문)', authors: '이보배 (국민대학교)', journal: '국민대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '12', title: 'SNPE 프로그램이 만성 요통 여성의 기능적 움직임과 체력에 미치는 영향 (석사학위논문)', authors: '이효진 (국민대학교)', journal: '국민대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '13', title: 'SNPE 프로그램이 만성 근골격계 통증 여성의 관절가동범위에 미치는 영향 (석사학위논문)', authors: '장윤미 (국민대학교)', journal: '국민대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '14', title: 'SNPE 프로그램이 만성 통증 여성의 통증 감소와 심리적 효과에 미치는 영향 (석사학위논문)', authors: '채선화 (국민대학교)', journal: '국민대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '15', title: 'SNPE 프로그램이 중년여성의 요부 안정화, 균형 능력 및 요통에 미치는 영향 (석사학위논문)', authors: '공민희 (울산대학교)', journal: '울산대학교 석사학위논문', year: '2021', category: '국내', url: '', desc: '' },
+  { id: '16', title: 'Effects of Pain Reduction by Self-Natural Posture Exercise on Affective Complexity in Women: The Moderating Effect of Self-Regulation', authors: 'Jungki Choi, Jiyoo Yoon, Myoungjin Shin', journal: 'Frontiers in Psychology (SSCI)', year: '2020', category: '해외', url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7344201/', desc: 'SNPE 통증 감소가 여성의 정서적 복잡성에 미치는 영향. SSCI 등재, TOP 10 인기 논문 선정.' },
+  { id: '17', title: 'SNPE 운동이 체력, ROM, 통증 인식에 미치는 영향 (ECSS 2020 발표 1)', authors: 'Son, Y., Yoon, J., Choi, J., Choi, U.M.', journal: '유럽스포츠과학회 (ECSS) 2020', year: '2020', category: '해외', url: '', desc: '' },
+  { id: '18', title: 'SNPE 운동이 만성 통증 여성의 체력 및 관절가동범위에 미치는 영향 (ECSS 2020 발표 2)', authors: 'Lee, H., Yoon, J., Choi, J., Yun, S., Lee, Y., Hwang, J., Lee, D.T.', journal: '유럽스포츠과학회 (ECSS) 2020', year: '2020', category: '해외', url: '', desc: '' },
+  { id: '19', title: 'SNPE 운동 프로그램이 만성 통증 여성의 체력과 통증에 미치는 영향 (ACSM 2020 발표 1)', authors: 'Lee, Heejin; Yoon, Jiyoo; Choi, Jungki; Kyeong, Jihye; Yun, Somi; Lee, Yoonbin; Hwang, Jae Gu; Lee, Dae Taek', journal: '미국스포츠의학회 (ACSM) 2020', year: '2020', category: '해외', url: '', desc: '' },
+  { id: '20', title: 'SNPE 프로그램이 만성 통증 여성의 기능적 움직임, 관절가동범위에 미치는 영향 (ACSM 2020 발표 2)', authors: 'Lee, Dae Taek; Yoon, Jiyoo; Choi, Jungki; Kyeong, Jihye; Yun, Somi; Lee, Yoonbin; Hwang, Jae Gu; Jung, Ah-Reum; Lee, Boram; Lee, Heejin', journal: '미국스포츠의학회 (ACSM) 2020', year: '2020', category: '해외', url: '', desc: '' },
+  { id: '21', title: 'SNPE 프로그램 참가자의 만성통증 감소가 정서조절에 미치는 영향', authors: '윤지유, 신명진', journal: '한국스포츠심리학회지 제31권 4호 pp.89~100', year: '2020', category: '국내', url: '', desc: '' },
+  { id: '22', title: 'SNPE 프로그램이 만성 근골격계 통증 여성의 통증, 관절가동범위, 체력에 미치는 영향', authors: '이희진, 윤지유, 최중기 외 4명', journal: '한국웰니스학회지 제15권 2호 pp.565~573', year: '2020', category: '국내', url: '', desc: '' },
+  { id: '23', title: 'SNPE 효과 검증을 위한 체험사례 분석 (연구보고서)', authors: '고지현, 신명진, 김가현', journal: '연구보고서', year: '2020', category: '국내', url: '', desc: '2006년부터 2018년의 약 1,000건의 자료를 분석.' },
+  { id: '24', title: 'SNPE 효과에 관한 종합 연구보고서', authors: '권성호, 신명진, 김영호, 김용세, 장도진, 이도흥, 이승주, 김태우', journal: '연구보고서', year: '2020', category: '국내', url: '', desc: '만성통증, 교정 치료, 생리학, 정서적/임상적, 심리학적 증상 효과 검증.' },
+  { id: '25', title: 'Self-natural posture exercise and chronic pain reduction', authors: 'Jiyoo Yoon, Jungki Choi, Myoungjin Shin', journal: 'An international journal, Volume 47, Issue 11, e8273 (SSCI)', year: '2019', category: '해외', url: '', desc: 'SSCI 등재 국제학술지. 2019년 11월호 인기 TOP 10 논문 선정.' },
+  { id: '26', title: 'SNPE 프로그램이 경추와 어깨의 만성 근골격계 통증 및 관절가동범위에 미치는 영향', authors: '윤지유, 이희진, 윤소미 외 4명', journal: '한국체육학회지 제58권 6호 pp.377~387', year: '2019', category: '국내', url: 'https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002531908', desc: '만성 근골격계 통증 여성 39명 대상 12주 연구. 경추·어깨 통증 감소 및 ROM 개선.' },
+  { id: '27', title: 'Effects of SNPE on Fitness, Functional Movement, Range of Motion, and Pain Perception', authors: 'Lee, H., Yoon, J., Choi, J., Yun, S., Lim, D., Hwang, E., Lee, D.T. (Kookmin University)', journal: '유럽스포츠과학회 (ECSS) 2019, Prague', year: '2019', category: '해외', url: '', desc: 'ECSS 2019 체코 프라하 국제학회 포스터 발표.' },
+  { id: '28', title: 'SNPE 프로그램 참가자의 통증 감소에 따른 정서 특성과 자기조절', authors: '신명진, 고지현, 윤지유', journal: '한국체육학회지 제58권 4호 pp.165~174', year: '2019', category: '국내', url: '', desc: '' },
+  { id: '29', title: 'SNPE(Self Natural Posture Exercise) 프로그램이 만성 통증에 미치는 영향', authors: '윤지유, 최중기, 신명진', journal: '한국스포츠학회지 제17권 2호 pp.91~99', year: '2019', category: '국내', url: '', desc: '' },
+  { id: '30', title: 'SNPE 프로그램이 만성 통증 감소에 미치는 효과 분석', authors: '최중기, 윤지유, 신명진', journal: '한국스포츠학회지 제17권 4호 pp.661~671', year: '2019', category: '국내', url: '', desc: '' },
+  { id: '31', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (1차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2018', category: '국내', url: '', desc: '' },
+  { id: '32', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (2차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2017', category: '국내', url: '', desc: '' },
+  { id: '33', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (3차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2016', category: '국내', url: '', desc: '' },
+  { id: '34', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (4차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2015', category: '국내', url: '', desc: '' },
+  { id: '35', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (5차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2014', category: '국내', url: '', desc: '' },
+  { id: '36', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (6차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2013', category: '국내', url: '', desc: '' },
+  { id: '37', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (7차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2012', category: '국내', url: '', desc: '' },
+  { id: '38', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (8차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2011', category: '국내', url: '', desc: '' },
+  { id: '39', title: 'SNPE 바른자세 척추운동의 생리학적 효과 연구 (9차)', authors: '서울대학교 스포츠과학 연구소', journal: '서울대학교 연구보고서', year: '2010', category: '국내', url: '', desc: '' },
+]
+
 const defaultActivities = [
   { id: '1', title: '제3회 건강한삶학회 학술대회', date: '2024-03-15', location: '서울 코엑스', desc: 'SNPE 운동의 과학적 효과와 최신 연구 결과를 발표하는 학술대회', category: '학술대회' },
   { id: '2', title: 'SNPE 인증강사 워크숍', date: '2024-02-20', location: '강남 SNPE 센터', desc: '전국 인증강사 대상 스킬업 워크숍 및 네트워킹', category: '워크숍' },
@@ -95,6 +159,9 @@ function initStore() {
       notices: defaultNotices,
       news: defaultNews,
       activities: defaultActivities,
+      teachers: defaultTeachers,
+      experienceCases: defaultExperienceCases,
+      researchPapers: defaultResearchPapers,
     }
     saveStore(initial)
     return initial
@@ -233,6 +300,98 @@ export const dataStore = {
     const d = getData()
     if (!d.activities) return
     d.activities = d.activities.filter((a) => a.id !== id)
+    persist()
+  },
+
+  getTeachers: () => {
+    const d = getData()
+    if (!d.teachers) { d.teachers = defaultTeachers; persist() }
+    return [...d.teachers].sort((a, b) => a.name.localeCompare(b.name, 'ko'))
+  },
+  getFeaturedTeachers: () => {
+    const d = getData()
+    if (!d.teachers) { d.teachers = defaultTeachers; persist() }
+    return d.teachers.filter((t) => t.featured)
+  },
+  addTeacher: (teacher) => {
+    const d = getData()
+    if (!d.teachers) d.teachers = []
+    const item = { ...teacher, id: genId(d.teachers) }
+    d.teachers.push(item)
+    persist()
+    return item
+  },
+  updateTeacher: (id, updates) => {
+    const d = getData()
+    if (!d.teachers) return null
+    const idx = d.teachers.findIndex((t) => t.id === id)
+    if (idx === -1) return null
+    d.teachers[idx] = { ...d.teachers[idx], ...updates, id }
+    persist()
+    return d.teachers[idx]
+  },
+  deleteTeacher: (id) => {
+    const d = getData()
+    if (!d.teachers) return
+    d.teachers = d.teachers.filter((t) => t.id !== id)
+    persist()
+  },
+
+  getExperienceCases: () => {
+    const d = getData()
+    if (!d.experienceCases) { d.experienceCases = defaultExperienceCases; persist() }
+    return [...d.experienceCases]
+  },
+  addExperienceCase: (item) => {
+    const d = getData()
+    if (!d.experienceCases) d.experienceCases = []
+    const newItem = { ...item, id: genId(d.experienceCases) }
+    d.experienceCases.push(newItem)
+    persist()
+    return newItem
+  },
+  updateExperienceCase: (id, updates) => {
+    const d = getData()
+    if (!d.experienceCases) return null
+    const idx = d.experienceCases.findIndex((c) => c.id === id)
+    if (idx === -1) return null
+    d.experienceCases[idx] = { ...d.experienceCases[idx], ...updates, id }
+    persist()
+    return d.experienceCases[idx]
+  },
+  deleteExperienceCase: (id) => {
+    const d = getData()
+    if (!d.experienceCases) return
+    d.experienceCases = d.experienceCases.filter((c) => c.id !== id)
+    persist()
+  },
+
+  getResearchPapers: () => {
+    const d = getData()
+    if (!d.researchPapers) { d.researchPapers = defaultResearchPapers; persist() }
+    return [...d.researchPapers].sort((a, b) => b.year.localeCompare(a.year))
+  },
+  addResearchPaper: (paper) => {
+    const d = getData()
+    if (!d.researchPapers) d.researchPapers = []
+    const item = { ...paper, id: genId(d.researchPapers) }
+    d.researchPapers.push(item)
+    persist()
+    return item
+  },
+  updateResearchPaper: (id, updates) => {
+    const d = getData()
+    if (!d.researchPapers) return null
+    const idx = d.researchPapers.findIndex((p) => p.id === id)
+    if (idx === -1) return null
+    d.researchPapers[idx] = { ...d.researchPapers[idx], ...updates, id }
+    persist()
+    return d.researchPapers[idx]
+  },
+  deleteResearchPaper: (id) => {
+    const d = getData()
+    if (!d.researchPapers) return
+    d.researchPapers = d.researchPapers.filter((p) => p.id !== id)
     persist()
   },
 

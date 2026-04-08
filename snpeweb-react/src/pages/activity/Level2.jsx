@@ -9,7 +9,6 @@ export default function Level2() {
       <PageBanner
         title={t('pages.level2')}
         subtitle={t('pages.level2Sub')}
-        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.level2') }]}
       />
 
       <section className="py-16 md:py-24">

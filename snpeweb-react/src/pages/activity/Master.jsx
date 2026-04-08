@@ -40,7 +40,6 @@ export default function Master() {
       <PageBanner
         title={t('pages.master')}
         subtitle={t('pages.masterSub')}
-        breadcrumb={[{ label: t('nav.education'), path: '/degree' }, { label: t('pages.master') }]}
       />
 
       <section className="py-16 md:py-24">

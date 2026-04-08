@@ -38,7 +38,6 @@ export default function CustomerInquiry() {
         <PageBanner
           title={t('pages.customerInquiry')}
           subtitle={t('pages.customerInquiryThanksSub')}
-          breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.customerInquiry') }]}
         />
         <section className="py-24">
           <div className="max-w-lg mx-auto px-4 text-center">
@@ -83,7 +82,6 @@ export default function CustomerInquiry() {
       <PageBanner
         title={t('pages.customerInquiry')}
         subtitle={t('pages.customerInquirySub')}
-        breadcrumb={[{ label: t('nav.support'), path: '/search-center' }, { label: t('pages.customerInquiry') }]}
       />
 
       <section className="py-16 md:py-24">

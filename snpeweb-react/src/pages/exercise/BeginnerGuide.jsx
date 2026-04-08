@@ -18,7 +18,6 @@ export default function BeginnerGuide() {
       <PageBanner
         title={t('pages.beginnerGuide')}
         subtitle={t('pages.beginnerGuideSub')}
-        breadcrumb={[{ label: t('nav.exercise'), path: '/beginnerguide' }, { label: t('pages.beginnerGuide') }]}
       />
 
       <section className="py-16 md:py-24">
