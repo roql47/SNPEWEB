@@ -1,4 +1,5 @@
 import HeroSlider from '../components/home/HeroSlider'
+import BrandSection from '../components/home/BrandSection'
 import AboutSection from '../components/home/AboutSection'
 import MovementCarousel from '../components/home/MovementCarousel'
 import EffectList from '../components/home/EffectList'
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <>
       <HeroSlider />
+      <BrandSection />
       <AboutSection />
       <MovementCarousel />
       <EffectList />

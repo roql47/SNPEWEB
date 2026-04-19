@@ -1,29 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, ExternalLink } from 'lucide-react'
 
 const emptyForm = { title: '', date: new Date().toISOString().slice(0, 10), source: '', url: '', summary: '' }
 
 export default function AdminNews() {
-  const [news, setNews] = useState(() => dataStore.getNews())
+  const [news, setNews] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
 
-  const refresh = () => setNews(dataStore.getNews())
+  const loadData = async () => setNews(await dataStore.getNews())
+  useEffect(() => { loadData() }, [])
+
   const openNew = () => { setForm({ ...emptyForm, date: new Date().toISOString().slice(0, 10) }); setEditing('new') }
   const openEdit = (n) => { setForm({ title: n.title, date: n.date, source: n.source, url: n.url || '', summary: n.summary || '' }); setEditing(n.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.title) return
-    if (editing === 'new') dataStore.addNews(form)
-    else dataStore.updateNews(editing, form)
-    refresh(); close()
+    if (editing === 'new') await dataStore.addNews(form)
+    else await dataStore.updateNews(editing, form)
+    await loadData(); close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!window.confirm('삭제하시겠습니까?')) return
-    dataStore.deleteNews(id); refresh()
+    await dataStore.deleteNews(id); await loadData()
   }
 
   return (

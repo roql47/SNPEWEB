@@ -10,6 +10,17 @@
   --color-snpe-accent: #6b5e53;
   --color-snpe-accent-light: #8a7d72;
 
+  --color-mint: #44d3b9;
+  --color-mint-light: #a7ebe0;
+  --color-mint-lighter: #e8faf7;
+  --color-mint-dark: #2db39a;
+  --color-mint-darker: #1f8572;
+
+  --color-ink: #111111;
+  --color-ink-soft: #515151;
+  --color-tag-bg: #f0f1f4;
+  --color-tag-text: #757d86;
+
   --font-sans: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', sans-serif;
   --font-heading: 'Pretendard Variable', 'Pretendard', 'Helvetica Neue', sans-serif;
 

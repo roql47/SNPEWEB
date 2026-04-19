@@ -1,34 +1,35 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Star } from 'lucide-react'
 
-const emptyForm = { name: '', level: 'Level 1', region: '', photoUrl: '', intro: '', featured: false }
+const emptyForm = { name: '', level: 'Level 1', region: '', photo_url: '', intro: '', featured: false }
 
 export default function AdminCertTeachers() {
-  const [teachers, setTeachers] = useState(() => dataStore.getTeachers())
+  const [teachers, setTeachers] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
 
-  const refresh = () => setTeachers(dataStore.getTeachers())
+  const loadData = async () => setTeachers(await dataStore.getTeachers())
+  useEffect(() => { loadData() }, [])
 
   const openNew = () => { setForm(emptyForm); setEditing('new') }
   const openEdit = (t) => { setForm({ ...t }); setEditing(t.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.name.trim()) return
     if (editing === 'new') {
-      dataStore.addTeacher(form)
+      await dataStore.addTeacher(form)
     } else {
-      dataStore.updateTeacher(editing, form)
+      await dataStore.updateTeacher(editing, form)
     }
-    refresh(); close()
+    await loadData(); close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!confirm('삭제하시겠습니까?')) return
-    dataStore.deleteTeacher(id)
-    refresh()
+    await dataStore.deleteTeacher(id)
+    await loadData()
   }
 
   return (
@@ -91,7 +92,7 @@ export default function AdminCertTeachers() {
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-700 mb-1 block">사진 URL</label>
-                <input value={form.photoUrl} onChange={(e) => setForm({ ...form, photoUrl: e.target.value })} className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm" placeholder="https://..." />
+                <input value={form.photo_url} onChange={(e) => setForm({ ...form, photo_url: e.target.value })} className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm" placeholder="https://..." />
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-700 mb-1 block">소개</label>

@@ -2,7 +2,7 @@
 
 - **일자**: 2026년 4월 8일 (수)
 - **참석자**: 발화자 1(이사님), 발화자 2(서팀장), 발화자 3(송프로/개발), 발화자 4(첫팀장/교육팀)
-- **최종 업데이트**: 2026년 4월 8일
+- **최종 업데이트**: 2026년 4월 12일
 
 ---
 
@@ -123,7 +123,7 @@
 
 ### 6-3. 특허인증
 - [ ] 특허인증 페이지 내 세부 수정 필요 (⚠️ 녹음본 참조) (**교육팀 대기 중**)
-- [ ] "다날 척추벨트" 등 잘못된 내용 수정
+- [x] "다날 척추베개" 등 잘못된 표기 수정 → `SNPE 웨이브베개`로 통일
 
 ---
 
@@ -183,10 +183,10 @@
 - [x] 핵심 메시지 중심 재구성
 
 ### 11-3. SNPE Main Movements 영역
-- [ ] 카드 내 버튼 아이콘 정렬 수정
-- [ ] 이미지 배경/카드 배경 충돌 → 투명 처리 또는 톤 정리
+- [x] 카드 내 버튼 아이콘 정렬 수정 — 이미지 위 오버레이 방식으로 변경
+- [x] 이미지 배경/카드 배경 충돌 → `mix-blend-multiply` 투명 처리 완료
 - [ ] 아이콘/이미지 → **고해상도 이미지 또는 SVG** 교체 (**디자인팀 대기 중**)
-- [ ] 카드 내 텍스트 → 타이틀 중심 확대 및 구조 단순화
+- [x] 카드 내 텍스트 → 타이틀 `text-base font-bold`로 확대, 구조 단순화 완료
 
 ### 11-4. Research Value 영역
 - [x] 컴팩트하게 축소 (인라인 태그형 하이라이트 + 버튼)
@@ -239,6 +239,21 @@
 
 ---
 
+---
+
+## 14. 백엔드 / 데이터 저장 (2026-04-12 완료)
+
+- [x] **Supabase 프로젝트 생성** — snpe-web (서울 서버, ap-northeast-2)
+- [x] **DB 테이블 8개 생성** — centers, studios, notices, news, activities, teachers, experience_cases, research_papers
+- [x] **RLS 정책** — 전 테이블 공개 읽기/쓰기 허용
+- [x] **dataStore.js** — localStorage → Supabase async API로 전환
+- [x] **관리자/일반 컴포넌트 17개** async 패턴(`useState` + `useEffect`) 업데이트
+- [x] **초기 데이터 시드** — 전문센터 46건, 연구논문 39건 등 총 114건 삽입
+- [x] **환경변수** — `.env` + Vercel 환경변수 등록
+- [x] **재배포** — https://snpe-web.vercel.app
+
+---
+
 ## 신규 생성 파일 (2026-04-08)
 
 - `src/components/common/CategoryTabBar.jsx` — 카테고리 탭바
@@ -250,5 +265,13 @@
 - `public/images/research_ssci.png` — SSCI 논문 이미지
 - `public/images/research_report.png` — 연구보고서 이미지
 - `public/images/research_banner.gif` — 연구논문 배너 GIF
+
+## 신규 생성 파일 (2026-04-12)
+
+- `src/lib/supabase.js` — Supabase 클라이언트
+- `src/lib/dataStore.js` — Supabase async API (기존 localStorage 대체)
+- `supabase_schema.sql` — DB 스키마 (테이블 8개 + RLS)
+- `seed.js` — 초기 데이터 시드 스크립트
+- `.env` — 환경변수 (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY)
 
 ---

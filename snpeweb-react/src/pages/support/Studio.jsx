@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { dataStore } from '../../lib/dataStore'
@@ -7,8 +7,9 @@ import { MapPin, Phone, Mail, ExternalLink } from 'lucide-react'
 export default function Studio() {
   const { t } = useTranslation()
   const [query, setQuery] = useState('')
+  const [studios, setStudios] = useState([])
 
-  const studios = dataStore.getStudios()
+  useEffect(() => { dataStore.getStudios().then(setStudios) }, [])
   const filtered = studios.filter(
     (s) => !query || s.name.includes(query) || s.address.includes(query)
   )

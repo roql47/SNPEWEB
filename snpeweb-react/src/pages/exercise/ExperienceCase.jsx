@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
@@ -6,7 +7,8 @@ import { Quote, MapPin } from 'lucide-react'
 
 export default function ExperienceCase() {
   const { t } = useTranslation()
-  const cases = dataStore.getExperienceCases()
+  const [cases, setCases] = useState([])
+  useEffect(() => { dataStore.getExperienceCases().then(setCases) }, [])
 
   return (
     <>

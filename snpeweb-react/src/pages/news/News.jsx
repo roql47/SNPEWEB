@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { dataStore } from '../../lib/dataStore'
@@ -5,7 +6,8 @@ import { ExternalLink } from 'lucide-react'
 
 export default function News() {
   const { t } = useTranslation()
-  const news = dataStore.getNews()
+  const [news, setNews] = useState([])
+  useEffect(() => { dataStore.getNews().then(setNews) }, [])
 
   return (
     <>

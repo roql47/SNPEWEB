@@ -24,20 +24,23 @@ const branches = [
 
 export default function MainCarousel() {
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">SNPE 직영점</h2>
-          <p className="text-sm text-gray-500">SNPE 본사 직영 센터에서 전문 수업을 만나보세요</p>
+    <section className="py-20 md:py-24 bg-mint-lighter/30">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 lg:px-12">
+        <div className="text-center mb-10">
+          <p className="text-mint-darker text-xs md:text-sm font-semibold uppercase tracking-[0.25em] mb-3">
+            Studios
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-3">SNPE 직영점</h2>
+          <p className="text-sm md:text-base text-gray-600">SNPE 본사 직영 센터에서 전문 수업을 만나보세요</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-4 mb-8">
+        <div className="grid md:grid-cols-3 gap-4 mb-10">
           {branches.map((b) => (
             <div
               key={b.name}
-              className="bg-white border border-gray-200 rounded-xl p-5 flex items-center gap-4 hover:shadow-md transition-shadow"
+              className="bg-white border border-mint-light/60 rounded-2xl p-5 flex items-center gap-4 hover:shadow-lg hover:border-mint transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-snpe-dark/10 text-snpe-dark flex items-center justify-center flex-shrink-0">
+              <div className="w-11 h-11 rounded-xl bg-mint-lighter text-mint-darker flex items-center justify-center flex-shrink-0">
                 <MapPin size={18} />
               </div>
               <div className="flex-1 min-w-0">
@@ -48,7 +51,7 @@ export default function MainCarousel() {
                 href={b.mapUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 w-8 h-8 rounded-lg bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition-colors"
+                className="flex-shrink-0 w-9 h-9 rounded-xl bg-mint-darker text-white flex items-center justify-center hover:bg-mint-dark transition-colors"
                 title="지도 보기"
               >
                 <ExternalLink size={14} />
@@ -60,7 +63,7 @@ export default function MainCarousel() {
         <div className="text-center">
           <Link
             to="/search-center"
-            className="inline-flex items-center gap-2 px-6 py-2.5 border border-gray-300 rounded-full text-sm text-gray-700 font-medium hover:border-snpe-dark hover:text-snpe-dark transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-mint-darker rounded-full text-sm text-mint-darker font-medium hover:bg-mint-darker hover:text-white transition-all"
           >
             <MapPin size={16} /> 전국 전문센터 찾기
           </Link>

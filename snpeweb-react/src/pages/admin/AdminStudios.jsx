@@ -1,29 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X } from 'lucide-react'
 
 const emptyForm = { name: '', owner: '', address: '', tel: '', email: '' }
 
 export default function AdminStudios() {
-  const [studios, setStudios] = useState(() => dataStore.getStudios())
+  const [studios, setStudios] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
 
-  const refresh = () => setStudios(dataStore.getStudios())
+  const loadData = async () => setStudios(await dataStore.getStudios())
+  useEffect(() => { loadData() }, [])
+
   const openNew = () => { setForm(emptyForm); setEditing('new') }
   const openEdit = (s) => { setForm({ name: s.name, owner: s.owner, address: s.address, tel: s.tel, email: s.email }); setEditing(s.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.name || !form.address) return
-    if (editing === 'new') dataStore.addStudio(form)
-    else dataStore.updateStudio(editing, form)
-    refresh(); close()
+    if (editing === 'new') await dataStore.addStudio(form)
+    else await dataStore.updateStudio(editing, form)
+    await loadData(); close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!window.confirm('삭제하시겠습니까?')) return
-    dataStore.deleteStudio(id); refresh()
+    await dataStore.deleteStudio(id); await loadData()
   }
 
   return (

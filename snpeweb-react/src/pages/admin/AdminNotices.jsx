@@ -1,29 +1,31 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Pin } from 'lucide-react'
 
 const emptyForm = { title: '', date: new Date().toISOString().slice(0, 10), content: '', pinned: false }
 
 export default function AdminNotices() {
-  const [notices, setNotices] = useState(() => dataStore.getNotices())
+  const [notices, setNotices] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
 
-  const refresh = () => setNotices(dataStore.getNotices())
+  const loadData = async () => setNotices(await dataStore.getNotices())
+  useEffect(() => { loadData() }, [])
+
   const openNew = () => { setForm({ ...emptyForm, date: new Date().toISOString().slice(0, 10) }); setEditing('new') }
   const openEdit = (n) => { setForm({ title: n.title, date: n.date, content: n.content, pinned: n.pinned }); setEditing(n.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.title) return
-    if (editing === 'new') dataStore.addNotice(form)
-    else dataStore.updateNotice(editing, form)
-    refresh(); close()
+    if (editing === 'new') await dataStore.addNotice(form)
+    else await dataStore.updateNotice(editing, form)
+    await loadData(); close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!window.confirm('삭제하시겠습니까?')) return
-    dataStore.deleteNotice(id); refresh()
+    await dataStore.deleteNotice(id); await loadData()
   }
 
   return (

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
@@ -36,8 +36,9 @@ const tabs = ['전체', '국내', '해외']
 
 export default function Research() {
   const { t } = useTranslation()
-  const papers = dataStore.getResearchPapers()
+  const [papers, setPapers] = useState([])
   const [tab, setTab] = useState('전체')
+  useEffect(() => { dataStore.getResearchPapers().then(setPapers) }, [])
 
   const filtered = tab === '전체' ? papers : papers.filter((p) => p.category === tab)
 

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
@@ -13,9 +13,10 @@ export default function SearchCenter() {
   const [searchParams] = useSearchParams()
   const [query, setQuery] = useState(searchParams.get('searchText') || '')
   const [region, setRegion] = useState('전체')
+  const [centers, setCenters] = useState([])
   const { t } = useTranslation()
 
-  const centers = dataStore.getCenters()
+  useEffect(() => { dataStore.getCenters().then(setCenters) }, [])
 
   const filtered = centers.filter((c) => {
     const matchQuery = !query || c.name.includes(query) || c.address.includes(query)
@@ -91,7 +92,7 @@ export default function SearchCenter() {
                     </div>
                   </div>
                   <a
-                    href={c.naverUrl || `https://map.naver.com/v5/search/SNPE ${c.name}`}
+                    href={c.naver_url || `https://map.naver.com/v5/search/SNPE ${c.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 bg-green-500 text-white text-xs font-medium rounded-lg hover:bg-green-600 transition-colors"

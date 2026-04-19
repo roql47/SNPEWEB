@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Search } from 'lucide-react'
 
@@ -6,26 +6,28 @@ const categories = ['학술대회', '워크숍', '행사', '캠페인', '국제�
 const emptyForm = { title: '', date: new Date().toISOString().slice(0, 10), location: '', desc: '', category: '행사', imageUrl: '' }
 
 export default function AdminActivities() {
-  const [activities, setActivities] = useState(() => dataStore.getActivities())
+  const [activities, setActivities] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
   const [query, setQuery] = useState('')
 
-  const refresh = () => setActivities(dataStore.getActivities())
+  const loadData = async () => setActivities(await dataStore.getActivities())
+  useEffect(() => { loadData() }, [])
+
   const openNew = () => { setForm({ ...emptyForm, date: new Date().toISOString().slice(0, 10) }); setEditing('new') }
   const openEdit = (a) => { setForm({ title: a.title, date: a.date, location: a.location || '', desc: a.desc || '', category: a.category || '행사', imageUrl: a.imageUrl || '' }); setEditing(a.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.title) return
-    if (editing === 'new') dataStore.addActivity(form)
-    else dataStore.updateActivity(editing, form)
-    refresh(); close()
+    if (editing === 'new') await dataStore.addActivity(form)
+    else await dataStore.updateActivity(editing, form)
+    await loadData(); close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!window.confirm('삭제하시겠습니까?')) return
-    dataStore.deleteActivity(id); refresh()
+    await dataStore.deleteActivity(id); await loadData()
   }
 
   const filtered = activities.filter(

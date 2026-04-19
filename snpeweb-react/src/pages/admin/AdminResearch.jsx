@@ -1,30 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X } from 'lucide-react'
 
 const emptyForm = { title: '', authors: '', journal: '', year: '', url: '', desc: '' }
 
 export default function AdminResearch() {
-  const [papers, setPapers] = useState(() => dataStore.getResearchPapers())
+  const [papers, setPapers] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
 
-  const refresh = () => setPapers(dataStore.getResearchPapers())
+  const loadData = async () => setPapers(await dataStore.getResearchPapers())
+  useEffect(() => { loadData() }, [])
+
   const openNew = () => { setForm(emptyForm); setEditing('new') }
   const openEdit = (p) => { setForm({ ...p }); setEditing(p.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.title.trim()) return
-    if (editing === 'new') dataStore.addResearchPaper(form)
-    else dataStore.updateResearchPaper(editing, form)
-    refresh(); close()
+    if (editing === 'new') await dataStore.addResearchPaper(form)
+    else await dataStore.updateResearchPaper(editing, form)
+    await loadData(); close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!confirm('삭제하시겠습니까?')) return
-    dataStore.deleteResearchPaper(id)
-    refresh()
+    await dataStore.deleteResearchPaper(id)
+    await loadData()
   }
 
   return (

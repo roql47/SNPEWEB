@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { Calendar, MapPin } from 'lucide-react'
@@ -6,7 +6,8 @@ import { dataStore } from '../../lib/dataStore'
 
 export default function Activity() {
   const { t } = useTranslation()
-  const activities = dataStore.getActivities()
+  const [activities, setActivities] = useState([])
+  useEffect(() => { dataStore.getActivities().then(setActivities) }, [])
 
   const years = useMemo(() => {
     const set = new Set(activities.map((a) => a.date.slice(0, 4)))

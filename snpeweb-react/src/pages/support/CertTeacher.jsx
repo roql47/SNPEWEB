@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { dataStore } from '../../lib/dataStore'
@@ -7,10 +7,14 @@ import { Search, User, Award, X, Star } from 'lucide-react'
 export default function CertTeacher() {
   const [query, setQuery] = useState('')
   const [selectedTeacher, setSelectedTeacher] = useState(null)
+  const [teachers, setTeachers] = useState([])
+  const [featured, setFeatured] = useState([])
   const { t } = useTranslation()
 
-  const teachers = dataStore.getTeachers()
-  const featured = dataStore.getFeaturedTeachers()
+  useEffect(() => {
+    dataStore.getTeachers().then(setTeachers)
+    dataStore.getFeaturedTeachers().then(setFeatured)
+  }, [])
 
   const filtered = teachers.filter(
     (teacher) => !query || teacher.name.includes(query) || teacher.region.includes(query) || teacher.level.includes(query)
@@ -49,8 +53,8 @@ export default function CertTeacher() {
                     className="bg-white border border-gray-100 rounded-xl p-6 hover:shadow-lg transition-shadow text-center text-left"
                   >
                     <div className="w-20 h-20 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4 overflow-hidden">
-                      {teacher.photoUrl ? (
-                        <img src={teacher.photoUrl} alt={teacher.name} className="w-full h-full object-cover" />
+                      {teacher.photo_url ? (
+                        <img src={teacher.photo_url} alt={teacher.name} className="w-full h-full object-cover" />
                       ) : (
                         <User size={32} className="text-gray-400" />
                       )}
@@ -117,8 +121,8 @@ export default function CertTeacher() {
             </button>
             <div className="text-center mb-6">
               <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-4 overflow-hidden">
-                {selectedTeacher.photoUrl ? (
-                  <img src={selectedTeacher.photoUrl} alt={selectedTeacher.name} className="w-full h-full object-cover" />
+                {selectedTeacher.photo_url ? (
+                  <img src={selectedTeacher.photo_url} alt={selectedTeacher.name} className="w-full h-full object-cover" />
                 ) : (
                   <User size={36} className="text-gray-400" />
                 )}

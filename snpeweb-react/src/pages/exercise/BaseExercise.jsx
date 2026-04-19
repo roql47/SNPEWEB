@@ -94,19 +94,27 @@ export default function BaseExercise() {
                 rel="noopener noreferrer"
                 className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-shadow group block"
               >
+                {/* 헤더: 번호 배지 + 이미지 + 재생 버튼 */}
                 <div className="flex items-start justify-between mb-4">
                   <span className="inline-block px-3 py-1 rounded-full bg-snpe-darker text-white text-xs font-bold">
                     {ex.num}
                   </span>
-                  <div className="flex items-center gap-2">
-                    <img src={ex.img} alt={ex.title} className="w-14 h-14 object-contain opacity-60" />
-                    <div className="w-8 h-8 rounded-full bg-snpe-darker/80 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <Play size={14} fill="white" />
+                  <div className="relative">
+                    <div className="w-16 h-16 rounded-xl bg-gray-50 flex items-center justify-center overflow-hidden">
+                      <img
+                        src={ex.img}
+                        alt={ex.title}
+                        className="w-12 h-12 object-contain mix-blend-multiply"
+                      />
+                    </div>
+                    {/* 호버 시 재생 버튼 오버레이 */}
+                    <div className="absolute inset-0 rounded-xl bg-snpe-darker/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Play size={20} fill="white" className="text-white" />
                     </div>
                   </div>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{ex.title}</h3>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed">{ex.desc}</p>
+                <p className="text-sm text-gray-500 mb-4 leading-relaxed line-clamp-2">{ex.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {ex.tags.map((tag) => (
                     <span key={tag} className="text-xs bg-snpe-dark/10 text-snpe-dark px-2.5 py-1 rounded-full">{tag}</span>

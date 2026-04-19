@@ -65,7 +65,7 @@ export default function Header() {
   return (
     <>
       {/* Top utility bar */}
-      <div className="hidden lg:block bg-snpe-darker text-white text-sm relative z-[60]">
+      <div className="hidden lg:block bg-[#4ECDC4] text-white text-sm relative z-[60]">
         <div className="max-w-[1440px] mx-auto px-4 flex items-center justify-between h-10">
           <a
             href="https://www.snpeshop.com"

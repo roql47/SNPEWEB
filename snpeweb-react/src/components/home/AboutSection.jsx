@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 
 export default function AboutSection() {
-  const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
+  const [imgFailed, setImgFailed] = useState(false)
   const ref = useRef(null)
 
   useEffect(() => {
@@ -17,36 +16,59 @@ export default function AboutSection() {
   }, [])
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-white">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <p className={`text-sm uppercase tracking-widest text-snpe-dark font-medium mb-6 transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-          SNPE VISION
-        </p>
-        <h2 className={`text-3xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          가장 단순한 것이<br />가장 강력할 수 있다
-        </h2>
-        <div className="space-y-6 text-base md:text-lg text-gray-600 leading-relaxed">
-          <p className={`transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            100세 시대, 건강한 삶의 주도권은 자신에게 있습니다.
-          </p>
-          <p className={`transition-all duration-700 delay-300 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            SNPE는 <span className="text-snpe-dark font-semibold">바른자세벨트</span>와 다양한 도구, AI 자세분석 APP을 활용하여
-            스스로 바른자세와 바른체형으로 회복하는{' '}
-            <span className="text-snpe-dark font-semibold">셀프 운동법</span>입니다.
-          </p>
-          <p className={`transition-all duration-700 delay-500 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            근골격계 질환, 체형 불균형, 만성 통증에 효과적이며,
-            ACSM 국제 학술지에 등재된 과학적 근거를 바탕으로
-            세계인의 건강을 책임지는 새로운 패러다임의 운동입니다.
-          </p>
-        </div>
-        <div className={`mt-10 transition-all duration-700 delay-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <Link
-            to="/about"
-            className="inline-block px-8 py-3 rounded-full bg-snpe-darker text-white text-sm font-medium hover:bg-snpe-dark transition-colors"
-          >
-            About SNPE →
-          </Link>
+    <section
+      id="about-section"
+      ref={ref}
+      className="py-20 md:py-28 bg-white"
+    >
+      <div className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-[2.2vw]">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,715fr)_minmax(0,1133fr)] gap-10 md:gap-14 items-center">
+          <div className={`transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <p className="text-mint text-base md:text-lg font-semibold tracking-tight mb-5" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}>
+              ABOUT SNPE
+            </p>
+            <h2 className="font-heading font-bold text-[#111] leading-[1.1] tracking-[-0.035em] text-[32px] md:text-[42px] lg:text-[48px] mb-8 md:mb-10">
+              작은 움직임이 만드는 큰 변화
+            </h2>
+            <div className="space-y-6 text-[#111] text-base md:text-xl lg:text-[26px] leading-[1.58] tracking-[-0.025em]">
+              <p>
+                SNPE 도구와 자세분석을 통해 인간 본연의 자세로 회복을 지향하며
+                <br className="hidden md:block" />
+                스스로 몸을 인식하고, 바로잡고, 회복하는 새로운 패러다임의 운동입니다.
+              </p>
+              <p>
+                작고 단순한 움직임이 몸의 정렬을 바꾸고
+                <br className="hidden md:block" />
+                결국, 몸 전체의 균형을 바꿉니다.
+              </p>
+            </div>
+            <div className="mt-10 md:mt-12">
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center bg-mint hover:bg-mint-dark text-white text-base font-medium tracking-tight rounded-full px-8 py-3.5 transition-colors"
+              >
+                자세히 보기
+              </Link>
+            </div>
+          </div>
+
+          <div className={`relative transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <div className="relative aspect-[1133/632] w-full overflow-hidden rounded-[32px] md:rounded-[40px] bg-mint-lighter">
+              <img
+                src="/images/about-hero.png"
+                alt="SNPE"
+                className="absolute inset-0 w-full h-full object-cover"
+                onError={() => setImgFailed(true)}
+              />
+              {imgFailed && (
+                <img
+                  src="/images/main_img2.png"
+                  alt="SNPE"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>

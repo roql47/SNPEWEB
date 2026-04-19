@@ -1,30 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X } from 'lucide-react'
 
 const emptyForm = { name: '', age: '', issue: '', period: '', content: '' }
 
 export default function AdminExperienceCases() {
-  const [cases, setCases] = useState(() => dataStore.getExperienceCases())
+  const [cases, setCases] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
 
-  const refresh = () => setCases(dataStore.getExperienceCases())
+  const loadData = async () => setCases(await dataStore.getExperienceCases())
+  useEffect(() => { loadData() }, [])
+
   const openNew = () => { setForm(emptyForm); setEditing('new') }
   const openEdit = (c) => { setForm({ ...c }); setEditing(c.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.name.trim() || !form.content.trim()) return
-    if (editing === 'new') dataStore.addExperienceCase(form)
-    else dataStore.updateExperienceCase(editing, form)
-    refresh(); close()
+    if (editing === 'new') await dataStore.addExperienceCase(form)
+    else await dataStore.updateExperienceCase(editing, form)
+    await loadData(); close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!confirm('삭제하시겠습니까?')) return
-    dataStore.deleteExperienceCase(id)
-    refresh()
+    await dataStore.deleteExperienceCase(id)
+    await loadData()
   }
 
   return (

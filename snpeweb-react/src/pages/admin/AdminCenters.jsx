@@ -1,37 +1,38 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Search } from 'lucide-react'
 
-const emptyForm = { name: '', region: '서울', address: '', tel: '', email: '', naverUrl: '' }
+const emptyForm = { name: '', region: '서울', address: '', tel: '', email: '', naver_url: '' }
 const regions = ['서울', '경기', '인천', '부산', '대구', '대전', '광주', '충청', '경상', '강원']
 
 export default function AdminCenters() {
-  const [centers, setCenters] = useState(() => dataStore.getCenters())
+  const [centers, setCenters] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
   const [query, setQuery] = useState('')
 
-  const refresh = () => setCenters(dataStore.getCenters())
+  const loadData = async () => setCenters(await dataStore.getCenters())
+  useEffect(() => { loadData() }, [])
 
   const openNew = () => { setForm(emptyForm); setEditing('new') }
-  const openEdit = (c) => { setForm({ name: c.name, region: c.region, address: c.address, tel: c.tel, email: c.email || '', naverUrl: c.naverUrl || '' }); setEditing(c.id) }
+  const openEdit = (c) => { setForm({ name: c.name, region: c.region, address: c.address, tel: c.tel, email: c.email || '', naver_url: c.naver_url || '' }); setEditing(c.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
-  const save = () => {
+  const save = async () => {
     if (!form.name || !form.address) return
     if (editing === 'new') {
-      dataStore.addCenter(form)
+      await dataStore.addCenter(form)
     } else {
-      dataStore.updateCenter(editing, form)
+      await dataStore.updateCenter(editing, form)
     }
-    refresh()
+    await loadData()
     close()
   }
 
-  const remove = (id) => {
+  const remove = async (id) => {
     if (!window.confirm('삭제하시겠습니까?')) return
-    dataStore.deleteCenter(id)
-    refresh()
+    await dataStore.deleteCenter(id)
+    await loadData()
   }
 
   const filtered = centers.filter(
@@ -131,7 +132,7 @@ export default function AdminCenters() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">네이버 지도 URL</label>
-                <input type="url" value={form.naverUrl} onChange={(e) => setForm({ ...form, naverUrl: e.target.value })} placeholder="비워두면 센터명으로 자동 검색됩니다" className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400" />
+                <input type="url" value={form.naver_url} onChange={(e) => setForm({ ...form, naver_url: e.target.value })} placeholder="비워두면 센터명으로 자동 검색됩니다" className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400" />
               </div>
             </div>
             <div className="flex justify-end gap-3 mt-6">

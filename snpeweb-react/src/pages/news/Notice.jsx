@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { dataStore } from '../../lib/dataStore'
@@ -5,7 +6,8 @@ import { Pin } from 'lucide-react'
 
 export default function Notice() {
   const { t } = useTranslation()
-  const notices = dataStore.getNotices()
+  const [notices, setNotices] = useState([])
+  useEffect(() => { dataStore.getNotices().then(setNotices) }, [])
 
   return (
     <>

@@ -1,13 +1,22 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { dataStore } from '../../lib/dataStore'
 import { MapPin, Building2, Bell, Newspaper, CalendarDays, RefreshCw } from 'lucide-react'
 
 export default function AdminDashboard() {
-  const centers = dataStore.getCenters()
-  const studios = dataStore.getStudios()
-  const notices = dataStore.getNotices()
-  const news = dataStore.getNews()
-  const activities = dataStore.getActivities()
+  const [centers, setCenters] = useState([])
+  const [studios, setStudios] = useState([])
+  const [notices, setNotices] = useState([])
+  const [news, setNews] = useState([])
+  const [activities, setActivities] = useState([])
+
+  useEffect(() => {
+    dataStore.getCenters().then(setCenters)
+    dataStore.getStudios().then(setStudios)
+    dataStore.getNotices().then(setNotices)
+    dataStore.getNews().then(setNews)
+    dataStore.getActivities().then(setActivities)
+  }, [])
 
   const cards = [
     { label: '전문센터', count: centers.length, icon: MapPin, to: '/admin/centers', color: 'bg-blue-500' },
@@ -17,9 +26,9 @@ export default function AdminDashboard() {
     { label: '활동내역', count: activities.length, icon: CalendarDays, to: '/admin/activities', color: 'bg-rose-500' },
   ]
 
-  const handleReset = () => {
+  const handleReset = async () => {
     if (window.confirm('모든 데이터를 초기 상태로 되돌립니다. 계속하시겠습니까?')) {
-      dataStore.resetAll()
+      await dataStore.resetAll()
       window.location.reload()
     }
   }
