@@ -10,7 +10,7 @@ export default function HeroSlider() {
   }
 
   return (
-    <section className="relative w-full h-screen min-h-[720px] overflow-hidden">
+    <section className="relative w-full h-screen min-h-[720px] overflow-hidden -mt-16 lg:-mt-[120px]">
       <video
         autoPlay
         muted

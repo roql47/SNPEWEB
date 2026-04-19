@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 
 const colors = [
