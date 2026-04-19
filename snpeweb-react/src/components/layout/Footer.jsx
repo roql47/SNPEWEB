@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Youtube, Instagram, BookOpen, MessageCircle, PenLine, ShoppingBag } from 'lucide-react'
 
 const socialLinks = [
-  { title: 'YouTube', icon: Youtube, url: 'https://www.youtube.com/c/SNPElife', size: 'lg' },
+  { title: 'YouTube', icon: Youtube, url: 'https://www.youtube.com/@SNPElife', size: 'lg' },
   { title: 'Instagram', icon: Instagram, url: 'https://www.instagram.com/snpe_korea/' },
   { title: 'Naver Cafe', icon: MessageCircle, url: 'https://cafe.naver.com/snpe/' },
   { title: 'Blog', icon: PenLine, url: 'https://blog.naver.com/snpekorea' },

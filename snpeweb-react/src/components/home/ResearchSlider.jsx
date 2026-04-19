@@ -3,7 +3,7 @@ import { ArrowUpRight, Youtube, Instagram, MessageCircle } from 'lucide-react'
 
 const snsLinks = [
   {
-    href: 'https://www.youtube.com/@snpe',
+    href: 'https://www.youtube.com/@SNPElife',
     label: '유튜브',
     bg: 'bg-[#ff3d00]',
     icon: <Youtube size={20} className="text-white" strokeWidth={2} />,
