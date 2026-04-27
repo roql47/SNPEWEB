@@ -54,11 +54,11 @@ export default function PageBanner({ title, subtitle, backgroundImage }) {
   return (
     <>
       <section
-        className={`text-white relative flex items-center justify-center min-h-[260px] md:min-h-[380px] lg:min-h-[460px] ${!resolvedBg ? 'bg-gradient-to-br from-snpe-darker to-snpe-dark' : ''}`}
+        className={`text-white relative flex items-center justify-center w-full min-h-[220px] md:min-h-0 md:aspect-[1920/480] md:max-h-[560px] ${!resolvedBg ? 'bg-gradient-to-br from-snpe-darker to-snpe-dark' : ''}`}
         style={bgStyle}
       >
         {resolvedBg && <div className="absolute inset-0 bg-black/40" />}
-        <div className="max-w-[1440px] mx-auto px-4 text-center relative z-10 py-10">
+        <div className="max-w-[1440px] mx-auto px-4 text-center relative z-10 py-8">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">{title}</h1>
           {subtitle && (
             <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">{subtitle}</p>
