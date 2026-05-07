@@ -8,7 +8,7 @@ const mainExercises = [
     title: '손 뒤로 깍지 끼고 의자 자세',
     desc: '바른자세벨트를 착용하고 양 손을 뒤로 깍지 끼고 의자 자세로 앉습니다. 척추 정렬과 목 디스크 예방에 효과적입니다.',
     tags: ['척추', '목 디스크', '허리 건강'],
-    image: '/images/exercise/pose-1.png',
+    image: '/images/position_1.png',
     videoUrl: 'https://www.youtube.com/@SNPElife',
   },
   {
@@ -16,7 +16,7 @@ const mainExercises = [
     title: '무릎 꿇고 다리 묶어 뒤로 눕기',
     desc: '바른자세벨트로 다리를 묶고 무릎을 꿇은 상태에서 뒤로 눕습니다. 골반 교정과 횡격막 스트레칭에 효과적입니다.',
     tags: ['골반', '횡격막', '체온 상승'],
-    image: '/images/exercise/pose-2.png',
+    image: '/images/position_2.png',
     videoUrl: 'https://www.youtube.com/@SNPElife',
   },
   {
@@ -24,7 +24,7 @@ const mainExercises = [
     title: '엎드려 무릎 굽혀 다리 들기',
     desc: '엎드린 상태에서 무릎을 굽혀 다리를 들어올립니다. 오다리 교정과 힙업에 효과적입니다.',
     tags: ['오다리', '무릎', '힙업'],
-    image: '/images/exercise/pose-3.png',
+    image: '/images/position_3.png',
     videoUrl: 'https://www.youtube.com/@SNPElife',
   },
   {
@@ -32,7 +32,7 @@ const mainExercises = [
     title: '척추 자극주며 구르기',
     desc: '바닥에 누워 무릎을 가슴으로 당기고 전후로 구릅니다. 척추 마사지와 혈액순환에 도움됩니다.',
     tags: ['척추', '혈액순환', '복근'],
-    image: '/images/exercise/pose-4.png',
+    image: '/images/position_4.png',
     videoUrl: 'https://www.youtube.com/@SNPElife',
   },
 ]
@@ -44,7 +44,7 @@ const moveExercises = [
     titleKo: '경추',
     desc: '경추(목뼈) 부위의 움직임을 회복하는 동작',
     tags: ['경추', '거북목', '목 통증'],
-    image: '/images/img_c.png',
+    image: '/images/C-move.png',
   },
   {
     code: 'L-MOVE',
@@ -52,7 +52,7 @@ const moveExercises = [
     titleKo: '요추',
     desc: '요추(허리뼈) 부위의 정상적인 커브 회복',
     tags: ['요추', '일자허리', '허리 통증'],
-    image: '/images/img_L.png',
+    image: '/images/L-move.png',
   },
   {
     code: 'T-MOVE',
@@ -60,7 +60,7 @@ const moveExercises = [
     titleKo: '흉추',
     desc: '흉추(등뼈) 부위의 움직임 개선',
     tags: ['어깨 통증', '척추측만증', '등 통증'],
-    image: '/images/img_T.png',
+    image: '/images/T-move.png',
   },
   {
     code: 'SC-MOVE',
@@ -68,7 +68,7 @@ const moveExercises = [
     titleKo: '천골·미추',
     desc: '천골·미추 부위의 정렬 교정',
     tags: ['골반', '미추', '하체 순환'],
-    image: '/images/img_SC.png',
+    image: '/images/SC-move.png',
   },
 ]
 

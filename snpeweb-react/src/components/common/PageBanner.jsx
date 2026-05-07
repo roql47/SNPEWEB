@@ -5,10 +5,10 @@ import CategoryTabBar from './CategoryTabBar'
 // 예: about: '/images/banner-about.jpg'
 const CATEGORY_BANNERS = {
   about: '/images/sub_banner_1.jpg',
-  exercise: '/images/sub_banner_1.jpg',
-  education: '/images/sub_banner_1.jpg',
-  news: '/images/sub_banner_1.jpg',
-  support: '/images/sub_banner_1.jpg',
+  exercise: '/images/sub_banner2.jpg',
+  education: '/images/sub_banner3.jpg',
+  news: '/images/sub_banner4.jpg',
+  support: '/images/sub_banner5.jpg',
 }
 
 const ROUTE_TO_CATEGORY = {
