@@ -17,7 +17,7 @@ export default function Login() {
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-10">
           <div className="text-center mb-8">
             <Link to="/">
-              <img src="/images/logo.png" alt="SNPE" className="h-10 mx-auto mb-6" />
+              <img src="/images/기본로고_01.svg" alt="SNPE" className="h-10 mx-auto mb-6" />
             </Link>
             <h1 className="text-2xl font-bold text-gray-900">로그인</h1>
           </div>

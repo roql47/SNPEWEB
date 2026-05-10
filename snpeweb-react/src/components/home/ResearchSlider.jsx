@@ -1,38 +1,8 @@
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Youtube, Instagram, MessageCircle } from 'lucide-react'
+import { ArrowUpRight, Play } from 'lucide-react'
 
-const snsLinks = [
-  {
-    href: 'https://www.youtube.com/@SNPElife',
-    label: '유튜브',
-    bg: 'bg-[#ff3d00]',
-    icon: <Youtube size={20} className="text-white" strokeWidth={2} />,
-  },
-  {
-    href: 'https://www.instagram.com/snpe_official',
-    label: '인스타그램',
-    bg: 'bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888]',
-    icon: <Instagram size={20} className="text-white" strokeWidth={2} />,
-  },
-  {
-    href: 'https://cafe.naver.com/snpe',
-    label: '네이버카페',
-    bg: 'bg-[#03c75a]',
-    icon: <span className="text-white font-bold text-base">N</span>,
-  },
-  {
-    href: 'https://blog.naver.com/snpe',
-    label: '블로그',
-    bg: 'bg-[#03c75a]',
-    icon: <span className="text-white font-bold text-xs">blog</span>,
-  },
-  {
-    href: 'https://pf.kakao.com/snpe',
-    label: '카카오톡',
-    bg: 'bg-[#fee500]',
-    icon: <MessageCircle size={20} className="text-[#3c1e1e]" fill="#3c1e1e" />,
-  },
-]
+// TODO #7: 메인의 SNS 행은 푸터와 중복되어 단일 source(`Footer.jsx` + `data/socialLinks.js`)로 통합.
+// 메인에서는 Research·Press·Video 콘텐츠에 집중하고, SNS 진입은 푸터에서 일괄 제공.
 
 export default function ResearchSlider() {
   return (
@@ -102,7 +72,7 @@ export default function ResearchSlider() {
             </Link>
           </div>
 
-          {/* Right: Press + Video + SNS */}
+          {/* Right: Press + Video (TODO #7: SNS 행은 푸터로 통합) */}
           <div className="grid grid-cols-1 md:grid-cols-[496fr_325fr] gap-6 md:gap-[30px] auto-rows-min">
 
             {/* Press */}
@@ -124,7 +94,7 @@ export default function ResearchSlider() {
               </Link>
             </div>
 
-            {/* Video */}
+            {/* Video — SNPE 공식 유튜브 채널로 이동 (별도 운동영상 페이지 없음) */}
             <div className="md:col-start-2 md:row-start-1">
               <p
                 className="text-mint text-sm md:text-base font-semibold mb-4"
@@ -132,13 +102,24 @@ export default function ResearchSlider() {
               >
                 Video
               </p>
-              <Link to="/snpe-video" className="group block bg-white rounded-[14px] overflow-hidden">
-                <div className="aspect-[325/179] overflow-hidden">
+              <a
+                href="https://www.youtube.com/watch?v=LfWjDXopI4Y"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="SNPE Foot Balance 풋 밸런스 사용법 영상 (새 탭에서 열기)"
+                className="group block bg-white rounded-[14px] overflow-hidden"
+              >
+                <div className="aspect-[325/179] overflow-hidden relative">
                   <img
                     src="/images/research/research-video.png"
                     alt="SNPE Foot Balance 풋 밸런스 사용법"
                     className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                   />
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                      <Play size={22} className="text-[#ff3d00] ml-0.5" fill="#ff3d00" />
+                    </span>
+                  </span>
                 </div>
                 <div className="px-5 py-4 relative">
                   <h4 className="text-[#454545] font-semibold text-sm md:text-base mb-1.5 tracking-tight pr-6">
@@ -153,31 +134,9 @@ export default function ResearchSlider() {
                     <ArrowUpRight size={14} className="text-mint-darker" strokeWidth={2.5} />
                   </span>
                 </div>
-              </Link>
+              </a>
             </div>
 
-            {/* SNS Row - under Press */}
-            <div className="md:col-span-2 bg-white rounded-[14px] px-4 md:px-6 py-4">
-              <ul className="flex items-center justify-between gap-2 md:gap-4 flex-wrap">
-                {snsLinks.map((s) => (
-                  <li key={s.label}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2.5 group"
-                    >
-                      <span className={`w-11 h-11 rounded-md flex items-center justify-center ${s.bg}`}>
-                        {s.icon}
-                      </span>
-                      <span className="text-[#696969] font-medium text-sm md:text-base group-hover:text-[#111] transition-colors">
-                        {s.label}
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
 
         </div>

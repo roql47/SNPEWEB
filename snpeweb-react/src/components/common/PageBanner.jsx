@@ -22,6 +22,7 @@ const ROUTE_TO_CATEGORY = {
   '/snpeapp': 'exercise',
   '/baseexercise': 'exercise',
   '/experiencecase': 'exercise',
+  '/snpe-experience': 'exercise',
   '/degree': 'education',
   '/level1': 'education',
   '/level2': 'education',

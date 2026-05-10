@@ -19,6 +19,7 @@
     "snpeVideo": "運動動画",
     "snpeApp": "セルフ体型分析",
     "experienceCase": "体験事例",
+    "snpeExperience": "SNPE運動体験",
     "degree": "資格案内",
     "level1": "LEVEL 1",
     "level2": "LEVEL 2",
@@ -72,7 +73,7 @@
     "partnersTitle": "SNPE パートナー",
     "appTitle": "SNPE APP",
     "appSubtitle": "一人でもスマートに管理するセルフセラピー",
-    "appDesc": "SNPEアプリでは、AI姿勢分析を通じて自分の体型状態を測定し、カスタマイズされた運動プログラムを提供します。",
+    "appDesc": "SNPEアプリでは、姿勢分析を通じて自分の体型状態を測定し、カスタマイズされた運動プログラムを提供します。",
     "naverMap": "Naverマップで見る"
   },
   "footer": {
@@ -80,7 +81,7 @@
     "address": "ソウル特別市 江南区 奉恩寺路68ギル8, 4階",
     "bizNum": "393-87-01993",
     "ceo": "チョ・ナラ",
-    "copyright": "ⓒ 2024 SNPE. All rights reserved.",
+    "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
     "about": "会社紹介",
     "privacy": "個人情報処理方針",
     "terms": "利用規約"
@@ -137,7 +138,9 @@
     "experienceCase": "体験事例",
     "experienceCaseSub": "SNPE運動の体験事例をご覧ください",
     "snpeApp": "セルフ体型分析",
-    "snpeAppSub": "AI姿勢分析で自分の体型を確認しましょう",
+    "snpeAppSub": "姿勢分析で自分の体型を確認しましょう",
+    "snpeExperience": "SNPE運動体験",
+    "snpeExperienceSub": "SNPEを直接体験された方々の変化のストーリー",
     "degree": "資格案内",
     "degreeSub": "SNPE専門家資格課程のご案内",
     "level1": "LEVEL 1",

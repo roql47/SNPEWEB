@@ -1,30 +1,58 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
-import { Send } from 'lucide-react'
+import { dataStore } from '../../lib/dataStore'
+import { Send, AlertCircle } from 'lucide-react'
+
+const INITIAL_FORM = {
+  organization: '',
+  manager: '',
+  phone: '',
+  email: '',
+  preferredDate: '',
+  participants: '',
+  locationType: '',
+  address: '',
+  requestType: '',
+  budget: '',
+  message: '',
+  agree: false,
+}
 
 export default function CustomerInquiry() {
-  const [form, setForm] = useState({
-    organization: '',
-    manager: '',
-    phone: '',
-    email: '',
-    preferredDate: '',
-    participants: '',
-    locationType: '',
-    address: '',
-    requestType: '',
-    budget: '',
-    message: '',
-    agree: false,
-  })
+  const [form, setForm] = useState(INITIAL_FORM)
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(null)
   const { t } = useTranslation()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!form.agree) return
-    setSubmitted(true)
+    if (!form.agree || submitting) return
+
+    setSubmitting(true)
+    setError(null)
+    try {
+      await dataStore.addInquiry({
+        organization: form.organization,
+        manager: form.manager,
+        phone: form.phone,
+        email: form.email,
+        preferred_date: form.preferredDate,
+        participants: form.participants ? Number(form.participants) : null,
+        location_type: form.locationType,
+        address: form.address,
+        request_type: form.requestType,
+        budget: form.budget,
+        message: form.message,
+      })
+      setSubmitted(true)
+    } catch (err) {
+      console.error('기업특강 신청 저장 실패:', err)
+      setError('신청 접수 중 오류가 발생했습니다. 잠시 후 다시 시도하시거나 contact@mycuring.com 으로 직접 문의 부탁드립니다.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const update = (field) => (e) => {
@@ -52,20 +80,7 @@ export default function CustomerInquiry() {
             <button
               onClick={() => {
                 setSubmitted(false)
-                setForm({
-                  organization: '',
-                  manager: '',
-                  phone: '',
-                  email: '',
-                  preferredDate: '',
-                  participants: '',
-                  locationType: '',
-                  address: '',
-                  requestType: '',
-                  budget: '',
-                  message: '',
-                  agree: false,
-                })
+                setForm(INITIAL_FORM)
               }}
               className="px-6 py-2.5 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors"
             >
@@ -244,12 +259,20 @@ export default function CustomerInquiry() {
               </span>
             </label>
 
+            {error && (
+              <div className="flex items-start gap-3 p-4 rounded-lg bg-red-50 border border-red-200 text-sm text-red-700">
+                <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
+                <span>{error}</span>
+              </div>
+            )}
+
             <button
               type="submit"
-              className="w-full h-12 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors flex items-center justify-center gap-2"
+              disabled={submitting || !form.agree}
+              className="w-full h-12 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <Send size={16} />
-              기업특강 신청하기
+              {submitting ? '신청 중...' : '기업특강 신청하기'}
             </button>
           </form>
         </div>

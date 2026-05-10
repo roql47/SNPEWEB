@@ -30,9 +30,6 @@ export default function MainCarousel() {
     <section className="py-20 md:py-24 bg-mint-lighter/30">
       <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="text-center mb-12">
-          <p className="text-mint-darker text-xs md:text-sm font-semibold uppercase tracking-[0.25em] mb-3">
-            Studios
-          </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-3">SNPE 직영점</h2>
           <p className="text-sm md:text-base text-gray-600">SNPE 본사 직영 센터에서 전문 수업을 만나보세요</p>
         </div>

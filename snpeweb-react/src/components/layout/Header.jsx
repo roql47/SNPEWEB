@@ -25,8 +25,8 @@ export default function Header() {
 
   const currentLang = LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0]
   const isHome = location.pathname === '/'
-  // 홈 히어로 위에서는 투명 오버레이 + 흰 텍스트, 스크롤 후엔 기본 스타일
-  const overlay = isHome && !scrolled
+  // 홈 히어로 위에서만 강한 투명 오버레이 모드 (hero 비디오가 navbar 뒤로 비치도록)
+  const heroOverlay = isHome && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
@@ -68,11 +68,9 @@ export default function Header() {
 
   return (
     <>
-      {/* Top utility bar */}
+      {/* Top utility bar — 항상 민트 컬러 유지 */}
       <div
-        className={`hidden lg:block text-white text-sm relative z-[60] transition-colors duration-300 ${
-          overlay ? 'bg-white/10 backdrop-blur-sm' : 'bg-mint'
-        }`}
+        className="hidden lg:block text-white text-sm relative z-[60] bg-mint"
       >
         <div className="max-w-[1440px] mx-auto px-4 flex items-center justify-between h-10">
           <a
@@ -121,24 +119,24 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Main header */}
+      {/* Main header — 홈 히어로 위에서는 강한 투명, 그 외에는 가독성 위주 */}
       <header
         ref={headerRef}
-        className={`sticky top-0 z-50 transition-colors duration-300 ${
-          overlay
-            ? 'bg-transparent'
-            : `bg-white ${scrolled ? 'shadow-md' : ''}`
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          heroOverlay
+            ? 'bg-white/35 backdrop-blur-[3px] border-b border-white/30'
+            : scrolled
+              ? 'bg-white/95 backdrop-blur-md shadow-md'
+              : 'bg-white/85 backdrop-blur-md border-b border-gray-100'
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
-              src="/images/logo.png"
+              src={heroOverlay ? '/images/기본로고_02.svg' : '/images/기본로고_01.svg'}
               alt="SNPE"
-              className={`h-8 lg:h-11 transition-[filter] duration-300 ${
-                overlay ? 'brightness-0 invert' : ''
-              }`}
+              className="h-8 lg:h-11 transition-opacity duration-300"
             />
           </Link>
 
@@ -155,11 +153,7 @@ export default function Header() {
                 >
                   <Link
                     to={item.path}
-                    className={`px-5 xl:px-7 h-full flex items-center text-[15px] font-medium transition-colors tracking-tight ${
-                      overlay
-                        ? 'text-white/95 hover:text-white'
-                        : 'text-gray-700 hover:text-snpe-dark'
-                    }`}
+                    className="px-5 xl:px-7 h-full flex items-center text-[15px] font-medium tracking-tight text-gray-700 hover:text-snpe-dark transition-colors"
                   >
                     {label}
                   </Link>
@@ -193,17 +187,11 @@ export default function Header() {
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 placeholder={t('header.searchPlaceholder')}
-                className={`w-48 xl:w-56 h-9 pl-4 pr-10 rounded-full text-sm focus:outline-none transition-colors ${
-                  overlay
-                    ? 'bg-white/15 border border-white/30 text-white placeholder-white/70 focus:border-white/60 focus:bg-white/20'
-                    : 'border border-gray-300 focus:border-snpe focus:ring-1 focus:ring-snpe'
-                }`}
+                className="w-48 xl:w-56 h-9 pl-4 pr-10 rounded-full text-sm focus:outline-none border border-gray-300 focus:border-snpe focus:ring-1 focus:ring-snpe transition-colors"
               />
               <button
                 type="submit"
-                className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors ${
-                  overlay ? 'text-white/80 hover:text-white' : 'text-gray-400 hover:text-snpe-dark'
-                }`}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-snpe-dark transition-colors"
               >
                 <Search size={16} />
               </button>
@@ -213,9 +201,7 @@ export default function Header() {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden p-2 transition-colors ${
-              overlay ? 'text-white hover:text-white/80' : 'text-gray-700 hover:text-snpe-dark'
-            }`}
+            className="lg:hidden p-2 text-gray-700 hover:text-snpe-dark transition-colors"
             aria-label={t('header.menuOpen')}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -231,7 +217,7 @@ export default function Header() {
             {/* Mobile menu header */}
             <div className="flex items-center justify-between px-4 h-14 border-b border-gray-100">
               <Link to="/" onClick={() => setMobileOpen(false)} className="flex-shrink-0">
-                <img src="/images/logo.png" alt="SNPE" className="h-7" />
+                <img src="/images/기본로고_01.svg" alt="SNPE" className="h-7" />
               </Link>
               <button
                 onClick={() => setMobileOpen(false)}

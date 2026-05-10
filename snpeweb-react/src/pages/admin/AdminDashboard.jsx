@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { dataStore } from '../../lib/dataStore'
-import { MapPin, Building2, Bell, Newspaper, CalendarDays, RefreshCw } from 'lucide-react'
+import { MapPin, Building2, Bell, Newspaper, CalendarDays, RefreshCw, UserCheck, GraduationCap, HelpCircle, Inbox } from 'lucide-react'
 
 export default function AdminDashboard() {
   const [centers, setCenters] = useState([])
@@ -9,6 +9,11 @@ export default function AdminDashboard() {
   const [notices, setNotices] = useState([])
   const [news, setNews] = useState([])
   const [activities, setActivities] = useState([])
+  const [teachers, setTeachers] = useState([])
+  const [educations, setEducations] = useState([])
+  const [faqs, setFaqs] = useState([])
+  const [inquiries, setInquiries] = useState([])
+  const [franchiseInquiries, setFranchiseInquiries] = useState([])
 
   useEffect(() => {
     dataStore.getCenters().then(setCenters)
@@ -16,14 +21,32 @@ export default function AdminDashboard() {
     dataStore.getNotices().then(setNotices)
     dataStore.getNews().then(setNews)
     dataStore.getActivities().then(setActivities)
+    dataStore.getTeachers().then(setTeachers)
+    dataStore.getEducations().then(setEducations).catch(() => setEducations([]))
+    dataStore.getFaqs().then(setFaqs).catch(() => setFaqs([]))
+    dataStore.getInquiries().then(setInquiries).catch(() => setInquiries([]))
+    dataStore.getFranchiseInquiries().then(setFranchiseInquiries).catch(() => setFranchiseInquiries([]))
   }, [])
 
+  const newInquiries = inquiries.filter((i) => i.status === 'new').length + franchiseInquiries.filter((i) => i.status === 'new').length
+
   const cards = [
+    {
+      label: '신청·문의',
+      count: inquiries.length + franchiseInquiries.length,
+      badge: newInquiries > 0 ? `신규 ${newInquiries}` : null,
+      icon: Inbox,
+      to: '/admin/inquiries',
+      color: 'bg-orange-500',
+    },
     { label: '전문센터', count: centers.length, icon: MapPin, to: '/admin/centers', color: 'bg-blue-500' },
     { label: 'SNPE STUDIO', count: studios.length, icon: Building2, to: '/admin/studios', color: 'bg-purple-500' },
+    { label: '인증강사', count: teachers.length, icon: UserCheck, to: '/admin/cert-teachers', color: 'bg-indigo-500' },
+    { label: '교육과정', count: educations.length, icon: GraduationCap, to: '/admin/educations', color: 'bg-cyan-500' },
     { label: '공지사항', count: notices.length, icon: Bell, to: '/admin/notices', color: 'bg-amber-500' },
     { label: '언론보도', count: news.length, icon: Newspaper, to: '/admin/news', color: 'bg-green-500' },
     { label: '활동내역', count: activities.length, icon: CalendarDays, to: '/admin/activities', color: 'bg-rose-500' },
+    { label: 'FAQ', count: faqs.length, icon: HelpCircle, to: '/admin/faqs', color: 'bg-slate-500' },
   ]
 
   const handleReset = async () => {
@@ -49,18 +72,23 @@ export default function AdminDashboard() {
         </button>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {cards.map((c) => (
           <Link
             key={c.label}
             to={c.to}
-            className="bg-white rounded-2xl p-6 hover:shadow-md transition-shadow border border-gray-100"
+            className="relative bg-white rounded-2xl p-6 hover:shadow-md transition-shadow border border-gray-100"
           >
             <div className={`w-10 h-10 ${c.color} rounded-xl flex items-center justify-center mb-4`}>
               <c.icon size={20} className="text-white" />
             </div>
             <p className="text-3xl font-bold text-gray-900">{c.count}</p>
             <p className="text-sm text-gray-500 mt-1">{c.label}</p>
+            {c.badge && (
+              <span className="absolute top-4 right-4 inline-flex items-center px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-semibold">
+                {c.badge}
+              </span>
+            )}
           </Link>
         ))}
       </div>

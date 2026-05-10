@@ -1,7 +1,20 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
-import { CheckCircle, ArrowRight } from 'lucide-react'
+import { dataStore } from '../../lib/dataStore'
+import { CheckCircle, ArrowRight, AlertCircle, Send } from 'lucide-react'
+
+const INITIAL_FORM = {
+  type: '',
+  name: '',
+  phone: '',
+  certLevel: '',
+  region: '',
+  hasSpace: '',
+  timing: '',
+  note: '',
+  agree: false,
+}
 
 const comparison = [
   { label: '운영 자격', center: 'SNPE 바른자세 지도사 자격증 취득자', studio: 'SNPE 바른자세 지도사 자격증 취득자' },
@@ -10,7 +23,7 @@ const comparison = [
   { label: '교육 과정', center: '본사 공통 커리큘럼 및 정기 교육 필수', studio: '운영자 재량에 따른 프로그램 구성 가능' },
   { label: '매장 규모', center: '중대형 권장 (표준 규격 준수)', studio: '소형/컴팩트 매장 (공간 효율 극대화)' },
   { label: '권한 범위', center: 'CI/BI 및 본사 독점 시스템 전체 활용', studio: '브랜드 사용 승인 및 디자인 소스 활용' },
-  { label: '영업권 보장', center: '반경 1km 이내 입점 제한 보호', studio: '-' },
+  { label: '영업권 보장', center: '반경 1km 이내 입점 제한 보호', studio: '반경 1km 이내 입점 제한 보호' },
 ]
 
 const supports = [
@@ -21,7 +34,7 @@ const supports = [
 ]
 
 const steps = [
-  { num: '01', title: '교육 일정 확인', desc: '개설 상담 양식을 작성하여 제출합니다.' },
+  { num: '01', title: '개설 문의', desc: '개설 상담 양식을 작성하여 제출합니다.' },
   { num: '02', title: '담당자 상담', desc: '담당자가 확인 후 순차적으로 연락드립니다.' },
   { num: '03', title: '자격 심사', desc: '강사 자격 및 사업 역량을 심사합니다.' },
   { num: '04', title: '계약 체결', desc: '가맹/인증점 계약을 체결하고 개설합니다.' },
@@ -29,19 +42,72 @@ const steps = [
 
 export default function Franchise() {
   const { t } = useTranslation()
-  const [form, setForm] = useState({
-    type: '',
-    name: '',
-    phone: '',
-    certLevel: '',
-    region: '',
-    hasSpace: '',
-    timing: '',
-    note: '',
-    agree: false,
-  })
+  const [form, setForm] = useState(INITIAL_FORM)
+  const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState(null)
 
   const handleChange = (field, value) => setForm((prev) => ({ ...prev, [field]: value }))
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (submitting) return
+    if (!form.type || !form.name || !form.phone || !form.certLevel || !form.region || !form.agree) return
+
+    setSubmitting(true)
+    setError(null)
+    try {
+      await dataStore.addFranchiseInquiry({
+        type: form.type,
+        name: form.name,
+        phone: form.phone,
+        cert_level: form.certLevel,
+        region: form.region,
+        has_space: form.hasSpace,
+        timing: form.timing,
+        note: form.note,
+      })
+      setSubmitted(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } catch (err) {
+      console.error('가맹점 개설 문의 저장 실패:', err)
+      setError('신청 접수 중 오류가 발생했습니다. 잠시 후 다시 시도하시거나 snpeedu@mycuring.com 으로 직접 문의 부탁드립니다.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  if (submitted) {
+    return (
+      <>
+        <PageBanner
+          title={t('pages.franchise')}
+          subtitle="개설 상담이 접수되었습니다"
+        />
+        <section className="py-24">
+          <div className="max-w-lg mx-auto px-4 text-center">
+            <div className="w-20 h-20 rounded-full bg-snpe-dark/10 text-snpe-dark flex items-center justify-center mx-auto mb-6">
+              <Send size={32} />
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">개설 문의가 접수되었습니다</h2>
+            <p className="text-gray-600 mb-8">
+              담당자가 확인 후 빠르게 연락드리겠습니다.<br />
+              감사합니다.
+            </p>
+            <button
+              onClick={() => {
+                setSubmitted(false)
+                setForm(INITIAL_FORM)
+              }}
+              className="px-6 py-2.5 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors"
+            >
+              새 신청 작성
+            </button>
+          </div>
+        </section>
+      </>
+    )
+  }
 
   return (
     <>
@@ -127,7 +193,7 @@ export default function Franchise() {
             <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">개설 문의 양식</h3>
             <p className="text-sm text-gray-500 text-center mb-8">내용을 상세히 기재해 주시면 담당자가 확인 후 순차적으로 연락드리겠습니다.</p>
 
-            <div className="max-w-2xl mx-auto space-y-6">
+            <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-900 mb-2">1. 신청 모델 선택 *</label>
                 <div className="space-y-2">
@@ -219,13 +285,21 @@ export default function Franchise() {
                 <span>개인정보 수집 및 이용에 동의합니다. (가맹/인증점 상담 및 안내 목적, 상담 종료 후 1년 보유)</span>
               </label>
 
+              {error && (
+                <div className="flex items-start gap-3 p-4 rounded-lg bg-red-50 border border-red-200 text-sm text-red-700">
+                  <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
+                  <span>{error}</span>
+                </div>
+              )}
+
               <button
-                disabled={!form.type || !form.name || !form.phone || !form.certLevel || !form.region || !form.agree}
+                type="submit"
+                disabled={submitting || !form.type || !form.name || !form.phone || !form.certLevel || !form.region || !form.agree}
                 className="w-full h-12 bg-snpe-darker text-white rounded-xl font-medium hover:bg-snpe-dark transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                개설 상담 신청하기
+                {submitting ? '신청 중...' : '개설 상담 신청하기'}
               </button>
-            </div>
+            </form>
           </div>
 
           <div className="text-center text-sm text-gray-500">

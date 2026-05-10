@@ -19,6 +19,7 @@
     "snpeVideo": "运动视频",
     "snpeApp": "自助体型分析",
     "experienceCase": "体验案例",
+    "snpeExperience": "SNPE运动体验",
     "degree": "资格证指南",
     "level1": "LEVEL 1",
     "level2": "LEVEL 2",
@@ -72,7 +73,7 @@
     "partnersTitle": "SNPE 合作伙伴",
     "appTitle": "SNPE APP",
     "appSubtitle": "一个人也能智能管理的自我疗法",
-    "appDesc": "SNPE应用通过AI姿势分析测量您的体型状态，并提供定制化运动方案。",
+    "appDesc": "SNPE应用通过姿势分析测量您的体型状态，并提供定制化运动方案。",
     "naverMap": "在Naver地图查看"
   },
   "footer": {
@@ -80,7 +81,7 @@
     "address": "首尔特别市 江南区 奉恩寺路68街8号, 4楼",
     "bizNum": "393-87-01993",
     "ceo": "赵娜拉",
-    "copyright": "ⓒ 2024 SNPE. All rights reserved.",
+    "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
     "about": "公司介绍",
     "privacy": "隐私政策",
     "terms": "使用条款"
@@ -137,7 +138,9 @@
     "experienceCase": "体验案例",
     "experienceCaseSub": "了解SNPE运动体验案例",
     "snpeApp": "自助体型分析",
-    "snpeAppSub": "通过AI姿势分析确认您的体型",
+    "snpeAppSub": "通过姿势分析确认您的体型",
+    "snpeExperience": "SNPE运动体验",
+    "snpeExperienceSub": "亲身体验SNPE的人们的变化故事",
     "degree": "资格证指南",
     "degreeSub": "SNPE专家资格课程指南",
     "level1": "LEVEL 1",

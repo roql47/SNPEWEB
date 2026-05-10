@@ -1,4 +1,14 @@
+import { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
+
+// SNPE 운동영상으로 즉시 redirect — Foot Balance 풋 밸런스 사용법
+// (운동영상 전용 페이지 없음, 외부 영상으로 직접 연결)
+function YoutubeRedirect() {
+  useEffect(() => {
+    window.location.replace('https://www.youtube.com/watch?v=LfWjDXopI4Y')
+  }, [])
+  return null
+}
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 import About from './pages/about/About'
@@ -19,8 +29,8 @@ import Research from './pages/about/Research'
 import BeginnerGuide from './pages/exercise/BeginnerGuide'
 import SnpeApp from './pages/exercise/SnpeApp'
 import BaseExercise from './pages/exercise/BaseExercise'
-import SnpeVideo from './pages/exercise/SnpeVideo'
 import ExperienceCase from './pages/exercise/ExperienceCase'
+import SnpeExperience from './pages/exercise/SnpeExperience'
 import Notice from './pages/news/Notice'
 import News from './pages/news/News'
 import Activity from './pages/news/Activity'
@@ -43,6 +53,9 @@ import AdminActivities from './pages/admin/AdminActivities'
 import AdminCertTeachers from './pages/admin/AdminCertTeachers'
 import AdminExperienceCases from './pages/admin/AdminExperienceCases'
 import AdminResearch from './pages/admin/AdminResearch'
+import AdminFaqs from './pages/admin/AdminFaqs'
+import AdminEducations from './pages/admin/AdminEducations'
+import AdminInquiries from './pages/admin/AdminInquiries'
 
 export default function App() {
   return (
@@ -67,8 +80,10 @@ export default function App() {
         <Route path="beginnerguide" element={<BeginnerGuide />} />
         <Route path="snpeapp" element={<SnpeApp />} />
         <Route path="baseexercise" element={<BaseExercise />} />
-        <Route path="snpevideo" element={<Navigate to="/baseexercise" replace />} />
+        <Route path="snpevideo" element={<YoutubeRedirect />} />
+        <Route path="snpe-video" element={<YoutubeRedirect />} />
         <Route path="experiencecase" element={<ExperienceCase />} />
+        <Route path="snpe-experience" element={<SnpeExperience />} />
         <Route path="notice" element={<Notice />} />
         <Route path="news" element={<News />} />
         <Route path="activity" element={<Activity />} />
@@ -96,6 +111,9 @@ export default function App() {
         <Route path="cert-teachers" element={<AdminCertTeachers />} />
         <Route path="experience-cases" element={<AdminExperienceCases />} />
         <Route path="research" element={<AdminResearch />} />
+        <Route path="faqs" element={<AdminFaqs />} />
+        <Route path="educations" element={<AdminEducations />} />
+        <Route path="inquiries" element={<AdminInquiries />} />
       </Route>
     </Routes>
   )

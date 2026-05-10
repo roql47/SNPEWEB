@@ -15,9 +15,10 @@ export const mainNav = [
     path: '/beginnerguide',
     children: [
       { titleKey: 'subnav.beginnerGuide', path: '/beginnerguide' },
+      { titleKey: 'subnav.snpeApp', path: '/snpeapp' },
       { titleKey: 'subnav.baseExercise', path: '/baseexercise' },
       { titleKey: 'subnav.experienceCase', path: '/experiencecase' },
-      { titleKey: 'subnav.snpeApp', path: '/snpeapp' },
+      { titleKey: 'subnav.snpeExperience', path: '/snpe-experience' },
     ],
   },
   {

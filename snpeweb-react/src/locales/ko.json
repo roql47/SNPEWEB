@@ -19,6 +19,7 @@
     "snpeVideo": "운동영상",
     "snpeApp": "셀프 체형분석",
     "experienceCase": "체험사례",
+    "snpeExperience": "SNPE 운동 경험",
     "degree": "자격증안내",
     "level1": "LEVEL 1",
     "level2": "LEVEL 2",
@@ -72,7 +73,7 @@
     "partnersTitle": "SNPE Partners",
     "appTitle": "SNPE APP",
     "appSubtitle": "혼자서도 똑똑하게 관리하는 셀프테라피",
-    "appDesc": "SNPE 앱에서는 AI 자세분석을 통해 나의 체형 상태를 측정하고 맞춤형 운동 프로그램을 제공합니다.",
+    "appDesc": "SNPE 앱에서는 자세분석을 통해 나의 체형 상태를 측정하고 맞춤형 운동 프로그램을 제공합니다.",
     "naverMap": "네이버 지도 보기"
   },
   "footer": {
@@ -80,7 +81,7 @@
     "address": "서울특별시 강남구 봉은사로 68길 8, 4층",
     "bizNum": "393-87-01993",
     "ceo": "조나라",
-    "copyright": "ⓒ 2024 SNPE. All rights reserved.",
+    "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
     "about": "회사소개",
     "privacy": "개인정보처리방침",
     "terms": "이용약관"
@@ -137,7 +138,9 @@
     "experienceCase": "체험사례",
     "experienceCaseSub": "SNPE 운동 체험 사례를 만나보세요",
     "snpeApp": "셀프 체형분석",
-    "snpeAppSub": "AI 자세분석으로 나의 체형을 확인하세요",
+    "snpeAppSub": "자세분석으로 나의 체형을 확인하세요",
+    "snpeExperience": "SNPE 운동 경험",
+    "snpeExperienceSub": "SNPE 운동을 직접 경험한 분들의 변화 이야기",
     "degree": "자격증안내",
     "degreeSub": "SNPE 전문가 자격증 과정을 안내합니다",
     "level1": "LEVEL 1",

@@ -19,6 +19,7 @@
     "snpeVideo": "Exercise Videos",
     "snpeApp": "Self Body Analysis",
     "experienceCase": "Experience Stories",
+    "snpeExperience": "SNPE Experience",
     "degree": "Certification Guide",
     "level1": "LEVEL 1",
     "level2": "LEVEL 2",
@@ -72,7 +73,7 @@
     "partnersTitle": "SNPE Partners",
     "appTitle": "SNPE APP",
     "appSubtitle": "Smart self-therapy you can manage on your own",
-    "appDesc": "The SNPE app measures your body condition through AI posture analysis and provides customized exercise programs.",
+    "appDesc": "The SNPE app measures your body condition through posture analysis and provides customized exercise programs.",
     "naverMap": "View on Naver Map"
   },
   "footer": {
@@ -80,7 +81,7 @@
     "address": "4F, 8, Bongeunsa-ro 68-gil, Gangnam-gu, Seoul",
     "bizNum": "393-87-01993",
     "ceo": "Cho Nara",
-    "copyright": "ⓒ 2024 SNPE. All rights reserved.",
+    "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
     "about": "About Us",
     "privacy": "Privacy Policy",
     "terms": "Terms of Use"
@@ -137,7 +138,9 @@
     "experienceCase": "Experience Stories",
     "experienceCaseSub": "Discover SNPE exercise experience stories",
     "snpeApp": "Self Body Analysis",
-    "snpeAppSub": "Check your body type with AI posture analysis",
+    "snpeAppSub": "Check your body type with posture analysis",
+    "snpeExperience": "SNPE Experience",
+    "snpeExperienceSub": "Stories of change from those who experienced SNPE firsthand",
     "degree": "Certification Guide",
     "degreeSub": "SNPE professional certification courses",
     "level1": "LEVEL 1",

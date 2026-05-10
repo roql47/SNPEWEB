@@ -155,6 +155,88 @@ export const dataStore = {
     await supabase.from('research_papers').delete().eq('id', id)
   },
 
+  // ── FAQs ────────────────────────────────────────────────────────────────
+  getFaqs: async () => {
+    const { data } = await supabase.from('faqs').select('*').order('sort_order').order('created_at')
+    return data || []
+  },
+  addFaq: async (faq) => {
+    const { data } = await supabase.from('faqs').insert([faq]).select().single()
+    return data
+  },
+  updateFaq: async (id, updates) => {
+    const { data } = await supabase.from('faqs').update(updates).eq('id', id).select().single()
+    return data
+  },
+  deleteFaq: async (id) => {
+    await supabase.from('faqs').delete().eq('id', id)
+  },
+
+  // ── Educations (교육과정 일정) ───────────────────────────────────────────
+  getEducations: async (category) => {
+    let query = supabase.from('educations').select('*').order('start_date', { ascending: false })
+    if (category) query = query.eq('category', category)
+    const { data } = await query
+    return data || []
+  },
+  addEducation: async (item) => {
+    const { data } = await supabase.from('educations').insert([item]).select().single()
+    return data
+  },
+  updateEducation: async (id, updates) => {
+    const { data } = await supabase.from('educations').update(updates).eq('id', id).select().single()
+    return data
+  },
+  deleteEducation: async (id) => {
+    await supabase.from('educations').delete().eq('id', id)
+  },
+
+  // ── Inquiries (기업특강 신청) ────────────────────────────────────────────
+  getInquiries: async () => {
+    const { data } = await supabase.from('inquiries').select('*').order('created_at', { ascending: false })
+    return data || []
+  },
+  addInquiry: async (item) => {
+    const { data, error } = await supabase.from('inquiries').insert([item]).select().single()
+    if (error) throw error
+    return data
+  },
+  updateInquiry: async (id, updates) => {
+    const { data, error } = await supabase.from('inquiries').update(updates).eq('id', id).select().single()
+    if (error) throw error
+    return data
+  },
+  deleteInquiry: async (id) => {
+    await supabase.from('inquiries').delete().eq('id', id)
+  },
+
+  // ── Franchise Inquiries (가맹점·인증점 개설 문의) ───────────────────────
+  getFranchiseInquiries: async () => {
+    const { data } = await supabase.from('franchise_inquiries').select('*').order('created_at', { ascending: false })
+    return data || []
+  },
+  addFranchiseInquiry: async (item) => {
+    const { data, error } = await supabase.from('franchise_inquiries').insert([item]).select().single()
+    if (error) throw error
+    return data
+  },
+  updateFranchiseInquiry: async (id, updates) => {
+    const { data, error } = await supabase.from('franchise_inquiries').update(updates).eq('id', id).select().single()
+    if (error) throw error
+    return data
+  },
+  deleteFranchiseInquiry: async (id) => {
+    await supabase.from('franchise_inquiries').delete().eq('id', id)
+  },
+
+  // ── Bulk import (관리자 일괄 업로드용) ──────────────────────────────────
+  bulkAddTeachers: async (rows) => {
+    if (!rows || rows.length === 0) return { inserted: 0 }
+    const { data, error } = await supabase.from('teachers').insert(rows).select()
+    if (error) throw error
+    return { inserted: data?.length || 0 }
+  },
+
   // ── Reset (admin dashboard) ───────────────────────────────────────────────
   resetAll: async () => {
     await Promise.all([
@@ -166,6 +248,8 @@ export const dataStore = {
       supabase.from('teachers').delete().neq('id', ''),
       supabase.from('experience_cases').delete().neq('id', ''),
       supabase.from('research_papers').delete().neq('id', ''),
+      supabase.from('faqs').delete().neq('id', ''),
+      supabase.from('educations').delete().neq('id', ''),
     ])
   },
 }
