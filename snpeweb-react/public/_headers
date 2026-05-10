@@ -1,0 +1,22 @@
+# Cloudflare Pages — 캐시 전략
+# /assets/* (Vite hash 파일): 1년 캐싱 (immutable)
+# /images/* : 30일 캐싱 (정적 이미지)
+# 그 외(HTML 등): 항상 새로 받기
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=2592000
+
+/*.svg
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
