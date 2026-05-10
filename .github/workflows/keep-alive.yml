@@ -1,0 +1,70 @@
+name: Supabase Keep-Alive
+
+# 목적: Supabase Free Tier paused 자동 방지
+#  - Free Tier 정책: 7일 동안 DB 요청 0건이면 paused 처리
+#  - 본 워크플로우는 매주 2회(월/목) 자동으로 SELECT 쿼리 1개씩 발사 → 카운터 reset
+#  - 비용: GitHub Actions 무료 한도 안 (월 0.5분 미만 사용)
+#  - 안전성: anon key + SELECT만 사용, DB 변경 없음
+
+on:
+  schedule:
+    # UTC 기준 cron — UTC 00:00 = 한국 시간 09:00
+    - cron: '0 0 * * 1'   # 매주 월요일 09:00 KST
+    - cron: '0 0 * * 4'   # 매주 목요일 09:00 KST (이중 안전망)
+  workflow_dispatch:       # 수동 실행 (테스트용, GitHub UI에서 'Run workflow' 버튼)
+
+jobs:
+  ping-supabase:
+    name: Ping Supabase REST API
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Validate secrets
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "::error::SUPABASE_URL 또는 SUPABASE_ANON_KEY secret이 설정되지 않았습니다."
+            echo "GitHub repo → Settings → Secrets and variables → Actions 에서 등록하세요."
+            exit 1
+          fi
+          echo "✅ Secrets 정상 확인"
+
+      - name: Ping multiple tables
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -e
+          echo "📡 Supabase keep-alive ping 시작..."
+
+          # 여러 테이블에 분산 쿼리 (한두 테이블이 비어있어도 다른 게 응답)
+          TABLES="centers teachers faqs notices"
+          FAILED=0
+
+          for table in $TABLES; do
+            echo "  → $table 쿼리 중..."
+            HTTP_CODE=$(curl -sS -o /tmp/resp.json -w "%{http_code}" \
+              --max-time 30 \
+              -H "apikey: $SUPABASE_ANON_KEY" \
+              -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+              "$SUPABASE_URL/rest/v1/$table?select=id&limit=1")
+
+            if [ "$HTTP_CODE" = "200" ]; then
+              echo "    ✅ $table OK (HTTP 200)"
+            else
+              echo "    ❌ $table 실패 (HTTP $HTTP_CODE)"
+              cat /tmp/resp.json || true
+              FAILED=$((FAILED+1))
+            fi
+          done
+
+          echo ""
+          if [ "$FAILED" -gt 0 ]; then
+            echo "::warning::$FAILED개 테이블 응답 실패. Supabase 프로젝트 상태를 점검하세요."
+            # 한 두개 실패해도 다른 테이블 응답으로 keep-alive는 성공한 것이므로 exit 1 하지 않음
+          fi
+
+          echo "🎉 Supabase keep-alive 완료 — 7일 카운터 reset됨"
+          echo "   다음 자동 실행: 다음 월요일 또는 목요일 09:00 KST"
