@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Pin, Megaphone } from 'lucide-react'
+import ImageUploader from '../../components/admin/ImageUploader'
+import RichTextEditor from '../../components/admin/RichTextEditor'
 
 const emptyForm = {
   title: '',
   date: new Date().toISOString().slice(0, 10),
   content: '',
+  content_html: '',
   pinned: false,
   popup_active: false,
   popup_image_url: '',
@@ -27,7 +30,8 @@ export default function AdminNotices() {
     setForm({
       title: n.title,
       date: n.date,
-      content: n.content,
+      content: n.content || '',
+      content_html: n.content_html || '',
       pinned: n.pinned,
       popup_active: n.popup_active || false,
       popup_image_url: n.popup_image_url || '',
@@ -140,7 +144,13 @@ export default function AdminNotices() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">내용</label>
-                <textarea value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} rows={5} className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400 resize-none" />
+                <RichTextEditor
+                  value={form.content_html || form.content || ''}
+                  onChange={(html) => setForm({ ...form, content_html: html, content: '' })}
+                  folder="notices"
+                  minHeight="160px"
+                  placeholder="공지 내용을 입력하세요. 글자 색상/크기/정렬, 이미지 삽입 가능"
+                />
               </div>
 
               {/* 메인 홈 팝업 노출 설정 */}
@@ -175,19 +185,20 @@ export default function AdminNotices() {
                     <p className="text-[11px] text-gray-400 -mt-2">기간을 비워두면 무기한 노출됩니다.</p>
 
                     <div>
-                      <label className="block text-xs font-medium text-gray-600 mb-1">팝업 이미지 URL <span className="text-gray-400">(선택, 비우면 텍스트로 표시)</span></label>
-                      <input type="url" value={form.popup_image_url} onChange={(e) => setForm({ ...form, popup_image_url: e.target.value })} placeholder="https://... 또는 /images/notice-popup.jpg" className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400" />
-                      {form.popup_image_url && (
-                        <div className="mt-2 rounded-lg overflow-hidden border border-gray-200">
-                          <img src={form.popup_image_url} alt="팝업 미리보기" className="w-full max-h-48 object-contain bg-gray-50" onError={(e) => { e.target.style.display = 'none' }} />
-                        </div>
-                      )}
+                      <label className="block text-xs font-medium text-gray-600 mb-1">팝업 이미지 <span className="text-gray-400">(선택, 비우면 텍스트로 표시)</span></label>
+                      <ImageUploader
+                        value={form.popup_image_url}
+                        onChange={(url) => setForm({ ...form, popup_image_url: url })}
+                        folder="notices"
+                        aspectRatio="4/3"
+                      />
                     </div>
 
                     <div>
                       <label className="block text-xs font-medium text-gray-600 mb-1">클릭 시 이동 URL <span className="text-gray-400">(선택)</span></label>
                       <input type="url" value={form.popup_link_url} onChange={(e) => setForm({ ...form, popup_link_url: e.target.value })} placeholder="https://... 또는 /notice" className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400" />
                     </div>
+
                   </div>
                 )}
               </div>

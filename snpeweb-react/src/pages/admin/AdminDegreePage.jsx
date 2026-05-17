@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { dataStore } from '../../lib/dataStore'
 import ImageUploader from '../../components/admin/ImageUploader'
+import RichTextEditor from '../../components/admin/RichTextEditor'
 import { Plus, Trash2, Save, RotateCcw, ExternalLink, GraduationCap, Info, Heart, Star, Users, Target, BookOpen, Layers, Award, Sparkles, HeartPulse, Activity, ChevronUp, ChevronDown, GripVertical, ImageIcon } from 'lucide-react'
 
 const ICON_OPTIONS = ['Layers', 'BookOpen', 'Users', 'Target', 'Award', 'Sparkles', 'HeartPulse', 'Activity', 'Heart', 'Star', 'GraduationCap', 'Info']
@@ -319,12 +320,11 @@ function SectionEditor({ sectionKey, section, updateSection, meta }) {
         <>
           {titleField}
           <Field label="본문">
-            <textarea
-              value={section.body || ''}
-              onChange={(e) => updateSection((s) => ({ ...s, body: e.target.value }))}
-              rows={4}
-              className="input resize-none"
-              placeholder="줄바꿈하려면 Enter"
+            <RichTextEditor
+              value={section.body_html || section.body || ''}
+              onChange={(html) => updateSection((s) => ({ ...s, body_html: html, body: '' }))}
+              folder="degree-intro"
+              placeholder="본문을 입력하세요. 글자 색상/크기/정렬, 이미지 삽입 가능"
             />
           </Field>
           {layoutBlock}
@@ -350,11 +350,12 @@ function SectionEditor({ sectionKey, section, updateSection, meta }) {
         <>
           {titleField}
           <Field label="인트로 문구">
-            <textarea
-              value={section.intro || ''}
-              onChange={(e) => updateSection((s) => ({ ...s, intro: e.target.value }))}
-              rows={2}
-              className="input resize-none"
+            <RichTextEditor
+              value={section.intro_html || section.intro || ''}
+              onChange={(html) => updateSection((s) => ({ ...s, intro_html: html, intro: '' }))}
+              folder="degree-target"
+              minHeight="80px"
+              placeholder="인트로 문구"
             />
           </Field>
           <BulletList
@@ -382,11 +383,11 @@ function SectionEditor({ sectionKey, section, updateSection, meta }) {
         <>
           {titleField}
           <Field label="인트로 문구">
-            <textarea
-              value={section.intro || ''}
-              onChange={(e) => updateSection((s) => ({ ...s, intro: e.target.value }))}
-              rows={2}
-              className="input resize-none"
+            <RichTextEditor
+              value={section.intro_html || section.intro || ''}
+              onChange={(html) => updateSection((s) => ({ ...s, intro_html: html, intro: '' }))}
+              folder="degree-roadmap"
+              minHeight="80px"
             />
           </Field>
           <RoadmapEditor

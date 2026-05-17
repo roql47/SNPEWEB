@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
 import { dataStore } from '../../lib/dataStore'
+import { sanitizeHtml } from '../../lib/sanitize'
 
 const STORAGE_KEY = 'noticePopupHiddenUntil'
 // '다시 보지 않기' 영구 숨김 sentinel (timestamp 비교 시 항상 미래)
@@ -26,6 +27,52 @@ const writeHiddenMap = (map) => {
 
 export default function NoticePopup() {
   const [popup, setPopup] = useState(null)
+  const [pos, setPos] = useState(null) // { x, y } — null이면 가운데 정렬
+  const dragRef = useRef(null)
+  const dragState = useRef({ startX: 0, startY: 0, origX: 0, origY: 0, dragging: false })
+
+  // 드래그 시작
+  const onDragStart = (e) => {
+    const evt = e.touches ? e.touches[0] : e
+    const rect = dragRef.current?.getBoundingClientRect()
+    if (!rect) return
+    dragState.current = {
+      startX: evt.clientX,
+      startY: evt.clientY,
+      origX: rect.left,
+      origY: rect.top,
+      dragging: true,
+    }
+    document.body.style.userSelect = 'none'
+  }
+
+  // 드래그 중 — window 이벤트로 처리
+  useEffect(() => {
+    const onMove = (e) => {
+      if (!dragState.current.dragging) return
+      const evt = e.touches ? e.touches[0] : e
+      const dx = evt.clientX - dragState.current.startX
+      const dy = evt.clientY - dragState.current.startY
+      setPos({
+        x: dragState.current.origX + dx,
+        y: dragState.current.origY + dy,
+      })
+    }
+    const onUp = () => {
+      dragState.current.dragging = false
+      document.body.style.userSelect = ''
+    }
+    window.addEventListener('mousemove', onMove)
+    window.addEventListener('mouseup', onUp)
+    window.addEventListener('touchmove', onMove)
+    window.addEventListener('touchend', onUp)
+    return () => {
+      window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('mouseup', onUp)
+      window.removeEventListener('touchmove', onMove)
+      window.removeEventListener('touchend', onUp)
+    }
+  }, [])
 
   useEffect(() => {
     let cancelled = false
@@ -79,82 +126,146 @@ export default function NoticePopup() {
   const hasImage = !!popup.popup_image_url
   const hasLink = !!popup.popup_link_url
 
+  // 위치 스타일 — 드래그 시작 전엔 화면 가운데, 이후엔 절대 좌표
+  const positioned = pos !== null
+  const containerStyle = positioned
+    ? {
+        position: 'fixed',
+        left: `${pos.x}px`,
+        top: `${pos.y}px`,
+        zIndex: 101,
+        borderRadius: '8px',
+      }
+    : { borderRadius: '8px' }
+
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/55 p-4 animate-[fadeIn_.2s_ease-out]"
+      className={positioned
+        ? 'fixed inset-0 z-[100] bg-black/60'
+        : 'fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4'}
       onClick={close}
     >
       <div
-        className="relative bg-white rounded-2xl shadow-2xl w-[90vw] max-w-[480px] overflow-hidden"
+        ref={dragRef}
+        className="relative bg-white shadow-2xl w-[90vw] max-w-[420px] overflow-hidden flex flex-col"
+        style={containerStyle}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={close}
-          aria-label="닫기"
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
-        >
-          <X size={18} />
-        </button>
-
+        {/* 콘텐츠 영역 */}
         {hasImage ? (
-          <div
-            className={hasLink ? 'cursor-pointer' : ''}
-            onClick={hasLink ? handleContentClick : undefined}
-          >
-            <img
-              src={popup.popup_image_url}
-              alt={popup.title}
-              className="w-full h-auto block"
-              onError={(e) => { e.currentTarget.style.display = 'none' }}
+          <>
+            {/* 이미지 모드 — 상단 드래그 영역 (얇은 핸들) */}
+            <div
+              className="absolute top-0 left-0 right-12 h-8 z-[5] cursor-move"
+              onMouseDown={onDragStart}
+              onTouchStart={onDragStart}
+              title="드래그해서 이동"
             />
-            {(popup.title || popup.content) && (
-              <div className="p-5 border-t border-gray-100">
-                {popup.title && (
-                  <h2 className="text-base font-bold text-gray-900 mb-1">{popup.title}</h2>
-                )}
-                {popup.content && (
-                  <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line line-clamp-3">
-                    {popup.content}
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
+            {/* X 버튼 */}
+            <button
+              onClick={close}
+              aria-label="닫기"
+              className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors"
+            >
+              <X size={16} />
+            </button>
+            <div
+              className={hasLink ? 'cursor-pointer' : ''}
+              onClick={hasLink ? handleContentClick : undefined}
+            >
+              <img
+                src={popup.popup_image_url}
+                alt={popup.title}
+                className="w-full h-auto block"
+                onError={(e) => { e.currentTarget.style.display = 'none' }}
+              />
+              {(popup.title || popup.content) && (
+                <div className="px-5 py-4 border-t border-gray-100">
+                  {popup.title && (
+                    <h2 className="text-sm font-bold text-gray-900 mb-1">{popup.title}</h2>
+                  )}
+                  {popup.content_html ? (
+                    <div
+                      className="rt-content text-xs text-gray-600 leading-relaxed line-clamp-2"
+                      dangerouslySetInnerHTML={{ __html: sanitizeHtml(popup.content_html) }}
+                    />
+                  ) : popup.content ? (
+                    <p className="text-xs text-gray-600 leading-relaxed whitespace-pre-line line-clamp-2">
+                      {popup.content}
+                    </p>
+                  ) : null}
+                </div>
+              )}
+            </div>
+          </>
         ) : (
-          <div
-            className={`p-8 ${hasLink ? 'cursor-pointer' : ''}`}
-            onClick={hasLink ? handleContentClick : undefined}
-          >
-            <h2 className="text-xl font-bold text-gray-900 mb-3 pr-8">{popup.title}</h2>
-            {popup.content && (
-              <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
-                {popup.content}
-              </p>
-            )}
-            {popup.date && (
-              <p className="mt-4 text-xs text-gray-400">{popup.date}</p>
-            )}
-          </div>
+          <>
+            {/* 텍스트 모드 — 상단 헤더 바 (드래그 핸들) + X 버튼 */}
+            <div
+              className="flex items-center justify-between pl-4 pr-2 h-9 border-b border-gray-100 bg-gray-50/50 cursor-move select-none"
+              onMouseDown={onDragStart}
+              onTouchStart={onDragStart}
+              title="드래그해서 이동"
+            >
+              <span className="text-[10px] font-semibold text-gray-500 tracking-wider uppercase">Notice</span>
+              <button
+                onClick={close}
+                aria-label="닫기"
+                className="w-6 h-6 rounded-full hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors"
+              >
+                <X size={14} />
+              </button>
+            </div>
+            <div
+              className={`px-6 pt-5 pb-6 ${hasLink ? 'cursor-pointer' : ''}`}
+              onClick={hasLink ? handleContentClick : undefined}
+            >
+              <h2 className="text-lg font-bold text-gray-900 mb-3">{popup.title}</h2>
+              {popup.content_html ? (
+                <div
+                  className="rt-content text-sm text-gray-700 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(popup.content_html) }}
+                />
+              ) : popup.content ? (
+                <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">
+                  {popup.content}
+                </p>
+              ) : null}
+              {popup.date && (
+                <p className="mt-4 text-xs text-gray-400">{popup.date}</p>
+              )}
+            </div>
+          </>
         )}
 
-        <div className="flex border-t border-gray-100 bg-gray-50/50">
-          <button
-            onClick={closeForever}
-            className="flex-1 py-3.5 text-xs sm:text-sm text-gray-500 hover:bg-gray-100 transition-colors"
-          >
-            다시 보지 않기
-          </button>
-          <button
-            onClick={closeForToday}
-            className="flex-1 py-3.5 text-xs sm:text-sm text-gray-500 hover:bg-gray-100 border-l border-gray-100 transition-colors"
-          >
-            오늘 하루 보지 않기
-          </button>
+        {/* 하단 바 — 네이버/카카오 스타일 */}
+        <div className="flex items-center justify-between bg-[#333] px-4 py-3">
+          {/* 좌측: 체크박스형 옵션들 */}
+          <div className="flex items-center gap-4">
+            <label className="flex items-center gap-1.5 cursor-pointer group">
+              <input
+                type="checkbox"
+                className="w-3.5 h-3.5 accent-white cursor-pointer"
+                onChange={(e) => { if (e.target.checked) closeForToday() }}
+              />
+              <span className="text-[11px] text-gray-300 group-hover:text-white transition-colors select-none">
+                오늘 하루 보지 않기
+              </span>
+            </label>
+            <button
+              onClick={closeForever}
+              className="text-[11px] text-gray-400 hover:text-white transition-colors underline underline-offset-2"
+            >
+              다시 보지 않기
+            </button>
+          </div>
+
+          {/* 우측: 닫기 */}
           <button
             onClick={close}
-            className="flex-1 py-3.5 text-xs sm:text-sm font-medium text-snpe-dark hover:bg-snpe/10 border-l border-gray-100 transition-colors"
+            className="text-[11px] text-gray-300 hover:text-white transition-colors font-medium"
           >
-            닫기
+            닫기 ✕
           </button>
         </div>
       </div>

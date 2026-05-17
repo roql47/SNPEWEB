@@ -4,6 +4,23 @@ import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
 import { dataStore } from '../../lib/dataStore'
 import { BookOpen, Users, Target, Layers, Award, Sparkles, HeartPulse, Activity, Heart, Star, GraduationCap, Info } from 'lucide-react'
+import { sanitizeHtml } from '../../lib/sanitize'
+
+// HTML 렌더링용 유틸 — DB에 _html 필드가 있으면 우선 사용, 없으면 plain text를 줄바꿈만 적용
+function RichText({ html, fallback, className = '' }) {
+  if (html) {
+    return (
+      <div
+        className={`rt-content ${className}`}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(html) }}
+      />
+    )
+  }
+  if (fallback) {
+    return <div className={`whitespace-pre-line ${className}`}>{fallback}</div>
+  }
+  return null
+}
 
 const ICON_MAP = { Layers, BookOpen, Users, Target, Award, Sparkles, HeartPulse, Activity, Heart, Star, GraduationCap, Info }
 
@@ -165,9 +182,11 @@ function IntroSection({ sec }) {
     <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
       <div className={sec.layout && sec.layout !== 'text-only' ? '' : 'text-center'}>
         <h2 className="text-3xl font-bold text-gray-900 mb-6">{sec.title}</h2>
-        {sec.body && (
-          <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto whitespace-pre-line">{sec.body}</p>
-        )}
+        <RichText
+          html={sec.body_html}
+          fallback={sec.body}
+          className="text-gray-600 leading-relaxed max-w-3xl mx-auto"
+        />
       </div>
     </LayoutWrapper>
   )
@@ -230,7 +249,7 @@ function TargetSection({ sec }) {
     <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
       <div>
         <h3 className="text-2xl font-bold text-gray-900 mb-5">{sec.title}</h3>
-        {sec.intro && <p className="text-gray-600 mb-4">{sec.intro}</p>}
+        <RichText html={sec.intro_html} fallback={sec.intro} className="text-gray-600 mb-4" />
         <div className="bg-white border border-gray-200 rounded-2xl p-6">
           <ul className="space-y-2.5 text-sm md:text-base text-gray-700">
             {sec.items.map((line, i) => (
@@ -252,7 +271,7 @@ function RoadmapSection({ sec }) {
   return (
     <div>
       <h3 className="text-2xl font-bold text-gray-900 mb-5 text-center">{sec.title}</h3>
-      {sec.intro && <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">{sec.intro}</p>}
+      <RichText html={sec.intro_html} fallback={sec.intro} className="text-gray-600 text-center mb-8 max-w-2xl mx-auto" />
       <div className="grid gap-6" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
         {sec.items.map((r, i) => (
           <Link

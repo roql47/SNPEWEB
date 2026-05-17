@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Search } from 'lucide-react'
+import ImageUploader from '../../components/admin/ImageUploader'
 
 const categories = ['학술대회', '워크숍', '행사', '캠페인', '국제행사', '출강', '기타']
 const emptyForm = { title: '', date: new Date().toISOString().slice(0, 10), location: '', desc: '', category: '행사', imageUrl: '' }
@@ -125,13 +126,13 @@ export default function AdminActivities() {
                 <textarea value={form.desc} onChange={(e) => setForm({ ...form, desc: e.target.value })} rows={3} className="w-full px-3 py-2.5 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400 resize-none" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">사진 URL</label>
-                <input type="url" value={form.imageUrl} onChange={(e) => setForm({ ...form, imageUrl: e.target.value })} placeholder="https://... (외부 이미지 링크)" className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400" />
-                {form.imageUrl && (
-                  <div className="mt-2 rounded-lg overflow-hidden border border-gray-200">
-                    <img src={form.imageUrl} alt="미리보기" className="w-full h-32 object-cover" onError={(e) => { e.target.style.display = 'none' }} />
-                  </div>
-                )}
+                <label className="block text-sm font-medium text-gray-700 mb-1">사진</label>
+                <ImageUploader
+                  value={form.imageUrl}
+                  onChange={(url) => setForm({ ...form, imageUrl: url })}
+                  folder="activities"
+                  aspectRatio="16/9"
+                />
               </div>
             </div>
             <div className="flex justify-end gap-3 mt-6">

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, MapPin } from 'lucide-react'
+import ImageUploader from '../../components/admin/ImageUploader'
 
 const emptyForm = {
   name: '',
@@ -182,24 +183,13 @@ export default function AdminBranches() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">사진 URL</label>
-                <input
-                  type="url"
+                <label className="block text-sm font-medium text-gray-700 mb-1">사진</label>
+                <ImageUploader
                   value={form.image_url}
-                  onChange={f('image_url')}
-                  placeholder="https://... 또는 /images/center1.png"
-                  className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400"
+                  onChange={(url) => setForm({ ...form, image_url: url })}
+                  folder="branches"
+                  aspectRatio="16/10"
                 />
-                {form.image_url && (
-                  <div className="mt-2 rounded-lg overflow-hidden border border-gray-200 aspect-[16/10]">
-                    <img
-                      src={form.image_url}
-                      alt="미리보기"
-                      className="w-full h-full object-cover"
-                      onError={(e) => { e.currentTarget.style.display = 'none' }}
-                    />
-                  </div>
-                )}
               </div>
 
               <div>
