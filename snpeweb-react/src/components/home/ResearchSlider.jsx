@@ -19,10 +19,10 @@ export default function ResearchSlider() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[758fr_849fr] gap-8 lg:gap-[50px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-[50px]">
 
           {/* Left: Research card */}
-          <div>
+          <div className="flex flex-col">
             <p
               className="text-mint text-sm md:text-base font-semibold mb-4"
               style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}
@@ -31,7 +31,7 @@ export default function ResearchSlider() {
             </p>
             <Link
               to="/research"
-              className="group block bg-white rounded-[24px] md:rounded-[35px] p-6 md:p-10 h-[calc(100%-2rem)] transition-shadow hover:shadow-lg relative"
+              className="group flex-1 block bg-white rounded-[24px] md:rounded-[35px] p-6 md:p-10 transition-shadow hover:shadow-lg relative"
             >
               <div className="flex flex-col sm:flex-row gap-6 md:gap-10">
                 <div className="sm:w-[200px] md:w-[253px] shrink-0">
@@ -72,71 +72,47 @@ export default function ResearchSlider() {
             </Link>
           </div>
 
-          {/* Right: Press + Video (TODO #7: SNS 행은 푸터로 통합) */}
-          <div className="grid grid-cols-1 md:grid-cols-[496fr_325fr] gap-6 md:gap-[30px] auto-rows-min">
-
-            {/* Press */}
-            <div className="md:col-start-1 md:row-start-1">
-              <p
-                className="text-mint text-sm md:text-base font-semibold mb-4"
-                style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}
-              >
-                Press
-              </p>
-              <Link to="/news" className="block bg-white rounded-[14px] overflow-hidden">
-                <div className="aspect-[496/283] bg-white">
-                  <img
-                    src="/images/research/research-photo.png"
-                    alt="SNPE Press"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </Link>
-            </div>
-
-            {/* Video — SNPE 공식 유튜브 채널로 이동 (별도 운동영상 페이지 없음) */}
-            <div className="md:col-start-2 md:row-start-1">
-              <p
-                className="text-mint text-sm md:text-base font-semibold mb-4"
-                style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}
-              >
-                Video
-              </p>
-              <a
-                href="https://www.youtube.com/watch?v=LfWjDXopI4Y"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="SNPE Foot Balance 풋 밸런스 사용법 영상 (새 탭에서 열기)"
-                className="group block bg-white rounded-[14px] overflow-hidden"
-              >
-                <div className="aspect-[325/179] overflow-hidden relative">
-                  <img
-                    src="/images/research/research-video.png"
-                    alt="SNPE Foot Balance 풋 밸런스 사용법"
-                    className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                  />
-                  <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors">
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity w-14 h-14 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
-                      <Play size={22} className="text-[#ff3d00] ml-0.5" fill="#ff3d00" />
-                    </span>
+          {/* Right: Video */}
+          <div className="flex flex-col">
+            <p
+              className="text-mint text-sm md:text-base font-semibold mb-4"
+              style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}
+            >
+              Video
+            </p>
+            <a
+              href="https://www.youtube.com/watch?v=LfWjDXopI4Y"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="SNPE Foot Balance 풋 밸런스 사용법 영상 (새 탭에서 열기)"
+              className="group flex-1 block bg-white rounded-[24px] md:rounded-[35px] overflow-hidden transition-shadow hover:shadow-lg"
+            >
+              <div className="aspect-video overflow-hidden relative">
+                <img
+                  src="/images/research/research-video.png"
+                  alt="SNPE Foot Balance 풋 밸런스 사용법"
+                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                />
+                <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-lg">
+                    <Play size={26} className="text-[#ff3d00] ml-0.5" fill="#ff3d00" />
                   </span>
-                </div>
-                <div className="px-5 py-4 relative">
-                  <h4 className="text-[#454545] font-semibold text-sm md:text-base mb-1.5 tracking-tight pr-6">
-                    SNPE Foot Balance 풋 밸런스 사용법
-                  </h4>
-                  <p className="text-[#616161] text-xs leading-relaxed pr-6">
-                    발 균형을 바로잡는 가장 쉬운 시작
-                    <br />
-                    SNPE 풋 밸런스 사용법을 단계별로 알려드립니다
-                  </p>
-                  <span className="absolute right-5 bottom-4 w-6 h-6 rounded-full bg-mint-lighter flex items-center justify-center">
-                    <ArrowUpRight size={14} className="text-mint-darker" strokeWidth={2.5} />
-                  </span>
-                </div>
-              </a>
-            </div>
-
+                </span>
+              </div>
+              <div className="px-6 md:px-10 py-6 md:py-8 relative">
+                <h4 className="text-[#454545] font-semibold text-base md:text-lg mb-2 tracking-tight pr-8">
+                  SNPE Foot Balance 풋 밸런스 사용법
+                </h4>
+                <p className="text-[#616161] text-sm leading-relaxed pr-8">
+                  발 균형을 바로잡는 가장 쉬운 시작
+                  <br />
+                  SNPE 풋 밸런스 사용법을 단계별로 알려드립니다
+                </p>
+                <span className="absolute right-6 md:right-10 bottom-6 md:bottom-8 w-6 h-6 rounded-full bg-mint-lighter flex items-center justify-center">
+                  <ArrowUpRight size={14} className="text-mint-darker" strokeWidth={2.5} />
+                </span>
+              </div>
+            </a>
           </div>
 
         </div>

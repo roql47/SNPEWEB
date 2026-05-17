@@ -7,6 +7,57 @@ const toActivityRow = (obj) => { const { desc, ...rest } = obj; return { ...rest
 const toResearchRow = (obj) => { const { desc, ...rest } = obj; return { ...rest, description: desc ?? '' } }
 
 export const dataStore = {
+  // ── Storage (이미지 업로드) ──────────────────────────────────────────────
+  // 사용 전 Supabase Storage에 'page-images' 버킷 생성 + public 정책 필요
+  uploadImage: async (file, folder = 'degree') => {
+    const ext = file.name.split('.').pop()
+    const filename = `${folder}/${Date.now()}_${Math.random().toString(36).slice(2, 8)}.${ext}`
+    const { error } = await supabase.storage
+      .from('page-images')
+      .upload(filename, file, { upsert: false, cacheControl: '3600' })
+    if (error) throw error
+    const { data } = supabase.storage.from('page-images').getPublicUrl(filename)
+    return data.publicUrl
+  },
+
+  // ── Page Contents (페이지별 JSONB CMS) ──────────────────────────────────
+  getPageContent: async (slug) => {
+    const { data } = await supabase
+      .from('page_contents')
+      .select('content')
+      .eq('slug', slug)
+      .maybeSingle()
+    return data?.content || null
+  },
+  updatePageContent: async (slug, content) => {
+    const { data } = await supabase
+      .from('page_contents')
+      .upsert(
+        { slug, content, updated_at: new Date().toISOString() },
+        { onConflict: 'slug' }
+      )
+      .select()
+      .single()
+    return data
+  },
+
+  // ── Branches (메인 홈 직영점) ─────────────────────────────────────────────
+  getBranches: async () => {
+    const { data } = await supabase.from('branches').select('*').order('sort_order').order('created_at')
+    return data || []
+  },
+  addBranch: async (branch) => {
+    const { data } = await supabase.from('branches').insert([branch]).select().single()
+    return data
+  },
+  updateBranch: async (id, updates) => {
+    const { data } = await supabase.from('branches').update(updates).eq('id', id).select().single()
+    return data
+  },
+  deleteBranch: async (id) => {
+    await supabase.from('branches').delete().eq('id', id)
+  },
+
   // ── Centers ─────────────────────────────────────────────────────────────
   getCenters: async () => {
     const { data } = await supabase.from('centers').select('*').order('name')
@@ -64,6 +115,19 @@ export const dataStore = {
   },
   deleteNotice: async (id) => {
     await supabase.from('notices').delete().eq('id', id)
+  },
+  // 메인 홈 팝업 노출용: popup_active=true 이고 오늘이 노출 기간 내인 공지만 반환
+  getActivePopupNotices: async () => {
+    const today = new Date().toISOString().slice(0, 10)
+    const { data } = await supabase
+      .from('notices')
+      .select('*')
+      .eq('popup_active', true)
+      .or(`popup_start_date.is.null,popup_start_date.lte.${today}`)
+      .or(`popup_end_date.is.null,popup_end_date.gte.${today}`)
+      .order('pinned', { ascending: false })
+      .order('date', { ascending: false })
+    return data || []
   },
 
   // ── News ─────────────────────────────────────────────────────────────────

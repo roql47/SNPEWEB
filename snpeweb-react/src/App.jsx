@@ -45,6 +45,7 @@ import MyPage from './pages/auth/MyPage'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminLayout from './pages/admin/AdminLayout'
 import AdminDashboard from './pages/admin/AdminDashboard'
+import AdminBranches from './pages/admin/AdminBranches'
 import AdminCenters from './pages/admin/AdminCenters'
 import AdminStudios from './pages/admin/AdminStudios'
 import AdminNotices from './pages/admin/AdminNotices'
@@ -55,6 +56,7 @@ import AdminExperienceCases from './pages/admin/AdminExperienceCases'
 import AdminResearch from './pages/admin/AdminResearch'
 import AdminFaqs from './pages/admin/AdminFaqs'
 import AdminEducations from './pages/admin/AdminEducations'
+import AdminDegreePage from './pages/admin/AdminDegreePage'
 import AdminInquiries from './pages/admin/AdminInquiries'
 
 export default function App() {
@@ -103,6 +105,7 @@ export default function App() {
       <Route path="admin/login" element={<AdminLogin />} />
       <Route path="admin" element={<AdminLayout />}>
         <Route index element={<AdminDashboard />} />
+        <Route path="branches" element={<AdminBranches />} />
         <Route path="centers" element={<AdminCenters />} />
         <Route path="studios" element={<AdminStudios />} />
         <Route path="notices" element={<AdminNotices />} />
@@ -113,6 +116,7 @@ export default function App() {
         <Route path="research" element={<AdminResearch />} />
         <Route path="faqs" element={<AdminFaqs />} />
         <Route path="educations" element={<AdminEducations />} />
+        <Route path="degree-page" element={<AdminDegreePage />} />
         <Route path="inquiries" element={<AdminInquiries />} />
       </Route>
     </Routes>

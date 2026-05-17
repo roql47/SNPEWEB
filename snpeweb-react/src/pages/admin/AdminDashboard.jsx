@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { dataStore } from '../../lib/dataStore'
-import { MapPin, Building2, Bell, Newspaper, CalendarDays, RefreshCw, UserCheck, GraduationCap, HelpCircle, Inbox } from 'lucide-react'
+import { MapPin, Building2, Bell, Newspaper, CalendarDays, RefreshCw, UserCheck, GraduationCap, HelpCircle, Inbox, Store } from 'lucide-react'
 
 export default function AdminDashboard() {
+  const [branches, setBranches] = useState([])
   const [centers, setCenters] = useState([])
   const [studios, setStudios] = useState([])
   const [notices, setNotices] = useState([])
@@ -16,6 +17,7 @@ export default function AdminDashboard() {
   const [franchiseInquiries, setFranchiseInquiries] = useState([])
 
   useEffect(() => {
+    dataStore.getBranches().then(setBranches).catch(() => setBranches([]))
     dataStore.getCenters().then(setCenters)
     dataStore.getStudios().then(setStudios)
     dataStore.getNotices().then(setNotices)
@@ -39,6 +41,7 @@ export default function AdminDashboard() {
       to: '/admin/inquiries',
       color: 'bg-orange-500',
     },
+    { label: '직영점', count: branches.length, icon: Store, to: '/admin/branches', color: 'bg-teal-500' },
     { label: '전문센터', count: centers.length, icon: MapPin, to: '/admin/centers', color: 'bg-blue-500' },
     { label: 'SNPE STUDIO', count: studios.length, icon: Building2, to: '/admin/studios', color: 'bg-purple-500' },
     { label: '인증강사', count: teachers.length, icon: UserCheck, to: '/admin/cert-teachers', color: 'bg-indigo-500' },

@@ -25,8 +25,8 @@ export default function Header() {
 
   const currentLang = LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0]
   const isHome = location.pathname === '/'
-  // 홈 히어로 위에서만 강한 투명 오버레이 모드 (hero 비디오가 navbar 뒤로 비치도록)
-  const heroOverlay = isHome && !scrolled
+  // 모든 페이지 상단(스크롤 전)에서 투명 오버레이 — 배너/히어로 이미지가 헤더 뒤로 비치도록
+  const heroOverlay = !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)

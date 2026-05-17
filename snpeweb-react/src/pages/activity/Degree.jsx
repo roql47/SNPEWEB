@@ -1,186 +1,369 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
-import { BookOpen, Users, Target, Layers } from 'lucide-react'
+import { dataStore } from '../../lib/dataStore'
+import { BookOpen, Users, Target, Layers, Award, Sparkles, HeartPulse, Activity, Heart, Star, GraduationCap, Info } from 'lucide-react'
 
-const features = [
-  { title: '체계적인 단계별 교육 시스템', desc: 'LEVEL 1부터 LEVEL 3까지 단계적으로 구성되어 운동 이해부터 지도 역량까지 체계적으로 학습할 수 있습니다.', icon: Layers },
-  { title: '이론과 실습이 결합된 교육', desc: '신체 구조와 운동 원리를 이론으로 이해하고 실제 동작 실습을 통해 몸의 변화를 경험하며 학습합니다.', icon: BookOpen },
-  { title: '티칭 중심 지도자 교육', desc: 'LEVEL 2부터는 실제 지도 상황을 중심으로 티칭 방법을 배우며 지도자로서 필요한 교육 역량을 강화합니다.', icon: Users },
-  { title: '현장에서 활용 가능한 실전 교육', desc: '센터 수업, 그룹 수업, 개인 지도 등 실제 현장에서 활용할 수 있는 운동 지도 방법을 중심으로 교육이 진행됩니다.', icon: Target },
-]
+const ICON_MAP = { Layers, BookOpen, Users, Target, Award, Sparkles, HeartPulse, Activity, Heart, Star, GraduationCap, Info }
 
-const roadmap = [
-  { level: 'LEVEL 1', name: 'SNPE 기초 수료 과정', desc: '운동 원리 및 기본 동작 이해', path: '/level1' },
-  { level: 'LEVEL 2', name: 'SNPE 지도자 자격 과정', desc: '티칭 중심 지도자 교육', path: '/level2' },
-  { level: 'LEVEL 3', name: 'SNPE 전문가 과정', desc: '지도 역량 심화 교육', path: '/level3' },
-]
+const STATUS_LABEL = {
+  open: { text: '모집중', cls: 'bg-green-50 text-green-700' },
+  closing: { text: '마감 임박', cls: 'bg-amber-50 text-amber-700' },
+  closed: { text: '모집 마감', cls: 'bg-gray-100 text-gray-600' },
+  done: { text: '종료', cls: 'bg-gray-100 text-gray-500' },
+}
 
-const scheduleRows = [
-  { course: 'LEVEL 1', period: '2026.00.00 ~ 2026.00.00', days: '주 2회', status: '모집중', action: '신청하기' },
-  { course: 'LEVEL 2', period: '2026.00.00 ~ 2026.00.00', days: '주 1회', status: '모집예정', action: '준비중' },
-  { course: 'LEVEL 3', period: '2026.00.00 ~ 2026.00.00', days: '주 1회', status: '모집중', action: '신청하기' },
-]
+const DEFAULT_ORDER = ['intro', 'philosophy', 'features', 'target', 'roadmap', 'schedule', 'career', 'contact']
+
+const fmtPeriod = (start, end) => {
+  if (!start && !end) return '-'
+  const f = (d) => (d ? d.replace(/-/g, '.') : '')
+  if (start && end) return `${f(start)} ~ ${f(end)}`
+  return f(start || end)
+}
 
 export default function Degree() {
   const { t } = useTranslation()
+  const [content, setContent] = useState(null)
+  const [educations, setEducations] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const [pageContent, eduRows] = await Promise.all([
+          dataStore.getPageContent('degree').catch(() => null),
+          dataStore.getEducations().catch(() => []),
+        ])
+        setContent(pageContent)
+        setEducations(eduRows || [])
+      } catch (e) {
+        console.warn('[Degree] load failed:', e)
+      } finally {
+        setLoading(false)
+      }
+    }
+    load()
+  }, [])
+
+  if (loading) {
+    return (
+      <>
+        <PageBanner title={t('pages.degree')} subtitle={t('pages.degreeSub')} />
+        <div className="py-24 flex items-center justify-center">
+          <div className="animate-spin w-8 h-8 border-2 border-gray-300 border-t-gray-900 rounded-full" />
+        </div>
+      </>
+    )
+  }
+
+  if (!content) {
+    return (
+      <>
+        <PageBanner title={t('pages.degree')} subtitle={t('pages.degreeSub')} />
+        <div className="max-w-3xl mx-auto px-4 py-24 text-center">
+          <p className="text-gray-500">콘텐츠를 불러올 수 없습니다.</p>
+        </div>
+      </>
+    )
+  }
+
+  const order = content._sectionOrder || DEFAULT_ORDER
+  const eduByCategory = ['level1', 'level2', 'level3']
+    .map((cat) => {
+      const rows = educations.filter((r) => r.category === cat)
+      if (rows.length === 0) return null
+      const sorted = [...rows].sort((a, b) => (b.start_date || '').localeCompare(a.start_date || ''))
+      return { ...sorted[0], _label: cat.toUpperCase().replace('LEVEL', 'LEVEL ') }
+    })
+    .filter(Boolean)
 
   return (
     <>
-      <PageBanner
-        title={t('pages.degree')}
-        subtitle={t('pages.degreeSub')}
-      />
+      <PageBanner title={t('pages.degree')} subtitle={t('pages.degreeSub')} />
 
       <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-4 space-y-20">
+          {order.map((key) => {
+            const sec = content[key]
+            if (!sec || sec.hidden) return null
 
-          {/* Intro */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">SNPE 교육 소개</h2>
-            <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              SNPE 교육은 신체의 구조적 균형을 이해하고 올바른 움직임을 통해 건강한 몸을 만들어가는 교육 프로그램입니다.
-              <br />
-              단순한 운동 방법을 배우는 것을 넘어, 신체 구조와 움직임의 원리를 이해하고 스스로 몸을 관리할 수 있도록 돕는 것을 목표로 합니다.
-            </p>
-          </div>
-
-          {/* Philosophy */}
-          <div className="bg-gray-50 rounded-3xl p-8 md:p-10">
-            <h3 className="text-2xl font-bold text-gray-900 mb-5">SNPE 교육 철학</h3>
-            <ul className="space-y-3 text-gray-700 leading-relaxed text-sm md:text-base">
-              <li className="flex items-start gap-2.5"><span className="mt-1.5 w-2 h-2 rounded-full bg-snpe-dark flex-shrink-0" />신체의 구조적 균형을 회복하고 건강한 움직임을 통해 몸을 관리할 수 있도록 돕는 것을 목표로 합니다.</li>
-              <li className="flex items-start gap-2.5"><span className="mt-1.5 w-2 h-2 rounded-full bg-snpe-dark flex-shrink-0" />올바른 자세 인식과 신체 사용 방법을 이해하고 실천할 수 있도록 이론과 실습을 함께 교육합니다.</li>
-              <li className="flex items-start gap-2.5"><span className="mt-1.5 w-2 h-2 rounded-full bg-snpe-dark flex-shrink-0" />예방 중심의 건강관리 철학을 바탕으로 지속 가능한 신체 관리 방법을 제시합니다.</li>
-            </ul>
-          </div>
-
-          {/* Features */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">SNPE 교육 특징</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {features.map((f) => (
-                <div key={f.title} className="flex gap-4 p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center flex-shrink-0">
-                    <f.icon size={22} />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-1">{f.title}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Target */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-5">SNPE 교육 대상</h3>
-            <p className="text-gray-600 mb-4">SNPE 교육은 운동을 체계적으로 배우고 싶은 분부터 전문 지도자를 목표로 하는 분까지 다양한 분들이 참여할 수 있습니다.</p>
-            <div className="bg-white border border-gray-200 rounded-2xl p-6">
-              <ul className="space-y-2.5 text-sm md:text-base text-gray-700">
-                {[
-                  'SNPE 운동을 체계적으로 배우고 싶은 분',
-                  '자신의 자세와 신체 균형을 이해하고 관리하고 싶은 분',
-                  '건강 관리 및 운동 분야에 관심이 있는 분',
-                  '운동 지도자로 활동하고 싶은 분',
-                  '기존 운동 지도 경험에 전문성을 더하고 싶은 분',
-                ].map((line) => (
-                  <li key={line} className="flex items-start gap-2.5">
-                    <span className="text-snpe-dark mt-0.5">✓</span>
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Roadmap */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-5 text-center">SNPE 교육 구조</h3>
-            <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
-              LEVEL 1 → LEVEL 2 → LEVEL 3 순으로 교육이 진행되며, 운동의 이해부터 지도 역량까지 단계적으로 학습할 수 있도록 설계되어 있습니다.
-            </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {roadmap.map((r, i) => (
-                <Link
-                  key={r.level}
-                  to={r.path}
-                  className="relative bg-white border border-gray-200 rounded-2xl p-6 hover:border-snpe-dark hover:shadow-lg transition-all group"
-                >
-                  <span className="text-xs font-bold text-snpe-dark">{r.level}</span>
-                  <h4 className="text-lg font-bold text-gray-900 mt-2 mb-2 group-hover:text-snpe-dark transition-colors">{r.name}</h4>
-                  <p className="text-sm text-gray-500">{r.desc}</p>
-                  {i < roadmap.length - 1 && (
-                    <span className="hidden md:block absolute top-1/2 -right-4 text-gray-300 text-xl">→</span>
-                  )}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Schedule */}
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-5">교육 일정 및 신청</h3>
-            <p className="text-sm text-gray-500 mb-4">교육 일정은 운영 상황에 따라 변경될 수 있습니다.</p>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm border-collapse">
-                <thead>
-                  <tr className="bg-gray-50 text-gray-700">
-                    <th className="text-left px-4 py-3 font-semibold rounded-tl-xl">과정</th>
-                    <th className="text-left px-4 py-3 font-semibold">교육 기간</th>
-                    <th className="text-left px-4 py-3 font-semibold">교육 요일</th>
-                    <th className="text-center px-4 py-3 font-semibold">모집 상태</th>
-                    <th className="text-center px-4 py-3 font-semibold rounded-tr-xl">신청</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {scheduleRows.map((r) => (
-                    <tr key={r.course} className="border-b border-gray-100 last:border-0">
-                      <td className="px-4 py-3.5 font-medium text-gray-900">{r.course}</td>
-                      <td className="px-4 py-3.5 text-gray-600">{r.period}</td>
-                      <td className="px-4 py-3.5 text-gray-600">{r.days}</td>
-                      <td className="px-4 py-3.5 text-center">
-                        <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${r.status === '모집중' ? 'bg-green-50 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
-                          {r.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3.5 text-center">
-                        <span className={`text-xs font-medium ${r.action === '신청하기' ? 'text-snpe-dark underline cursor-pointer' : 'text-gray-400'}`}>
-                          {r.action}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Career & Contact */}
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-2xl p-6 md:p-8">
-              <h4 className="font-bold text-gray-900 mb-3">교육 후 진로</h4>
-              <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
-                <li>• SNPE 센터 강의, 그룹 운동 지도, 개인 운동 지도 등 다양한 형태로 활동 가능</li>
-                <li>• SNPE 운동을 기반으로 건강 관리와 운동 교육 분야 전문성 확장</li>
-                <li>• 지속적인 교육과 경험을 통해 전문 지도자로 성장</li>
-              </ul>
-            </div>
-            <div className="bg-snpe-dark/10 rounded-2xl p-6 md:p-8">
-              <h4 className="font-bold text-gray-900 mb-3">문의 안내</h4>
-              <p className="text-sm text-gray-600 mb-3">교육 과정 관련 문의는 아래 채널을 통해 가능합니다.</p>
-              <ul className="space-y-1.5 text-sm text-gray-700">
-                <li>• 교육 운영팀 문의</li>
-                <li>• 이메일 : <a href="mailto:contact@mycuring.com" className="text-snpe-dark underline">contact@mycuring.com</a></li>
-                <li>• 전화 : 02-539-2925</li>
-                <li className="text-gray-500 pt-1">상담 가능 시간 : 평일 10:00 ~ 16:00</li>
-              </ul>
-            </div>
-          </div>
-
+            switch (key) {
+              case 'intro':
+                return <IntroSection key={key} sec={sec} />
+              case 'philosophy':
+                return <PhilosophySection key={key} sec={sec} />
+              case 'features':
+                return <FeaturesSection key={key} sec={sec} />
+              case 'target':
+                return <TargetSection key={key} sec={sec} />
+              case 'roadmap':
+                return <RoadmapSection key={key} sec={sec} />
+              case 'schedule':
+                return <ScheduleSection key={key} eduByCategory={eduByCategory} />
+              case 'career':
+                return <CareerSection key={key} sec={sec} />
+              case 'contact':
+                return <ContactSection key={key} sec={sec} />
+              default:
+                return null
+            }
+          })}
         </div>
       </section>
     </>
+  )
+}
+
+// ─── LayoutWrapper: 텍스트 + 이미지 좌우/상하 배치 ──────────────────────
+
+function LayoutWrapper({ children, image, layout = 'text-only', ratio = 50, alt = '' }) {
+  if (!image || layout === 'text-only') return <>{children}</>
+
+  if (layout === 'image-top' || layout === 'image-bottom') {
+    const img = (
+      <div className="rounded-2xl overflow-hidden bg-gray-100">
+        <img src={image} alt={alt} className="w-full h-auto object-cover" />
+      </div>
+    )
+    return (
+      <div className="space-y-8">
+        {layout === 'image-top' && img}
+        <div>{children}</div>
+        {layout === 'image-bottom' && img}
+      </div>
+    )
+  }
+
+  // image-left / image-right
+  const r = Math.max(20, Math.min(70, ratio || 50))
+  const imgCol = `${r}fr`
+  const textCol = `${100 - r}fr`
+  const gridStyle = layout === 'image-left'
+    ? { gridTemplateColumns: `${imgCol} ${textCol}` }
+    : { gridTemplateColumns: `${textCol} ${imgCol}` }
+
+  const imgEl = (
+    <div className="rounded-2xl overflow-hidden bg-gray-100 self-center">
+      <img src={image} alt={alt} className="w-full h-auto object-cover" />
+    </div>
+  )
+  return (
+    <div className="grid lg:gap-10 gap-6 grid-cols-1 lg:grid-cols-[var(--g)] items-center" style={{ ['--g']: gridStyle.gridTemplateColumns }}>
+      {layout === 'image-left' && imgEl}
+      <div className="min-w-0">{children}</div>
+      {layout === 'image-right' && imgEl}
+    </div>
+  )
+}
+
+// ─── 섹션 컴포넌트 ──────────────────────────────────────────────────────
+
+function IntroSection({ sec }) {
+  return (
+    <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
+      <div className={sec.layout && sec.layout !== 'text-only' ? '' : 'text-center'}>
+        <h2 className="text-3xl font-bold text-gray-900 mb-6">{sec.title}</h2>
+        {sec.body && (
+          <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto whitespace-pre-line">{sec.body}</p>
+        )}
+      </div>
+    </LayoutWrapper>
+  )
+}
+
+function PhilosophySection({ sec }) {
+  if (!sec.items?.length) return null
+  return (
+    <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
+      <div className="bg-gray-50 rounded-3xl p-8 md:p-10 h-full">
+        <h3 className="text-2xl font-bold text-gray-900 mb-5">{sec.title}</h3>
+        <ul className="space-y-3 text-gray-700 leading-relaxed text-sm md:text-base">
+          {sec.items.map((line, i) => (
+            <li key={i} className="flex items-start gap-2.5">
+              <span className="mt-1.5 w-2 h-2 rounded-full bg-snpe-dark flex-shrink-0" />
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </LayoutWrapper>
+  )
+}
+
+function FeaturesSection({ sec }) {
+  if (!sec.items?.length) return null
+  return (
+    <div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">{sec.title}</h3>
+      <div className="grid md:grid-cols-2 gap-6">
+        {sec.items.map((f, i) => {
+          const Icon = ICON_MAP[f.icon] || Layers
+          return (
+            <div key={i} className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
+              {f.image_url && (
+                <div className="aspect-video bg-gray-100 overflow-hidden">
+                  <img src={f.image_url} alt={f.title} className="w-full h-full object-cover" />
+                </div>
+              )}
+              <div className="flex gap-4 p-6">
+                <div className="w-12 h-12 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center flex-shrink-0">
+                  <Icon size={22} />
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 mb-1">{f.title}</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">{f.desc}</p>
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+function TargetSection({ sec }) {
+  if (!sec.items?.length) return null
+  return (
+    <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
+      <div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-5">{sec.title}</h3>
+        {sec.intro && <p className="text-gray-600 mb-4">{sec.intro}</p>}
+        <div className="bg-white border border-gray-200 rounded-2xl p-6">
+          <ul className="space-y-2.5 text-sm md:text-base text-gray-700">
+            {sec.items.map((line, i) => (
+              <li key={i} className="flex items-start gap-2.5">
+                <span className="text-snpe-dark mt-0.5">✓</span>
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </LayoutWrapper>
+  )
+}
+
+function RoadmapSection({ sec }) {
+  if (!sec.items?.length) return null
+  const cols = sec.items.length
+  return (
+    <div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-5 text-center">{sec.title}</h3>
+      {sec.intro && <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">{sec.intro}</p>}
+      <div className="grid gap-6" style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+        {sec.items.map((r, i) => (
+          <Link
+            key={i}
+            to={r.path || '#'}
+            className="relative bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-snpe-dark hover:shadow-lg transition-all group"
+          >
+            {r.image_url && (
+              <div className="aspect-[16/10] bg-gray-100 overflow-hidden">
+                <img src={r.image_url} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+            )}
+            <div className="p-6">
+              <span className="text-xs font-bold text-snpe-dark">{r.level}</span>
+              <h4 className="text-lg font-bold text-gray-900 mt-2 mb-2 group-hover:text-snpe-dark transition-colors">{r.name}</h4>
+              <p className="text-sm text-gray-500">{r.desc}</p>
+            </div>
+            {i < cols - 1 && !r.image_url && (
+              <span className="hidden md:block absolute top-1/2 -right-4 text-gray-300 text-xl">→</span>
+            )}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function ScheduleSection({ eduByCategory }) {
+  return (
+    <div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-5">교육 일정 및 신청</h3>
+      <p className="text-sm text-gray-500 mb-4">교육 일정은 운영 상황에 따라 변경될 수 있습니다.</p>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr className="bg-gray-50 text-gray-700">
+              <th className="text-left px-4 py-3 font-semibold rounded-tl-xl">과정</th>
+              <th className="text-left px-4 py-3 font-semibold">교육 기간</th>
+              <th className="text-left px-4 py-3 font-semibold">장소</th>
+              <th className="text-center px-4 py-3 font-semibold">모집 상태</th>
+              <th className="text-center px-4 py-3 font-semibold rounded-tr-xl">신청</th>
+            </tr>
+          </thead>
+          <tbody>
+            {eduByCategory.length > 0 ? (
+              eduByCategory.map((r) => {
+                const st = STATUS_LABEL[r.status] || STATUS_LABEL.open
+                const canApply = r.status === 'open' || r.status === 'closing'
+                return (
+                  <tr key={r.id} className="border-b border-gray-100 last:border-0">
+                    <td className="px-4 py-3.5 font-medium text-gray-900">{r._label}</td>
+                    <td className="px-4 py-3.5 text-gray-600">{fmtPeriod(r.start_date, r.end_date)}</td>
+                    <td className="px-4 py-3.5 text-gray-600">{r.location || '-'}</td>
+                    <td className="px-4 py-3.5 text-center">
+                      <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${st.cls}`}>{st.text}</span>
+                    </td>
+                    <td className="px-4 py-3.5 text-center">
+                      {canApply && r.apply_url ? (
+                        <a href={r.apply_url} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-snpe-dark underline">
+                          신청하기
+                        </a>
+                      ) : (
+                        <span className="text-xs font-medium text-gray-400">준비중</span>
+                      )}
+                    </td>
+                  </tr>
+                )
+              })
+            ) : (
+              <tr>
+                <td colSpan={5} className="px-4 py-12 text-center text-gray-400 text-sm">등록된 교육 일정이 없습니다.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
+function CareerSection({ sec }) {
+  if (!sec.items?.length) return null
+  return (
+    <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
+      <div className="bg-gray-50 rounded-2xl p-6 md:p-8 h-full">
+        <h4 className="font-bold text-gray-900 mb-3">{sec.title}</h4>
+        <ul className="space-y-2 text-sm text-gray-600 leading-relaxed">
+          {sec.items.map((line, i) => (
+            <li key={i}>• {line}</li>
+          ))}
+        </ul>
+      </div>
+    </LayoutWrapper>
+  )
+}
+
+function ContactSection({ sec }) {
+  return (
+    <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
+      <div className="bg-snpe-dark/10 rounded-2xl p-6 md:p-8 h-full">
+        <h4 className="font-bold text-gray-900 mb-3">{sec.title}</h4>
+        {sec.intro && <p className="text-sm text-gray-600 mb-3">{sec.intro}</p>}
+        <ul className="space-y-1.5 text-sm text-gray-700">
+          {sec.team && <li>• {sec.team}</li>}
+          {sec.email && (
+            <li>• 이메일 : <a href={`mailto:${sec.email}`} className="text-snpe-dark underline">{sec.email}</a></li>
+          )}
+          {sec.phone && <li>• 전화 : {sec.phone}</li>}
+          {sec.hours && <li className="text-gray-500 pt-1">상담 가능 시간 : {sec.hours}</li>}
+        </ul>
+      </div>
+    </LayoutWrapper>
   )
 }

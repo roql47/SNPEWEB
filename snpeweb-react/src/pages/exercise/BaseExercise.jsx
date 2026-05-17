@@ -47,20 +47,20 @@ const moveExercises = [
     image: '/images/C-move.png',
   },
   {
-    code: 'L-MOVE',
-    title: 'Lumbar Movement',
-    titleKo: '요추',
-    desc: '요추(허리뼈) 부위의 정상적인 커브 회복',
-    tags: ['요추', '일자허리', '허리 통증'],
-    image: '/images/L-move.png',
-  },
-  {
     code: 'T-MOVE',
     title: 'Thoracic Movement',
     titleKo: '흉추',
     desc: '흉추(등뼈) 부위의 움직임 개선',
     tags: ['어깨 통증', '척추측만증', '등 통증'],
     image: '/images/T-move.png',
+  },
+  {
+    code: 'L-MOVE',
+    title: 'Lumbar Movement',
+    titleKo: '요추',
+    desc: '요추(허리뼈) 부위의 정상적인 커브 회복',
+    tags: ['요추', '일자허리', '허리 통증'],
+    image: '/images/L-move.png',
   },
   {
     code: 'SC-MOVE',

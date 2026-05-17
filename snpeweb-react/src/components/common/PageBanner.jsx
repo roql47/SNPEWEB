@@ -49,24 +49,31 @@ export default function PageBanner({ title, subtitle, backgroundImage }) {
   const resolvedBg = backgroundImage || (category ? CATEGORY_BANNERS[category] : null)
 
   const bgStyle = resolvedBg
-    ? { backgroundImage: `url(${resolvedBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+    ? { backgroundImage: `url(${resolvedBg})`, backgroundSize: 'cover', backgroundPosition: 'center top' }
     : {}
 
   return (
-    <>
-      <section
-        className={`text-white relative flex items-center justify-center w-full min-h-[220px] md:min-h-0 md:aspect-[1920/480] md:max-h-[560px] ${!resolvedBg ? 'bg-gradient-to-br from-snpe-darker to-snpe-dark' : ''}`}
-        style={bgStyle}
-      >
-        {resolvedBg && <div className="absolute inset-0 bg-black/40" />}
-        <div className="max-w-[1440px] mx-auto px-4 text-center relative z-10 py-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">{title}</h1>
+    <div
+      className={`relative -mt-16 lg:-mt-[120px] overflow-hidden ${!resolvedBg ? 'bg-gradient-to-br from-snpe-darker to-snpe-dark' : ''}`}
+      style={bgStyle}
+    >
+      {/* 어두운 오버레이 */}
+      {resolvedBg && <div className="absolute inset-0 bg-black/45" />}
+
+      {/* 타이틀 콘텐츠 */}
+      <section className="relative z-10 text-white flex items-center justify-center w-full min-h-[420px] md:min-h-[500px] lg:min-h-[560px]">
+        <div className="max-w-[1440px] w-full mx-auto px-4 text-center pt-28 md:pt-36 lg:pt-44 pb-12 md:pb-16">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg mb-3">{title}</h1>
           {subtitle && (
-            <p className="text-white/80 text-base md:text-lg max-w-2xl mx-auto">{subtitle}</p>
+            <p className="text-white/85 text-base md:text-lg max-w-2xl mx-auto drop-shadow-md">{subtitle}</p>
           )}
         </div>
       </section>
-      <CategoryTabBar />
-    </>
+
+      {/* CategoryTabBar — 배너 이미지 위에 올라타도록 내부에 배치 */}
+      <div className="relative z-20">
+        <CategoryTabBar bannerMode />
+      </div>
+    </div>
   )
 }
