@@ -30,6 +30,22 @@ export default function CategoryTabBar({ bannerMode = false }) {
   if (!group || !group.children || currentPath === '/') return null
 
   const isOverlay = bannerMode && !stuck
+  // 교육과정 카테고리일 때 민트 색상 사용
+  const isEducation = group?.titleKey === 'nav.education'
+
+  // 원래 민트(청록) hex — CSS 변수는 브라운으로 변경됐으므로 직접 지정
+  const mintColor = '#72D4B4'
+
+  const activeClass = isOverlay
+    ? 'border-white text-white'
+    : 'border-snpe-dark text-snpe-dark'
+
+  const inactiveClass = isOverlay
+    ? 'border-transparent text-white/75 hover:text-white hover:border-white/50'
+    : 'border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-300'
+
+  const activeStyle = isEducation && !isOverlay ? { borderColor: mintColor, color: mintColor } : {}
+  const inactiveStyle = isEducation && !isOverlay ? {} : {}
 
   return (
     <div
@@ -49,14 +65,9 @@ export default function CategoryTabBar({ bannerMode = false }) {
                 key={child.path}
                 to={child.path}
                 className={`flex-shrink-0 px-5 py-3.5 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
-                  isActive
-                    ? isOverlay
-                      ? 'border-white text-white'
-                      : 'border-snpe-dark text-snpe-dark'
-                    : isOverlay
-                      ? 'border-transparent text-white/75 hover:text-white hover:border-white/50'
-                      : 'border-transparent text-gray-500 hover:text-gray-900 hover:border-gray-300'
+                  isActive ? activeClass : inactiveClass
                 }`}
+                style={isActive ? activeStyle : {}}
               >
                 {t(child.titleKey)}
               </Link>

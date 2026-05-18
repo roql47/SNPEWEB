@@ -65,7 +65,7 @@ export default function PageBanner({ title, subtitle, backgroundImage }) {
         <div className="max-w-[1440px] w-full mx-auto px-4 text-center pt-28 md:pt-36 lg:pt-44 pb-12 md:pb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg mb-3">{title}</h1>
           {subtitle && (
-            <p className="text-white/85 text-base md:text-lg max-w-2xl mx-auto drop-shadow-md">{subtitle}</p>
+            <p className="text-white/85 text-base md:text-lg max-w-2xl mx-auto drop-shadow-md whitespace-pre-line">{subtitle}</p>
           )}
         </div>
       </section>

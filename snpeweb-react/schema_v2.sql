@@ -100,6 +100,11 @@ alter table public.notices
   add column if not exists popup_start_date date,
   add column if not exists popup_end_date   date;
 
+-- ── 체험사례 상세 콘텐츠 컬럼 추가 ──
+alter table public.experience_cases
+  add column if not exists detail text,
+  add column if not exists image_url text;
+
 -- ── Supabase Storage 버킷 생성 (이미지 업로드용) ──
 -- 한 번만 실행. 이미 존재하면 무시됨.
 insert into storage.buckets (id, name, public)

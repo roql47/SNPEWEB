@@ -153,7 +153,14 @@ export default function Header() {
                 >
                   <Link
                     to={item.path}
-                    className="px-5 xl:px-7 h-full flex items-center text-[15px] font-medium tracking-tight text-gray-700 hover:text-snpe-dark transition-colors"
+                    className="px-5 xl:px-7 h-full flex items-center text-[15px] font-medium tracking-tight transition-colors"
+                    style={
+                      item.titleKey === 'nav.education'
+                        ? { color: '#72D4B4' }
+                        : heroOverlay
+                          ? { color: 'rgba(255,255,255,0.9)' }
+                          : { color: '#374151' }
+                    }
                   >
                     {label}
                   </Link>

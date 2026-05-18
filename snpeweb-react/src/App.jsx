@@ -57,6 +57,7 @@ import AdminResearch from './pages/admin/AdminResearch'
 import AdminFaqs from './pages/admin/AdminFaqs'
 import AdminEducations from './pages/admin/AdminEducations'
 import AdminDegreePage from './pages/admin/AdminDegreePage'
+import AdminLevelPage from './pages/admin/AdminLevelPage'
 import AdminInquiries from './pages/admin/AdminInquiries'
 
 export default function App() {
@@ -117,6 +118,7 @@ export default function App() {
         <Route path="faqs" element={<AdminFaqs />} />
         <Route path="educations" element={<AdminEducations />} />
         <Route path="degree-page" element={<AdminDegreePage />} />
+        <Route path="level-pages" element={<AdminLevelPage />} />
         <Route path="inquiries" element={<AdminInquiries />} />
       </Route>
     </Routes>

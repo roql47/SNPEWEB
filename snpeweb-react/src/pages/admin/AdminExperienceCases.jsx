@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X } from 'lucide-react'
+import ImageUploader from '../../components/admin/ImageUploader'
+import RichTextEditor from '../../components/admin/RichTextEditor'
 
-const emptyForm = { name: '', age: '', issue: '', period: '', content: '' }
+const emptyForm = { name: '', age: '', issue: '', period: '', content: '', detail: '', image_url: '' }
 
 export default function AdminExperienceCases() {
   const [cases, setCases] = useState([])
@@ -13,7 +15,18 @@ export default function AdminExperienceCases() {
   useEffect(() => { loadData() }, [])
 
   const openNew = () => { setForm(emptyForm); setEditing('new') }
-  const openEdit = (c) => { setForm({ ...c }); setEditing(c.id) }
+  const openEdit = (c) => {
+    setForm({
+      name: c.name || '',
+      age: c.age || '',
+      issue: c.issue || '',
+      period: c.period || '',
+      content: c.content || '',
+      detail: c.detail || '',
+      image_url: c.image_url || '',
+    })
+    setEditing(c.id)
+  }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
   const save = async () => {
@@ -60,7 +73,7 @@ export default function AdminExperienceCases() {
 
       {editing && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={close}>
-          <div className="bg-white rounded-2xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+          <div className="bg-white rounded-2xl max-w-lg w-full p-6 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-bold">{editing === 'new' ? '사례 추가' : '사례 수정'}</h2>
               <button onClick={close} className="text-gray-400 hover:text-gray-700"><X size={20} /></button>
@@ -83,8 +96,27 @@ export default function AdminExperienceCases() {
                 <input value={form.period} onChange={(e) => setForm({ ...form, period: e.target.value })} className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm" />
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-1 block">내용 *</label>
-                <textarea value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} rows={4} className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm resize-none" />
+                <label className="text-sm font-medium text-gray-700 mb-1 block">카드 요약 내용 * <span className="text-xs text-gray-400">(목록에 표시되는 짧은 인용구)</span></label>
+                <textarea value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} rows={3} className="w-full px-3 py-2 rounded-lg border border-gray-200 text-sm resize-none" />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700 mb-1 block">상세 내용 <span className="text-xs text-gray-400">(카드 클릭 시 표시되는 본문)</span></label>
+                <RichTextEditor
+                  value={form.detail || ''}
+                  onChange={(html) => setForm({ ...form, detail: html })}
+                  folder="experience-cases"
+                  minHeight="160px"
+                  placeholder="상세 체험 내용을 입력하세요. 이미지, 서식 자유롭게 사용 가능"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700 mb-1 block">대표 이미지 <span className="text-xs text-gray-400">(선택)</span></label>
+                <ImageUploader
+                  value={form.image_url || ''}
+                  onChange={(url) => setForm({ ...form, image_url: url })}
+                  folder="experience-cases"
+                  aspectRatio="16/9"
+                />
               </div>
             </div>
             <div className="flex justify-end gap-2 mt-6">

@@ -11,6 +11,7 @@ const navItems = [
   { to: '/admin/cert-teachers', icon: UserCheck, label: '인증강사 관리' },
   { to: '/admin/educations', icon: GraduationCap, label: '교육과정 일정 관리' },
   { to: '/admin/degree-page', icon: BookMarked, label: '자격증 안내 페이지' },
+  { to: '/admin/level-pages', icon: GraduationCap, label: 'LEVEL 1/2/3/Master 관리' },
   { to: '/admin/notices', icon: Bell, label: '공지사항 관리' },
   { to: '/admin/news', icon: Newspaper, label: '언론보도 관리' },
   { to: '/admin/activities', icon: CalendarDays, label: '활동내역 관리' },

@@ -16,15 +16,17 @@ export default function CertTeacher() {
 
   // 앰배서더는 메인 카드로 항상 노출 (TODO #26)
   const ambassadors = teachers.filter((t) => t.ambassador)
-  // 검색어가 있을 때만 일반 강사 + 우수 강사 노출 (TODO #26 — 일반 강사는 검색 시에만)
   const isSearching = query.trim().length > 0
-  const searchResults = teachers.filter(
+  const filteredTeachers = teachers.filter(
     (teacher) =>
-      isSearching &&
-      (teacher.name.includes(query) ||
+      !isSearching || (
+        teacher.name.includes(query) ||
         (teacher.region || '').includes(query) ||
-        (teacher.level || '').includes(query))
+        (teacher.level || '').includes(query)
+      )
   )
+  // 검색 결과용 (기존 변수명 호환)
+  const searchResults = filteredTeachers
 
   return (
     <>
@@ -96,18 +98,18 @@ export default function CertTeacher() {
               <Search size={18} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
             </div>
 
-            {!isSearching ? (
+            {teachers.length === 0 ? (
               <div className="bg-gray-50 border border-gray-100 rounded-xl px-6 py-12 text-center">
                 <Search size={28} className="text-gray-300 mx-auto mb-3" />
-                <p className="text-sm text-gray-500">
-                  강사명·지역·레벨을 입력하면 인증강사를 검색할 수 있습니다.
-                </p>
-                <p className="text-xs text-gray-400 mt-1">총 {teachers.length}명의 인증강사가 등록되어 있습니다.</p>
+                <p className="text-sm text-gray-500">등록된 인증강사가 없습니다.</p>
               </div>
             ) : (
               <>
                 <p className="text-sm text-gray-500 mb-4">
-                  검색 결과 <span className="font-bold text-gray-900">{searchResults.length}</span>명
+                  {isSearching
+                    ? <>검색 결과 <span className="font-bold text-gray-900">{searchResults.length}</span>명</>
+                    : <>총 <span className="font-bold text-gray-900">{teachers.length}</span>명의 인증강사가 등록되어 있습니다.</>
+                  }
                 </p>
                 <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
                   <div className="grid grid-cols-[1fr_auto_auto_auto] bg-gray-50 text-sm font-medium text-gray-600 px-6 py-3 border-b">

@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next'
 
 const partners = [
+  '/images/partner_6.png',
   '/images/partner_1.png',
   '/images/partner_2.png',
   '/images/partner_3.png',
-  '/images/partner_5.png',
 ]
 
 export default function PartnerSlider() {

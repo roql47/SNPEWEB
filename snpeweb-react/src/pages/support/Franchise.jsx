@@ -34,10 +34,11 @@ const supports = [
 ]
 
 const steps = [
-  { num: '01', title: '개설 문의', desc: '개설 상담 양식을 작성하여 제출합니다.' },
-  { num: '02', title: '담당자 상담', desc: '담당자가 확인 후 순차적으로 연락드립니다.' },
-  { num: '03', title: '자격 심사', desc: '강사 자격 및 사업 역량을 심사합니다.' },
-  { num: '04', title: '계약 체결', desc: '가맹/인증점 계약을 체결하고 개설합니다.' },
+  { num: '01', title: '교육 일정 확인', desc: 'SNPE 교육과정 일정을 확인하고 수강을 준비합니다.' },
+  { num: '02', title: '개설 문의', desc: '개설 상담 양식을 작성하여 제출합니다.' },
+  { num: '03', title: '담당자 상담', desc: '담당자가 확인 후 순차적으로 연락드립니다.' },
+  { num: '04', title: '자격 심사', desc: '강사 자격 및 사업 역량을 심사합니다.' },
+  { num: '05', title: '계약 체결', desc: '가맹/인증점 계약을 체결하고 개설합니다.' },
 ]
 
 export default function Franchise() {

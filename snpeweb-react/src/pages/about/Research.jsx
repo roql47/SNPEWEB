@@ -10,26 +10,10 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
 const heroSlides = [
-  {
-    image: '/images/research_ssci.png',
-    badge: '2019년 11월호에 SSCI 게재된\nSNPE 논문이 최근에 인기있는\nTOP 10 으로 선정되었습니다.',
-    title: 'SSCI : 사회과학분야의 저명한 해외 저널지',
-    subtitle: 'Self-natural posture exercise and chronic pain reduction',
-  },
-  {
-    image: '/images/research_report.png',
-    badge: null,
-    title: 'SNPE 연구보고서',
-    subtitle: 'SNPE 효과 검증을 위한 체험사례 분석\n2006년부터 2018년의 약 1,000건의 자료를 분석',
-    desc: '만성통증, 교정 치료, 생리학, 정서적/임상적, 심리학적 증상에\n효과가 있음을 검증. 또한 SNPE 도구 별, SNPE 동작 별 효과에\n대하여도 비교 분석한 결과를 알 수 있다.',
-  },
-  {
-    image: '/images/research_banner.gif',
-    badge: null,
-    title: 'SNPE 국제 학술 발표',
-    subtitle: 'ACSM(미국스포츠의학회) · ECSS(유럽스포츠과학회)',
-    desc: '2019~2021년 ACSM, ECSS 등 세계적인 스포츠과학 학회에서\nSNPE 운동의 효과에 관한 연구를 지속적으로 발표하고 있습니다.',
-  },
+  { image: '/images/carousel_1.jpg' },
+  { image: '/images/carousel_2.jpg' },
+  { image: '/images/carousel_3.jpg' },
+  { image: '/images/carousel_4.jpg' },
 ]
 
 const tabs = ['전체', '국내', '해외']
@@ -59,8 +43,8 @@ export default function Research() {
       />
 
       {/* Hero Carousel */}
-      <section className="bg-gradient-to-br from-snpe-darker to-snpe-accent relative overflow-hidden">
-        <div className="max-w-6xl mx-auto relative">
+      <section className="bg-white relative overflow-hidden">
+        <div className="max-w-3xl mx-auto px-4 py-8 relative">
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             navigation={{
@@ -68,59 +52,28 @@ export default function Research() {
               prevEl: '.research-hero-prev',
             }}
             pagination={{ clickable: true }}
-            autoplay={{ delay: 6000, disableOnInteraction: false }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             loop
             className="research-hero-swiper"
           >
             {heroSlides.map((slide, i) => (
               <SwiperSlide key={i}>
-                <div className="flex flex-col md:flex-row items-center min-h-[360px] md:min-h-[400px]">
-                  {/* Left: Image */}
-                  <div className="md:w-[45%] flex items-center justify-center p-8 md:p-12">
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="max-h-[260px] md:max-h-[300px] w-auto object-contain drop-shadow-xl"
-                    />
-                  </div>
-
-                  {/* Right: Text */}
-                  <div className="md:w-[55%] text-white px-6 md:px-10 pb-10 md:pb-0 md:py-12">
-                    {slide.badge && (
-                      <div className="flex items-start gap-3 mb-5">
-                        <div className="flex-shrink-0 text-center">
-                          <svg viewBox="0 0 60 60" className="w-14 h-14 text-yellow-300">
-                            <circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                            <text x="30" y="22" textAnchor="middle" fill="currentColor" fontSize="7" fontWeight="bold">★★★</text>
-                            <text x="30" y="32" textAnchor="middle" fill="currentColor" fontSize="7" fontWeight="bold">BEST</text>
-                            <text x="30" y="42" textAnchor="middle" fill="currentColor" fontSize="5">SBP·JOURNAL</text>
-                          </svg>
-                        </div>
-                        <p className="text-xs leading-relaxed text-white/90 whitespace-pre-line pt-1">
-                          {slide.badge}
-                        </p>
-                      </div>
-                    )}
-
-                    <h3 className="text-xl md:text-2xl font-bold mb-3 leading-snug">{slide.title}</h3>
-                    <p className="text-white/90 text-sm md:text-base whitespace-pre-line mb-2 leading-relaxed">
-                      {slide.subtitle}
-                    </p>
-                    {slide.desc && (
-                      <p className="text-white/60 text-xs md:text-sm whitespace-pre-line leading-relaxed mb-6">
-                        {slide.desc}
-                      </p>
-                    )}
-                  </div>
+                <div className="flex items-center justify-center pb-8">
+                  <img
+                    src={slide.image}
+                    alt={`SNPE 연구 ${i + 1}`}
+                    className="w-full h-auto object-contain rounded-xl"
+                    style={{ maxHeight: '420px' }}
+                  />
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
 
-          <button className="research-hero-prev absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors backdrop-blur-sm">
+          <button className="research-hero-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center transition-colors shadow">
             <ChevronLeft size={20} />
           </button>
-          <button className="research-hero-next absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors backdrop-blur-sm">
+          <button className="research-hero-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 flex items-center justify-center transition-colors shadow">
             <ChevronRight size={20} />
           </button>
         </div>
