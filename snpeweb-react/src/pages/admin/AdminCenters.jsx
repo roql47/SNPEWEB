@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Search } from 'lucide-react'
 
-const emptyForm = { name: '', region: '서울', address: '', tel: '', email: '', naver_url: '' }
+const emptyForm = { name: '', region: '서울', address: '', tel: '', email: '', naver_url: '', keywords: '' }
 const regions = ['서울', '경기', '인천', '부산', '대구', '대전', '광주', '충청', '경상', '강원']
 
 export default function AdminCenters() {
@@ -15,7 +15,7 @@ export default function AdminCenters() {
   useEffect(() => { loadData() }, [])
 
   const openNew = () => { setForm(emptyForm); setEditing('new') }
-  const openEdit = (c) => { setForm({ name: c.name, region: c.region, address: c.address, tel: c.tel, email: c.email || '', naver_url: c.naver_url || '' }); setEditing(c.id) }
+  const openEdit = (c) => { setForm({ name: c.name, region: c.region, address: c.address, tel: c.tel, email: c.email || '', naver_url: c.naver_url || '', keywords: c.keywords || '' }); setEditing(c.id) }
   const close = () => { setEditing(null); setForm(emptyForm) }
 
   const save = async () => {
@@ -133,6 +133,11 @@ export default function AdminCenters() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">네이버 지도 URL</label>
                 <input type="url" value={form.naver_url} onChange={(e) => setForm({ ...form, naver_url: e.target.value })} placeholder="비워두면 센터명으로 자동 검색됩니다" className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400" />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">검색 키워드</label>
+                <input type="text" value={form.keywords} onChange={(e) => setForm({ ...form, keywords: e.target.value })} placeholder="예: 잠실, 신천, 석촌, 송파 (쉼표로 구분)" className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm focus:outline-none focus:border-gray-400" />
+                <p className="mt-1 text-xs text-gray-400">사용자가 이 키워드로 검색하면 해당 센터가 나타납니다.</p>
               </div>
             </div>
             <div className="flex justify-end gap-3 mt-6">

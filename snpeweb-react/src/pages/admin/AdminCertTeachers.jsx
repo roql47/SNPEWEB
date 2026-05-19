@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import * as XLSX from 'xlsx'
 import { dataStore } from '../../lib/dataStore'
 import { Plus, Pencil, Trash2, X, Star, Crown, Upload, Download, User, Search } from 'lucide-react'
+import ImageUploader from '../../components/admin/ImageUploader'
 
 const emptyForm = {
   name: '',
@@ -276,21 +277,13 @@ export default function AdminCertTeachers() {
                 </div>
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-1 block">사진 URL</label>
-                <input
+                <label className="text-sm font-medium text-gray-700 mb-1 block">사진</label>
+                <ImageUploader
                   value={form.photo_url}
-                  onChange={(e) => setForm({ ...form, photo_url: e.target.value })}
-                  className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
-                  placeholder="https://..."
+                  onChange={(url) => setForm({ ...form, photo_url: url })}
+                  folder="teachers"
+                  aspectRatio="1/1"
                 />
-                {form.photo_url && (
-                  <div className="mt-2 flex items-center gap-3">
-                    <div className="w-16 h-16 rounded-xl bg-gray-100 overflow-hidden border border-gray-200">
-                      <img src={form.photo_url} alt="preview" className="w-full h-full object-cover" onError={(e) => { e.currentTarget.style.display = 'none' }} />
-                    </div>
-                    <span className="text-xs text-gray-500">미리보기</span>
-                  </div>
-                )}
               </div>
               <div>
                 <label className="text-sm font-medium text-gray-700 mb-1 block">소개</label>

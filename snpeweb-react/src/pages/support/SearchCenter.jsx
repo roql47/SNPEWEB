@@ -19,7 +19,10 @@ export default function SearchCenter() {
   useEffect(() => { dataStore.getCenters().then(setCenters) }, [])
 
   const filtered = centers.filter((c) => {
-    const matchQuery = !query || c.name.includes(query) || c.address.includes(query)
+    const matchQuery = !query || 
+      c.name.includes(query) || 
+      c.address.includes(query) ||
+      (c.keywords || '').split(',').map((k) => k.trim()).some((k) => k && k.includes(query))
     const matchRegion = region === '전체' || c.region === region
     return matchQuery && matchRegion
   })

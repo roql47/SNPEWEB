@@ -55,7 +55,7 @@ export default function AboutSection() {
           <div className={`relative transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             <div className="relative aspect-[1133/632] w-full overflow-hidden rounded-[32px] md:rounded-[40px] bg-mint-lighter">
               <img
-                src="/images/L-move.png"
+                src="/images/L-move2.png"
                 alt="SNPE"
                 className="absolute inset-0 w-full h-full object-contain"
                 onError={() => setImgFailed(true)}
