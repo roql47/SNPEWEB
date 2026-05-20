@@ -293,12 +293,47 @@ export const dataStore = {
     await supabase.from('franchise_inquiries').delete().eq('id', id)
   },
 
-  // ── Bulk import (관리자 일괄 업로드용) ──────────────────────────────────
+  // ── Bulk import / delete (관리자 일괄 업로드용) ──────────────────────────
   bulkAddTeachers: async (rows) => {
-    if (!rows || rows.length === 0) return { inserted: 0 }
-    const { data, error } = await supabase.from('teachers').insert(rows).select()
-    if (error) throw error
-    return { inserted: data?.length || 0 }
+    if (!rows || rows.length === 0) return { inserted: 0, deleted: 0 }
+
+    const toDelete = rows.filter((r) => r._delete)
+    const toInsert = rows.filter((r) => !r._delete).map(({ _delete, ...rest }) => rest)
+
+    let deleted = 0
+    let inserted = 0
+
+    // 삭제 처리: 이름으로 매칭 (동명이인일 경우 전화번호·생년월일로 구분)
+    if (toDelete.length > 0) {
+      const { data: existing } = await supabase
+        .from('teachers')
+        .select('id, name, phone, birth_date')
+      const list = existing || []
+      for (const row of toDelete) {
+        const matches = list.filter((e) => e.name === row.name)
+        let target = null
+        if (matches.length === 1) {
+          target = matches[0]
+        } else if (matches.length > 1) {
+          target =
+            matches.find((e) => row.phone && e.phone === row.phone) ||
+            matches.find((e) => row.birth_date && e.birth_date === row.birth_date)
+        }
+        if (target) {
+          await supabase.from('teachers').delete().eq('id', target.id)
+          deleted++
+        }
+      }
+    }
+
+    // 추가 처리
+    if (toInsert.length > 0) {
+      const { data, error } = await supabase.from('teachers').insert(toInsert).select()
+      if (error) throw error
+      inserted = data?.length || 0
+    }
+
+    return { inserted, deleted }
   },
 
   // ── Reset (admin dashboard) ───────────────────────────────────────────────

@@ -8,7 +8,7 @@ import { dataStore } from '../../lib/dataStore'
  * - URL 직접 입력 모드
  * - 미리보기 + 삭제
  */
-export default function ImageUploader({ value, onChange, folder = 'degree', aspectRatio = '16/10' }) {
+export default function ImageUploader({ value, onChange, folder = 'degree', aspectRatio = '16/10', maxSizeMB = 5, sizeHint = null }) {
   const fileRef = useRef(null)
   const [uploading, setUploading] = useState(false)
   const [error, setError] = useState(null)
@@ -22,8 +22,8 @@ export default function ImageUploader({ value, onChange, folder = 'degree', aspe
       setError('이미지 파일만 업로드 가능합니다')
       return
     }
-    if (file.size > 5 * 1024 * 1024) {
-      setError('5MB 이하 파일만 업로드 가능합니다')
+    if (file.size > maxSizeMB * 1024 * 1024) {
+      setError(`${maxSizeMB}MB 이하 파일만 업로드 가능합니다`)
       return
     }
 
@@ -112,6 +112,10 @@ export default function ImageUploader({ value, onChange, folder = 'degree', aspe
             <Link2 size={14} /> URL
           </button>
         </div>
+      )}
+
+      {sizeHint && !value && (
+        <p className="text-xs text-gray-400">{sizeHint}</p>
       )}
 
       <input

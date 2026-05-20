@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import * as XLSX from 'xlsx'
 import { dataStore } from '../../lib/dataStore'
-import { Plus, Pencil, Trash2, X, Star, Crown, Upload, Download, User, Search } from 'lucide-react'
+import { Plus, Pencil, Trash2, X, Star, Crown, Upload, Download, User, Search, Phone, Calendar } from 'lucide-react'
 import ImageUploader from '../../components/admin/ImageUploader'
 
 const emptyForm = {
@@ -10,6 +10,8 @@ const emptyForm = {
   region: '',
   photo_url: '',
   intro: '',
+  phone: '',
+  birth_date: '',
   featured: false,
   ambassador: false,
 }
@@ -36,6 +38,8 @@ export default function AdminCertTeachers() {
       region: t.region || '',
       photo_url: t.photo_url || '',
       intro: t.intro || '',
+      phone: t.phone || '',
+      birth_date: t.birth_date || '',
       featured: !!t.featured,
       ambassador: !!t.ambassador,
     })
@@ -81,8 +85,11 @@ export default function AdminCertTeachers() {
           region: String(r['지역'] || r['region'] || '').trim(),
           photo_url: String(r['사진URL'] || r['사진'] || r['photo_url'] || '').trim(),
           intro: String(r['소개'] || r['intro'] || '').trim(),
+          phone: String(r['전화번호'] || r['phone'] || '').trim(),
+          birth_date: String(r['생년월일'] || r['birth_date'] || '').trim(),
           featured: truthy(r['우수강사'] || r['우수'] || r['featured']),
           ambassador: truthy(r['앰배서더'] || r['ambassador']),
+          _delete: truthy(r['삭제'] || r['delete']),
         }))
         .filter((r) => r.name)
 
@@ -92,7 +99,10 @@ export default function AdminCertTeachers() {
       }
 
       const result = await dataStore.bulkAddTeachers(mapped)
-      setUploadResult({ status: 'ok', message: `${result.inserted}명 등록 완료` })
+      const parts = []
+      if (result.inserted > 0) parts.push(`${result.inserted}명 등록`)
+      if (result.deleted > 0) parts.push(`${result.deleted}명 삭제`)
+      setUploadResult({ status: 'ok', message: parts.join(' / ') + ' 완료' })
       await loadData()
     } catch (err) {
       setUploadResult({ status: 'error', message: `업로드 실패: ${err.message || err}` })
@@ -103,10 +113,49 @@ export default function AdminCertTeachers() {
 
   const downloadTemplate = () => {
     const sample = [
-      { 이름: '홍길동', 레벨: 'Level 2', 지역: '서울', 사진URL: '', 소개: 'SNPE 인증강사', 우수강사: 'O', 앰배서더: '' },
-      { 이름: '김지영', 레벨: 'Level 3', 지역: '경기', 사진URL: 'https://...', 소개: '메인 노출 강사', 우수강사: 'O', 앰배서더: 'O' },
+      {
+        이름: '홍길동',
+        레벨: 'Level 2',
+        지역: '서울',
+        사진URL: '',
+        소개: 'SNPE 인증강사',
+        전화번호: '010-1234-5678',
+        생년월일: '1990-01-01',
+        우수강사: 'O',
+        앰배서더: '',
+        삭제: '',
+      },
+      {
+        이름: '김지영',
+        레벨: 'Level 3',
+        지역: '경기',
+        사진URL: 'https://...',
+        소개: '메인 노출 강사',
+        전화번호: '010-9876-5432',
+        생년월일: '1985-05-20',
+        우수강사: 'O',
+        앰배서더: 'O',
+        삭제: '',
+      },
+      {
+        이름: '이삭제',
+        레벨: 'Level 1',
+        지역: '부산',
+        사진URL: '',
+        소개: '',
+        전화번호: '010-0000-0000',
+        생년월일: '',
+        우수강사: '',
+        앰배서더: '',
+        삭제: 'O',
+      },
     ]
     const ws = XLSX.utils.json_to_sheet(sample)
+    // 컬럼 너비 설정
+    ws['!cols'] = [
+      { wch: 10 }, { wch: 10 }, { wch: 8 }, { wch: 30 }, { wch: 20 },
+      { wch: 15 }, { wch: 12 }, { wch: 8 }, { wch: 8 }, { wch: 6 },
+    ]
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, ws, '인증강사')
     XLSX.writeFile(wb, 'snpe_teachers_template.xlsx')
@@ -116,7 +165,7 @@ export default function AdminCertTeachers() {
   const filtered = teachers.filter((t) => {
     if (filter === 'ambassador' && !t.ambassador) return false
     if (filter === 'featured' && !t.featured) return false
-    if (query && !`${t.name}${t.region}${t.level}`.includes(query)) return false
+    if (query && !`${t.name}${t.region}${t.level}${t.phone || ''}`.includes(query)) return false
     return true
   })
 
@@ -147,6 +196,13 @@ export default function AdminCertTeachers() {
         </div>
       </div>
 
+      {/* 엑셀 업로드 안내 */}
+      <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-700 leading-relaxed">
+        <span className="font-semibold">엑셀 업로드 안내</span> · 이름·레벨·지역·사진URL·소개·전화번호·생년월일·우수강사·앰배서더 컬럼을 지원합니다.
+        <span className="ml-1 font-semibold text-red-600">「삭제」컬럼에 O를 입력하면 해당 강사가 삭제됩니다.</span>
+        전화번호·생년월일은 관리자 화면에서만 표시되며 검색 페이지에는 노출되지 않습니다.
+      </div>
+
       {uploadResult && (
         <div
           className={`mb-4 px-4 py-3 rounded-xl text-sm flex items-center justify-between ${
@@ -171,7 +227,7 @@ export default function AdminCertTeachers() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="강사명/지역/레벨 검색..."
+            placeholder="강사명/지역/레벨/전화번호 검색..."
             className="w-full h-11 pl-10 pr-4 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-gray-400"
           />
         </div>
@@ -197,7 +253,7 @@ export default function AdminCertTeachers() {
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
         <div className="grid grid-cols-[60px_1fr_80px_80px_60px_60px_80px] gap-3 bg-gray-50 px-5 py-3 text-xs font-medium text-gray-600 border-b">
           <span>사진</span>
-          <span>이름</span>
+          <span>이름 / 연락처 <span className="text-gray-400 font-normal">(관리자)</span></span>
           <span className="text-center">레벨</span>
           <span className="text-center">지역</span>
           <span className="text-center">앰배서더</span>
@@ -216,7 +272,15 @@ export default function AdminCertTeachers() {
                 <User size={18} className="text-gray-400" />
               )}
             </div>
-            <span className="font-medium text-gray-900 truncate">{t.name}</span>
+            <div className="min-w-0">
+              <span className="font-medium text-gray-900 truncate block">{t.name}</span>
+              {(t.phone || t.birth_date) && (
+                <span className="text-xs text-gray-400 truncate block">
+                  {t.phone && <span className="inline-flex items-center gap-0.5 mr-2"><Phone size={10} />{t.phone}</span>}
+                  {t.birth_date && <span className="inline-flex items-center gap-0.5"><Calendar size={10} />{t.birth_date}</span>}
+                </span>
+              )}
+            </div>
             <span className="text-center text-xs text-snpe-dark">{t.level}</span>
             <span className="text-center text-xs text-gray-500">{t.region}</span>
             <span className="text-center">
@@ -276,6 +340,37 @@ export default function AdminCertTeachers() {
                   />
                 </div>
               </div>
+
+              {/* 관리자 전용 개인정보 */}
+              <div className="grid grid-cols-2 gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                <div className="col-span-2 text-xs text-blue-600 font-medium mb-1 flex items-center gap-1">
+                  <span>관리자 전용</span>
+                  <span className="text-blue-400 font-normal">· 공개 검색에 미노출 (동명이인 확인용)</span>
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-gray-600 mb-1 block flex items-center gap-1">
+                    <Phone size={11} /> 전화번호
+                  </label>
+                  <input
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    placeholder="010-0000-0000"
+                    className="w-full h-9 px-3 rounded-lg border border-gray-200 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-gray-600 mb-1 block flex items-center gap-1">
+                    <Calendar size={11} /> 생년월일
+                  </label>
+                  <input
+                    value={form.birth_date}
+                    onChange={(e) => setForm({ ...form, birth_date: e.target.value })}
+                    placeholder="1990-01-01"
+                    className="w-full h-9 px-3 rounded-lg border border-gray-200 text-sm"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label className="text-sm font-medium text-gray-700 mb-1 block">사진</label>
                 <ImageUploader
@@ -283,6 +378,8 @@ export default function AdminCertTeachers() {
                   onChange={(url) => setForm({ ...form, photo_url: url })}
                   folder="teachers"
                   aspectRatio="1/1"
+                  maxSizeMB={2}
+                  sizeHint="권장: 500×500px 이하, 정방형(1:1), 2MB 이하"
                 />
               </div>
               <div>
