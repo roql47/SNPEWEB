@@ -73,7 +73,7 @@ export default function About() {
             스스로 회복할 수 있다는 자신감
           </p>
 
-          <div className="max-w-3xl mx-auto text-gray-700 leading-relaxed text-base md:text-lg space-y-5">
+          <div className="max-w-3xl mx-auto text-gray-700 leading-relaxed text-base md:text-lg space-y-8">
             <p>
               <strong className="text-gray-900">SNPE</strong>(Self Natural Posture Exercise)는
               <br className="hidden md:block" />
@@ -176,30 +176,35 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="space-y-5 text-gray-700 leading-relaxed text-sm md:text-base max-w-3xl mx-auto">
-            <p>
-              현재 SNPE는 단순한 자세 교정이나 근골격계 통증 관리에 머물지 않고,
-              <strong className="text-gray-900"> 몸의 정렬과 움직임 회복을 기반으로
-              삶의 균형과 웰니스를 함께 바라보는 움직임 시스템</strong>으로 확장되고 있습니다.
-            </p>
-            <p>
-              반복되는 생활 습관과 움직임 패턴 속에서 발생하는
-              만성적인 통증과 불편감, 긴장과 움직임 제한을 통합적으로 바라보며,
-              보다 자연스럽고 지속 가능한 움직임 회복을 중요하게 생각합니다.
-            </p>
-            <p>
-              SNPE는 신체 정렬과 움직임 기능 회복을 넘어,
-              호흡과 신경계 회복, 바디 밸런스와 체형 관리,
-              몸의 감각 회복과 자기 효능감(Self-Efficacy),
-              그리고 Healthy Aging과 Longevity 관점의 웰니스까지 연결하며
-              보다 통합적인 움직임 경험을 연구하고 있습니다.
-            </p>
-            <p className="text-gray-600">
-              또한 성장기 유소년부터 성인, 시니어까지
-              다양한 연령과 라이프스타일 속에서 누구나 자신의 몸을 이해하고
-              스스로 움직임의 균형을 회복할 수 있도록 돕는
-              지속 가능한 움직임 시스템을 지향합니다.
-            </p>
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 items-start">
+            <div className="space-y-5 text-gray-700 leading-relaxed text-sm md:text-base">
+              <p>
+                현재 SNPE는 단순한 자세 교정이나 근골격계 통증 관리에 머물지 않고,
+                <strong className="text-gray-900"> 몸의 정렬과 움직임 회복을 기반으로
+                삶의 균형과 웰니스를 함께 바라보는 움직임 시스템</strong>으로 확장되고 있습니다.
+              </p>
+              <p>
+                반복되는 생활 습관과 움직임 패턴 속에서 발생하는
+                만성적인 통증과 불편감, 긴장과 움직임 제한을 통합적으로 바라보며,
+                보다 자연스럽고 지속 가능한 움직임 회복을 중요하게 생각합니다.
+              </p>
+              <p>
+                SNPE는 신체 정렬과 움직임 기능 회복을 넘어,
+                호흡과 신경계 회복, 바디 밸런스와 체형 관리,
+                몸의 감각 회복과 자기 효능감(Self-Efficacy),
+                그리고 Healthy Aging과 Longevity 관점의 웰니스까지 연결하며
+                보다 통합적인 움직임 경험을 연구하고 있습니다.
+              </p>
+              <p className="text-gray-600">
+                또한 성장기 유소년부터 성인, 시니어까지
+                다양한 연령과 라이프스타일 속에서 누구나 자신의 몸을 이해하고
+                스스로 움직임의 균형을 회복할 수 있도록 돕는
+                지속 가능한 움직임 시스템을 지향합니다.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img src={ABOUT_IMGS[2]} alt="SNPE 웰니스" className="w-full h-auto block" loading="lazy" />
+            </div>
           </div>
         </div>
       </section>
@@ -280,12 +285,8 @@ export default function About() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-md">
-              <img src={ABOUT_IMGS[2]} alt="SNPE의 미래" className="w-full h-auto block" loading="lazy" />
+              <img src={ABOUT_IMGS[3]} alt="SNPE의 미래" className="w-full h-auto block" loading="lazy" />
             </div>
-          </div>
-
-          <div className="mt-10 rounded-2xl overflow-hidden shadow-md max-w-2xl mx-auto">
-            <img src={ABOUT_IMGS[3]} alt="SNPE 글로벌 비전" className="w-full h-auto block" loading="lazy" />
           </div>
         </div>
       </section>
