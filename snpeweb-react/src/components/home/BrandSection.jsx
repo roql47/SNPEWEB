@@ -8,13 +8,6 @@ export default function BrandSection() {
           className="mx-auto h-14 md:h-20 w-auto object-contain mb-5"
         />
 
-        <p className="text-gray-700 text-base md:text-xl tracking-wide mb-12 md:mb-14">
-          <span className="font-bold">S</span>elf{' '}
-          <span className="font-bold">N</span>atural{' '}
-          <span className="font-bold">P</span>osture{' '}
-          <span className="font-bold">E</span>xercise
-        </p>
-
         <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold text-mint-darker leading-tight mb-8 md:mb-10">
           <span className="inline-block border-b-2 border-mint-darker pb-2">
             스스로 회복할 수 있다는 자신감
