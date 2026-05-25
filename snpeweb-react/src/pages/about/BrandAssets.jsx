@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import PageBanner from '../../components/common/PageBanner'
-import { Palette, Shield } from 'lucide-react'
+import { Palette, Shield, FileCheck } from 'lucide-react'
 
 const TABS = [
   { id: 'bi', label: 'BI 소개', icon: Palette },
@@ -20,6 +20,13 @@ const trademarks = [
   { no: '40-1857900', image: '/images/ip/trademark-2.png', label: 'SNPE (Self Natural Posture Exercise)' },
   { no: '40-1857901', image: '/images/ip/trademark-3.png', label: 'SNPE 바른자세척추운동' },
   { no: '40-2525675', image: '/images/ip/trademark-4.png', label: 'SNPE STUDIO' },
+]
+
+const patentGroups = [
+  { category: '바른자세벨트 관련', items: ['바른자세벨트 (비탄력) 구조 및 사용방법', '바른자세벨트 (탄력) 구조 및 사용방법', '바른자세벨트 조절 장치', '골반밴드 구조 및 교정 보조 장치'] },
+  { category: '척추운동 도구', items: ['SNPE 웨이브베개', 'SNPE 다날 도구 시리즈', 'SNPE 풋밸런스', 'SNPE 롤러'] },
+  { category: '운동 방법 특허', items: ['SNPE 바른자세 척추운동법', 'SNPE 셀프 자세 교정 운동 시스템', 'SNPE 도구 활용 운동 프로토콜'] },
+  { category: '디자인 등록', items: ['바른자세벨트 외관 디자인', 'SNPE 웨이브베개 외관 디자인', 'SNPE 다날 도구 시리즈 디자인'] },
 ]
 
 const prohibitedGroups = [
@@ -157,6 +164,35 @@ function IpContent() {
                 <p className="text-sm text-gray-900 font-mono">{tm.no}</p>
                 <p className="mt-2 text-xs text-gray-500 leading-relaxed">{tm.label}</p>
               </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 특허 및 지식재산권 144건 */}
+      <div className="pb-16 md:pb-20 border-b border-gray-100 mb-16 md:mb-20">
+        <div className="mb-10">
+          <p className="text-xs text-gray-500 mb-2">Patents & Design Registration</p>
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900">특허 및 디자인 등록</h2>
+          <p className="mt-2 text-sm text-gray-500">
+            SNPE는 운동 방법, 도구 구조, 디자인 등 <strong className="text-gray-700">144건 이상</strong>의 지식재산권을 보유하고 있습니다.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-5">
+          {patentGroups.map((group) => (
+            <div key={group.category} className="bg-gray-50 rounded-2xl p-6">
+              <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2 text-sm">
+                <FileCheck size={15} className="text-mint-darker flex-shrink-0" />
+                {group.category}
+              </h4>
+              <ul className="space-y-2">
+                {group.items.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-mint-darker flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
