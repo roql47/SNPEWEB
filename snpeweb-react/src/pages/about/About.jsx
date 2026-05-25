@@ -7,7 +7,6 @@ import {
   Eye,
   Sparkles,
   Heart,
-  ImageIcon,
   Quote,
 } from 'lucide-react'
 
@@ -44,14 +43,12 @@ const keyAreas = [
   },
 ]
 
-function ImagePlaceholder({ aspect = 'aspect-[4/3]', label = '이미지 추후 추가 예정' }) {
-  return (
-    <div className={`${aspect} w-full rounded-2xl bg-gradient-to-br from-mint-lighter/40 via-white to-gray-50 border border-dashed border-mint/30 flex flex-col items-center justify-center text-gray-400`}>
-      <ImageIcon size={36} strokeWidth={1.4} className="mb-2 text-mint/60" />
-      <span className="text-xs">{label}</span>
-    </div>
-  )
-}
+const ABOUT_IMGS = [
+  '/images/about/snpe-intro/image1.jpeg',
+  '/images/about/snpe-intro/image2.jpeg',
+  '/images/about/snpe-intro/image3.jpeg',
+  '/images/about/snpe-intro/image4.jpeg',
+]
 
 export default function About() {
   const { t } = useTranslation()
@@ -103,7 +100,9 @@ export default function About() {
           </div>
 
           <div className="mt-12 max-w-2xl mx-auto">
-            <ImagePlaceholder aspect="aspect-[16/9]" />
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img src={ABOUT_IMGS[0]} alt="SNPE 소개" className="w-full h-auto block" loading="lazy" />
+            </div>
           </div>
         </div>
       </section>
@@ -121,7 +120,9 @@ export default function About() {
           </div>
 
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 items-center mb-10">
-            <ImagePlaceholder />
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img src={ABOUT_IMGS[1]} alt="SNPE의 시작" className="w-full h-auto block" loading="lazy" />
+            </div>
             <div className="space-y-5 text-gray-700 leading-relaxed text-sm md:text-base">
               <p>
                 SNPE는 반복되는 척추 불균형과 움직임 문제에 대한
@@ -278,7 +279,13 @@ export default function About() {
                 글로벌 움직임 브랜드로 발전해가고자 합니다.
               </p>
             </div>
-            <ImagePlaceholder />
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img src={ABOUT_IMGS[2]} alt="SNPE의 미래" className="w-full h-auto block" loading="lazy" />
+            </div>
+          </div>
+
+          <div className="mt-10 rounded-2xl overflow-hidden shadow-md max-w-2xl mx-auto">
+            <img src={ABOUT_IMGS[3]} alt="SNPE 글로벌 비전" className="w-full h-auto block" loading="lazy" />
           </div>
         </div>
       </section>
