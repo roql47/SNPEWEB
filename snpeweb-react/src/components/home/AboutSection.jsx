@@ -28,18 +28,22 @@ export default function AboutSection() {
               ABOUT SNPE
             </p>
             <h2 className="font-heading font-bold text-[#111] leading-[1.1] tracking-[-0.035em] text-[32px] md:text-[42px] lg:text-[48px] mb-8 md:mb-10">
-              작은 움직임이 만드는 큰 변화
+              스스로 회복할 수 있다는 자신감
             </h2>
             <div className="space-y-6 text-[#111] text-base md:text-xl lg:text-[26px] leading-[1.58] tracking-[-0.025em]">
               <p>
-                SNPE 도구와 자세분석을 통해 인간 본연의 자세로 회복을 지향하며
+                SNPE는 몸의 정렬과 움직임 회복을 통해
                 <br className="hidden md:block" />
-                스스로 몸을 인식하고, 바로잡고, 회복하는 새로운 패러다임의 운동입니다.
+                만성적인 불편감과 무너진 균형을 스스로 인지하고 회복하도록 돕는
+                <br className="hidden md:block" />
+                자기 주도형 움직임 시스템입니다.
               </p>
               <p>
-                작고 단순한 움직임이 몸의 정렬을 바꾸고
+                척추에서 시작된 SNPE는
                 <br className="hidden md:block" />
-                결국, 몸 전체의 균형을 바꿉니다.
+                이제 발·골반·호흡·움직임 체인까지 연결하며
+                <br className="hidden md:block" />
+                더 건강하게 움직이는 삶을 위한 웰니스 시스템으로 발전하고 있습니다.
               </p>
             </div>
             <div className="mt-10 md:mt-12">
