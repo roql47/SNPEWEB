@@ -1,14 +1,18 @@
 import { useLocation } from 'react-router-dom'
 import CategoryTabBar from './CategoryTabBar'
 
-// 정식 5장 수령 시 아래 값만 카테고리별 파일명으로 교체하면 됨
-// 예: about: '/images/banner-about.jpg'
 const CATEGORY_BANNERS = {
   about: '/images/sub_banner_1.jpg',
   exercise: '/images/sub_banner2.jpg',
   education: '/images/sub_banner3.jpg',
   news: '/images/sub_banner4.jpg',
   support: '/images/sub_banner5.jpg',
+}
+
+// 모바일용 배너가 준비되면 아래에 추가
+// 예: about: '/images/sub_banner_1_mobile.jpg'
+const CATEGORY_BANNERS_MOBILE = {
+  // about: '/images/sub_banner_1_mobile.jpg',
 }
 
 const ROUTE_TO_CATEGORY = {
@@ -45,34 +49,53 @@ const ROUTE_TO_CATEGORY = {
   '/online': 'support',
 }
 
-export default function PageBanner({ title, subtitle, backgroundImage }) {
+export default function PageBanner({ title, subtitle, backgroundImage, mobileBackgroundImage }) {
   const { pathname } = useLocation()
   const category = ROUTE_TO_CATEGORY[pathname]
-  const resolvedBg = backgroundImage || (category ? CATEGORY_BANNERS[category] : null)
 
-  const bgStyle = resolvedBg
-    ? { backgroundImage: `url(${resolvedBg})`, backgroundSize: 'cover', backgroundPosition: 'center top' }
-    : {}
+  const pcBg = backgroundImage || (category ? CATEGORY_BANNERS[category] : null)
+  const mobileBg = mobileBackgroundImage || (category ? CATEGORY_BANNERS_MOBILE[category] : null) || pcBg
 
   return (
-    <div
-      className={`relative -mt-16 lg:-mt-[120px] overflow-hidden ${!resolvedBg ? 'bg-gradient-to-br from-snpe-darker to-snpe-dark' : ''}`}
-      style={bgStyle}
-    >
-      {/* 어두운 오버레이 */}
-      {resolvedBg && <div className="absolute inset-0 bg-black/45" />}
+    <div className="relative -mt-16 lg:-mt-[120px] overflow-hidden">
+      {/* 배경 이미지 레이어 — PC */}
+      {pcBg ? (
+        <>
+          {/* 모바일 배경 (768px 미만) */}
+          <div
+            className="absolute inset-0 block md:hidden bg-cover bg-center"
+            style={{ backgroundImage: `url(${mobileBg})` }}
+            aria-hidden="true"
+          />
+          {/* PC 배경 (768px 이상) */}
+          <div
+            className="absolute inset-0 hidden md:block bg-cover bg-center"
+            style={{ backgroundImage: `url(${pcBg})` }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-black/45" aria-hidden="true" />
+        </>
+      ) : (
+        <div className="absolute inset-0 bg-gradient-to-br from-snpe-darker to-snpe-dark" aria-hidden="true" />
+      )}
 
-      {/* 타이틀 콘텐츠 */}
-      <section className="relative z-10 text-white flex items-center justify-center w-full min-h-[420px] md:min-h-[500px] lg:min-h-[560px]">
-        <div className="max-w-[1440px] w-full mx-auto px-4 text-center pt-28 md:pt-36 lg:pt-44 pb-12 md:pb-16">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg mb-3">{title}</h1>
-          {subtitle && (
-            <p className="text-white/85 text-base md:text-lg max-w-2xl mx-auto drop-shadow-md whitespace-pre-line">{subtitle}</p>
-          )}
+      {/* 타이틀 콘텐츠 — 고정 높이, absolute 텍스트로 배너 높이에 영향 없음 */}
+      <div className="relative z-10 h-[280px] md:h-[500px] lg:h-[560px]">
+        <div className="absolute inset-0 flex items-center justify-center px-4 text-center">
+          <div className="mt-16 lg:mt-[120px]">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-lg mb-2 md:mb-3">
+              {title}
+            </h1>
+            {subtitle && (
+              <p className="text-white/85 text-sm md:text-lg max-w-2xl mx-auto drop-shadow-md whitespace-pre-line">
+                {subtitle}
+              </p>
+            )}
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* CategoryTabBar — 배너 이미지 위에 올라타도록 내부에 배치 */}
+      {/* CategoryTabBar */}
       <div className="relative z-20">
         <CategoryTabBar bannerMode />
       </div>
