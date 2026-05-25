@@ -25,12 +25,6 @@ export default function HeroSlider() {
       <div className="absolute inset-0 bg-black/25" />
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
-        <p className="mt-6 text-white/95 text-base md:text-lg lg:text-xl leading-relaxed drop-shadow-md">
-          New paradigm exercise Therapy
-          <br />
-          Using SNPE belts and props
-        </p>
-
         <button
           onClick={scrollToContent}
           className="mt-16 text-white/90 hover:text-white transition-colors"

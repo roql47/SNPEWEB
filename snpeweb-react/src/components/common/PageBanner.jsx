@@ -13,7 +13,9 @@ const CATEGORY_BANNERS = {
 
 const ROUTE_TO_CATEGORY = {
   '/about': 'about',
+  '/philosophy': 'about',
   '/history': 'about',
+  '/brand-assets': 'about',
   '/bi': 'about',
   '/certification': 'about',
   '/intellectual-property': 'about',

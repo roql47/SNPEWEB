@@ -7,8 +7,11 @@
     "support": "Support"
   },
   "subnav": {
-    "aboutSnpe": "Overview",
+    "aboutSnpe": "What is SNPE?",
     "overview": "Overview",
+    "philosophy": "Philosophy & Principles",
+    "evolution": "Evolution",
+    "brandAssets": "Brand Assets & IP",
     "history": "History",
     "historyCert": "History & Certifications",
     "bi": "BI Introduction",
@@ -117,8 +120,14 @@
     "paper3desc": "Correlation study between SNPE basic movement proficiency and lumbar/pelvic pain"
   },
   "pages": {
-    "about": "Overview",
-    "aboutSub": "Introducing SNPE Posture Spine Exercise",
+    "about": "What is SNPE?",
+    "aboutSub": "Introducing the philosophy and brand direction of SNPE",
+    "philosophy": "Philosophy & Principles",
+    "philosophySub": "Introducing the movement philosophy and core principles of SNPE",
+    "evolution": "Evolution",
+    "evolutionSub": "Built on Self Recovery. Evolving Through Movement Science.",
+    "brandAssets": "Brand Assets & IP",
+    "brandAssetsSub": "Introducing SNPE brand identity and intellectual property",
     "history": "History",
     "historySub": "The journey of SNPE",
     "historyCert": "History & Certifications",
@@ -182,6 +191,64 @@
     "onlineSub": "Register for SNPE online courses",
     "mypage": "My Page",
     "login": "Login",
-    "register": "Sign Up"
+    "register": "Sign Up",
+    "tools": {
+      "sectionTitle": "SNPE Tools",
+      "intro": "SNPE belt exercise is more than simply fixing the body in place — it is a process of regaining the body's lost center and helping the body itself remember the sense of correct movement.",
+      "basic": {
+        "title": "Basic SNPE Tools",
+        "sub": "Essential tools for SNPE exercise."
+      },
+      "recommend": {
+        "title": "Recommended SNPE Tools",
+        "sub": "Ceramics and rollers that provide additional stimulation beyond the basic tools."
+      },
+      "items": {
+        "belt": {
+          "name": "SNPE Correct Posture Belt",
+          "desc": "A non-elastic leg belt that stably aligns the lower body and pelvis."
+        },
+        "pelvicBand": {
+          "name": "Pelvic Band",
+          "desc": "An elastic band that stably supports the pelvis and hip joints."
+        },
+        "wavePillow": {
+          "name": "Wave Pillow",
+          "desc": "A wave-shaped pillow designed for the spinal curve that gently releases muscles across a wide area."
+        },
+        "danason": {
+          "name": "Danason",
+          "desc": "A finger-shaped acupressure tool that locally releases stiff areas."
+        },
+        "ovalCeramic": {
+          "name": "Oval Ceramic",
+          "desc": "An oval-shaped ceramic warmed to provide deep, focused release on the neck, back, waist, or abdomen."
+        },
+        "twoRail": {
+          "name": "Two Rail",
+          "desc": "A rail-type self-care tool that simultaneously delivers compression and release along the spine and fascial lines."
+        },
+        "dokkaebi": {
+          "name": "Dokkaebi Hand",
+          "desc": "A tool that gently releases tension in stiffened muscles and fascia, letting members feel their body's changes."
+        },
+        "waveRoller": {
+          "name": "Wave Roller (2 / 4 / 10 nodes)",
+          "desc": "A self myofascial release tool that, like teeth alignment, applies progressive movement to displaced and stiff spine."
+        },
+        "waveStick": {
+          "name": "Wave Stick",
+          "desc": "A self-care tool that comfortably releases deep tension in the neck, back, waist, and abdomen with warming heat and weighted pressure."
+        },
+        "eightCells": {
+          "name": "8-Node Roller",
+          "desc": "Six finger-shaped pressure points reach deep knots that hands cannot reach."
+        },
+        "doubleFoamRoller": {
+          "name": "Double Foam Roller",
+          "desc": "Recommended for myofascial release before and after exercise, offering stable support and deep release across a wide surface."
+        }
+      }
+    }
   }
 }

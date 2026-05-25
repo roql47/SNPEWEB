@@ -7,8 +7,11 @@
     "support": "고객지원"
   },
   "subnav": {
-    "aboutSnpe": "개요",
+    "aboutSnpe": "SNPE란?",
     "overview": "개요",
+    "philosophy": "철학과 핵심원리",
+    "evolution": "SNPE의 발전과정",
+    "brandAssets": "브랜드 자산",
     "history": "연혁",
     "historyCert": "연혁 및 인증",
     "bi": "BI 소개",
@@ -117,8 +120,14 @@
     "paper3desc": "SNPE 기본동작 수행도와 요통/골반통의 상관관계 연구"
   },
   "pages": {
-    "about": "개요",
-    "aboutSub": "SNPE 바른자세 척추운동을 소개합니다",
+    "about": "SNPE란?",
+    "aboutSub": "SNPE의 철학과 브랜드 방향성을 소개합니다",
+    "philosophy": "철학과 핵심원리",
+    "philosophySub": "SNPE의 움직임 철학과 핵심 원리를 소개합니다",
+    "evolution": "SNPE의 발전과정",
+    "evolutionSub": "Built on Self Recovery. Evolving Through Movement Science.",
+    "brandAssets": "브랜드 자산",
+    "brandAssetsSub": "SNPE의 브랜드 아이덴티티와 지식재산권을 소개합니다",
     "history": "연혁",
     "historySub": "SNPE의 발자취를 소개합니다",
     "historyCert": "연혁 및 인증",
@@ -182,6 +191,64 @@
     "onlineSub": "SNPE 온라인 교육을 신청하세요",
     "mypage": "마이페이지",
     "login": "로그인",
-    "register": "회원가입"
+    "register": "회원가입",
+    "tools": {
+      "sectionTitle": "SNPE 도구 소개",
+      "intro": "SNPE 벨트 운동은 몸을 단순히 고정하는 운동이 아니라, 흩어졌던 몸의 중심을 다시 찾고 바른 움직임의 감각을 몸 스스로 기억하게 만드는 과정입니다.",
+      "basic": {
+        "title": "SNPE 기본도구",
+        "sub": "SNPE 운동에 필수적인 기본 도구입니다."
+      },
+      "recommend": {
+        "title": "SNPE 추천도구",
+        "sub": "기본 도구 외 다양한 자극을 주는 도자기·롤러류 도구입니다."
+      },
+      "items": {
+        "belt": {
+          "name": "SNPE 바른자세벨트",
+          "desc": "하체와 골반의 정렬을 보다 안정적으로 잡아주는 비탄력성 다리벨트"
+        },
+        "pelvicBand": {
+          "name": "골반밴드",
+          "desc": "골반과 고관절 주변을 안정적으로 잡아주는 탄력성 밴드"
+        },
+        "wavePillow": {
+          "name": "웨이브 베개",
+          "desc": "척추 곡선을 고려한 웨이브 형태의 베개로 넓은 부위의 근육을 부드럽게 풀어주는 도구"
+        },
+        "danason": {
+          "name": "다나손",
+          "desc": "손가락 형태의 지압봉으로 굳은 부위를 국소적으로 풀어주는 도구"
+        },
+        "ovalCeramic": {
+          "name": "타원도자기",
+          "desc": "타원 형태의 도자기로 목·등·허리·복부 같은 부위에 따뜻하게 데워 한 부위에 깊은 이완감을 제공해주는 도구"
+        },
+        "twoRail": {
+          "name": "투레일",
+          "desc": "척추 라인을 따라 주변 기립근과 근막라인을 압박과 이완을 동시에 느끼게 해주는 레일형 셀프 케어 도구"
+        },
+        "dokkaebi": {
+          "name": "도깨비손",
+          "desc": "굳어진 근육과 근막의 긴장을 부드럽게 이완시키면서 회원 스스로 몸의 감각과 변화를 느끼게 하는 도구"
+        },
+        "waveRoller": {
+          "name": "웨이브롤러 (2구·4구·10구)",
+          "desc": "Self 근육·근막 이완 도구로, 변위되고 굳은 척추에 직접적으로 사용하여 점진적인 움직임을 만들어주는 도구"
+        },
+        "waveStick": {
+          "name": "웨이브스틱",
+          "desc": "따뜻한 온열감과 묵직한 압박감을 통해 목·등·허리·복부의 깊은 긴장을 편안하게 이완시켜주는 셀프 케어 도구"
+        },
+        "eightCells": {
+          "name": "8구",
+          "desc": "6개의 손가락형 지압봉이 손이 닿지 않던 깊은 뭉침까지 풀어주는 셀프 케어 도구"
+        },
+        "doubleFoamRoller": {
+          "name": "더블폼롤러",
+          "desc": "운동 전후 근막 이완에 추천하는 도구로, 넓은 면을 안정적으로 지지하며 깊은 이완을 도와줍니다."
+        }
+      }
+    }
   }
 }

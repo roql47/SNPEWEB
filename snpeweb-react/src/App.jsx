@@ -12,9 +12,10 @@ function YoutubeRedirect() {
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 import About from './pages/about/About'
+import Philosophy from './pages/about/Philosophy'
 import History from './pages/about/History'
-import Bi from './pages/about/Bi'
 import Certification from './pages/about/Certification'
+import BrandAssets from './pages/about/BrandAssets'
 import CompanyClass from './pages/activity/CompanyClass'
 import CultureCenter from './pages/activity/CultureCenter'
 import Training from './pages/activity/Training'
@@ -24,7 +25,6 @@ import Level2 from './pages/activity/Level2'
 import Level3 from './pages/activity/Level3'
 import Master from './pages/activity/Master'
 import ResearchRedirect from './pages/activity/Research'
-import IntellectualProperty from './pages/about/IntellectualProperty'
 import Research from './pages/about/Research'
 import BeginnerGuide from './pages/exercise/BeginnerGuide'
 import SnpeApp from './pages/exercise/SnpeApp'
@@ -67,10 +67,13 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
+        <Route path="philosophy" element={<Philosophy />} />
         <Route path="history" element={<History />} />
-        <Route path="bi" element={<Bi />} />
+        <Route path="brand-assets" element={<BrandAssets />} />
+        {/* 레거시 호환 - /bi, /intellectual-property는 브랜드자산으로 통합 */}
+        <Route path="bi" element={<Navigate to="/brand-assets" replace />} />
+        <Route path="intellectual-property" element={<Navigate to="/brand-assets?tab=ip" replace />} />
         <Route path="certification" element={<Certification />} />
-        <Route path="intellectual-property" element={<IntellectualProperty />} />
         <Route path="companyclass" element={<CompanyClass />} />
         <Route path="culturecenter" element={<CultureCenter />} />
         <Route path="training" element={<Training />} />

@@ -7,8 +7,11 @@
     "support": "客户支持"
   },
   "subnav": {
-    "aboutSnpe": "概述",
+    "aboutSnpe": "什么是SNPE？",
     "overview": "概述",
+    "philosophy": "哲学与核心原理",
+    "evolution": "SNPE的发展历程",
+    "brandAssets": "品牌资产",
     "history": "沿革",
     "historyCert": "沿革与认证",
     "bi": "BI介绍",
@@ -117,8 +120,14 @@
     "paper3desc": "SNPE基本动作完成度与腰痛/骨盆痛的相关性研究"
   },
   "pages": {
-    "about": "概述",
-    "aboutSub": "介绍SNPE正确姿势脊椎运动",
+    "about": "什么是SNPE？",
+    "aboutSub": "介绍SNPE的哲学与品牌方向",
+    "philosophy": "哲学与核心原理",
+    "philosophySub": "介绍SNPE的运动哲学与核心原理",
+    "evolution": "SNPE的发展历程",
+    "evolutionSub": "Built on Self Recovery. Evolving Through Movement Science.",
+    "brandAssets": "品牌资产",
+    "brandAssetsSub": "介绍SNPE品牌识别与知识产权",
     "history": "沿革",
     "historySub": "SNPE的发展历程",
     "historyCert": "沿革与认证",
@@ -182,6 +191,64 @@
     "onlineSub": "申请SNPE在线教育",
     "mypage": "我的页面",
     "login": "登录",
-    "register": "注册"
+    "register": "注册",
+    "tools": {
+      "sectionTitle": "SNPE 工具介绍",
+      "intro": "SNPE 腰带运动不仅仅是将身体简单固定，而是帮助身体重新找回失散的中心，让身体自身记住正确动作感觉的过程。",
+      "basic": {
+        "title": "SNPE 基础工具",
+        "sub": "SNPE 运动所必需的基础工具。"
+      },
+      "recommend": {
+        "title": "SNPE 推荐工具",
+        "sub": "在基础工具之外，提供多样化刺激的陶瓷及滚轮类工具。"
+      },
+      "items": {
+        "belt": {
+          "name": "SNPE 正姿势腰带",
+          "desc": "稳固调整下半身与骨盆排列的非弹性腿带。"
+        },
+        "pelvicBand": {
+          "name": "骨盆带",
+          "desc": "稳定支撑骨盆与髋关节周围的弹性带。"
+        },
+        "wavePillow": {
+          "name": "波浪枕",
+          "desc": "依据脊柱曲线设计的波形枕，能温和放松大面积肌肉。"
+        },
+        "danason": {
+          "name": "达娜手 (Danason)",
+          "desc": "手指形状的指压棒，可针对僵硬部位进行局部放松。"
+        },
+        "ovalCeramic": {
+          "name": "椭圆陶瓷",
+          "desc": "椭圆形陶瓷加热后可对颈、背、腰、腹等部位提供深度放松。"
+        },
+        "twoRail": {
+          "name": "双轨 (Two Rail)",
+          "desc": "沿脊柱线条同时给予竖脊肌与筋膜线压迫与放松的轨道型自我护理工具。"
+        },
+        "dokkaebi": {
+          "name": "鬼怪手",
+          "desc": "温和缓解僵硬肌肉与筋膜紧张，让会员自身感受身体变化的工具。"
+        },
+        "waveRoller": {
+          "name": "波浪滚轮 (2/4/10 球)",
+          "desc": "作为自我筋膜放松工具，如同牙齿矫正原理般作用于错位僵硬的脊柱，带来渐进式动作。"
+        },
+        "waveStick": {
+          "name": "波浪棒",
+          "desc": "通过温热感与厚重压迫感，舒缓颈、背、腰、腹部深层紧张的自我护理工具。"
+        },
+        "eightCells": {
+          "name": "8 球滚轮",
+          "desc": "6 个手指型指压棒，可深入到手部无法触及的深层结节进行放松。"
+        },
+        "doubleFoamRoller": {
+          "name": "双层泡沫滚轮",
+          "desc": "推荐用于运动前后的筋膜放松，以宽广面稳定支撑身体，帮助深度放松。"
+        }
+      }
+    }
   }
 }

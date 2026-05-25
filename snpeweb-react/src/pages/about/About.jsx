@@ -1,50 +1,60 @@
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
+import {
+  Activity,
+  Wind,
+  Scale,
+  Eye,
+  Sparkles,
+  Heart,
+  ImageIcon,
+  Quote,
+} from 'lucide-react'
+
+const keyAreas = [
+  {
+    icon: Activity,
+    en: 'Physical Alignment',
+    ko: '신체 정렬과 움직임 회복',
+  },
+  {
+    icon: Wind,
+    en: 'Breathing & Nervous System Recovery',
+    ko: '호흡과 신경계 회복',
+  },
+  {
+    icon: Scale,
+    en: 'Body Balance & Shape',
+    ko: '바디 밸런스와 움직임 기반 체형 관리',
+  },
+  {
+    icon: Eye,
+    en: 'Embodied Awareness & Self-Efficacy',
+    ko: '몸의 감각 회복과 자기 회복력',
+  },
+  {
+    icon: Sparkles,
+    en: 'Lifestyle Wellness & Movement Balance',
+    ko: '라이프스타일 웰니스와 움직임 균형',
+  },
+  {
+    icon: Heart,
+    en: 'Senior Wellness & Longevity',
+    ko: '시니어 웰니스와 건강한 움직임',
+  },
+]
+
+function ImagePlaceholder({ aspect = 'aspect-[4/3]', label = '이미지 추후 추가 예정' }) {
+  return (
+    <div className={`${aspect} w-full rounded-2xl bg-gradient-to-br from-mint-lighter/40 via-white to-gray-50 border border-dashed border-mint/30 flex flex-col items-center justify-center text-gray-400`}>
+      <ImageIcon size={36} strokeWidth={1.4} className="mb-2 text-mint/60" />
+      <span className="text-xs">{label}</span>
+    </div>
+  )
+}
 
 export default function About() {
   const { t } = useTranslation()
-  const storySections = [
-    {
-      title: '타인에 의한 방법의 한계를 넘어',
-      body: '타인에 의존한 해결 방법은 일시적인 완화에는 도움이 될 수 있지만, 반복되는 통증과 재발을 근본적으로 해결하기에는 한계가 있었습니다. SNPE는 이 지점에서 출발해, 스스로 움직이며 본래 자세를 회복하는 방식에 집중합니다.',
-      points: [
-        '타인 의존형 관리의 반복과 재발 문제 인식',
-        '자기 주도형 회복 운동의 필요성 확인',
-        '일상에서 지속 가능한 실천 중심 접근',
-      ],
-      images: ['/images/main-1.png'],
-    },
-    {
-      title: '치아 정렬 원리에서 얻은 힌트',
-      body: '치아가 외력으로 바르게 정렬되는 원리를 관찰하며, 척추와 골반 정렬에도 유사한 접근이 가능하다는 아이디어를 얻었습니다. 이를 바탕으로 벨트와 도구를 활용한 운동 원리를 구체화했습니다.',
-      points: [
-        '정렬 원리의 인체 적용 가능성 탐색',
-        '척추 및 골반 정렬을 위한 운동 프로토콜 연구',
-        '실제 사례 기반 반복 검증',
-      ],
-      images: ['/images/main-2.png', '/images/main-3.png'],
-    },
-    {
-      title: '바른자세벨트와 도구 개발',
-      body: '비탄력/탄력 특성을 활용한 벨트와 다양한 척추운동 도구를 개발해, 혼자서도 올바른 정렬 자극을 만들 수 있도록 설계했습니다. 도구는 어렵지 않게 사용할 수 있도록 단계별 운동과 함께 구성됩니다.',
-      points: [
-        '바른자세벨트, 골반밴드, 척추운동 도구 개발',
-        '셀프 운동에 적합한 사용성 중심 설계',
-        '초급부터 적용 가능한 단계별 동작 체계',
-      ],
-      images: ['/images/main-4.png'],
-    },
-    {
-      title: '임상 경험을 통한 체계화와 확장',
-      body: '꾸준한 실천 사례를 통해 허리 건강을 넘어 목, 어깨, 골반, 체형 관리 등으로 적용 범위가 확대되었습니다. SNPE는 예방과 회복을 동시에 지향하는 일상형 운동법으로 발전해왔습니다.',
-      points: [
-        '다양한 체형·통증 사례에서의 적용 확대',
-        '예방 중심 건강관리 관점 강화',
-        '전문센터 교육과 개인 루틴의 연결',
-      ],
-      images: ['/images/main-5.png', '/images/main-6.png'],
-    },
-  ]
 
   return (
     <>
@@ -53,107 +63,235 @@ export default function About() {
         subtitle={t('pages.aboutSub')}
       />
 
-      <section className="py-16 md:py-24">
+      {/* 1) What is SNPE? */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-white to-mint-lighter/30">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <p className="text-xs md:text-sm font-semibold tracking-[0.3em] text-mint-darker mb-3">
+            01. What is SNPE?
+          </p>
+          <h2 className="text-3xl md:text-5xl font-heading font-bold text-gray-900 mb-4">
+            Built on Self Recovery
+          </h2>
+          <p className="text-xl md:text-2xl text-mint-darker font-medium mb-10">
+            스스로 회복할 수 있다는 자신감
+          </p>
+
+          <div className="max-w-3xl mx-auto text-gray-700 leading-relaxed text-base md:text-lg space-y-5">
+            <p>
+              <strong className="text-gray-900">SNPE</strong>(Self Natural Posture Exercise)는
+              <br className="hidden md:block" />
+              인체 본연의 정렬과 움직임을 회복하도록 돕는
+              <br className="hidden md:block" />
+              자기 주도형 움직임 회복 시스템(Self Recovery Movement System)입니다.
+            </p>
+            <p className="text-gray-600 text-sm md:text-base">
+              단순히 근육을 강화하거나 특정 부위를 반복적으로 사용하는 운동이 아니라,
+              <br className="hidden md:block" />
+              잘못된 자세 습관과 움직임 패턴으로 인해 무너진 몸의 균형을
+              <br className="hidden md:block" />
+              스스로 인지하고 회복하도록 설계된 통합 움직임 시스템입니다.
+            </p>
+            <p className="text-gray-600 text-sm md:text-base">
+              SNPE는 척추 중심의 자세 회복 개념에서 출발하였지만,
+              <br className="hidden md:block" />
+              현재는 발·골반·호흡·움직임 체인(Kinetic Chain),
+              <br className="hidden md:block" />
+              그리고 일상 속 움직임 습관까지 연결하는
+              <br className="hidden md:block" />
+              보다 통합적이고 과학적인 움직임 시스템으로 발전하고 있습니다.
+            </p>
+          </div>
+
+          <div className="mt-12 max-w-2xl mx-auto">
+            <ImagePlaceholder aspect="aspect-[16/9]" />
+          </div>
+        </div>
+      </section>
+
+      {/* 2) The Beginning of SNPE */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              SNPE란?
+          <div className="text-center mb-12">
+            <p className="text-xs md:text-sm font-semibold tracking-[0.3em] text-mint-darker mb-3">
+              The Beginning of SNPE
+            </p>
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-gray-900">
+              반복되는 만성 허리 통증에 대한 고민에서 시작된 SNPE
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              <strong className="text-snpe-dark">S</strong>elf{' '}
-              <strong className="text-snpe-dark">N</strong>atural{' '}
-              <strong className="text-snpe-dark">P</strong>osture{' '}
-              <strong className="text-snpe-dark">E</strong>xercise
-            </p>
-            <p className="mt-4 text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              SNPE 바른자세 척추운동은 바른자세벨트와 다양한 도구를 활용하여
-              <br />
-              스스로 바른자세와 바른체형으로 회복하는
-              <br />
-              새로운 패러다임의 운동법입니다.
-            </p>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-3xl p-8 md:p-12 mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-5 text-center">SNPE 창안배경</h3>
-            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
-              SNPE 창안자 故 최중기 교수는 반복되는 허리 통증을 겪으며 오랜 시간 다양한 방법을 연구했고,
-              타인에 의존한 방식의 한계를 체감했습니다. 이후 스스로 움직여 본래 자세를 회복하는 운동 원리에
-              집중하며 실험을 거듭했고, 치아 정렬 원리에서 착안해 벨트와 도구를 활용한 자세 회복 운동법을
-              체계화했습니다.
-            </p>
-          </div>
-
-          <div className="space-y-8 mb-16">
-            {storySections.map((section, idx) => (
-              <article
-                key={section.title}
-                className="grid lg:grid-cols-2 gap-6 md:gap-8 items-stretch bg-gray-50 rounded-3xl p-6 md:p-8 border border-gray-100"
-              >
-                <div className={`${idx % 2 === 1 ? 'lg:order-2' : ''} h-full`}>
-                  {section.images.length === 1 ? (
-                    <img
-                      src={section.images[0]}
-                      alt={section.title}
-                      className="w-full h-full min-h-[220px] rounded-2xl object-cover"
-                    />
-                  ) : (
-                    <div className="grid grid-cols-2 gap-3 h-full">
-                      {section.images.map((src) => (
-                        <img
-                          key={src}
-                          src={src}
-                          alt={section.title}
-                          className="w-full h-full min-h-[180px] rounded-2xl object-cover"
-                        />
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <div className={`${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">{section.title}</h3>
-                  <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4">{section.body}</p>
-                  <ul className="space-y-2">
-                    {section.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2.5 text-sm md:text-base text-gray-700">
-                        <span className="mt-1 w-2 h-2 rounded-full bg-snpe-dark" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="bg-snpe/5 rounded-3xl p-8 md:p-12 mb-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">SNPE 운동의 확장</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                '바른자세벨트와 SNPE 도구를 활용한 셀프 자세 회복 운동',
-                '허리 건강을 넘어 목·어깨·골반 등 전신 체형 관리로 확장',
-                '휜 다리, 척추 불균형, 산후 회복 등 다양한 사례에서 활용',
-                '청소년 성장기 체형 관리와 생활 속 자세 개선에 도움',
-                '근골격계 예방 및 건강 증진 목적의 실천형 프로그램',
-                '전문센터 교육과 일상 루틴을 연결하는 지속 가능한 운동법',
-              ].map((f, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-snpe-darker text-white text-xs flex items-center justify-center font-bold mt-0.5">
-                    ✓
-                  </span>
-                  <span className="text-gray-700">{f}</span>
-                </div>
-              ))}
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 items-center mb-10">
+            <ImagePlaceholder />
+            <div className="space-y-5 text-gray-700 leading-relaxed text-sm md:text-base">
+              <p>
+                SNPE는 반복되는 척추 불균형과 움직임 문제에 대한
+                오랜 연구와 현장 경험 속에서 시작되었습니다.
+              </p>
+              <p>
+                초기 SNPE 철학은 <em className="text-gray-900 font-semibold">"누군가에게 의존하지 않고 스스로 회복할 수 있는 움직임은 가능한가?"</em>라는 질문에서 출발했습니다.
+              </p>
+              <p>
+                SNPE 창안자 故 최중기 교수는 반복되는 허리 통증과 움직임 제한을 경험하며,
+                신체의 정렬과 움직임 회복의 원리를 오랫동안 연구해왔습니다.
+                이후 카이로프랙틱, 운동치료, 자세교정 이론과 움직임 관찰 경험을 바탕으로
+                SNPE는 자기 주도형(Self Recovery) 움직임 시스템으로 발전해왔습니다.
+              </p>
             </div>
           </div>
 
-          <div className="rounded-3xl overflow-hidden">
-            <img
-              src="/images/main-7.png"
-              alt="SNPE 운동"
-              className="w-full object-cover"
-            />
+          <div className="bg-mint-lighter/40 rounded-3xl p-8 md:p-10 mb-10 border border-mint/20">
+            <p className="text-gray-700 leading-relaxed text-sm md:text-base">
+              특히 SNPE는 <strong className="text-mint-darker">장시간에 걸쳐 치아가 점진적으로 정렬되는 원리</strong>에서 영감을 받아,
+              반복적이고 올바른 움직임 학습을 통해 신체의 정렬과 움직임 균형이 회복될 수 있도록 설계되었습니다.
+              이는 순간적인 교정보다 지속적인 움직임 습관과 감각 인지를 중요하게 바라보는
+              SNPE의 핵심 철학 중 하나입니다.
+            </p>
+            <p className="mt-4 text-gray-600 text-sm leading-relaxed">
+              또한 굳어지고 제한된 깊은 근육과 움직임 패턴을 보다 부드럽게 회복하기 위해,
+              손가락의 압력과 인체역학 원리에서 영감을 받은 SNPE만의 고유한 운동 도구들이 함께 개발되었습니다.
+            </p>
           </div>
+
+          <blockquote className="relative max-w-3xl mx-auto text-center px-6">
+            <Quote size={32} className="text-mint/40 mx-auto mb-3" />
+            <p className="text-lg md:text-xl text-gray-800 font-heading leading-relaxed italic">
+              "정렬은 억지로 만드는 것이 아니라,
+              <br />
+              올바른 움직임의 반복 속에서 회복된다."
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* 3) Expanding Beyond Posture */}
+      <section className="py-20 md:py-28 bg-gradient-to-b from-mint-lighter/30 to-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-xs md:text-sm font-semibold tracking-[0.3em] text-mint-darker mb-3">
+              Expanding Beyond Posture
+            </p>
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-gray-900">
+              움직임 기반 웰니스로의 확장
+            </h2>
+          </div>
+
+          <div className="space-y-5 text-gray-700 leading-relaxed text-sm md:text-base max-w-3xl mx-auto">
+            <p>
+              현재 SNPE는 단순한 자세 교정이나 근골격계 통증 관리에 머물지 않고,
+              <strong className="text-gray-900"> 몸의 정렬과 움직임 회복을 기반으로
+              삶의 균형과 웰니스를 함께 바라보는 움직임 시스템</strong>으로 확장되고 있습니다.
+            </p>
+            <p>
+              반복되는 생활 습관과 움직임 패턴 속에서 발생하는
+              만성적인 통증과 불편감, 긴장과 움직임 제한을 통합적으로 바라보며,
+              보다 자연스럽고 지속 가능한 움직임 회복을 중요하게 생각합니다.
+            </p>
+            <p>
+              SNPE는 신체 정렬과 움직임 기능 회복을 넘어,
+              호흡과 신경계 회복, 바디 밸런스와 체형 관리,
+              몸의 감각 회복과 자기 효능감(Self-Efficacy),
+              그리고 Healthy Aging과 Longevity 관점의 웰니스까지 연결하며
+              보다 통합적인 움직임 경험을 연구하고 있습니다.
+            </p>
+            <p className="text-gray-600">
+              또한 성장기 유소년부터 성인, 시니어까지
+              다양한 연령과 라이프스타일 속에서 누구나 자신의 몸을 이해하고
+              스스로 움직임의 균형을 회복할 수 있도록 돕는
+              지속 가능한 움직임 시스템을 지향합니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4) Key Areas of SNPE */}
+      <section className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-xs md:text-sm font-semibold tracking-[0.3em] text-mint-darker mb-3">
+              Key Areas of SNPE
+            </p>
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-gray-900 mb-4">
+              SNPE가 지향하는 움직임 기반 웰니스
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {keyAreas.map((area) => (
+              <div
+                key={area.en}
+                className="bg-white rounded-2xl p-7 border border-gray-100 hover:border-mint/40 hover:shadow-lg transition-all"
+              >
+                <div className="w-12 h-12 rounded-xl bg-mint-lighter/60 text-mint-darker flex items-center justify-center mb-5">
+                  <area.icon size={22} strokeWidth={1.8} />
+                </div>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-1.5 leading-snug">
+                  {area.en}
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{area.ko}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-14 text-center bg-white rounded-3xl p-8 md:p-10 border border-mint/20">
+            <p className="text-lg md:text-2xl font-heading text-mint-darker italic">
+              "Wellness for Better Movement & Longevity"
+            </p>
+            <p className="mt-2 text-sm md:text-base text-gray-600">
+              더 오래, 더 건강하게 움직이기 위한 웰니스
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5) The Future of SNPE */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-xs md:text-sm font-semibold tracking-[0.3em] text-mint-darker mb-3">
+              The Future of SNPE
+            </p>
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-gray-900">
+              움직임의 미래를 연구하다
+            </h2>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10 items-center">
+            <div className="space-y-5 text-gray-700 leading-relaxed text-sm md:text-base">
+              <p>
+                SNPE는 단순한 운동 프로그램을 넘어,
+                <strong className="text-gray-900"> 사람의 움직임과 삶의 균형을 연구하는
+                통합 움직임 시스템</strong>으로 발전하고 있습니다.
+              </p>
+              <p>
+                AI와 디지털 기술이 빠르게 발전하는 시대 속에서
+                SNPE는 움직임 데이터와 평가 시스템을 기반으로
+                보다 정교하고 개인화된 움직임 환경을 만들어가고 있습니다.
+              </p>
+              <p>
+                또한 움직임 과학(Movement Science), 웰니스, 디지털 헬스케어 기술을 연결하며
+                사람마다 다른 움직임 특성과 회복 과정을
+                더 깊이 이해하는 방향으로 발전하고 있습니다.
+              </p>
+              <p className="text-gray-600">
+                앞으로 SNPE는 AI 기반 움직임 분석과 글로벌 교육 시스템을 연결하며,
+                건강한 움직임을 삶 속에서 지속할 수 있도록 돕는
+                글로벌 움직임 브랜드로 발전해가고자 합니다.
+              </p>
+            </div>
+            <ImagePlaceholder />
+          </div>
+        </div>
+      </section>
+
+      {/* 6) Closing tagline */}
+      <section className="py-20 md:py-24 bg-gradient-to-br from-mint-darker via-mint-dark to-mint text-white text-center">
+        <div className="max-w-3xl mx-auto px-4">
+          <p className="text-3xl md:text-5xl font-heading font-bold mb-3 leading-tight">
+            Built on Self Recovery
+          </p>
+          <p className="text-xl md:text-3xl font-heading text-white/90 leading-tight">
+            Evolving Through Movement Science
+          </p>
         </div>
       </section>
     </>

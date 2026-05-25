@@ -4,10 +4,10 @@ export const mainNav = [
     path: '/about',
     children: [
       { titleKey: 'subnav.aboutSnpe', path: '/about' },
-      { titleKey: 'subnav.historyCert', path: '/history' },
-      { titleKey: 'subnav.bi', path: '/bi' },
-      { titleKey: 'subnav.intellectualProperty', path: '/intellectual-property' },
+      { titleKey: 'subnav.philosophy', path: '/philosophy' },
+      { titleKey: 'subnav.evolution', path: '/history' },
       { titleKey: 'subnav.research', path: '/research' },
+      { titleKey: 'subnav.brandAssets', path: '/brand-assets' },
     ],
   },
   {

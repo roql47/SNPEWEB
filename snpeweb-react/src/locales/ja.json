@@ -7,8 +7,11 @@
     "support": "サポート"
   },
   "subnav": {
-    "aboutSnpe": "概要",
+    "aboutSnpe": "SNPEとは？",
     "overview": "概要",
+    "philosophy": "哲学と核心原理",
+    "evolution": "SNPEの発展過程",
+    "brandAssets": "ブランド資産",
     "history": "沿革",
     "historyCert": "沿革・認証",
     "bi": "BI紹介",
@@ -117,8 +120,14 @@
     "paper3desc": "SNPE基本動作の遂行度と腰痛/骨盤痛の相関関係研究"
   },
   "pages": {
-    "about": "概要",
-    "aboutSub": "SNPE正しい姿勢脊椎運動をご紹介します",
+    "about": "SNPEとは？",
+    "aboutSub": "SNPEの哲学とブランドの方向性をご紹介します",
+    "philosophy": "哲学と核心原理",
+    "philosophySub": "SNPEの動きの哲学と核心原理をご紹介します",
+    "evolution": "SNPEの発展過程",
+    "evolutionSub": "Built on Self Recovery. Evolving Through Movement Science.",
+    "brandAssets": "ブランド資産",
+    "brandAssetsSub": "SNPEのブランドアイデンティティと知的財産権をご紹介します",
     "history": "沿革",
     "historySub": "SNPEの歩み",
     "historyCert": "沿革・認証",
@@ -182,6 +191,64 @@
     "onlineSub": "SNPEオンライン教育のお申し込み",
     "mypage": "マイページ",
     "login": "ログイン",
-    "register": "会員登録"
+    "register": "会員登録",
+    "tools": {
+      "sectionTitle": "SNPE 道具のご紹介",
+      "intro": "SNPEベルト運動は体を単に固定する運動ではなく、散らばっていた体の中心を取り戻し、正しい動きの感覚を体自身に覚えさせるプロセスです。",
+      "basic": {
+        "title": "SNPE 基本道具",
+        "sub": "SNPE 運動に欠かせない基本の道具です。"
+      },
+      "recommend": {
+        "title": "SNPE おすすめ道具",
+        "sub": "基本道具に加えて多様な刺激を与える陶磁器・ローラー類の道具です。"
+      },
+      "items": {
+        "belt": {
+          "name": "SNPE 正しい姿勢ベルト",
+          "desc": "下半身と骨盤のアライメントを安定的に支える非伸縮性レッグベルト。"
+        },
+        "pelvicBand": {
+          "name": "骨盤バンド",
+          "desc": "骨盤と股関節まわりを安定的に支える伸縮性バンド。"
+        },
+        "wavePillow": {
+          "name": "ウェーブ枕",
+          "desc": "脊柱のカーブに合わせた波形の枕で、広い範囲の筋肉を優しくほぐす道具。"
+        },
+        "danason": {
+          "name": "ダナソン",
+          "desc": "指の形をした指圧棒で、こり固まった部位を局所的にほぐす道具。"
+        },
+        "ovalCeramic": {
+          "name": "楕円陶磁器",
+          "desc": "楕円形の陶磁器を温め、首・背中・腰・腹部などに深い弛緩感を与える道具。"
+        },
+        "twoRail": {
+          "name": "ツーレール",
+          "desc": "脊柱に沿って起立筋や筋膜ラインに圧迫と弛緩を同時に感じさせるレール型セルフケア道具。"
+        },
+        "dokkaebi": {
+          "name": "トッケビハンド",
+          "desc": "固まった筋肉と筋膜の緊張を優しく緩め、会員自身が体の変化を感じられる道具。"
+        },
+        "waveRoller": {
+          "name": "ウェーブローラー (2・4・10球)",
+          "desc": "セルフ筋膜リリース道具として、ずれて固まった脊柱に直接働きかけ、段階的な動きを生み出す道具。"
+        },
+        "waveStick": {
+          "name": "ウェーブスティック",
+          "desc": "温かな温熱感と重量感のある圧迫で、首・背中・腰・腹部の深い緊張を心地よくほぐすセルフケア道具。"
+        },
+        "eightCells": {
+          "name": "8球ローラー",
+          "desc": "6本の指型指圧棒が、手の届かない深いコリまでほぐすセルフケア道具。"
+        },
+        "doubleFoamRoller": {
+          "name": "ダブルフォームローラー",
+          "desc": "運動前後の筋膜リリースにおすすめ。広い面で安定的に体を支え、深い弛緩を助けます。"
+        }
+      }
+    }
   }
 }

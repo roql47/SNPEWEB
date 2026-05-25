@@ -2,11 +2,12 @@ export default function BrandSection() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-mint-lighter/40 to-mint-lighter/70 py-20 md:py-28">
       <div className="max-w-[1440px] mx-auto px-6 text-center">
-        <img
-          src="/images/mainVideo_title.png"
-          alt="SNPE"
-          className="mx-auto h-14 md:h-20 w-auto object-contain mb-5"
-        />
+        <p className="font-heading text-xl md:text-3xl lg:text-4xl text-gray-800 tracking-wide mb-6 md:mb-8">
+          <strong className="font-bold">S</strong>elf{' '}
+          <strong className="font-bold">N</strong>atural{' '}
+          <strong className="font-bold">P</strong>osture{' '}
+          <strong className="font-bold">E</strong>xercise
+        </p>
 
         <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold text-mint-darker leading-tight mb-8 md:mb-10">
           <span className="inline-block border-b-2 border-mint-darker pb-2">
