@@ -27,10 +27,10 @@ export default function AboutSection() {
             <p className="text-mint text-base md:text-lg font-semibold tracking-tight mb-5" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}>
               ABOUT SNPE
             </p>
-            <h2 className="font-heading font-bold text-[#111] leading-[1.1] tracking-[-0.035em] text-[32px] md:text-[42px] lg:text-[48px] mb-8 md:mb-10">
+            <h2 className="font-heading font-bold text-[#111] leading-[1.2] tracking-[-0.03em] text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8">
               스스로 회복할 수 있다는 자신감
             </h2>
-            <div className="space-y-6 text-[#111] text-base md:text-xl lg:text-[26px] leading-[1.58] tracking-[-0.025em]">
+            <div className="space-y-5 text-[#111] text-sm md:text-base lg:text-lg leading-relaxed tracking-[-0.01em]">
               <p>
                 SNPE는 몸의 정렬과 움직임 회복을 통해
                 <br className="hidden md:block" />

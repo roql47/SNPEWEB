@@ -2,8 +2,8 @@ import { useLocation } from 'react-router-dom'
 import CategoryTabBar from './CategoryTabBar'
 
 const CATEGORY_BANNERS = {
-  about: '/images/sub_banner_1.jpg',
-  exercise: '/images/sub_banner2.jpg',
+  about: '/images/sample.png',
+  exercise: '/images/sample_2.png',
   education: '/images/sub_banner3.jpg',
   news: '/images/sub_banner4.jpg',
   support: '/images/sub_banner5.jpg',
@@ -13,6 +13,12 @@ const CATEGORY_BANNERS = {
 // 예: about: '/images/sub_banner_1_mobile.jpg'
 const CATEGORY_BANNERS_MOBILE = {
   // about: '/images/sub_banner_1_mobile.jpg',
+}
+
+// 카테고리별 배경 이미지 포지션 (기본값: center center)
+const CATEGORY_BG_POSITION = {
+  about: 'center 57%',
+  exercise: 'center 78%',
 }
 
 const ROUTE_TO_CATEGORY = {
@@ -55,6 +61,7 @@ export default function PageBanner({ title, subtitle, backgroundImage, mobileBac
 
   const pcBg = backgroundImage || (category ? CATEGORY_BANNERS[category] : null)
   const mobileBg = mobileBackgroundImage || (category ? CATEGORY_BANNERS_MOBILE[category] : null) || pcBg
+  const bgPosition = CATEGORY_BG_POSITION[category] || 'center center'
 
   return (
     <div className="relative -mt-16 lg:-mt-[120px] overflow-hidden">
@@ -63,14 +70,14 @@ export default function PageBanner({ title, subtitle, backgroundImage, mobileBac
         <>
           {/* 모바일 배경 (768px 미만) */}
           <div
-            className="absolute inset-0 block md:hidden bg-cover bg-center"
-            style={{ backgroundImage: `url(${mobileBg})` }}
+            className="absolute inset-0 block md:hidden bg-cover"
+            style={{ backgroundImage: `url(${mobileBg})`, backgroundPosition: bgPosition }}
             aria-hidden="true"
           />
           {/* PC 배경 (768px 이상) */}
           <div
-            className="absolute inset-0 hidden md:block bg-cover bg-center"
-            style={{ backgroundImage: `url(${pcBg})` }}
+            className="absolute inset-0 hidden md:block bg-cover"
+            style={{ backgroundImage: `url(${pcBg})`, backgroundPosition: bgPosition }}
             aria-hidden="true"
           />
           <div className="absolute inset-0 bg-black/45" aria-hidden="true" />

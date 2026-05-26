@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
-import { Quote, Compass, Activity, Anchor, Repeat, ImageIcon } from 'lucide-react'
+import { Quote, Compass, Activity, Anchor, Repeat } from 'lucide-react'
 
 const corePrinciples = [
   {
@@ -80,14 +80,12 @@ const snpeMeaning = [
   { letter: 'E', word: 'Exercise' },
 ]
 
-function ImagePlaceholder({ aspect = 'aspect-[4/3]', label = '이미지 추후 추가 예정' }) {
-  return (
-    <div className={`${aspect} w-full rounded-2xl bg-gradient-to-br from-mint-lighter/40 via-white to-gray-50 border border-dashed border-mint/30 flex flex-col items-center justify-center text-gray-400`}>
-      <ImageIcon size={36} strokeWidth={1.4} className="mb-2 text-mint/60" />
-      <span className="text-xs">{label}</span>
-    </div>
-  )
-}
+const PRINCIPLE_IMGS = [
+  '/images/point_1.png',
+  '/images/point_2.png',
+  '/images/point_3.jpg',
+  '/images/point_4.jpg',
+]
 
 export default function Philosophy() {
   const { t } = useTranslation()
@@ -198,16 +196,20 @@ export default function Philosophy() {
                   idx % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
                 }`}
               >
-                <ImagePlaceholder />
+                <div className="rounded-2xl overflow-hidden">
+                  <img
+                    src={PRINCIPLE_IMGS[idx]}
+                    alt={p.en}
+                    className="w-full h-auto block"
+                    loading="lazy"
+                  />
+                </div>
 
                 <div>
                   <div className="flex items-baseline gap-3 mb-4">
                     <span className="text-5xl md:text-6xl font-heading font-bold text-mint/30 leading-none">
                       {p.no}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-mint-lighter/60 text-mint-darker flex items-center justify-center flex-shrink-0">
-                      <p.icon size={22} strokeWidth={1.8} />
-                    </div>
                   </div>
                   <h3 className="text-xl md:text-2xl font-heading font-bold text-gray-900 mb-1.5">
                     {p.en}
