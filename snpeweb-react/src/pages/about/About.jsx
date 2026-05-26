@@ -58,6 +58,7 @@ export default function About() {
       <PageBanner
         title={t('pages.about')}
         subtitle={t('pages.aboutSub')}
+        backgroundImage="/images/sample.png"
       />
 
       {/* 1) What is SNPE? */}
