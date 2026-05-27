@@ -37,7 +37,7 @@ export const mainNav = [
     path: '/notice',
     children: [
       { titleKey: 'subnav.notice', path: '/notice' },
-      { titleKey: 'subnav.press', path: '/news' },
+      // 언론보도는 활동소식(/activity) 내부 탭으로 통합되어 헤더 메뉴에서는 제거
       { titleKey: 'subnav.activity', path: '/activity' },
     ],
   },

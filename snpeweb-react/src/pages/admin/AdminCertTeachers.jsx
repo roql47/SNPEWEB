@@ -161,6 +161,36 @@ export default function AdminCertTeachers() {
     XLSX.writeFile(wb, 'snpe_teachers_template.xlsx')
   }
 
+  // ── 현재 등록된 강사 명단을 엑셀로 다운로드 (재업로드 가능 양식) ─────────
+  const downloadCurrentTeachers = () => {
+    if (!teachers || teachers.length === 0) {
+      setUploadResult({ status: 'error', message: '다운로드할 강사 데이터가 없습니다.' })
+      return
+    }
+    const rows = teachers.map((t) => ({
+      이름: t.name || '',
+      레벨: t.level || '',
+      지역: t.region || '',
+      사진URL: t.photo_url || '',
+      소개: t.intro || '',
+      전화번호: t.phone || '',
+      생년월일: t.birth_date || '',
+      우수강사: t.featured ? 'O' : '',
+      앰배서더: t.ambassador ? 'O' : '',
+      삭제: '',
+    }))
+    const ws = XLSX.utils.json_to_sheet(rows)
+    ws['!cols'] = [
+      { wch: 10 }, { wch: 10 }, { wch: 8 }, { wch: 30 }, { wch: 20 },
+      { wch: 15 }, { wch: 12 }, { wch: 8 }, { wch: 8 }, { wch: 6 },
+    ]
+    const wb = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb, ws, '인증강사')
+    const today = new Date().toISOString().slice(0, 10).replace(/-/g, '')
+    XLSX.writeFile(wb, `snpe_teachers_${today}.xlsx`)
+    setUploadResult({ status: 'ok', message: `${rows.length}명 다운로드 완료` })
+  }
+
   // ── 필터링 ───────────────────────────────────────────────────────────
   const filtered = teachers.filter((t) => {
     if (filter === 'ambassador' && !t.ambassador) return false
@@ -182,6 +212,13 @@ export default function AdminCertTeachers() {
             className="flex items-center gap-2 px-3 py-2.5 bg-white border border-gray-200 text-gray-700 text-sm rounded-xl hover:bg-gray-50 transition-colors"
           >
             <Download size={16} /> 양식 다운로드
+          </button>
+          <button
+            onClick={downloadCurrentTeachers}
+            className="flex items-center gap-2 px-3 py-2.5 bg-white border border-gray-200 text-gray-700 text-sm rounded-xl hover:bg-gray-50 transition-colors"
+            title="현재 등록된 강사 명단을 업로드 양식과 동일한 형식으로 다운로드합니다."
+          >
+            <Download size={16} /> 현재 명단 다운로드
           </button>
           <label className="flex items-center gap-2 px-3 py-2.5 bg-white border border-gray-200 text-gray-700 text-sm rounded-xl hover:bg-gray-50 transition-colors cursor-pointer">
             <Upload size={16} /> 엑셀 업로드

@@ -1,6 +1,6 @@
 import { Navigate, Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useAdminAuth } from '../../contexts/AdminAuth'
-import { LayoutDashboard, MapPin, Building2, Bell, Newspaper, CalendarDays, LogOut, Home, UserCheck, BookOpen, FileText, HelpCircle, GraduationCap, Inbox, Store, BookMarked } from 'lucide-react'
+import { LayoutDashboard, MapPin, Building2, Bell, Newspaper, LogOut, Home, UserCheck, BookOpen, FileText, HelpCircle, GraduationCap, Inbox, Store, BookMarked } from 'lucide-react'
 
 const navItems = [
   { to: '/admin', icon: LayoutDashboard, label: '대시보드', end: true },
@@ -13,8 +13,7 @@ const navItems = [
   { to: '/admin/degree-page', icon: BookMarked, label: '자격증 안내 페이지' },
   { to: '/admin/level-pages', icon: GraduationCap, label: 'LEVEL 1/2/3/Master 관리' },
   { to: '/admin/notices', icon: Bell, label: '공지사항 관리' },
-  { to: '/admin/news', icon: Newspaper, label: '언론보도 관리' },
-  { to: '/admin/activities', icon: CalendarDays, label: '활동내역 관리' },
+  { to: '/admin/activity-feed', icon: Newspaper, label: '활동소식 관리' },
   { to: '/admin/experience-cases', icon: BookOpen, label: '체험사례 관리' },
   { to: '/admin/research', icon: FileText, label: '연구논문 관리' },
   { to: '/admin/faqs', icon: HelpCircle, label: 'FAQ 관리' },

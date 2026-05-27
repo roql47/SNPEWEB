@@ -32,7 +32,6 @@ import BaseExercise from './pages/exercise/BaseExercise'
 import ExperienceCase from './pages/exercise/ExperienceCase'
 import SnpeExperience from './pages/exercise/SnpeExperience'
 import Notice from './pages/news/Notice'
-import News from './pages/news/News'
 import Activity from './pages/news/Activity'
 import SearchCenter from './pages/support/SearchCenter'
 import Studio from './pages/support/Studio'
@@ -49,8 +48,7 @@ import AdminBranches from './pages/admin/AdminBranches'
 import AdminCenters from './pages/admin/AdminCenters'
 import AdminStudios from './pages/admin/AdminStudios'
 import AdminNotices from './pages/admin/AdminNotices'
-import AdminNews from './pages/admin/AdminNews'
-import AdminActivities from './pages/admin/AdminActivities'
+import AdminActivityFeed from './pages/admin/AdminActivityFeed'
 import AdminCertTeachers from './pages/admin/AdminCertTeachers'
 import AdminExperienceCases from './pages/admin/AdminExperienceCases'
 import AdminResearch from './pages/admin/AdminResearch'
@@ -91,7 +89,8 @@ export default function App() {
         <Route path="experiencecase" element={<ExperienceCase />} />
         <Route path="snpe-experience" element={<SnpeExperience />} />
         <Route path="notice" element={<Notice />} />
-        <Route path="news" element={<News />} />
+        {/* 언론보도는 활동소식 내 탭으로 통합 — /news 진입 시 자동 이동 */}
+        <Route path="news" element={<Navigate to="/activity?tab=press" replace />} />
         <Route path="activity" element={<Activity />} />
         <Route path="search-center" element={<SearchCenter />} />
         <Route path="studio" element={<Studio />} />
@@ -113,8 +112,11 @@ export default function App() {
         <Route path="centers" element={<AdminCenters />} />
         <Route path="studios" element={<AdminStudios />} />
         <Route path="notices" element={<AdminNotices />} />
-        <Route path="news" element={<AdminNews />} />
-        <Route path="activities" element={<AdminActivities />} />
+        {/* 언론보도 + 활동내역 통합 관리 화면 */}
+        <Route path="activity-feed" element={<AdminActivityFeed />} />
+        {/* 레거시 호환 — 기존 메뉴/북마크 진입 시 통합 화면으로 이동 */}
+        <Route path="news" element={<Navigate to="/admin/activity-feed?tab=press" replace />} />
+        <Route path="activities" element={<Navigate to="/admin/activity-feed" replace />} />
         <Route path="cert-teachers" element={<AdminCertTeachers />} />
         <Route path="experience-cases" element={<AdminExperienceCases />} />
         <Route path="research" element={<AdminResearch />} />

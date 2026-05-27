@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
-import { Plus, Pencil, Trash2, X, Pin, Megaphone } from 'lucide-react'
+import { Plus, Pencil, Trash2, X, Pin, Megaphone, Info } from 'lucide-react'
 import ImageUploader from '../../components/admin/ImageUploader'
 import RichTextEditor from '../../components/admin/RichTextEditor'
 
@@ -21,9 +21,27 @@ export default function AdminNotices() {
   const [notices, setNotices] = useState([])
   const [editing, setEditing] = useState(null)
   const [form, setForm] = useState(emptyForm)
+  // 'all' | 'popup' — 팝업만 보기 필터
+  const [filter, setFilter] = useState('all')
 
   const loadData = async () => setNotices(await dataStore.getNotices())
   useEffect(() => { loadData() }, [])
+
+  // 오늘 날짜가 노출 기간 내인지 확인 (start/end가 비어 있으면 무기한으로 간주)
+  const isPopupInPeriod = (n) => {
+    if (!n.popup_active) return false
+    const today = new Date().toISOString().slice(0, 10)
+    if (n.popup_start_date && today < n.popup_start_date) return false
+    if (n.popup_end_date && today > n.popup_end_date) return false
+    return true
+  }
+
+  const filteredNotices = filter === 'popup'
+    ? notices.filter((n) => n.popup_active)
+    : notices
+
+  const popupCount = notices.filter((n) => n.popup_active).length
+  const activePopupCount = notices.filter(isPopupInPeriod).length
 
   const openNew = () => { setForm({ ...emptyForm, date: new Date().toISOString().slice(0, 10) }); setEditing('new') }
   const openEdit = (n) => {
@@ -68,11 +86,44 @@ export default function AdminNotices() {
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-2xl font-bold text-gray-900">공지사항 관리</h1>
-          <p className="text-sm text-gray-500 mt-1">총 {notices.length}개</p>
+          <p className="text-sm text-gray-500 mt-1">
+            총 {notices.length}개 · 팝업 등록 {popupCount}개 · 현재 노출중 {activePopupCount}개
+          </p>
         </div>
         <button onClick={openNew} className="flex items-center gap-2 px-4 py-2.5 bg-gray-900 text-white text-sm rounded-xl hover:bg-gray-800 transition-colors">
           <Plus size={16} /> 공지 추가
         </button>
+      </div>
+
+      {/* 팝업 노출 안내 */}
+      <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-800 leading-relaxed flex gap-2">
+        <Info size={14} className="flex-shrink-0 mt-0.5 text-amber-600" />
+        <div>
+          <div className="font-semibold mb-1">팝업이 노출되지 않을 때 확인 사항</div>
+          <ul className="list-disc list-inside space-y-0.5">
+            <li><span className="font-medium">노출 기간</span>을 확인해 주세요. 오늘 날짜가 시작/종료일 범위 밖이면 표시되지 않습니다. (기간 비우면 무기한 노출)</li>
+            <li>방문자가 한 번 <span className="font-medium">"다시 보지 않기"</span>를 누르면 해당 브라우저에서 영구 숨김 처리됩니다(브라우저 로컬 저장). 운영자 본인 확인 시 <span className="font-medium">시크릿 모드</span> 또는 다른 브라우저로 접속해 주세요.</li>
+            <li>여러 팝업이 동시 활성화되어 있으면 상단 고정/최신 날짜 순으로 1개만 노출됩니다.</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* 필터 탭 */}
+      <div className="flex items-center gap-1 bg-white border border-gray-200 rounded-xl p-1 mb-4 w-fit">
+        {[
+          { value: 'all', label: `전체 (${notices.length})` },
+          { value: 'popup', label: `팝업만 (${popupCount})` },
+        ].map((opt) => (
+          <button
+            key={opt.value}
+            onClick={() => setFilter(opt.value)}
+            className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-colors ${
+              filter === opt.value ? 'bg-gray-900 text-white' : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            {opt.label}
+          </button>
+        ))}
       </div>
 
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
@@ -83,35 +134,67 @@ export default function AdminNotices() {
                 <th className="text-center px-4 py-3 font-medium w-12">고정</th>
                 <th className="text-left px-4 py-3 font-medium">제목</th>
                 <th className="text-left px-4 py-3 font-medium w-28">날짜</th>
-                <th className="text-center px-4 py-3 font-medium w-20">팝업</th>
+                <th className="text-center px-4 py-3 font-medium w-24">팝업</th>
+                <th className="text-left px-4 py-3 font-medium w-48">팝업 노출 기간</th>
                 <th className="text-center px-4 py-3 font-medium w-24">관리</th>
               </tr>
             </thead>
             <tbody>
-              {notices.map((n) => (
-                <tr key={n.id} className="border-t border-gray-50 hover:bg-gray-50/50">
-                  <td className="px-4 py-3 text-center">
-                    {n.pinned && <Pin size={14} className="text-amber-500 mx-auto" />}
-                  </td>
-                  <td className="px-4 py-3 font-medium text-gray-900">{n.title}</td>
-                  <td className="px-4 py-3 text-gray-500">{n.date}</td>
-                  <td className="px-4 py-3 text-center">
-                    {n.popup_active && (
-                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[11px] font-semibold">
-                        <Megaphone size={11} /> ON
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-center">
-                    <div className="flex items-center justify-center gap-1">
-                      <button onClick={() => openEdit(n)} className="p-1.5 hover:bg-gray-100 rounded-lg"><Pencil size={14} className="text-gray-500" /></button>
-                      <button onClick={() => remove(n.id)} className="p-1.5 hover:bg-red-50 rounded-lg"><Trash2 size={14} className="text-red-400" /></button>
-                    </div>
+              {filteredNotices.map((n) => {
+                const inPeriod = isPopupInPeriod(n)
+                return (
+                  <tr
+                    key={n.id}
+                    className={`border-t border-gray-50 hover:bg-gray-50/50 ${n.popup_active ? 'bg-amber-50/30' : ''}`}
+                  >
+                    <td className="px-4 py-3 text-center">
+                      {n.pinned && <Pin size={14} className="text-amber-500 mx-auto" />}
+                    </td>
+                    <td className="px-4 py-3 font-medium text-gray-900">{n.title}</td>
+                    <td className="px-4 py-3 text-gray-500">{n.date}</td>
+                    <td className="px-4 py-3 text-center">
+                      {n.popup_active ? (
+                        inPeriod ? (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[11px] font-semibold">
+                            <Megaphone size={11} /> 노출중
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 text-[11px] font-semibold">
+                            <Megaphone size={11} /> 기간외
+                          </span>
+                        )
+                      ) : (
+                        <span className="text-gray-300 text-[11px]">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-xs text-gray-500">
+                      {n.popup_active ? (
+                        (n.popup_start_date || n.popup_end_date) ? (
+                          <span>
+                            {n.popup_start_date || '시작일 없음'} ~ {n.popup_end_date || '종료일 없음'}
+                          </span>
+                        ) : (
+                          <span className="text-gray-400">무기한</span>
+                        )
+                      ) : (
+                        <span className="text-gray-300">—</span>
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      <div className="flex items-center justify-center gap-1">
+                        <button onClick={() => openEdit(n)} className="p-1.5 hover:bg-gray-100 rounded-lg"><Pencil size={14} className="text-gray-500" /></button>
+                        <button onClick={() => remove(n.id)} className="p-1.5 hover:bg-red-50 rounded-lg"><Trash2 size={14} className="text-red-400" /></button>
+                      </div>
+                    </td>
+                  </tr>
+                )
+              })}
+              {filteredNotices.length === 0 && (
+                <tr>
+                  <td colSpan={6} className="px-4 py-8 text-center text-gray-400">
+                    {filter === 'popup' ? '등록된 팝업이 없습니다.' : '등록된 공지사항이 없습니다.'}
                   </td>
                 </tr>
-              ))}
-              {notices.length === 0 && (
-                <tr><td colSpan={5} className="px-4 py-8 text-center text-gray-400">등록된 공지사항이 없습니다.</td></tr>
               )}
             </tbody>
           </table>
