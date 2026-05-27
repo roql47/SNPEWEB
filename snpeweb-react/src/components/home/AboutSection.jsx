@@ -28,7 +28,9 @@ export default function AboutSection() {
               ABOUT SNPE
             </p>
             <h2 className="font-heading font-bold text-[#111] leading-[1.2] tracking-[-0.03em] text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8">
-              스스로 회복할 수 있다는 자신감
+              정렬은 움직임에서 시작됩니다
+              <br />
+              <span className="text-lg md:text-xl lg:text-2xl font-medium text-gray-500">Alignment Begins with Movement</span>
             </h2>
             <div className="space-y-5 text-[#111] text-sm md:text-base lg:text-lg leading-relaxed tracking-[-0.01em]">
               <p>

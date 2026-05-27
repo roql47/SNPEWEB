@@ -158,9 +158,6 @@ export default function History() {
           <h3 className="text-center text-2xl md:text-3xl font-heading font-bold text-gray-900 mb-3">
             Evolution Overview
           </h3>
-          <p className="text-center text-sm md:text-base text-gray-500 mb-10">
-            카드를 클릭하면 해당 시기 상세 내용으로 이동합니다.
-          </p>
           <div className="grid md:grid-cols-3 gap-5">
             {eras.map((era) => (
               <button
@@ -177,16 +174,6 @@ export default function History() {
                 <p className="text-sm md:text-base font-medium text-mint-darker mb-3">
                   {era.title}
                 </p>
-                {era.image && (
-                  <div className="my-3 rounded-xl overflow-hidden bg-white border border-mint/10">
-                    <img
-                      src={era.image}
-                      alt={`${era.badge} 대표 이미지`}
-                      className="w-full h-auto block"
-                      loading="lazy"
-                    />
-                  </div>
-                )}
                 <span className="inline-flex items-center gap-1 text-xs text-gray-500 group-hover:text-mint-darker transition-colors mt-auto">
                   자세히 보기 <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
                 </span>
