@@ -8,6 +8,7 @@ const eras = [
     badge: 'SNPE 1.0',
     period: '2003 – 2012',
     title: 'The Beginning of Self Recovery',
+    image: '/images/history/snpe-1.png',
     summary:
       'Self Recovery 철학과 초기 움직임 교정 원리가 형성된 시기입니다. 척추와 골반 중심의 움직임 회복 접근을 바탕으로, 인체 스스로 정렬을 회복할 수 있는 운동 원리와 초기 교정 도구들이 개발되었습니다.',
     evolution: [
@@ -35,6 +36,7 @@ const eras = [
     badge: 'SNPE 2.0',
     period: '2013 – 2022',
     title: 'Expansion & Systemization',
+    image: '/images/history/snpe-2.png',
     summary:
       '교육·도구·센터·콘텐츠 시스템이 본격적으로 확장된 시기입니다. SNPE는 척추 중심 운동을 넘어 발·골반·목·어깨·전신 움직임까지 확장되었으며, 전문 교육과 평가 시스템을 갖춘 통합 움직임 솔루션으로 발전하였습니다.',
     evolution: [
@@ -43,13 +45,11 @@ const eras = [
       '도구 기반 움직임 시스템 고도화',
       '움직임 평가 및 교육 시스템 구축',
       '온라인 콘텐츠 및 디지털 교육 도입',
-      'Wellness 기반 프로그램 확장',
     ],
     academic: [
       '스포츠·운동 분야 학술 연구 확대',
       '대학 및 산학 협력 기반 구축',
       '움직임 평가 및 교육 체계 고도화',
-      '전문 지도자 및 마스터 교육 시스템 구축',
     ],
     milestones: [
       { year: '2013', event: '동국대학교 미래융합교육원 SNPE 지도사 과정 개설' },
@@ -82,23 +82,33 @@ const eras = [
       '디지털 교육 콘텐츠 확대',
       '글로벌 표준 교육 시스템 구축',
       'Wellness 중심 통합 플랫폼 확장',
+      '전문 지도자 및 마스터 교육 시스템 구축',
     ],
     milestones: [
       { year: '2024', event: 'CHA University 스포츠의학대학원 SNPE 전공 트랙 개설' },
     ],
-    tools: ['다나손, 웨이브베개, 웨이브에펠 리뉴얼', '2in1 도깨비 폼롤러'],
+    tools: [
+      '다나손2',
+      '웨이브베개2',
+      '웨이브에펠2',
+      '풋밸런스',
+      '풋크림',
+      'C커브 경추베개',
+      '인솔',
+      '2in1 도깨비 폼롤러',
+    ],
     future: [
       'Personalized Movement Solution 개발',
       'AI 기반 SNPE App 및 데이터 플랫폼 구축',
       'Digital Healthcare 콘텐츠 확대',
       'Wellness · Recovery · Lifestyle 통합 프로그램 개발',
       '글로벌 교육 및 콘텐츠 플랫폼 구축',
+      '움직임 과학과 웰니스 연구의 확장',
     ],
     global: [
       { region: 'USA', label: '미국' },
       { region: 'Southeast Asia', label: '동남아시아' },
       { region: 'Japan', label: '일본' },
-      { region: 'Europe', label: '유럽' },
     ],
   },
 ]
@@ -156,7 +166,7 @@ export default function History() {
               <button
                 key={era.id}
                 onClick={() => scrollToId(era.id)}
-                className="group text-left bg-gradient-to-br from-mint-lighter/40 to-white rounded-3xl p-7 border border-mint/20 hover:border-mint hover:shadow-lg transition-all"
+                className="group text-left bg-gradient-to-br from-mint-lighter/40 to-white rounded-3xl p-7 border border-mint/20 hover:border-mint hover:shadow-lg transition-all flex flex-col"
               >
                 <p className="text-xs font-semibold tracking-widest text-mint-darker mb-2">
                   {era.period}
@@ -167,7 +177,17 @@ export default function History() {
                 <p className="text-sm md:text-base font-medium text-mint-darker mb-3">
                   {era.title}
                 </p>
-                <span className="inline-flex items-center gap-1 text-xs text-gray-500 group-hover:text-mint-darker transition-colors">
+                {era.image && (
+                  <div className="my-3 rounded-xl overflow-hidden bg-white border border-mint/10">
+                    <img
+                      src={era.image}
+                      alt={`${era.badge} 대표 이미지`}
+                      className="w-full h-auto block"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <span className="inline-flex items-center gap-1 text-xs text-gray-500 group-hover:text-mint-darker transition-colors mt-auto">
                   자세히 보기 <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
                 </span>
               </button>
@@ -197,6 +217,17 @@ export default function History() {
               <p className="text-sm md:text-base text-gray-600 leading-relaxed max-w-3xl">
                 {era.summary}
               </p>
+
+              {era.image && (
+                <figure className="mt-8 rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
+                  <img
+                    src={era.image}
+                    alt={`${era.badge} 도구 모음`}
+                    className="w-full h-auto block"
+                    loading="lazy"
+                  />
+                </figure>
+              )}
             </div>
 
             {/* Major Evolution */}

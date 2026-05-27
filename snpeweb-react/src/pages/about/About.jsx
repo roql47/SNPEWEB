@@ -71,7 +71,9 @@ export default function About() {
               Built on Self Recovery
             </h2>
             <p className="text-xl md:text-2xl text-mint-darker font-medium">
-              스스로 회복할 수 있다는 자신감
+              정렬은 움직임에서 시작됩니다
+              <br />
+              <span className="text-lg md:text-xl font-normal text-mint-darker/70">Alignment Begins with Movement</span>
             </p>
           </div>
 
@@ -278,8 +280,11 @@ export default function About() {
                 글로벌 움직임 브랜드로 발전해가고자 합니다.
               </p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-md">
+            <div className="relative rounded-2xl overflow-hidden shadow-md">
               <img src={ABOUT_IMGS[3]} alt="SNPE의 미래" className="w-full h-auto block" loading="lazy" />
+              <span className="absolute bottom-2 right-2 md:bottom-3 md:right-3 text-[10px] md:text-xs text-white/90 bg-black/40 backdrop-blur-sm px-2 py-0.5 rounded">
+                Generated with AI
+              </span>
             </div>
           </div>
         </div>

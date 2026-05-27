@@ -21,6 +21,10 @@ import {
   MapPin,
   Users,
   MessageCircle,
+  ClipboardList,
+  GraduationCap,
+  Send,
+  Calendar,
 } from 'lucide-react'
 import { dataStore } from '../../lib/dataStore'
 import { sanitizeHtml } from '../../lib/sanitize'
@@ -37,9 +41,15 @@ const IMG = {
   phase2: '/images/level1/phase2.png',
   phase3: '/images/level1/phase3.png',
   phase4: '/images/level1/phase4.png',
-  instructors: '/images/level1/instructors.jpg',
   benefits: '/images/level1/benefits.jpg',
 }
+
+const INSTRUCTORS = [
+  { src: '/images/level1/instructors/01-kimheeju.jpg', alt: 'SNPE LEVEL 1 강사 — 김희주 마스터' },
+  { src: '/images/level1/instructors/02-banjugyeong.jpg', alt: 'SNPE LEVEL 1 강사 — 반주경 센터장' },
+  { src: '/images/level1/instructors/03-jeongseonmi.jpg', alt: 'SNPE LEVEL 1 강사 — 정선미 센터장' },
+  { src: '/images/level1/instructors/04-leeseomgyeol.jpg', alt: 'SNPE LEVEL 1 강사 — 이섬결 마스터' },
+]
 
 // ─────────────────────────────────────────────────────────────
 // 정적 데이터
@@ -47,12 +57,12 @@ const IMG = {
 
 const JOURNEY_STEPS = [
   {
-    range: '1–5회차',
+    range: '1–4회차',
     title: '발 · 하체 기반',
     desc: '발 아치 감각 회복, 족저근막 및 하체 체인 연결, 보행 패턴 교정, 발–골반 연결 구축',
   },
   {
-    range: '6–10회차',
+    range: '5–10회차',
     title: '골반 · 허리',
     desc: '골반 전후경 교정, 좌우 밸런스 회복, 고관절 가동성 향상, 중둔근 및 중심 안정화',
   },
@@ -74,14 +84,14 @@ const PHASE_GROUPS = [
     sectionTitle: '발과 골반에서 시작되는 변화',
     items: [
       {
-        range: '1–5회차',
+        range: '1–4회차',
         title: '발 · 하체 기반',
         body: '모든 변화의 시작점인 발의 감각과 정렬을 회복합니다. 족저근막 및 하체 체인을 연결하고 보행 패턴을 교정하며 발–골반 연결을 구축합니다.',
         quote: '"몸의 기초는 발에서 시작됩니다."',
         image: IMG.phase1,
       },
       {
-        range: '6–10회차',
+        range: '5–10회차',
         title: '골반 · 허리',
         body: '몸의 중심인 골반과 고관절 사용 패턴을 안정적으로 다시 세웁니다. 좌우 밸런스를 회복하고 중둔근 및 중심 안정화를 통해 몸의 중심이 안정되기 시작하는 구간입니다.',
         quote: null,
@@ -138,12 +148,22 @@ const DEFAULT_TARGETS = [
   'SNPE 지도사 과정(LEVEL 2) 및 전문 강사 교육에 관심 있는 분',
 ]
 
-const DEFAULT_SCHEDULE = [
-  { Icon: CalendarDays, label: '개강', value: '6월 24일(수) / 10주 과정 · 주2회 · 총 40시간' },
-  { Icon: Clock, label: '수업 시간', value: '수요일 19:00–21:00 / 일요일 10:00–12:00' },
+const SCHEDULE_INFO = [
+  { Icon: CalendarDays, label: '개강', value: '6월 24일(수) 개강 / 10주 과정 (주2회 / 총 40시간)' },
+  { Icon: Clock, label: '수업 시간', value: '매주 수요일 (19:00~21:00) / 일요일 (10:00~12:00)' },
   { Icon: Wallet, label: '수강료', value: '180만원' },
   { Icon: MapPin, label: '수련 장소', value: 'SNPE 강남본원' },
-  { Icon: Users, label: '모집 정원', value: '20명 한정 (선착순 마감)' },
+]
+
+const ENROLLMENT_INFO = [
+  { Icon: Calendar, label: '접수 시작', value: '5월 26일(화)' },
+  { Icon: Users, label: '모집 정원', value: '20명 한정 운영 (선착순 마감)' },
+  { Icon: Send, label: '신청 방법', value: '하단 신청하기 링크 참조' },
+]
+
+const COURSE_RESULT = [
+  { Icon: ClipboardList, label: '과정 유형', value: '수료 과정' },
+  { Icon: GraduationCap, label: '이수 결과', value: '교육 이수 시 LEVEL 1 수료' },
 ]
 
 // ─────────────────────────────────────────────────────────────
@@ -276,15 +296,15 @@ export default function Level1Sections() {
             </div>
           </Reveal>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-center">
             <Reveal>
-              <div className="relative rounded-3xl overflow-hidden shadow-lg">
-                <img src={IMG.why} alt="" className="w-full h-auto block" loading="lazy" />
+              <div className="relative rounded-2xl overflow-hidden shadow-md w-[160px] md:w-[170px] aspect-square flex-shrink-0 mx-auto md:mx-0">
+                <img src={IMG.why} alt="" className="w-full h-full object-cover block" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-snpe-darker/15 via-transparent to-white/10 pointer-events-none" />
               </div>
             </Reveal>
 
-            <div className="space-y-6">
+            <div className="flex-1 min-w-0 space-y-6">
               <Reveal delay={120}>
                 <div className="bg-snpe-light/60 rounded-3xl border border-snpe-dark/10 p-8">
                   <p className="text-xs font-semibold tracking-widest text-snpe-dark uppercase mb-3">
@@ -407,15 +427,19 @@ export default function Level1Sections() {
                 const reverse = i % 2 === 1
                 return (
                   <Reveal key={i} delay={60}>
-                    <div className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? 'md:[&>*:first-child]:order-2' : ''}`}>
-                      <div>
+                    <div className={`flex flex-col-reverse md:items-center gap-5 md:gap-8 ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+                      <div className="flex-1 min-w-0">
                         <span className="inline-block px-3 py-1 rounded-full bg-snpe-darker text-white text-xs font-bold tracking-wider mb-4">
                           {p.range}
                         </span>
                         <h3 className="text-2xl md:text-3xl font-bold text-snpe-darker mb-4 leading-snug">
                           {p.title}
                         </h3>
-                        <p className="text-gray-700 leading-relaxed md:text-lg">{p.body}</p>
+                        <div className="space-y-2 text-gray-700 leading-relaxed md:text-lg">
+                          {p.body.split('. ').map((sentence, si, arr) => (
+                            <p key={si}>{si < arr.length - 1 ? sentence + '.' : sentence}</p>
+                          ))}
+                        </div>
                         {p.quote && (
                           <p className="mt-5 italic text-snpe-accent border-l-2 border-snpe-dark/30 pl-4">
                             {p.quote}
@@ -423,7 +447,7 @@ export default function Level1Sections() {
                         )}
                       </div>
 
-                      <div className="relative aspect-square rounded-3xl overflow-hidden bg-white border border-snpe-dark/10 shadow-md">
+                      <div className="relative w-[160px] md:w-[170px] aspect-square flex-shrink-0 rounded-2xl overflow-hidden bg-white border border-snpe-dark/10 shadow-md mx-auto md:mx-0">
                         <img
                           src={p.image}
                           alt={p.title}
@@ -492,16 +516,20 @@ export default function Level1Sections() {
             </div>
           </Reveal>
 
-          <Reveal delay={120}>
-            <div className="relative rounded-3xl overflow-hidden shadow-xl bg-white">
-              <img
-                src={IMG.instructors}
-                alt="SNPE LEVEL 1 전문 강사진 카드뉴스"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-7">
+            {INSTRUCTORS.map((p, i) => (
+              <Reveal key={p.src} delay={120 + i * 100}>
+                <div className="relative rounded-3xl overflow-hidden shadow-lg bg-white">
+                  <img
+                    src={p.src}
+                    alt={p.alt}
+                    className="w-full h-auto block"
+                    loading="lazy"
+                  />
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -519,13 +547,26 @@ export default function Level1Sections() {
 
           <div className="grid lg:grid-cols-5 gap-6 md:gap-8">
             <Reveal delay={80} className="lg:col-span-3">
-              <div className="h-full bg-snpe-light/70 rounded-3xl p-8 md:p-10 border border-snpe-dark/10">
-                <h3 className="text-snpe-darker font-bold text-lg mb-5">수강 대상</h3>
-                <ul className="space-y-3">
+              <div className="h-full bg-snpe-light/70 rounded-3xl p-8 md:p-12 border border-snpe-dark/10 flex flex-col">
+                <p className="text-xs md:text-sm font-semibold tracking-[0.25em] uppercase text-snpe-dark mb-3">
+                  For You
+                </p>
+                <h3 className="text-snpe-darker font-bold text-2xl md:text-3xl mb-3 leading-snug">
+                  수강 대상
+                </h3>
+                <p className="text-gray-600 text-sm md:text-base mb-8 md:mb-10 leading-relaxed">
+                  이런 분들에게 SNPE LEVEL 1을 추천합니다.
+                </p>
+                <ul className="space-y-4 md:space-y-5 flex-1">
                   {targets.map((t, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-700 leading-relaxed text-sm md:text-base">
-                      <CheckCircle2 size={18} className="text-snpe-dark mt-0.5 flex-shrink-0" />
-                      <span>{t}</span>
+                    <li
+                      key={i}
+                      className="flex items-start gap-4 text-gray-800 leading-relaxed text-base md:text-lg font-medium"
+                    >
+                      <span className="inline-flex items-center justify-center w-7 h-7 md:w-8 md:h-8 rounded-full bg-snpe-darker text-white flex-shrink-0 mt-0.5">
+                        <CheckCircle2 size={16} strokeWidth={2.2} />
+                      </span>
+                      <span className="pt-1">{t}</span>
                     </li>
                   ))}
                 </ul>
@@ -533,26 +574,69 @@ export default function Level1Sections() {
             </Reveal>
 
             <Reveal delay={180} className="lg:col-span-2">
-              <div className="h-full bg-snpe-darker text-white rounded-3xl p-8 md:p-10">
-                <h3 className="font-bold text-lg mb-6">교육 일정 안내</h3>
-                <ul className="space-y-5">
-                  {DEFAULT_SCHEDULE.map((s, i) => {
+              <div className="h-full bg-snpe-darker text-white rounded-3xl p-8 md:p-10 space-y-8">
+                <div>
+                  <h3 className="font-bold text-lg mb-5">교육 일정</h3>
+                  <ul className="space-y-5">
+                    {SCHEDULE_INFO.map((s, i) => {
+                      const Icon = s.Icon
+                      return (
+                        <li key={i} className="flex gap-3">
+                          <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 text-white flex-shrink-0">
+                            <Icon size={16} />
+                          </span>
+                          <div className="min-w-0">
+                            <p className="text-xs text-white/70 font-semibold tracking-wider uppercase mb-0.5">
+                              {s.label}
+                            </p>
+                            <p className="text-sm md:text-[15px] leading-relaxed">{s.value}</p>
+                          </div>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+
+                <div className="pt-6 border-t border-white/15">
+                  <h3 className="font-bold text-lg mb-5">접수 및 마감 정보</h3>
+                  <ul className="space-y-5">
+                    {ENROLLMENT_INFO.map((s, i) => {
+                      const Icon = s.Icon
+                      return (
+                        <li key={i} className="flex gap-3">
+                          <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 text-white flex-shrink-0">
+                            <Icon size={16} />
+                          </span>
+                          <div className="min-w-0">
+                            <p className="text-xs text-white/70 font-semibold tracking-wider uppercase mb-0.5">
+                              {s.label}
+                            </p>
+                            <p className="text-sm md:text-[15px] leading-relaxed">{s.value}</p>
+                          </div>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+
+                <div className="pt-6 border-t border-white/15 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {COURSE_RESULT.map((s, i) => {
                     const Icon = s.Icon
                     return (
-                      <li key={i} className="flex gap-3">
-                        <span className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-white/10 text-white flex-shrink-0">
-                          <Icon size={16} />
-                        </span>
-                        <div className="min-w-0">
-                          <p className="text-xs text-white/70 font-semibold tracking-wider uppercase mb-0.5">
+                      <div key={i} className="rounded-2xl bg-white/5 border border-white/10 p-4">
+                        <div className="flex items-center gap-2 mb-1.5 text-white/70">
+                          <Icon size={14} />
+                          <p className="text-xs font-semibold tracking-wider uppercase">
                             {s.label}
                           </p>
-                          <p className="text-sm md:text-[15px] leading-relaxed">{s.value}</p>
                         </div>
-                      </li>
+                        <p className="text-sm md:text-[15px] font-semibold">
+                          {s.value}
+                        </p>
+                      </div>
                     )
                   })}
-                </ul>
+                </div>
               </div>
             </Reveal>
           </div>
