@@ -18,6 +18,38 @@ const emptyForm = {
 
 const LEVELS = ['Level 1', 'Level 2', 'Level 3', 'Master']
 
+// Date 객체 → 로컬 기준 YYYY-MM-DD
+const formatDateCell = (d) => {
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
+// 생년월일 셀 정규화: Date / Excel serial 숫자 / 문자열 모두 YYYY-MM-DD로 변환
+const parseBirthDate = (v) => {
+  if (v == null || v === '') return ''
+  if (v instanceof Date) return formatDateCell(v)
+  if (typeof v === 'number') {
+    // Excel serial number → JS Date (1900 기준, Excel의 1900 윤년 버그 보정 포함)
+    const epoch = Date.UTC(1899, 11, 30)
+    const ms = epoch + Math.round(v) * 86400000
+    return formatDateCell(new Date(ms))
+  }
+  const s = String(v).trim()
+  // 8자리 숫자(YYYYMMDD) → 하이픈 삽입
+  const digits = s.replace(/[^0-9]/g, '')
+  if (/^\d{8}$/.test(digits)) {
+    return `${digits.slice(0, 4)}-${digits.slice(4, 6)}-${digits.slice(6, 8)}`
+  }
+  // 구분자(. / 공백)를 하이픈으로 통일
+  const m = s.match(/^(\d{4})[.\-/\s]+(\d{1,2})[.\-/\s]+(\d{1,2})/)
+  if (m) {
+    return `${m[1]}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`
+  }
+  return s
+}
+
 export default function AdminCertTeachers() {
   const [teachers, setTeachers] = useState([])
   const [editing, setEditing] = useState(null)
@@ -68,7 +100,8 @@ export default function AdminCertTeachers() {
     setUploadResult({ status: 'parsing', message: '엑셀 파일 분석 중...' })
     try {
       const buffer = await file.arrayBuffer()
-      const wb = XLSX.read(buffer, { type: 'array' })
+      // cellDates: 날짜 셀을 JS Date로 파싱 (미설정 시 Excel serial 숫자로 읽혀 "45321" 같은 값이 저장됨)
+      const wb = XLSX.read(buffer, { type: 'array', cellDates: true })
       const ws = wb.Sheets[wb.SheetNames[0]]
       const rows = XLSX.utils.sheet_to_json(ws, { defval: '' })
 
@@ -78,15 +111,26 @@ export default function AdminCertTeachers() {
         return s === 'y' || s === 'yes' || s === 'true' || s === 'o' || s === '1' || s === '체크'
       }
 
+      // 전화번호 등 숫자 셀을 문자열로 안전 변환 (지수표기 1.01E+10 방지)
+      const cellText = (v) => {
+        if (v == null) return ''
+        if (v instanceof Date) return formatDateCell(v)
+        if (typeof v === 'number') {
+          // 정수면 지수표기 없이 그대로, 아니면 toString
+          return Number.isInteger(v) ? v.toFixed(0) : String(v)
+        }
+        return String(v).trim()
+      }
+
       const mapped = rows
         .map((r) => ({
-          name: String(r['이름'] || r['name'] || '').trim(),
-          level: String(r['레벨'] || r['level'] || 'Level 1').trim() || 'Level 1',
-          region: String(r['지역'] || r['region'] || '').trim(),
-          photo_url: String(r['사진URL'] || r['사진'] || r['photo_url'] || '').trim(),
-          intro: String(r['소개'] || r['intro'] || '').trim(),
-          phone: String(r['전화번호'] || r['phone'] || '').trim(),
-          birth_date: String(r['생년월일'] || r['birth_date'] || '').trim(),
+          name: cellText(r['이름'] || r['name']).trim(),
+          level: cellText(r['레벨'] || r['level']).trim() || 'Level 1',
+          region: cellText(r['지역'] || r['region']).trim(),
+          photo_url: cellText(r['사진URL'] || r['사진'] || r['photo_url']).trim(),
+          intro: cellText(r['소개'] || r['intro']).trim(),
+          phone: cellText(r['전화번호'] || r['phone']).trim(),
+          birth_date: parseBirthDate(r['생년월일'] ?? r['birth_date']),
           featured: truthy(r['우수강사'] || r['우수'] || r['featured']),
           ambassador: truthy(r['앰배서더'] || r['ambassador']),
           _delete: truthy(r['삭제'] || r['delete']),
@@ -102,7 +146,11 @@ export default function AdminCertTeachers() {
       const parts = []
       if (result.inserted > 0) parts.push(`${result.inserted}명 등록`)
       if (result.deleted > 0) parts.push(`${result.deleted}명 삭제`)
-      setUploadResult({ status: 'ok', message: parts.join(' / ') + ' 완료' })
+      if (result.notFound > 0) parts.push(`${result.notFound}명 미발견(삭제 대상 없음)`)
+      setUploadResult({
+        status: 'ok',
+        message: (parts.length ? parts.join(' / ') : '변경사항 없음') + ` · 처리 대상 ${mapped.length}명`,
+      })
       await loadData()
     } catch (err) {
       setUploadResult({ status: 'error', message: `업로드 실패: ${err.message || err}` })

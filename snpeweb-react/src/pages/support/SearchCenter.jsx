@@ -45,6 +45,15 @@ export default function SearchCenter() {
       <section className="py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">SNPE 전문센터란?</h3>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              SNPE 전문센터는 SNPE 본사의 공식 인증을 받은 전문 운동 센터입니다.
+              공식 교육과정을 이수한 인증강사가 체계적인 평가와 프로그램을 통해
+              전문적인 SNPE 운동 서비스를 제공합니다.
+            </p>
+          </div>
+
+          <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
             <div className="flex flex-col gap-4">
               <div className="relative">
                 <input

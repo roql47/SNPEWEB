@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "About SNPE",
-    "exercise": "Exercise Info",
+    "exercise": "Programs",
     "education": "Education",
     "news": "News & Updates",
     "support": "Support"
@@ -18,6 +18,8 @@
     "certification": "Awards & Certifications",
     "intellectualProperty": "Intellectual Property",
     "beginnerGuide": "Beginner's Guide",
+    "programs": "SNPE Programs",
+    "assessment": "Posture & Movement",
     "baseExercise": "Basic Movements",
     "snpeVideo": "Exercise Videos",
     "snpeApp": "Self Body Analysis",
@@ -140,6 +142,10 @@
     "intellectualPropertySub": "SNPE intellectual property portfolio",
     "beginnerGuide": "Beginner's Guide",
     "beginnerGuideSub": "A guide for those starting SNPE exercise",
+    "programs": "SNPE Programs",
+    "programsSub": "SNPE programs that integrate line, posture, movement, and condition",
+    "assessment": "Posture & Movement Assessment",
+    "assessmentSub": "A science- and record-based Self Recovery System from posture analysis to movement assessment",
     "baseExercise": "Basic Movements",
     "baseExerciseSub": "Learn the core basic movements of SNPE",
     "snpeVideo": "Exercise Videos",

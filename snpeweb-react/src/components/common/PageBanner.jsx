@@ -31,6 +31,8 @@ const ROUTE_TO_CATEGORY = {
   '/intellectual-property': 'about',
   '/research': 'about',
   '/beginnerguide': 'exercise',
+  '/programs': 'exercise',
+  '/assessment': 'exercise',
   '/snpeapp': 'exercise',
   '/baseexercise': 'exercise',
   '/experiencecase': 'exercise',

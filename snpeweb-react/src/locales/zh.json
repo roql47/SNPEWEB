@@ -1,7 +1,7 @@
 {
   "nav": {
     "about": "About SNPE",
-    "exercise": "运动信息",
+    "exercise": "项目",
     "education": "教育课程",
     "news": "资讯",
     "support": "客户支持"
@@ -18,6 +18,8 @@
     "certification": "获奖与认证",
     "intellectualProperty": "知识产权",
     "beginnerGuide": "入门指南",
+    "programs": "SNPE项目",
+    "assessment": "体型·动作评估",
     "baseExercise": "基本动作",
     "snpeVideo": "运动视频",
     "snpeApp": "自助体型分析",
@@ -140,6 +142,10 @@
     "intellectualPropertySub": "介绍SNPE的知识产权组合",
     "beginnerGuide": "入门指南",
     "beginnerGuideSub": "为初次接触SNPE运动的人提供的指南",
+    "programs": "SNPE项目",
+    "programsSub": "将线条、姿势、动作、状态进行整合性改变的SNPE项目",
+    "assessment": "体型·动作评估系统",
+    "assessmentSub": "从体型分析到动作评估，基于科学记录的Self Recovery System",
     "baseExercise": "基本动作",
     "baseExerciseSub": "学习SNPE的核心基本动作",
     "snpeVideo": "运动视频",

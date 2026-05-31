@@ -15,6 +15,8 @@ export const mainNav = [
     path: '/beginnerguide',
     children: [
       { titleKey: 'subnav.beginnerGuide', path: '/beginnerguide' },
+      { titleKey: 'subnav.programs', path: '/programs' },
+      { titleKey: 'subnav.assessment', path: '/assessment' },
       { titleKey: 'subnav.snpeApp', path: '/snpeapp' },
       { titleKey: 'subnav.baseExercise', path: '/baseexercise' },
       { titleKey: 'subnav.experienceCase', path: '/experiencecase' },

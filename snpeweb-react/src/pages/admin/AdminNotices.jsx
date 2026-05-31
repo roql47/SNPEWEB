@@ -30,7 +30,8 @@ export default function AdminNotices() {
   // 오늘 날짜가 노출 기간 내인지 확인 (start/end가 비어 있으면 무기한으로 간주)
   const isPopupInPeriod = (n) => {
     if (!n.popup_active) return false
-    const today = new Date().toISOString().slice(0, 10)
+    const now = new Date()
+    const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`
     if (n.popup_start_date && today < n.popup_start_date) return false
     if (n.popup_end_date && today > n.popup_end_date) return false
     return true
@@ -71,14 +72,24 @@ export default function AdminNotices() {
       popup_image_url: form.popup_image_url || null,
       popup_link_url: form.popup_link_url || null,
     }
-    if (editing === 'new') await dataStore.addNotice(payload)
-    else await dataStore.updateNotice(editing, payload)
-    await loadData(); close()
+    try {
+      if (editing === 'new') await dataStore.addNotice(payload)
+      else await dataStore.updateNotice(editing, payload)
+      await loadData(); close()
+    } catch (e) {
+      console.error('[AdminNotices] 저장 실패:', e)
+      window.alert(`공지 저장에 실패했습니다.\n${e?.message || e}`)
+    }
   }
 
   const remove = async (id) => {
     if (!window.confirm('삭제하시겠습니까?')) return
-    await dataStore.deleteNotice(id); await loadData()
+    try {
+      await dataStore.deleteNotice(id); await loadData()
+    } catch (e) {
+      console.error('[AdminNotices] 삭제 실패:', e)
+      window.alert(`삭제에 실패했습니다.\n${e?.message || e}`)
+    }
   }
 
   return (

@@ -27,6 +27,8 @@ import Master from './pages/activity/Master'
 import ResearchRedirect from './pages/activity/Research'
 import Research from './pages/about/Research'
 import BeginnerGuide from './pages/exercise/BeginnerGuide'
+import Programs from './pages/exercise/Programs'
+import Assessment from './pages/exercise/Assessment'
 import SnpeApp from './pages/exercise/SnpeApp'
 import BaseExercise from './pages/exercise/BaseExercise'
 import ExperienceCase from './pages/exercise/ExperienceCase'
@@ -40,7 +42,6 @@ import Franchise from './pages/support/Franchise'
 import Faq from './pages/support/Faq'
 import CustomerInquiry from './pages/support/CustomerInquiry'
 import Online from './pages/support/Online'
-import MyPage from './pages/auth/MyPage'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminLayout from './pages/admin/AdminLayout'
 import AdminDashboard from './pages/admin/AdminDashboard'
@@ -82,6 +83,8 @@ export default function App() {
         <Route path="master" element={<Master />} />
         <Route path="research" element={<Research />} />
         <Route path="beginnerguide" element={<BeginnerGuide />} />
+        <Route path="programs" element={<Programs />} />
+        <Route path="assessment" element={<Assessment />} />
         <Route path="snpeapp" element={<SnpeApp />} />
         <Route path="baseexercise" element={<BaseExercise />} />
         <Route path="snpevideo" element={<YoutubeRedirect />} />
@@ -99,7 +102,6 @@ export default function App() {
         <Route path="faq" element={<Faq />} />
         <Route path="customerinquiry" element={<CustomerInquiry />} />
         <Route path="online" element={<Online />} />
-        <Route path="mypage" element={<MyPage />} />
         <Route path="login" element={<Navigate to="/admin/login" replace />} />
         <Route path="provision" element={<Navigate to="/" replace />} />
       </Route>

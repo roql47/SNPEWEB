@@ -26,9 +26,9 @@ export default function Studio() {
           <div className="bg-gray-50 rounded-2xl p-6 md:p-8 mb-8">
             <h3 className="text-lg font-bold text-gray-900 mb-2">SNPE STUDIO란?</h3>
             <p className="text-sm text-gray-600 leading-relaxed">
-              SNPE STUDIO는 운영 자율성 기반의 프라이빗 스튜디오입니다.
-              소형/컴팩트 매장에서 개별 특성에 맞는 유연한 운영이 가능하며,
-              브랜드 사용 승인 및 디자인 소스를 활용할 수 있습니다.
+              SNPE STUDIO는 인증강사가 운영하는 소규모 SNPE 공식 인증 스튜디오입니다.
+              공식 브랜드 사용 승인을 받은 공간으로, 각 스튜디오의 특성과 운영 방식에 맞춰
+              자유롭고 유연하게 운영됩니다.
             </p>
           </div>
 

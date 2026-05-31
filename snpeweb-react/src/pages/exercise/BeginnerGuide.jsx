@@ -4,11 +4,36 @@ import { Link } from 'react-router-dom'
 import { toolGroups, getToolsByGroup } from '../../data/tools'
 
 const steps = [
-  { num: '01', title: 'SNPE 알아보기', desc: 'SNPE가 무엇인지, 어떤 원리로 효과가 있는지 알아봅니다.', link: '/about' },
-  { num: '02', title: '셀프 체형분석', desc: 'SNPE 앱을 통해 나의 체형 상태를 확인합니다.', link: '/snpeapp' },
-  { num: '03', title: '기본동작 배우기', desc: 'SNPE 기본 4동작과 MOVE 동작을 배웁니다.', link: '/baseexercise' },
-  { num: '04', title: '운동 영상 따라하기', desc: '영상을 보며 올바른 동작을 반복 연습합니다.', link: '/snpevideo' },
-  { num: '05', title: '전문센터 방문', desc: '전문 강사의 지도 아래 체계적으로 배웁니다.', link: '/search-center' },
+  {
+    num: '01',
+    title: 'SNPE 알아보기',
+    desc: 'SNPE가 어떤 원리로 움직임과 자세 균형을 관리하는지 이해합니다. 목·허리·골반의 반복되는 불편함부터 체형 불균형, 휜다리, 거북목, 자세 습관까지 왜 몸의 정렬과 움직임 패턴이 중요한지 알아봅니다.',
+    link: '/about',
+  },
+  {
+    num: '02',
+    title: '셀프 체형분석',
+    desc: 'SNPE 앱과 셀프 체크를 통해 현재 나의 체형과 움직임 상태를 확인합니다. 어깨 높이 차이, 골반 밸런스, 다리 정렬, 자세 습관 등을 점검하며 나에게 필요한 움직임 방향을 이해할 수 있습니다.',
+    link: '/snpeapp',
+  },
+  {
+    num: '03',
+    title: '기본동작 배우기',
+    desc: 'SNPE 기본 벨트운동과 도구 MOVE 동작을 배우며 몸의 바른 정렬 감각을 익혀갑니다. 발부터 시작되는 움직임 원리와 SNPE 도구 사용법, 기본 자세, 호흡과 움직임 연결 방법을 단계적으로 경험합니다.',
+    link: '/baseexercise',
+  },
+  {
+    num: '04',
+    title: '운동 영상 따라하기',
+    desc: '운동 영상을 보며 반복적으로 움직임을 연습합니다. 짧은 루틴이라도 꾸준히 반복하며 몸의 움직임 패턴과 자세 습관을 자연스럽게 변화시켜 나갑니다. 홈트레이닝, Recovery 루틴, 부위별 프로그램 등 라이프스타일에 맞춰 다양하게 활용할 수 있습니다.',
+    link: '/snpevideo',
+  },
+  {
+    num: '05',
+    title: '전문센터 방문',
+    desc: '보다 체계적인 관리가 필요하다면 SNPE 전문센터에서 전문적인 지도를 받아보세요. 오랜 경험을 갖춘 센터장과 공식 인증강사가 체형 평가와 움직임 분석을 기반으로 나에게 맞는 맞춤형 프로그램을 제안합니다. 개인레슨과 소수정예 그룹레슨을 통해 보다 정확한 움직임과 바디 밸런스를 경험할 수 있습니다.',
+    link: '/search-center',
+  },
 ]
 
 function ToolCard({ tool, t }) {
@@ -47,8 +72,11 @@ export default function BeginnerGuide() {
       <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">SNPE 시작하기</h2>
-            <p className="text-gray-600">5단계로 SNPE 바른자세 운동을 시작해 보세요.</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">처음 시작하는 분들을 위한 SNPE 가이드</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              처음부터 어렵게 시작하지 않아도 됩니다. SNPE는 내 몸의 상태를 이해하고, 바른 움직임을 하나씩 익혀가는 과정입니다.
+              아래 5단계를 따라 나의 자세와 움직임 습관을 점검하고, 건강한 바디 밸런스를 시작해보세요.
+            </p>
           </div>
 
           <div className="space-y-6">

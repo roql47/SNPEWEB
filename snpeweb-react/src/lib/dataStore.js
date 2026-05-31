@@ -1,5 +1,31 @@
 import { supabase } from './supabase'
 
+// 로컬(브라우저/한국) 기준 YYYY-MM-DD 문자열 — toISOString()의 UTC 변환으로 인한 날짜 밀림 방지
+const localDateString = (d = new Date()) => {
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}
+
+// PostgREST 기본 1,000행 조회 제한을 우회하여 전체 행을 페이지네이션으로 가져옴
+const fetchAll = async (table, { order } = {}) => {
+  const PAGE = 1000
+  let from = 0
+  let all = []
+  for (;;) {
+    let query = supabase.from(table).select('*')
+    if (order) query = query.order(order.column, { ascending: order.ascending ?? true })
+    const { data, error } = await query.range(from, from + PAGE - 1)
+    if (error) throw error
+    if (!data || data.length === 0) break
+    all = all.concat(data)
+    if (data.length < PAGE) break
+    from += PAGE
+  }
+  return all
+}
+
 // field mapping helpers
 const mapActivity = (row) => row ? { ...row, desc: row.description } : null
 const mapResearch = (row) => row ? { ...row, desc: row.description } : null
@@ -106,20 +132,24 @@ export const dataStore = {
     return data || []
   },
   addNotice: async (notice) => {
-    const { data } = await supabase.from('notices').insert([notice]).select().single()
+    const { data, error } = await supabase.from('notices').insert([notice]).select().single()
+    if (error) throw error
     return data
   },
   updateNotice: async (id, updates) => {
-    const { data } = await supabase.from('notices').update(updates).eq('id', id).select().single()
+    const { data, error } = await supabase.from('notices').update(updates).eq('id', id).select().single()
+    if (error) throw error
     return data
   },
   deleteNotice: async (id) => {
-    await supabase.from('notices').delete().eq('id', id)
+    const { error } = await supabase.from('notices').delete().eq('id', id)
+    if (error) throw error
   },
   // 메인 홈 팝업 노출용: popup_active=true 이고 오늘이 노출 기간 내인 공지만 반환
   getActivePopupNotices: async () => {
-    const today = new Date().toISOString().slice(0, 10)
-    const { data } = await supabase
+    // 한국(로컬) 기준 오늘 날짜 — UTC 변환 시 자정 전후 off-by-one 방지
+    const today = localDateString()
+    const { data, error } = await supabase
       .from('notices')
       .select('*')
       .eq('popup_active', true)
@@ -127,6 +157,7 @@ export const dataStore = {
       .or(`popup_end_date.is.null,popup_end_date.gte.${today}`)
       .order('pinned', { ascending: false })
       .order('date', { ascending: false })
+    if (error) throw error
     return data || []
   },
 
@@ -165,9 +196,9 @@ export const dataStore = {
   },
 
   // ── Teachers ─────────────────────────────────────────────────────────────
+  // PostgREST 기본 1,000행 제한을 우회하여 전체 강사 목록을 반환
   getTeachers: async () => {
-    const { data } = await supabase.from('teachers').select('*').order('name')
-    return data || []
+    return fetchAll('teachers', { order: { column: 'name', ascending: true } })
   },
   getFeaturedTeachers: async () => {
     const { data } = await supabase.from('teachers').select('*').eq('featured', true).order('name')
@@ -295,45 +326,83 @@ export const dataStore = {
 
   // ── Bulk import / delete (관리자 일괄 업로드용) ──────────────────────────
   bulkAddTeachers: async (rows) => {
-    if (!rows || rows.length === 0) return { inserted: 0, deleted: 0 }
+    if (!rows || rows.length === 0) return { inserted: 0, deleted: 0, notFound: 0 }
 
     const toDelete = rows.filter((r) => r._delete)
     const toInsert = rows.filter((r) => !r._delete).map(({ _delete, ...rest }) => rest)
 
     let deleted = 0
+    let notFound = 0
     let inserted = 0
+
+    const norm = (v) => String(v ?? '').replace(/[\s-]/g, '').trim()
 
     // 삭제 처리: 이름으로 매칭 (동명이인일 경우 전화번호·생년월일로 구분)
     if (toDelete.length > 0) {
-      const { data: existing } = await supabase
-        .from('teachers')
-        .select('id, name, phone, birth_date')
-      const list = existing || []
+      // 1,000행 제한 없이 전체 강사 로드 (페이지네이션)
+      const PAGE = 1000
+      let from = 0
+      let list = []
+      for (;;) {
+        const { data, error } = await supabase
+          .from('teachers')
+          .select('id, name, phone, birth_date')
+          .order('name')
+          .range(from, from + PAGE - 1)
+        if (error) throw error
+        if (!data || data.length === 0) break
+        list = list.concat(data)
+        if (data.length < PAGE) break
+        from += PAGE
+      }
+
+      // 동일 대상을 중복 삭제하지 않도록 이미 처리한 id 추적
+      const usedIds = new Set()
+      const idsToDelete = []
       for (const row of toDelete) {
-        const matches = list.filter((e) => e.name === row.name)
+        const matches = list.filter((e) => e.name === row.name && !usedIds.has(e.id))
         let target = null
         if (matches.length === 1) {
           target = matches[0]
         } else if (matches.length > 1) {
+          // 동명이인: 전화번호 → 생년월일 순으로 정규화 비교
           target =
-            matches.find((e) => row.phone && e.phone === row.phone) ||
-            matches.find((e) => row.birth_date && e.birth_date === row.birth_date)
+            (row.phone && matches.find((e) => norm(e.phone) === norm(row.phone))) ||
+            (row.birth_date && matches.find((e) => norm(e.birth_date) === norm(row.birth_date))) ||
+            matches[0]
         }
         if (target) {
-          await supabase.from('teachers').delete().eq('id', target.id)
-          deleted++
+          usedIds.add(target.id)
+          idsToDelete.push(target.id)
+        } else {
+          notFound++
+        }
+      }
+
+      // id 목록을 묶어서 일괄 삭제 (개별 호출 대신 in 필터)
+      if (idsToDelete.length > 0) {
+        const DEL_CHUNK = 200
+        for (let i = 0; i < idsToDelete.length; i += DEL_CHUNK) {
+          const chunk = idsToDelete.slice(i, i + DEL_CHUNK)
+          const { error } = await supabase.from('teachers').delete().in('id', chunk)
+          if (error) throw error
+          deleted += chunk.length
         }
       }
     }
 
-    // 추가 처리
+    // 추가 처리: 행 수가 많을 수 있으므로 청크 단위 insert
     if (toInsert.length > 0) {
-      const { data, error } = await supabase.from('teachers').insert(toInsert).select()
-      if (error) throw error
-      inserted = data?.length || 0
+      const INS_CHUNK = 500
+      for (let i = 0; i < toInsert.length; i += INS_CHUNK) {
+        const chunk = toInsert.slice(i, i + INS_CHUNK)
+        const { data, error } = await supabase.from('teachers').insert(chunk).select('id')
+        if (error) throw error
+        inserted += data?.length || 0
+      }
     }
 
-    return { inserted, deleted }
+    return { inserted, deleted, notFound }
   },
 
   // ── Reset (admin dashboard) ───────────────────────────────────────────────

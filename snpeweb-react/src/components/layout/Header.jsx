@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import { Menu, X, Search, User, Globe, ChevronDown } from 'lucide-react'
+import { Link, useLocation } from 'react-router-dom'
+import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { mainNav } from '../../data/navigation'
 
@@ -16,9 +16,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState(null)
   const [scrolled, setScrolled] = useState(false)
-  const [searchText, setSearchText] = useState('')
   const [langOpen, setLangOpen] = useState(false)
-  const navigate = useNavigate()
   const location = useLocation()
   const headerRef = useRef(null)
   const langRef = useRef(null)
@@ -53,14 +51,6 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const handleSearch = (e) => {
-    e.preventDefault()
-    if (searchText.trim()) {
-      navigate(`/search-center?searchText=${encodeURIComponent(searchText)}`)
-      setSearchText('')
-    }
-  }
-
   const changeLanguage = (code) => {
     i18n.changeLanguage(code)
     setLangOpen(false)
@@ -82,11 +72,6 @@ export default function Header() {
             {t('header.shop')}
           </a>
           <div className="flex items-center gap-4">
-            <Link to="/mypage" className="hover:opacity-80 transition-opacity flex items-center gap-1">
-              <User size={14} />
-              <span className="hidden sm:inline">{t('header.mypage')}</span>
-            </Link>
-
             {/* Language switcher */}
             <div className="relative" ref={langRef}>
               <button
@@ -130,7 +115,7 @@ export default function Header() {
               : 'bg-white/85 backdrop-blur-md border-b border-gray-100'
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
+        <div className="relative max-w-[1440px] mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
@@ -140,8 +125,8 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-0 h-full">
+          {/* Desktop nav — 로고는 좌측 고정, 메뉴는 헤더 중앙 정렬 */}
+          <nav className="hidden lg:flex items-center gap-0 h-full absolute left-1/2 -translate-x-1/2">
             {mainNav.map((item) => {
               const label = t(item.titleKey)
               return (
@@ -185,25 +170,6 @@ export default function Header() {
               )
             })}
           </nav>
-
-          {/* Search bar (desktop) */}
-          <form onSubmit={handleSearch} className="hidden lg:flex items-center">
-            <div className="relative">
-              <input
-                type="text"
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-                placeholder={t('header.searchPlaceholder')}
-                className="w-48 xl:w-56 h-9 pl-4 pr-10 rounded-full text-sm focus:outline-none border border-gray-300 focus:border-snpe focus:ring-1 focus:ring-snpe transition-colors"
-              />
-              <button
-                type="submit"
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-snpe-dark transition-colors"
-              >
-                <Search size={16} />
-              </button>
-            </div>
-          </form>
 
           {/* Mobile toggle */}
           <button
@@ -253,22 +219,6 @@ export default function Header() {
               ))}
             </div>
 
-            {/* Mobile search */}
-            <form onSubmit={handleSearch} className="p-4 border-b border-gray-100">
-              <div className="relative">
-                <input
-                  type="text"
-                  value={searchText}
-                  onChange={(e) => setSearchText(e.target.value)}
-                  placeholder={t('header.searchPlaceholder')}
-                  className="w-full h-10 pl-4 pr-10 rounded-full border border-gray-300 text-sm focus:outline-none focus:border-snpe"
-                />
-                <button type="submit" className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
-                  <Search size={16} />
-                </button>
-              </div>
-            </form>
-
             {/* Mobile nav items */}
             <nav className="py-2">
               {mainNav.map((item) => (
@@ -279,13 +229,6 @@ export default function Header() {
                 />
               ))}
             </nav>
-
-            {/* Mobile utility links */}
-            <div className="border-t border-gray-100 p-4 flex flex-col gap-2">
-              <Link to="/mypage" onClick={() => setMobileOpen(false)} className="text-sm text-gray-600 hover:text-snpe-dark py-1">
-                {t('header.mypage')}
-              </Link>
-            </div>
           </div>
         </div>
       )}
