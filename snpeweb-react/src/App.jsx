@@ -32,7 +32,6 @@ import Assessment from './pages/exercise/Assessment'
 import SnpeApp from './pages/exercise/SnpeApp'
 import BaseExercise from './pages/exercise/BaseExercise'
 import ExperienceCase from './pages/exercise/ExperienceCase'
-import SnpeExperience from './pages/exercise/SnpeExperience'
 import Notice from './pages/news/Notice'
 import Activity from './pages/news/Activity'
 import SearchCenter from './pages/support/SearchCenter'
@@ -90,7 +89,8 @@ export default function App() {
         <Route path="snpevideo" element={<YoutubeRedirect />} />
         <Route path="snpe-video" element={<YoutubeRedirect />} />
         <Route path="experiencecase" element={<ExperienceCase />} />
-        <Route path="snpe-experience" element={<SnpeExperience />} />
+        {/* 운동경험은 체험사례(SNPE 체험사례)로 통합 — 레거시 경로 리다이렉트 */}
+        <Route path="snpe-experience" element={<Navigate to="/experiencecase" replace />} />
         <Route path="notice" element={<Notice />} />
         {/* 언론보도는 활동소식 내 탭으로 통합 — /news 진입 시 자동 이동 */}
         <Route path="news" element={<Navigate to="/activity?tab=press" replace />} />

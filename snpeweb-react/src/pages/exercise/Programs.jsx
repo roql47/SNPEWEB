@@ -199,7 +199,7 @@ export default function Programs() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">PROGRAM TYPE</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">프로그램 진행 방식</h2>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-800">프로그램 진행 방식</h3>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {programTypes.map((p) => (
@@ -233,8 +233,8 @@ export default function Programs() {
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">CLASS PROGRAM</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">클래스 프로그램</h2>
+            <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">SNPE CENTER PROGRAMS</p>
+            <h3 className="text-xl md:text-2xl font-bold text-gray-800">전문센터 대표 프로그램</h3>
           </div>
           <div className="space-y-10">
             {classGroups.map((g) => (

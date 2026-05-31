@@ -20,7 +20,6 @@ export const mainNav = [
       { titleKey: 'subnav.snpeApp', path: '/snpeapp' },
       { titleKey: 'subnav.baseExercise', path: '/baseexercise' },
       { titleKey: 'subnav.experienceCase', path: '/experiencecase' },
-      { titleKey: 'subnav.snpeExperience', path: '/snpe-experience' },
     ],
   },
   {
