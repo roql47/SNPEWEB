@@ -48,11 +48,11 @@ const ROUTE_TO_CATEGORY = {
   '/notice': 'news',
   '/news': 'news',
   '/activity': 'news',
+  '/faq': 'news',
   '/search-center': 'support',
   '/studio': 'support',
   '/certification-teacher': 'support',
   '/franchise': 'support',
-  '/faq': 'support',
   '/customerinquiry': 'support',
   '/online': 'support',
 }

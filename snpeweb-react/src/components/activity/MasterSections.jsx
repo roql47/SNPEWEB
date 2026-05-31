@@ -14,6 +14,22 @@ import {
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react'
+import useReveal from '../../hooks/useReveal'
+
+function Reveal({ children, delay = 0, className = '' }) {
+  const { ref, visible } = useReveal()
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: visible ? `${delay}ms` : '0ms' }}
+      className={`transition-all duration-700 ease-out ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      } ${className}`}
+    >
+      {children}
+    </div>
+  )
+}
 
 const whatYouLearn = [
   'SNPE 운동 원리에 대한 해부학·신경과학·운동생리학 기반 분석',
@@ -81,6 +97,7 @@ export default function MasterSections() {
       {/* INTRO — 마스터강사란? / MASTER COURSE */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-mint-lighter/30">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
             <div>
               <span className="inline-block px-3 py-1 rounded-full bg-snpe-dark/10 text-snpe-dark text-xs font-bold mb-4">
@@ -109,12 +126,14 @@ export default function MasterSections() {
               <img src="/images/master/intro.png" alt="SNPE MASTER COURSE" className="w-full h-auto block" loading="lazy" />
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* What You Will Learn */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
             <div className="rounded-3xl overflow-hidden shadow-md order-last lg:order-first">
               <img src="/images/master/learn.png" alt="What You Will Learn" className="w-full h-auto block" loading="lazy" />
@@ -132,15 +151,19 @@ export default function MasterSections() {
               </ul>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Vision */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="rounded-3xl overflow-hidden shadow-md mb-12 max-h-[420px]">
             <img src="/images/master/vision.png" alt="SNPE MASTER COURSE Vision" className="w-full h-full object-cover" loading="lazy" />
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="text-center mb-12 max-w-3xl mx-auto">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">VISION</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5">
@@ -158,6 +181,8 @@ export default function MasterSections() {
               </p>
             </div>
           </div>
+          </Reveal>
+          <Reveal delay={150}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {visionPillars.map((p) => (
               <div key={p.title} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
@@ -169,16 +194,20 @@ export default function MasterSections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* MASTER GRADING SYSTEM */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">MASTER GRADING SYSTEM</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">마스터 등급 체계</h2>
           </div>
+          </Reveal>
+          <Reveal delay={120}>
           <div className="grid md:grid-cols-3 gap-6">
             {grading.map((g) => (
               <div key={g.tier} className={`bg-gray-50 rounded-2xl p-7 border ${g.ring}`}>
@@ -199,12 +228,14 @@ export default function MasterSections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-snpe-darker via-snpe-dark to-snpe text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
+          <Reveal>
           <h2 className="text-2xl md:text-4xl font-bold mb-4 leading-tight">
             SNPE의 미래를 함께 이끄는 마스터강사
           </h2>
@@ -217,6 +248,7 @@ export default function MasterSections() {
           >
             과정 문의하기 <ArrowRight size={16} />
           </Link>
+          </Reveal>
         </div>
       </section>
     </>

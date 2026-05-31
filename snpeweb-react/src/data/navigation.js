@@ -15,10 +15,9 @@ export const mainNav = [
     path: '/beginnerguide',
     children: [
       { titleKey: 'subnav.beginnerGuide', path: '/beginnerguide' },
+      { titleKey: 'subnav.baseExercise', path: '/baseexercise' },
       { titleKey: 'subnav.programs', path: '/programs' },
       { titleKey: 'subnav.assessment', path: '/assessment' },
-      { titleKey: 'subnav.snpeApp', path: '/snpeapp' },
-      { titleKey: 'subnav.baseExercise', path: '/baseexercise' },
       { titleKey: 'subnav.experienceCase', path: '/experiencecase' },
     ],
   },
@@ -34,24 +33,23 @@ export const mainNav = [
     ],
   },
   {
-    titleKey: 'nav.news',
-    path: '/notice',
-    children: [
-      { titleKey: 'subnav.notice', path: '/notice' },
-      // 언론보도는 활동소식(/activity) 내부 탭으로 통합되어 헤더 메뉴에서는 제거
-      { titleKey: 'subnav.activity', path: '/activity' },
-    ],
-  },
-  {
-    titleKey: 'nav.support',
+    titleKey: 'nav.network',
     path: '/search-center',
     children: [
       { titleKey: 'subnav.searchCenter', path: '/search-center' },
       { titleKey: 'subnav.studio', path: '/studio' },
       { titleKey: 'subnav.certTeacher', path: '/certification-teacher' },
       { titleKey: 'subnav.franchise', path: '/franchise' },
-      { titleKey: 'subnav.faq', path: '/faq' },
       { titleKey: 'subnav.corporate', path: '/customerinquiry' },
+    ],
+  },
+  {
+    titleKey: 'nav.support',
+    path: '/notice',
+    children: [
+      { titleKey: 'subnav.notice', path: '/notice' },
+      { titleKey: 'subnav.activity', path: '/activity' },
+      { titleKey: 'subnav.faq', path: '/faq' },
     ],
   },
 ]

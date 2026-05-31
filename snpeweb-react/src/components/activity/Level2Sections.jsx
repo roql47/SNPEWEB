@@ -15,6 +15,22 @@ import {
   Eye,
   ArrowRight,
 } from 'lucide-react'
+import useReveal from '../../hooks/useReveal'
+
+function Reveal({ children, delay = 0, className = '' }) {
+  const { ref, visible } = useReveal()
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: visible ? `${delay}ms` : '0ms' }}
+      className={`transition-all duration-700 ease-out ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      } ${className}`}
+    >
+      {children}
+    </div>
+  )
+}
 
 const stages = [
   { step: '1단계', title: '이론 교육', desc: 'SNPE 핵심 이론 및 기능해부학 학습' },
@@ -99,6 +115,7 @@ export default function Level2Sections() {
       {/* INTRO */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-white to-mint-lighter/30">
         <div className="max-w-4xl mx-auto px-4 text-center">
+          <Reveal>
           <span className="inline-block px-3 py-1 rounded-full bg-snpe-dark/10 text-snpe-dark text-xs font-bold mb-5">
             SNPE LEVEL 2
           </span>
@@ -118,32 +135,38 @@ export default function Level2Sections() {
           </div>
           <p className="mt-6 text-snpe-dark font-bold">10주 교육 + 2주 현장실습 = 12주 과정</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/online"
+            <button
+              type="button"
               className="px-7 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
             >
               과정 신청하기
-            </Link>
+            </button>
             <Link
-              to="/customerinquiry"
+              to="/degree"
               className="px-7 py-3 bg-white border border-gray-200 text-gray-700 rounded-full font-medium hover:border-snpe-dark transition-colors"
             >
               문의하기
             </Link>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* WHY LEVEL 2 */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">WHY LEVEL 2</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">왜 LEVEL 2는 다를까요?</h2>
           </div>
+          </Reveal>
+          <Reveal delay={80}>
           <div className="rounded-3xl overflow-hidden shadow-md mb-10 max-h-[420px]">
             <img src="/images/level2/why.png" alt="SNPE LEVEL 2 지도 장면" className="w-full h-full object-cover" loading="lazy" />
           </div>
+          </Reveal>
+          <Reveal delay={120}>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
               <h3 className="font-bold text-gray-900 mb-3">일반 운동 교육</h3>
@@ -172,12 +195,14 @@ export default function Level2Sections() {
               </ul>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 12 WEEK PROGRAM */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">12 WEEK PROGRAM</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">12주 핵심 교육 과정</h2>
@@ -185,6 +210,8 @@ export default function Level2Sections() {
               LEVEL 2의 교육은 단순 실습 반복이 아닌, 이론 · 움직임 이해 · 티칭 · 현장 적용까지 단계적으로 연결됩니다.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={80}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             {stages.map((s, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100">
@@ -197,6 +224,8 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
+          <Reveal delay={120}>
           <div className="grid sm:grid-cols-3 gap-4">
             {[
               { big: '10주', title: '교육 과정', desc: '이론부터 실습까지 체계적 커리큘럼' },
@@ -210,12 +239,14 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* PROGRAM PHILOSOPHY */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center mb-12">
             <div className="rounded-3xl overflow-hidden shadow-md">
               <img src="/images/level2/philosophy.png" alt="SNPE 핵심 이론과 척추 모델" className="w-full h-auto block" loading="lazy" />
@@ -229,6 +260,8 @@ export default function Level2Sections() {
               </p>
             </div>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid md:grid-cols-3 gap-5">
             {philosophy.map((p) => (
               <div key={p.num} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
@@ -240,12 +273,14 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ONLINE CURRICULUM */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">ONLINE CURRICULUM</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">기능해부학 기반의 움직임 교육</h2>
@@ -254,6 +289,8 @@ export default function Level2Sections() {
               기능 중심 해부학 교육입니다.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid md:grid-cols-3 gap-5">
             {anatomy.map((a) => (
               <div key={a.title} className="bg-white rounded-2xl p-6 border border-gray-100 flex gap-4">
@@ -265,18 +302,22 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* SNPE 8 Essential Movements */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
+          <Reveal>
           <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">SNPE 8 ESSENTIAL MOVEMENTS</p>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">셀프 컨디셔닝 시스템</h2>
           <p className="text-gray-600 mb-10">
             목 · 어깨 · 허리 · 골반 · 하지 정렬까지, SNPE의 다양한 움직임 시스템을 통해 몸의 균형 회복과
             움직임 재교육 방법을 학습합니다.
           </p>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid sm:grid-cols-2 gap-5 text-left">
             <div className="bg-mint-lighter/40 rounded-2xl p-6 border border-snpe/20">
               <h4 className="font-bold text-snpe-dark mb-2">SNPE 벨트 운동</h4>
@@ -291,12 +332,14 @@ export default function Level2Sections() {
               </p>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 티칭과 수업 구성 훈련 */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">TEACHING TRAINING</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">티칭과 수업 구성 훈련</h2>
@@ -305,6 +348,8 @@ export default function Level2Sections() {
               변화를 이끌어낼 수 있어야 합니다.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {teachingSkills.map((s) => (
               <div key={s.title} className="bg-white rounded-2xl p-6 border border-gray-100">
@@ -314,12 +359,14 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 실전 그룹레슨 실습 */}
       <section className="py-16 md:py-24 bg-mint-lighter/20">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">GROUP LESSON PRACTICE</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">실전 그룹레슨 실습</h2>
@@ -328,6 +375,8 @@ export default function Level2Sections() {
               실제로 설명하고 지도하는 경험까지 연결됩니다. 실습 후 강사의 세밀한 피드백을 통해 지도 역량을 빠르게 성장시킵니다.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {groupLessons.map((g) => (
               <div key={g.title} className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
@@ -341,12 +390,14 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 2주 전문센터 현장실습 */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">FIELD PRACTICE</p>
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">2주 전문센터 현장실습</h2>
@@ -355,6 +406,8 @@ export default function Level2Sections() {
               몸으로 익히는 시간입니다.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="space-y-3">
             {fieldwork.map((f) => (
               <div key={f.num} className="flex items-start gap-5 bg-gray-50 rounded-2xl p-5 border border-gray-100">
@@ -366,12 +419,14 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* LEVEL 2가 지향하는 것 */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">LEVEL 2가 지향하는 것</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -379,6 +434,8 @@ export default function Level2Sections() {
               사람의 움직임을 이해하며, 현장에서 실제 변화를 만들어낼 수 있는 지도자를 양성합니다.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid md:grid-cols-3 gap-5">
             {aims.map((a) => (
               <div key={a.title} className="bg-white rounded-2xl p-7 border border-gray-100 text-center">
@@ -390,18 +447,22 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 추천 대상 */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">이런 분들에게 추천합니다</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               SNPE LEVEL 2는 특정 배경이나 경력보다, 사람의 몸을 진심으로 이해하고 싶은 분을 위한 과정입니다.
             </p>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center">
             <div className="rounded-3xl overflow-hidden shadow-md">
               <img src="/images/level2/recommend.png" alt="SNPE LEVEL 2 회원 지도 장면" className="w-full h-auto block" loading="lazy" />
@@ -415,6 +476,7 @@ export default function Level2Sections() {
               ))}
             </ul>
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -427,10 +489,13 @@ export default function Level2Sections() {
         />
         <div className="absolute inset-0 bg-white/85 backdrop-blur-[2px]" aria-hidden="true" />
         <div className="relative z-10 max-w-3xl mx-auto px-4">
+          <Reveal>
           <div className="text-center mb-10">
             <GraduationCap size={32} className="text-snpe-dark mx-auto mb-3" />
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">LEVEL 2 교육일정 안내</h2>
           </div>
+          </Reveal>
+          <Reveal delay={100}>
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
             {schedule.map((s) => (
               <div key={s.label} className="flex flex-col sm:flex-row sm:items-center px-6 py-4">
@@ -441,6 +506,8 @@ export default function Level2Sections() {
               </div>
             ))}
           </div>
+          </Reveal>
+          <Reveal delay={150}>
           <div className="mt-10 text-center bg-snpe-dark/10 rounded-3xl p-8">
             <p className="text-lg md:text-xl font-bold text-gray-900 mb-2">
               몸의 변화는 누군가의 삶을 바꾸는 시작이 됩니다
@@ -448,13 +515,14 @@ export default function Level2Sections() {
             <p className="text-sm text-gray-600 mb-6 max-w-xl mx-auto">
               LEVEL 2는 당신의 변화를 전문성으로 확장하는 과정입니다. 당신의 전문성이 누군가의 삶을 바꾸는 힘이 됩니다.
             </p>
-            <Link
-              to="/online"
+            <button
+              type="button"
               className="inline-flex items-center gap-2 px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
             >
               LEVEL 2 과정 신청하기 <ArrowRight size={16} />
-            </Link>
+            </button>
           </div>
+          </Reveal>
         </div>
       </section>
     </>
