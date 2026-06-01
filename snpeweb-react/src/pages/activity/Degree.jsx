@@ -33,6 +33,52 @@ const STATUS_LABEL = {
 
 const DEFAULT_ORDER = ['intro', 'philosophy', 'features', 'target', 'roadmap', 'schedule', 'career', 'contact']
 
+// 성장 로드맵 도식 (PPT 슬라이드 20) — LEVEL 1 → MASTER
+const GROWTH_ROADMAP = [
+  { level: 'LEVEL 1', en: 'Foundation', desc: '운동 원리와 기본 동작 습득', path: '/level1' },
+  { level: 'LEVEL 2', en: 'Certified Instructor', desc: '회원 지도와 효과적 티칭 기술', path: '/level2' },
+  { level: 'LEVEL 3', en: 'Advanced Specialist', desc: '전후 변화 분석과 맞춤 관리', path: '/level3' },
+  { level: 'MASTER', en: 'Educator & Leader', desc: '교육 · 연구 리더십 역량 강화', path: '/master' },
+]
+
+function GrowthRoadmap() {
+  return (
+    <section className="py-16 md:py-20 bg-gradient-to-b from-white to-mint-lighter/30">
+      <div className="max-w-5xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">CERTIFICATION ROADMAP</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">SNPE 자격 성장 로드맵</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            LEVEL 1부터 MASTER 과정까지, 단계적으로 설계된 전문 교육 시스템으로
+            운동 이해부터 교육자 역량까지 체계적으로 성장합니다.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-4 md:gap-3 relative">
+          {GROWTH_ROADMAP.map((step, i) => (
+            <div key={step.level} className="relative">
+              <Link
+                to={step.path}
+                className="block h-full bg-white rounded-2xl p-6 border border-gray-200 hover:border-snpe-dark hover:shadow-lg transition-all group text-center"
+              >
+                <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-snpe-darker text-white text-sm font-bold mb-4">
+                  {i + 1}
+                </span>
+                <p className="text-base font-bold text-gray-900 group-hover:text-snpe-dark transition-colors">{step.level}</p>
+                <p className="text-xs text-snpe-dark font-semibold mb-2">{step.en}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+              </Link>
+              {i < GROWTH_ROADMAP.length - 1 && (
+                <span className="hidden md:flex absolute top-1/2 -right-2 z-10 -translate-y-1/2 text-snpe-dark/40 text-xl">→</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 const fmtPeriod = (start, end) => {
   if (!start && !end) return '-'
   const f = (d) => (d ? d.replace(/-/g, '.') : '')
@@ -99,6 +145,8 @@ export default function Degree() {
   return (
     <>
       <PageBanner title={t('pages.degree')} subtitle={t('pages.degreeSub')} />
+
+      <GrowthRoadmap />
 
       <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-4 space-y-20">

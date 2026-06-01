@@ -22,8 +22,8 @@ const mainExercises = [
   {
     num: '3번 동작',
     title: '엎드려 무릎 굽혀 다리 들기',
-    desc: '엎드린 상태에서 무릎을 굽혀 다리를 들어올립니다. 오다리 교정과 힙업에 효과적입니다.',
-    tags: ['오다리', '무릎', '힙업'],
+    desc: '엎드린 상태에서 무릎을 굽혀 다리를 들어올립니다. 휜다리 교정과 힙업에 효과적입니다.',
+    tags: ['휜다리', '무릎', '힙업'],
     image: '/images/position_3.png',
     videoUrl: 'https://www.youtube.com/@SNPElife',
   },
@@ -65,8 +65,8 @@ const moveExercises = [
   {
     code: 'SC-MOVE',
     title: 'Sacrum Coccygeal Movement',
-    titleKo: '천골·미추',
-    desc: '천골·미추 부위의 정렬 교정',
+    titleKo: '천골(엉치뼈)·미추(꼬리뼈)',
+    desc: '천골(엉치뼈)·미추(꼬리뼈) 부위의 정렬 교정',
     tags: ['골반', '미추', '하체 순환'],
     image: '/images/SC-move.png',
   },

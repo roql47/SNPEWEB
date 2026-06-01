@@ -163,6 +163,51 @@ export default function Assessment() {
         </div>
       </section>
 
+      {/* 기록 · 데이터 · 전문가의 경험을 연결 (PPT 슬라이드 18) */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
+            <div>
+              <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">
+                RECORD · DATA · EXPERTISE
+              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-snug">
+                사용자의 기록과 데이터, 그리고
+                <br className="hidden md:block" />
+                전문가의 경험을 연결합니다
+              </h2>
+              <div className="space-y-3 text-gray-600 leading-relaxed">
+                <p>
+                  SNPE는 사용자의 기록과 데이터를 전문가의 경험과 연결합니다. 앱을 통해 자신의 몸을 객관적으로
+                  이해하고 변화 과정을 기록하는 것에서 시작하여, 인증 강사와 전문센터의 체계적인 평가를 통해
+                  가장 정확한 움직임의 방향을 찾아갑니다.
+                </p>
+                <p>
+                  건강한 자세와 나 자신의 몸을 깊이 이해하는 것에서 시작되며, 지속적인 실천이 더해질 때
+                  비로소 삶의 습관으로 자리 잡습니다.
+                </p>
+                <p>
+                  SNPE는 과학적 평가와 기록을 기반으로 스스로의 몸을 회복하고, 더 건강한 일상을 구축해 나가는
+                  자기 회복 시스템(Self Recovery System)입니다.
+                </p>
+              </div>
+            </div>
+            {/* 평가 사진 — 에셋 추가 시 표시됨 (파일 미존재 시 자동 숨김) */}
+            <figure className="rounded-3xl overflow-hidden bg-gray-100 shadow-sm">
+              <img
+                src="/images/assessment/assessment.png"
+                alt="SNPE 체형 · 움직임 평가"
+                className="w-full h-auto block"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.closest('figure').style.display = 'none'
+                }}
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
       {/* Closing */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-snpe-darker via-snpe-dark to-snpe text-white text-center">
         <div className="max-w-3xl mx-auto px-4">

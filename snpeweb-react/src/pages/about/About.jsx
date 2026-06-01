@@ -8,6 +8,8 @@ import {
   Sparkles,
   Heart,
   Quote,
+  Target,
+  Compass,
 } from 'lucide-react'
 
 const keyAreas = [
@@ -290,7 +292,80 @@ export default function About() {
         </div>
       </section>
 
-      {/* 6) Closing tagline */}
+      {/* 6) Mission & Vision */}
+      <section className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-xs md:text-sm font-semibold tracking-[0.3em] text-mint-darker mb-3">
+              Mission &amp; Vision
+            </p>
+            <h2 className="text-2xl md:text-4xl font-heading font-bold text-gray-900">
+              SNPE가 지향하는 방향
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            {/* Mission */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-mint/20 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-mint-lighter/60 text-mint-darker flex items-center justify-center mb-5">
+                <Target size={22} strokeWidth={1.8} />
+              </div>
+              <p className="text-xs md:text-sm font-semibold tracking-[0.2em] text-mint-darker mb-2">
+                MISSION
+              </p>
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 leading-snug">
+                인간 스스로 몸을 회복할 수 있도록 돕는다
+              </h3>
+              <div className="space-y-3 text-sm md:text-base text-gray-600 leading-relaxed">
+                <p>
+                  현대인의 삶은 장시간 앉아 있는 생활, 스마트폰과 컴퓨터 사용, 운동 부족,
+                  그리고 노화로 인해 신체의 균형을 잃어가고 있습니다.
+                </p>
+                <p>
+                  SNPE는 과학적 기반의 운동법과 도구, 교육 시스템을 통해 사람들이 스스로
+                  바른 자세와 건강한 움직임을 회복하고, 잃어버린 신체 기능과 균형을 되찾을 수
+                  있도록 돕습니다.
+                </p>
+                <p>
+                  우리는 인간이 본래 가지고 있는 자가회복력(Self Recovery)을 깨워, 누구나
+                  건강하고 아름다운 삶을 살아갈 수 있는 방법을 제시하는 것을 사명으로 합니다.
+                </p>
+              </div>
+            </div>
+
+            {/* Vision */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 border border-mint/20 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-mint-lighter/60 text-mint-darker flex items-center justify-center mb-5">
+                <Compass size={22} strokeWidth={1.8} />
+              </div>
+              <p className="text-xs md:text-sm font-semibold tracking-[0.2em] text-mint-darker mb-2">
+                VISION
+              </p>
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 leading-snug">
+                인류의 자가회복 문화를 선도하는
+                <br />
+                Global Human Recovery Brand
+              </h3>
+              <div className="space-y-3 text-sm md:text-base text-gray-600 leading-relaxed">
+                <p>
+                  SNPE는 단순히 운동법과 도구를 제공하는 브랜드를 넘어, 누구나 자신의 몸을
+                  이해하고 스스로 건강을 관리할 수 있는 자가회복 문화를 만들어갑니다.
+                </p>
+                <p>
+                  우리는 과학적 연구와 교육, 혁신적인 솔루션을 통해 인간 본연의 건강과 균형을
+                  회복하도록 돕고, 더 건강한 개인과 공동체, 그리고 사회를 만들어가는 글로벌
+                  Human Recovery Brand로 성장하고자 합니다.
+                </p>
+                <p>
+                  전 세계인의 건강하고 아름다운 삶에 기여하는 것이 SNPE가 지향하는 미래입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7) Closing tagline */}
       <section className="py-20 md:py-24 bg-gradient-to-br from-mint-darker via-mint-dark to-mint text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <p className="text-3xl md:text-5xl font-heading font-bold mb-3 leading-tight">

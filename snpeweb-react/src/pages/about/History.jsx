@@ -37,6 +37,12 @@ const eras = [
     period: '2013 – 2022',
     title: 'Expansion & Systemization',
     image: '/images/history/snpe-2.png',
+    // 2017년 출간 도서 — 에셋 추가 시 표시됨 (파일 미존재 시 자동 숨김)
+    book: {
+      image: '/images/history/book-snpe-spine.png',
+      title: 'SNPE 바른자세 척추운동',
+      caption: '2017 출간',
+    },
     summary:
       '교육·도구·센터·콘텐츠 시스템이 본격적으로 확장된 시기입니다. SNPE는 척추 중심 운동을 넘어 발·골반·목·어깨·전신 움직임까지 확장되었으며, 전문 교육과 평가 시스템을 갖춘 통합 움직임 솔루션으로 발전하였습니다.',
     evolution: [
@@ -206,14 +212,33 @@ export default function History() {
               </p>
 
               {era.image && (
-                <figure className="mt-8 rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
-                  <img
-                    src={era.image}
-                    alt={`${era.badge} 도구 모음`}
-                    className="w-full h-auto block"
-                    loading="lazy"
-                  />
-                </figure>
+                <div className="mt-8 grid gap-5 md:grid-cols-[1.6fr_1fr] items-center max-w-3xl">
+                  <figure className="rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
+                    <img
+                      src={era.image}
+                      alt={`${era.badge} 도구 모음`}
+                      className="w-full h-auto block"
+                      loading="lazy"
+                    />
+                  </figure>
+                  {era.book && (
+                    <figure className="rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm text-center">
+                      <img
+                        src={era.book.image}
+                        alt={era.book.title}
+                        className="w-full h-auto block max-h-[280px] object-contain p-3"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.closest('figure').style.display = 'none'
+                        }}
+                      />
+                      <figcaption className="px-3 pb-3 -mt-1">
+                        <p className="text-sm font-bold text-gray-900">{era.book.title}</p>
+                        <p className="text-xs text-gray-500">{era.book.caption}</p>
+                      </figcaption>
+                    </figure>
+                  )}
+                </div>
               )}
             </div>
 

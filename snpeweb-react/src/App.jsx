@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
-// SNPE 운동영상으로 즉시 redirect — Foot Balance 풋 밸런스 사용법
+// SNPE 운동영상으로 즉시 redirect — SNPE 기본 1번 동작
 // (운동영상 전용 페이지 없음, 외부 영상으로 직접 연결)
 function YoutubeRedirect() {
   useEffect(() => {
-    window.location.replace('https://www.youtube.com/watch?v=LfWjDXopI4Y')
+    window.location.replace('https://www.youtube.com/watch?v=J4ewoypgqP4&t=778s')
   }, [])
   return null
 }

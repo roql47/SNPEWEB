@@ -100,6 +100,22 @@ const recommendations = [
   'SNPE 강사로 성장하고 싶은 분 — 전문센터에서 활동하거나 독립적으로 활동하고 싶은 분',
 ]
 
+const careerSkills = [
+  'SNPE 기본 평가',
+  '회원 지도법 및 코칭',
+  '기본 프로그램 운영',
+  '개인 및 그룹 수업 진행',
+  '회원 관리',
+]
+
+const careerFields = [
+  'SNPE 전문센터 운영 및 강사 활동',
+  'SNPE 인증 스튜디오 운영 및 강사',
+  '문화센터 · 체육센터 강사',
+  '기업 · 학교 · 관공서 출강',
+  '온라인 강사 및 SNPE Ambassador',
+]
+
 const schedule = [
   { label: '개강', value: '미정 (추후 공지)' },
   { label: '과정', value: '총 12주 · 주 1회 · 총 84시간 (현장실습 14시간 포함)' },
@@ -451,8 +467,49 @@ export default function Level2Sections() {
         </div>
       </section>
 
-      {/* 추천 대상 */}
+      {/* LEVEL 2 Career Path */}
       <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <Reveal>
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">LEVEL 2 CAREER PATH</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">SNPE 지도사로 활동을 시작하다</h2>
+            <p className="text-gray-600 leading-relaxed">
+              SNPE 지도사로서 현장 활동을 시작하는 단계입니다. LEVEL 2 과정을 통해 회원 지도와 티칭 역량을 배우고,
+              공식 지도사로서 다양한 현장에서 활동할 수 있는 기반을 갖추게 됩니다. 그룹레슨 지도부터 개인레슨 운영,
+              기본 체형 평가와 회원 코칭까지 실전 중심으로 학습합니다.
+            </p>
+          </div>
+          </Reveal>
+          <Reveal delay={100}>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <h4 className="font-bold text-gray-900 mb-4">핵심 역량</h4>
+              <ul className="space-y-2.5">
+                {careerSkills.map((c) => (
+                  <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
+                    <CheckCircle2 size={16} className="text-snpe-dark flex-shrink-0 mt-0.5" /> {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+              <h4 className="font-bold text-gray-900 mb-4">활동 분야</h4>
+              <ul className="space-y-2.5">
+                {careerFields.map((c) => (
+                  <li key={c} className="flex items-start gap-2 text-sm text-gray-700">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-snpe-dark flex-shrink-0" /> {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* 추천 대상 */}
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           <Reveal>
           <div className="text-center mb-12">
