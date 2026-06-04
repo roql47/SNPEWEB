@@ -25,7 +25,8 @@ const corePrinciples = [
     ko: '움직임과 균형을 회복하다',
     body: [
       '잘못된 자세와 반복된 일상은 근육과 근막을 경직시켜 움직임의 범위를 제한합니다.',
-      'SNPE는 밴드·벨트·도구 시스템을 활용하여 굳어진 신체 조직을 스스로 이완하고,',
+      'SNPE는 긴장되고 굳어진 몸을 부드럽게 풀어내는 것에서 시작합니다.',
+      '밴드·벨트·도구 시스템을 활용하여 신체조직의 긴장을 완화하고,',
       '관절이 가진 본래의 가동 범위를 회복하도록 돕습니다.',
       '특히 좌우 불균형을 스스로 인지하고 해소하는 과정을 통해,',
       '몸이 보다 자연스럽고 안정적인 움직임을 선택할 수 있는 환경을 조성합니다.',
@@ -70,9 +71,9 @@ const snpeMeaning = [
 
 const PRINCIPLE_IMGS = [
   '/images/point_1.png',
-  '/images/point_2.png',
+  '/images/point_4.jpg', // 2번 ↔ 4번 이미지 맞변경 (PPT 슬라이드 3)
   '/images/point_3.jpg',
-  '/images/point_4.jpg',
+  '/images/point_2.png',
 ]
 
 export default function Philosophy() {

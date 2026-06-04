@@ -83,8 +83,8 @@ export default function Assessment() {
 
       {/* Self Assessment — 셀프 체형 평가 */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex items-center gap-3 mb-6">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center flex-shrink-0">
               <Smartphone size={22} />
             </div>
@@ -93,25 +93,37 @@ export default function Assessment() {
               <p className="text-sm text-mint-darker font-medium">Self Assessment</p>
             </div>
           </div>
-          <p className="text-gray-600 leading-relaxed mb-6">
-            집에서는 SNPE 앱을 활용하여 정면·측면·후면 체형 촬영과 기본 움직임 평가를 스스로 진행할 수 있습니다.
-            체형과 움직임의 변화를 기록하고 비교하며, 자신의 몸을 이해하고 관리하는 첫 단계가 됩니다.
-          </p>
-          <div className="bg-gray-50 rounded-2xl p-6 md:p-7 border border-gray-100">
-            <p className="text-sm font-bold text-snpe-dark mb-4">평가 항목</p>
-            <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
-              {selfItems.map((item) => (
-                <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
-                  <CheckCircle2 size={16} className="text-snpe-dark flex-shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-10 lg:gap-12 items-center">
+            <figure className="flex justify-center">
+              <img
+                src="/images/app-1-1.png"
+                alt="SNPE 앱 셀프 체형 평가 화면"
+                className="w-[260px] md:w-[320px] h-auto drop-shadow-xl"
+                loading="lazy"
+              />
+            </figure>
+            <div>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                집에서는 SNPE 앱을 활용하여 정면·측면·후면 체형 촬영과 기본 움직임 평가를 스스로 진행할 수 있습니다.
+                체형과 움직임의 변화를 기록하고 비교하며, 자신의 몸을 이해하고 관리하는 첫 단계가 됩니다.
+              </p>
+              <div className="bg-gray-50 rounded-2xl p-6 md:p-7 border border-gray-100">
+                <p className="text-sm font-bold text-snpe-dark mb-4">평가 항목</p>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {selfItems.map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-gray-700">
+                      <CheckCircle2 size={16} className="text-snpe-dark flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="text-gray-600 leading-relaxed mt-6">
+                SNPE 앱은 자신의 몸 상태를 이해하고, 스스로 회복(Self Recovery)을 시작할 수 있도록 돕는
+                첫 번째 평가 도구입니다.
+              </p>
+            </div>
           </div>
-          <p className="text-gray-600 leading-relaxed mt-6">
-            SNPE 앱은 자신의 몸 상태를 이해하고, 스스로 회복(Self Recovery)을 시작할 수 있도록 돕는
-            첫 번째 평가 도구입니다.
-          </p>
         </div>
       </section>
 
@@ -160,51 +172,6 @@ export default function Assessment() {
             개인별 운동 방향과 회복 과정을 설계합니다. 이를 통해 개인의 현재 상태를 보다 정확하게 이해하고,
             효율적인 회복 방향을 설정할 수 있습니다.
           </p>
-        </div>
-      </section>
-
-      {/* 기록 · 데이터 · 전문가의 경험을 연결 (PPT 슬라이드 18) */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
-            <div>
-              <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">
-                RECORD · DATA · EXPERTISE
-              </p>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5 leading-snug">
-                사용자의 기록과 데이터, 그리고
-                <br className="hidden md:block" />
-                전문가의 경험을 연결합니다
-              </h2>
-              <div className="space-y-3 text-gray-600 leading-relaxed">
-                <p>
-                  SNPE는 사용자의 기록과 데이터를 전문가의 경험과 연결합니다. 앱을 통해 자신의 몸을 객관적으로
-                  이해하고 변화 과정을 기록하는 것에서 시작하여, 인증 강사와 전문센터의 체계적인 평가를 통해
-                  가장 정확한 움직임의 방향을 찾아갑니다.
-                </p>
-                <p>
-                  건강한 자세와 나 자신의 몸을 깊이 이해하는 것에서 시작되며, 지속적인 실천이 더해질 때
-                  비로소 삶의 습관으로 자리 잡습니다.
-                </p>
-                <p>
-                  SNPE는 과학적 평가와 기록을 기반으로 스스로의 몸을 회복하고, 더 건강한 일상을 구축해 나가는
-                  자기 회복 시스템(Self Recovery System)입니다.
-                </p>
-              </div>
-            </div>
-            {/* 평가 사진 — 에셋 추가 시 표시됨 (파일 미존재 시 자동 숨김) */}
-            <figure className="rounded-3xl overflow-hidden bg-gray-100 shadow-sm">
-              <img
-                src="/images/assessment/assessment.png"
-                alt="SNPE 체형 · 움직임 평가"
-                className="w-full h-auto block"
-                loading="lazy"
-                onError={(e) => {
-                  e.currentTarget.closest('figure').style.display = 'none'
-                }}
-              />
-            </figure>
-          </div>
         </div>
       </section>
 

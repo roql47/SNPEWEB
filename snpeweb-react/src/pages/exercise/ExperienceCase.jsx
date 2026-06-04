@@ -80,7 +80,7 @@ export default function ExperienceCase() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">
-              EXPERIENCE STORIES
+              RECOVERY STORIES
             </p>
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900">
               실제 회복 이야기

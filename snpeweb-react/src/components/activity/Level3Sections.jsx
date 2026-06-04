@@ -2,7 +2,6 @@
  * Level3Sections — SNPE 바른자세운동 전문지도사 LEVEL 3 랜딩
  * Gamma(snpe-level3-hw1sahx.gamma.site) 구성을 기반으로 한 하드코딩 콘텐츠
  */
-import { Link } from 'react-router-dom'
 import {
   CheckCircle2,
   XCircle,
@@ -22,6 +21,10 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import useReveal from '../../hooks/useReveal'
+
+// 외부 신청/문의 링크 (PPT 슬라이드 15·18)
+const LEVEL3_APPLY_URL = 'https://www.s-ground.co.kr/InstructorCourse'
+const KAKAO_CHAT_URL = 'http://pf.kakao.com/_Tqyxib/chat'
 
 function Reveal({ children, delay = 0, className = '' }) {
   const { ref, visible } = useReveal()
@@ -92,10 +95,10 @@ const requirements = [
 ]
 
 const specialists = [
-  { icon: Bone, title: 'Spine Specialist', desc: '척추 구조와 움직임을 심층 분석하여 회원의 척추 건강 변화를 이끌어냅니다.' },
-  { icon: Brain, title: 'Neck Specialist', desc: '경추 정렬과 두통 · 경직 문제에 전문적으로 접근합니다.' },
-  { icon: Activity, title: 'Pelvis Specialist', desc: '골반 불균형과 체형 문제를 평가하고 개선합니다.' },
-  { icon: Footprints, title: 'Foot Specialist', desc: '발의 구조와 하지 기능 문제를 전문적으로 다룹니다.' },
+  { icon: Bone, title: 'Spine Movement Specialist', desc: '척추의 정렬과 움직임 패턴을 분석하고, 바른 자세와 균형 잡힌 움직임을 위한 개인별 체형 특성에 맞는 SNPE 솔루션을 제공합니다.' },
+  { icon: Brain, title: 'Neck Movement Specialist', desc: '목과 어깨 움직임의 연결성을 분석하고, 개인별 습관에 맞춰 편안한 움직임과 자연스러운 정렬 회복을 위한 SNPE 솔루션을 제공합니다.' },
+  { icon: Activity, title: 'Pelvis Movement Specialist', desc: '골반과 몸의 중심 균형을 평가하고, 안정적인 자세와 움직임을 위한 개인 맞춤형 SNPE 솔루션을 제공합니다.' },
+  { icon: Footprints, title: 'Foot Movement Specialist', desc: '개인의 발의 구조와 보행 패턴을 분석하고, 신체 균형의 시작점인 발의 기능 회복을 위한 SNPE 솔루션을 제공합니다.' },
 ]
 
 const coreSkills = [
@@ -107,11 +110,11 @@ const coreSkills = [
 ]
 
 const careerFields = [
-  'SNPE 전문센터 핵심 지도사',
-  'SNPE STUDIO 운영 및 강사',
-  '문화센터 · 체육센터 강사',
-  '기업 · 학교 · 관공서 출강',
-  '온라인 강사 및 SNPE Ambassador',
+  'SNPE 마스터강사',
+  'SNPE 전문센터 운영 및 핵심 강사',
+  'SNPE STUDIO 운영 및 핵심 강사',
+  '외부 출강 (기업 · 학교 · 관공서 · 문화 · 체육센터 등)',
+  'SNPE Ambassador (홍보 및 판매파트너)',
 ]
 
 const schedule = [
@@ -148,6 +151,24 @@ export default function Level3Sections() {
                 연결된 하나의 움직임 시스템으로 이해합니다. LEVEL 3는 회원의 현재 상태를 보다 깊이 이해하고,
                 움직임 회복의 방향을 설계할 수 있는 전문가를 양성합니다.
               </p>
+            </div>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <a
+                href={LEVEL3_APPLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-7 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
+              >
+                LEVEL 3 신청하기
+              </a>
+              <a
+                href={KAKAO_CHAT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-7 py-3 bg-white border border-gray-200 text-gray-700 rounded-full font-medium hover:border-snpe-dark transition-colors"
+              >
+                문의하기
+              </a>
             </div>
           </Reveal>
         </div>
@@ -413,18 +434,22 @@ export default function Level3Sections() {
               <p>당신의 전문성이 회원의 삶을 바꿉니다.</p>
             </div>
             <div className="flex flex-wrap justify-center gap-3">
-              <button
-                type="button"
+              <a
+                href={LEVEL3_APPLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-3 bg-white text-snpe-darker rounded-full font-medium hover:bg-white/90 transition-colors inline-flex items-center gap-2"
               >
                 LEVEL 3 과정 신청하기 <ArrowRight size={16} />
-              </button>
-              <Link
-                to="/degree"
+              </a>
+              <a
+                href={KAKAO_CHAT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-3 border border-white/40 text-white rounded-full font-medium hover:bg-white/10 transition-colors"
               >
-                자격 과정 안내
-              </Link>
+                문의하기
+              </a>
             </div>
           </Reveal>
         </div>

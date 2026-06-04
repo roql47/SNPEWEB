@@ -212,12 +212,12 @@ export default function History() {
               </p>
 
               {era.image && (
-                <div className="mt-8 grid gap-5 md:grid-cols-[1.6fr_1fr] items-center max-w-3xl">
-                  <figure className="rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm">
+                <div className={`mt-8 grid gap-5 items-center max-w-3xl ${era.book ? 'md:grid-cols-2' : ''}`}>
+                  <figure className="rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm text-center">
                     <img
                       src={era.image}
                       alt={`${era.badge} 도구 모음`}
-                      className="w-full h-auto block"
+                      className={era.book ? 'w-full h-auto block max-h-[280px] object-contain p-3' : 'w-full h-auto block'}
                       loading="lazy"
                     />
                   </figure>
@@ -372,9 +372,9 @@ export default function History() {
             미래형 Self Recovery Wellness System을 지향합니다.
           </p>
           <p className="text-sm md:text-base text-white/85 leading-relaxed">
-            SNPE는 단순한 운동 브랜드가 아니라, 움직임 과학과 기술을 연결하여
+            SNPE는 정형화된 운동 브랜드를 넘어, 움직임 과학과 기술을 연결합니다.
             <br className="hidden md:block" />
-            사람들이 스스로 자신의 몸을 이해하고 회복할 수 있도록 돕는 글로벌 움직임 시스템으로 발전합니다.
+            이를 통해 사람들이 스스로 자신의 몸을 이해하고 회복할 수 있도록 돕는 글로벌 움직임 시스템으로 발전합니다.
           </p>
         </div>
       </section>

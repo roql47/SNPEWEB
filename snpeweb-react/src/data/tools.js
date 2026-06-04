@@ -64,7 +64,7 @@ export const tools = [
     group: 'recommend',
     nameKey: 'pages.tools.items.twoRail.name',
     descKey: 'pages.tools.items.twoRail.desc',
-    img: '/images/tools/image6.png',
+    img: '/images/tools/two-rail.png',
   },
   {
     slug: 'dokkaebi',
@@ -74,32 +74,39 @@ export const tools = [
     img: '/images/tools/image7.png',
   },
   {
+    slug: 'wave-roller-2',
+    group: 'recommend',
+    nameKey: 'pages.tools.items.waveRoller2.name',
+    descKey: 'pages.tools.items.waveRoller2.desc',
+    img: '/images/tools/image9.png',
+  },
+  {
     slug: 'wave-roller',
     group: 'recommend',
     nameKey: 'pages.tools.items.waveRoller.name',
     descKey: 'pages.tools.items.waveRoller.desc',
-    img: '/images/tools/image8.png',
+    img: '/images/tools/image10.png',
   },
   {
     slug: 'wave-stick',
     group: 'recommend',
     nameKey: 'pages.tools.items.waveStick.name',
     descKey: 'pages.tools.items.waveStick.desc',
-    img: '/images/tools/image9.png',
+    img: '/images/tools/image12.png',
   },
   {
     slug: 'eight-cells',
     group: 'recommend',
     nameKey: 'pages.tools.items.eightCells.name',
     descKey: 'pages.tools.items.eightCells.desc',
-    img: '/images/tools/image10.png',
+    img: '/images/tools/image11.png',
   },
   {
     slug: 'double-foam-roller',
     group: 'recommend',
     nameKey: 'pages.tools.items.doubleFoamRoller.name',
     descKey: 'pages.tools.items.doubleFoamRoller.desc',
-    img: '/images/tools/image11.png',
+    img: '/images/tools/image13.png',
   },
 ]
 

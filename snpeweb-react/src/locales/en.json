@@ -235,12 +235,16 @@
           "name": "Two Rail",
           "desc": "A rail-type self-care tool that simultaneously delivers compression and release along the spine and fascial lines."
         },
+        "waveRoller2": {
+          "name": "Wave Roller (2 nodes)",
+          "desc": "A self myofascial release tool that, like teeth alignment, applies progressive movement to displaced and stiff spine."
+        },
         "dokkaebi": {
           "name": "Dokkaebi Hand",
           "desc": "A tool that gently releases tension in stiffened muscles and fascia, letting members feel their body's changes."
         },
         "waveRoller": {
-          "name": "Wave Roller (2 / 4 / 10 nodes)",
+          "name": "Wave Roller (4 nodes)",
           "desc": "A self myofascial release tool that, like teeth alignment, applies progressive movement to displaced and stiff spine."
         },
         "waveStick": {

@@ -2,7 +2,6 @@
  * Level2Sections — SNPE 바른자세운동 전문지도사 LEVEL 2 랜딩
  * Level1Sections와 동일한 톤의 하드코딩 콘텐츠 구성
  */
-import { Link } from 'react-router-dom'
 import {
   CheckCircle2,
   XCircle,
@@ -16,6 +15,11 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import useReveal from '../../hooks/useReveal'
+
+// 외부 신청/문의 링크 (PPT 슬라이드 12·14)
+const LEVEL2_FRI_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-140%EA%B8%B0-%EA%B8%88%EC%9A%94'
+const LEVEL2_SAT_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-141%EA%B8%B0-%ED%86%A0%EC%9A%94%EB%B0%98'
+const KAKAO_CHAT_URL = 'http://pf.kakao.com/_Tqyxib/chat'
 
 function Reveal({ children, delay = 0, className = '' }) {
   const { ref, visible } = useReveal()
@@ -113,11 +117,11 @@ const careerFields = [
   'SNPE 인증 스튜디오 운영 및 강사',
   '문화센터 · 체육센터 강사',
   '기업 · 학교 · 관공서 출강',
-  '온라인 강사 및 SNPE Ambassador',
+  'SNPE Ambassador (홍보 및 판매파트너)',
 ]
 
 const schedule = [
-  { label: '개강', value: '미정 (추후 공지)' },
+  { label: '개강', value: '7/3 금요일 및 7/4 토요일' },
   { label: '과정', value: '총 12주 · 주 1회 · 총 84시간 (현장실습 14시간 포함)' },
   { label: '수업시간', value: '금/토 10:00–18:00 (휴게 1시간 포함)' },
   { label: '수강료', value: '650만원' },
@@ -151,18 +155,30 @@ export default function Level2Sections() {
           </div>
           <p className="mt-6 text-snpe-dark font-bold">10주 교육 + 2주 현장실습 = 12주 과정</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <button
-              type="button"
+            <a
+              href={LEVEL2_FRI_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-7 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
             >
-              과정 신청하기
-            </button>
-            <Link
-              to="/degree"
+              금요반 신청하기
+            </a>
+            <a
+              href={LEVEL2_SAT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
+            >
+              토요반 신청하기
+            </a>
+            <a
+              href={KAKAO_CHAT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-7 py-3 bg-white border border-gray-200 text-gray-700 rounded-full font-medium hover:border-snpe-dark transition-colors"
             >
               문의하기
-            </Link>
+            </a>
           </div>
           </Reveal>
         </div>
@@ -572,12 +588,24 @@ export default function Level2Sections() {
             <p className="text-sm text-gray-600 mb-6 max-w-xl mx-auto">
               LEVEL 2는 당신의 변화를 전문성으로 확장하는 과정입니다. 당신의 전문성이 누군가의 삶을 바꾸는 힘이 됩니다.
             </p>
-            <button
-              type="button"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
-            >
-              LEVEL 2 과정 신청하기 <ArrowRight size={16} />
-            </button>
+            <div className="flex flex-wrap justify-center gap-3">
+              <a
+                href={LEVEL2_FRI_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
+              >
+                금요반 신청하기 <ArrowRight size={16} />
+              </a>
+              <a
+                href={LEVEL2_SAT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
+              >
+                토요반 신청하기 <ArrowRight size={16} />
+              </a>
+            </div>
           </div>
           </Reveal>
         </div>

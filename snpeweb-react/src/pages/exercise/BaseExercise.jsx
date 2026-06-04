@@ -9,7 +9,7 @@ const mainExercises = [
     desc: '바른자세벨트를 착용하고 양 손을 뒤로 깍지 끼고 의자 자세로 앉습니다. 척추 정렬과 목 디스크 예방에 효과적입니다.',
     tags: ['척추', '목 디스크', '허리 건강'],
     image: '/images/position_1.png',
-    videoUrl: 'https://www.youtube.com/@SNPElife',
+    videoUrl: 'https://www.youtube.com/watch?v=w-jiKlSevuY&t=1s',
   },
   {
     num: '2번 동작',
@@ -17,7 +17,7 @@ const mainExercises = [
     desc: '바른자세벨트로 다리를 묶고 무릎을 꿇은 상태에서 뒤로 눕습니다. 골반 교정과 횡격막 스트레칭에 효과적입니다.',
     tags: ['골반', '횡격막', '체온 상승'],
     image: '/images/position_2.png',
-    videoUrl: 'https://www.youtube.com/@SNPElife',
+    videoUrl: 'https://www.youtube.com/watch?v=9lUfciyCkvE',
   },
   {
     num: '3번 동작',
@@ -25,7 +25,7 @@ const mainExercises = [
     desc: '엎드린 상태에서 무릎을 굽혀 다리를 들어올립니다. 휜다리 교정과 힙업에 효과적입니다.',
     tags: ['휜다리', '무릎', '힙업'],
     image: '/images/position_3.png',
-    videoUrl: 'https://www.youtube.com/@SNPElife',
+    videoUrl: 'https://www.youtube.com/watch?v=BhuQEqhFMCE',
   },
   {
     num: '4번 동작',
@@ -33,7 +33,7 @@ const mainExercises = [
     desc: '바닥에 누워 무릎을 가슴으로 당기고 전후로 구릅니다. 척추 마사지와 혈액순환에 도움됩니다.',
     tags: ['척추', '혈액순환', '복근'],
     image: '/images/position_4.png',
-    videoUrl: 'https://www.youtube.com/@SNPElife',
+    videoUrl: 'https://www.youtube.com/watch?v=YtDH2NKSBpw',
   },
 ]
 
@@ -45,6 +45,7 @@ const moveExercises = [
     desc: '경추(목뼈) 부위의 움직임을 회복하는 동작',
     tags: ['경추', '거북목', '목 통증'],
     image: '/images/C-move.png',
+    videoUrl: 'https://www.youtube.com/watch?v=ovm52F2v7a4',
   },
   {
     code: 'T-MOVE',
@@ -53,6 +54,7 @@ const moveExercises = [
     desc: '흉추(등뼈) 부위의 움직임 개선',
     tags: ['어깨 통증', '척추측만증', '등 통증'],
     image: '/images/T-move.png',
+    videoUrl: 'https://www.youtube.com/@SNPElife/search?query=t%20move',
   },
   {
     code: 'L-MOVE',
@@ -61,6 +63,7 @@ const moveExercises = [
     desc: '요추(허리뼈) 부위의 정상적인 커브 회복',
     tags: ['요추', '일자허리', '허리 통증'],
     image: '/images/L-move.png',
+    videoUrl: 'https://www.youtube.com/watch?v=euNrnJ4Z4Fc',
   },
   {
     code: 'SC-MOVE',
@@ -69,6 +72,7 @@ const moveExercises = [
     desc: '천골(엉치뼈)·미추(꼬리뼈) 부위의 정렬 교정',
     tags: ['골반', '미추', '하체 순환'],
     image: '/images/SC-move.png',
+    videoUrl: 'https://www.youtube.com/watch?v=I3BiBiw1LVE',
   },
 ]
 
@@ -170,9 +174,12 @@ export default function BaseExercise() {
 
           <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {moveExercises.map((ex, i) => (
-              <div
+              <a
                 key={i}
-                className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-mint-darker/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                href={ex.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-mint-darker/40 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="relative bg-gray-50 aspect-[5/4] overflow-hidden">
                   <img
@@ -205,7 +212,7 @@ export default function BaseExercise() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
