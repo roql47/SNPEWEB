@@ -103,17 +103,11 @@ export default function CustomerInquiry() {
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">기업·기관 프로그램</h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-gray-600 leading-relaxed">
               SNPE 기업·기관 프로그램은 임직원의 건강한 자세, 움직임, 회복을 위한 웰니스 프로그램입니다.<br className="hidden md:block" />
               기업 및 기관 환경에 맞춘 특강·워크숍·정규 수업 형태로 운영되며,<br className="hidden md:block" />
               프로그램 신청 및 제휴 문의는 아래 내용을 작성해주세요.
             </p>
-            <a
-              href="#form"
-              className="inline-block px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
-            >
-              기업·기관 프로그램 신청하기
-            </a>
           </div>
 
           <form id="form" onSubmit={handleSubmit} className="space-y-6">
@@ -287,7 +281,7 @@ export default function CustomerInquiry() {
               className="w-full h-12 bg-snpe-darker text-white rounded-lg font-medium hover:bg-snpe-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <Send size={16} />
-              {submitting ? '신청 중...' : '기업특강 신청하기'}
+              {submitting ? '신청 중...' : '기업·기관 프로그램 신청하기'}
             </button>
           </form>
         </div>
