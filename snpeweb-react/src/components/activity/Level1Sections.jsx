@@ -28,6 +28,7 @@ import {
 } from 'lucide-react'
 import { dataStore } from '../../lib/dataStore'
 import { sanitizeHtml } from '../../lib/sanitize'
+import useLevelSchedule, { mergeSchedule } from '../../hooks/useLevelSchedule'
 import useReveal from '../../hooks/useReveal'
 
 const ENROLL_URL = 'https://www.s-ground.co.kr/course/Level-1'
@@ -248,6 +249,15 @@ export default function Level1Sections() {
   useEffect(() => {
     dataStore.getPageContent('level1').then(setAdmin).catch(() => setAdmin(null))
   }, [])
+
+  // 어드민 "교육과정 일정 관리"(level1)의 값으로 교육 일정 박스를 덮어쓴다(없으면 기본값 유지)
+  const edu = useLevelSchedule('level1')
+  const scheduleInfo = mergeSchedule(SCHEDULE_INFO, edu, {
+    '개강': 'schedule_open',
+    '수업 시간': 'class_time',
+    '수강료': 'tuition',
+    '수련 장소': 'location',
+  })
 
   const targets = admin?.targets?.length > 0 ? admin.targets : DEFAULT_TARGETS
   const introHtml = admin?.intro_html || null
@@ -578,7 +588,7 @@ export default function Level1Sections() {
                 <div>
                   <h3 className="font-bold text-lg mb-5">교육 일정</h3>
                   <ul className="space-y-5">
-                    {SCHEDULE_INFO.map((s, i) => {
+                    {scheduleInfo.map((s, i) => {
                       const Icon = s.Icon
                       return (
                         <li key={i} className="flex gap-3">

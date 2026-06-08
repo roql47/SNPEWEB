@@ -15,6 +15,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import useReveal from '../../hooks/useReveal'
+import useLevelSchedule, { mergeSchedule } from '../../hooks/useLevelSchedule'
 
 // 외부 신청/문의 링크 (PPT 슬라이드 12·14)
 const LEVEL2_FRI_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-140%EA%B8%B0-%EA%B8%88%EC%9A%94'
@@ -129,7 +130,20 @@ const schedule = [
   { label: '모집정원', value: '24명 한정 (선착순 마감)' },
 ]
 
+const SCHEDULE_LABEL_MAP = {
+  '개강': 'schedule_open',
+  '과정': 'course_period',
+  '수업시간': 'class_time',
+  '수강료': 'tuition',
+  '장소': 'location',
+  '모집정원': 'capacity_note',
+}
+
 export default function Level2Sections() {
+  // 어드민 "교육과정 일정 관리"(level2)의 값으로 교육일정 표를 덮어쓴다(없으면 기본값 유지)
+  const edu = useLevelSchedule('level2')
+  const scheduleRows = mergeSchedule(schedule, edu, SCHEDULE_LABEL_MAP)
+
   return (
     <>
       {/* INTRO */}
@@ -570,7 +584,7 @@ export default function Level2Sections() {
           </Reveal>
           <Reveal delay={100}>
           <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden divide-y divide-gray-100">
-            {schedule.map((s) => (
+            {scheduleRows.map((s) => (
               <div key={s.label} className="flex flex-col sm:flex-row sm:items-center px-6 py-4">
                 <span className="w-32 flex-shrink-0 text-sm font-bold text-snpe-dark flex items-center gap-2">
                   <ClipboardCheck size={14} /> {s.label}

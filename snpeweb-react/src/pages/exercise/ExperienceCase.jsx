@@ -79,12 +79,9 @@ export default function ExperienceCase() {
       <section className="py-16 md:py-24 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">
+            <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark">
               RECOVERY STORIES
             </p>
-            <h2 className="font-heading text-2xl md:text-3xl font-bold text-gray-900">
-              실제 회복 이야기
-            </h2>
           </div>
 
           {cases.length > 0 ? (

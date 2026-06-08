@@ -88,18 +88,20 @@ export const tools = [
     img: '/images/tools/image10.png',
   },
   {
+    // eightCells 키를 '웨이브롤러 10구'로 재사용 (PPTX 260605 수정요청: 8구 → 웨이브롤러 10구)
+    // 이미지(image11.png)는 기존 8구 사진이므로 웨이브롤러 10구 사진으로 교체 필요
+    slug: 'wave-roller-10',
+    group: 'recommend',
+    nameKey: 'pages.tools.items.eightCells.name',
+    descKey: 'pages.tools.items.eightCells.desc',
+    img: '/images/tools/image11.png',
+  },
+  {
     slug: 'wave-stick',
     group: 'recommend',
     nameKey: 'pages.tools.items.waveStick.name',
     descKey: 'pages.tools.items.waveStick.desc',
     img: '/images/tools/image12.png',
-  },
-  {
-    slug: 'eight-cells',
-    group: 'recommend',
-    nameKey: 'pages.tools.items.eightCells.name',
-    descKey: 'pages.tools.items.eightCells.desc',
-    img: '/images/tools/image11.png',
   },
   {
     slug: 'double-foam-roller',

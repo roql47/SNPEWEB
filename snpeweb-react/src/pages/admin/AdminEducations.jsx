@@ -29,7 +29,16 @@ const emptyForm = {
   status: 'open',
   description: '',
   apply_url: '',
+  // LEVEL 페이지 "교육 일정" 박스에 표시되는 자유 텍스트 항목
+  schedule_open: '',
+  course_period: '',
+  class_time: '',
+  tuition: '',
+  capacity_note: '',
 }
+
+// 카테고리별로 LEVEL 페이지 교육일정 박스가 노출되는지 안내
+const LEVEL_CATEGORIES = ['level1', 'level2', 'level3']
 
 export default function AdminEducations() {
   const [rows, setRows] = useState([])
@@ -52,6 +61,11 @@ export default function AdminEducations() {
       status: r.status || 'open',
       description: r.description || '',
       apply_url: r.apply_url || '',
+      schedule_open: r.schedule_open || '',
+      course_period: r.course_period || '',
+      class_time: r.class_time || '',
+      tuition: r.tuition || '',
+      capacity_note: r.capacity_note || '',
     })
     setEditing(r.id)
   }
@@ -288,6 +302,69 @@ export default function AdminEducations() {
                   placeholder="교육 내용, 준비물, 강사 등 부가 정보"
                 />
               </div>
+
+              {/* LEVEL 페이지 "교육 일정" 박스 항목 — LEVEL 1/2/3 카테고리에서만 노출 */}
+              {LEVEL_CATEGORIES.includes(form.category) && (
+                <div className="rounded-xl border border-snpe/30 bg-snpe/5 p-4 space-y-3">
+                  <p className="text-sm font-bold text-snpe-dark">
+                    LEVEL 페이지 「교육 일정」 박스 표시 항목
+                  </p>
+                  <p className="text-xs text-gray-500 -mt-1.5">
+                    이 카테고리에서 가장 먼저 모집 중(또는 최신)인 일정 1건이 해당 LEVEL 페이지의 교육 일정 박스에
+                    표시됩니다. 비워두면 페이지의 안내 문구가 그대로 유지됩니다.
+                  </p>
+                  <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">개강 안내</label>
+                    <input
+                      value={form.schedule_open}
+                      onChange={(e) => setForm({ ...form, schedule_open: e.target.value })}
+                      className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
+                      placeholder="예: 6월 24일(수) 개강 / 10주 과정 (주2회 / 총 40시간)"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">과정</label>
+                    <input
+                      value={form.course_period}
+                      onChange={(e) => setForm({ ...form, course_period: e.target.value })}
+                      className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
+                      placeholder="예: 총 12주 · 주 1회 · 총 84시간 (LEVEL 2·3)"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">수업 시간</label>
+                    <input
+                      value={form.class_time}
+                      onChange={(e) => setForm({ ...form, class_time: e.target.value })}
+                      className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
+                      placeholder="예: 매주 수요일 (19:00~21:00) / 일요일 (10:00~12:00)"
+                    />
+                  </div>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-sm font-medium text-gray-700 mb-1 block">수강료</label>
+                      <input
+                        value={form.tuition}
+                        onChange={(e) => setForm({ ...form, tuition: e.target.value })}
+                        className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
+                        placeholder="예: 180만원"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-gray-700 mb-1 block">모집 정원(문구)</label>
+                      <input
+                        value={form.capacity_note}
+                        onChange={(e) => setForm({ ...form, capacity_note: e.target.value })}
+                        className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
+                        placeholder="예: 24명 한정 (선착순 마감)"
+                      />
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-400">
+                    ※ 수련 장소는 위의 「장소」 항목이 함께 사용됩니다.
+                  </p>
+                </div>
+              )}
             </div>
             <div className="flex justify-end gap-2 mt-6">
               <button onClick={close} className="px-4 py-2 text-sm text-gray-600 hover:text-gray-900">취소</button>
