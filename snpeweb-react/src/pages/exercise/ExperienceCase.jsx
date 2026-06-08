@@ -78,12 +78,6 @@ export default function ExperienceCase() {
       {/* 2) 체험사례 — 하단 */}
       <section className="py-16 md:py-24 bg-white border-t border-gray-100">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark">
-              RECOVERY STORIES
-            </p>
-          </div>
-
           {cases.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {cases.map((c) => (

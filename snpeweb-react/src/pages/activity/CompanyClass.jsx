@@ -68,11 +68,17 @@ export default function CompanyClass() {
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">기업·기관 프로그램</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">
               SNPE 기업·기관 프로그램은 임직원의 건강한 자세, 움직임, 회복을 위한 웰니스 프로그램입니다.
               기업 및 기관 환경에 맞춘 특강·워크숍·정규 수업 형태로 운영되며,
               프로그램 신청 및 제휴 문의는 아래 내용을 작성해주세요.
             </p>
+            <a
+              href="#apply"
+              className="inline-block px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
+            >
+              기업·기관 프로그램 신청하기
+            </a>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">

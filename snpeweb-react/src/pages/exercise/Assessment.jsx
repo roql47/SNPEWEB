@@ -171,28 +171,24 @@ export default function Assessment() {
       {/* Closing */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-snpe-darker via-snpe-dark to-snpe text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2 leading-tight">
-            스스로 시작하고, 전문가와 함께 발전하세요
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
+            SNPE는 사용자의 기록과 데이터, 그리고<br className="hidden md:block" /> 전문가의 경험을 연결합니다.
           </h2>
-          <p className="text-base md:text-lg text-white/90 mb-6">
-            Start with Self Assessment. Advance with Professional Guidance.
-          </p>
-          <div className="space-y-3 text-white/85 leading-relaxed max-w-2xl mx-auto">
+          <div className="space-y-4 text-white/85 leading-relaxed max-w-2xl mx-auto text-left md:text-center">
             <p>
-              앱을 통해 자신의 몸을 기록하고 이해하는 것에서 시작해 보세요. 그리고 SNPE 인증강사와 전문센터의
-              체계적인 평가와 맞춤형 지도를 통해 보다 정교한 움직임 회복 과정을 경험할 수 있습니다.
+              SNPE는 사용자의 기록과 데이터를 전문가의 경험과 연결합니다. 앱을 통해 자신의 몸을 객관적으로
+              이해하고 변화 과정을 기록하는 것에서 시작하여, 인증 강사와 전문센터의 체계적인 평가를 통해
+              가장 정확한 움직임의 방향을 찾아갑니다.
             </p>
             <p>
-              SNPE는 단순히 체형을 분석하는 것을 넘어, 과학적 평가와 지속적인 기록을 바탕으로
-              건강한 자세와 움직임 습관을 만들어가는 자기 회복 시스템(Self Recovery System)입니다.
+              건강한 자세와 나 자신의 몸을 깊이 이해하는 것에서 시작되며, 지속적인 실천이 더해질 때
+              비로소 삶의 습관으로 자리 잡습니다.
+            </p>
+            <p>
+              SNPE는 과학적 평가와 기록을 기반으로 스스로의 몸을 회복하고, 더 건강한 일상을 구축해
+              나가는 자기 회복 시스템(Self Recovery System)입니다.
             </p>
           </div>
-          <p className="mt-8 text-lg md:text-xl font-bold">
-            기록하고(Record) · 이해하고(Understand) · 움직이고(Move) · 회복합니다(Recover)
-          </p>
-          <p className="mt-2 text-sm text-white/80">
-            이것이 SNPE가 추구하는 움직임 기반 자기 회복의 과정입니다.
-          </p>
         </div>
       </section>
     </>
