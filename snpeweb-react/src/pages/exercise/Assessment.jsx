@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
-import { Smartphone, ClipboardCheck, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { Smartphone, ClipboardCheck, CheckCircle2 } from 'lucide-react'
 
-const flow = ['체형 분석', '움직임 평가', '맞춤 운동', '변화 기록']
 
 const selfItems = [
   '기본 자세 평가',
@@ -36,45 +35,14 @@ export default function Assessment() {
     <>
       <PageBanner title={t('pages.assessment')} subtitle={t('pages.assessmentSub')} />
 
-      {/* Intro — 움직임을 통한 자기 회복 */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-mint-lighter/30">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2 leading-snug">
-            움직임을 통한 자기 회복
-          </h2>
-          <p className="text-base md:text-lg text-mint-darker font-medium mb-8">
-            Self Recovery Through Movement
+      {/* Intro */}
+      <section className="py-16 md:py-20 bg-gradient-to-b from-white to-mint-lighter/30">
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <p className="text-gray-600 leading-relaxed text-base md:text-lg">
+            SNPE는 사용자의 기록과 전문가의 평가를 연결하여 자신의 몸을 객관적으로 이해하고,
+            올바른 움직임을 통해 스스로 회복해 나갈 수 있도록 돕는
+            자기회복시스템(Self Recovery System)입니다.
           </p>
-
-          {/* Flow */}
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-8">
-            {flow.map((f, i) => (
-              <div key={f} className="flex items-center gap-2 md:gap-3">
-                <span className="px-4 py-2 bg-white border border-snpe/30 rounded-full text-sm font-medium text-snpe-dark">
-                  {f}
-                </span>
-                {i < flow.length - 1 && <ArrowRight size={16} className="text-gray-300" />}
-              </div>
-            ))}
-          </div>
-
-          <div className="space-y-3 text-gray-600 leading-relaxed max-w-2xl mx-auto text-left md:text-center">
-            <p>
-              SNPE는 몸의 변화를 단순히 '교정'하는 것이 아니라, 스스로 몸을 이해하고 움직이며
-              본래의 균형을 회복해가는 과정을 중요하게 생각합니다.
-            </p>
-            <p>
-              SNPE는 과학적 움직임 분석과 지속적인 기록을 기반으로 하는
-              움직임 기반 웰니스 시스템(Movement-Based Wellness System)을 지향합니다.
-              사용자는 SNPE 앱을 통해 자신의 체형과 움직임 변화를 기록하고, 정적 자세(Static Posture)뿐 아니라
-              움직임 패턴(Movement Pattern), 균형(Balance), 기능(Function)의 변화를 지속적으로 확인할 수 있습니다.
-            </p>
-            <p>
-              꾸준한 바른자세 운동과 움직임 훈련을 반복하며 신체 정렬(Alignment), 움직임 균형(Balance),
-              기능(Function)을 점진적으로 회복해가고, 잘못된 움직임 습관으로 인한 신체 부담과 불편함을 줄여
-              보다 편안하고 안정적인 움직임으로 나아갈 수 있습니다.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -181,26 +149,10 @@ export default function Assessment() {
           <p className="text-base md:text-lg text-white/90 mb-6">
             Start with Self Assessment. Advance with Professional Guidance.
           </p>
-          <div className="space-y-4 text-white/85 leading-relaxed max-w-2xl mx-auto text-left md:text-center">
-            <p>
-              SNPE는 사용자의 기록과 데이터를 전문가의 경험과 연결합니다. 앱을 통해 자신의 몸을 객관적으로
-              이해하고 변화 과정을 기록하는 것에서 시작하여, 인증 강사와 전문센터의 체계적인 평가를 통해
-              가장 정확한 움직임의 방향을 찾아갑니다.
-            </p>
-            <p>
-              건강한 자세와 나 자신의 몸을 깊이 이해하는 것에서 시작되며, 지속적인 실천이 더해질 때
-              비로소 삶의 습관으로 자리 잡습니다.
-            </p>
-            <p>
-              SNPE는 과학적 평가와 기록을 기반으로 스스로의 몸을 회복하고, 더 건강한 일상을 구축해
-              나가는 자기 회복 시스템(Self Recovery System)입니다.
-            </p>
-          </div>
-          <p className="mt-8 text-lg md:text-xl font-bold">
-            기록하고(Record) · 이해하고(Understand) · 움직이고(Move) · 회복합니다(Recover)
-          </p>
-          <p className="mt-2 text-sm text-white/80">
-            이것이 SNPE가 추구하는 움직임 기반 자기 회복의 과정입니다.
+          <p className="text-white/85 leading-relaxed max-w-2xl mx-auto">
+            기록하고(Record), 이해하고(Understand), 움직이고(Move), 회복하는(Recover) 과정을 반복하며
+            건강한 자세와 균형 잡힌 몸을 만들어가고, 나아가 지속 가능한 건강한 삶의 습관으로
+            발전시켜 나갑니다.
           </p>
         </div>
       </section>
