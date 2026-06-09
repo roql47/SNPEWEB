@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom'
 import CategoryTabBar from './CategoryTabBar'
 
 const CATEGORY_BANNERS = {
-  about: '/images/sample.png',
+  about: '/images/sub_banner.png',
   exercise: '/images/sample_2.png',
   education: '/images/sub_banner3.jpg',
   news: '/images/sub_banner4.jpg',

@@ -433,7 +433,7 @@ export default function Level3Sections() {
       </section>
 
       {/* CLOSING */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-snpe-darker via-snpe-dark to-snpe text-white text-center">
+      <section className="py-16 md:py-24 bg-snpe-darker text-white text-center">
         <div className="max-w-3xl mx-auto px-4">
           <Reveal>
             <p className="text-xs font-semibold tracking-[0.3em] text-white/70 mb-4">CLOSING</p>
