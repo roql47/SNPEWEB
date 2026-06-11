@@ -8,7 +8,7 @@ const mainExercises = [
     title: '손 뒤로 깍지 끼고 의자 자세',
     desc: '바른자세벨트를 착용하고 양 손을 뒤로 깍지 끼고 의자 자세로 앉습니다. 척추 정렬과 목 디스크 예방에 효과적입니다.',
     tags: ['척추', '목 디스크', '허리 건강'],
-    image: '/images/position_1.png',
+    image: '/images/position_5.png',
     videoUrl: 'https://www.youtube.com/watch?v=w-jiKlSevuY&t=1s',
   },
   {
@@ -32,7 +32,7 @@ const mainExercises = [
     title: '척추 자극주며 구르기',
     desc: '바닥에 누워 무릎을 가슴으로 당기고 전후로 구릅니다. 척추 마사지와 혈액순환에 도움됩니다.',
     tags: ['척추', '혈액순환', '복근'],
-    image: '/images/position_4.png',
+    image: '/images/position_6.png',
     videoUrl: 'https://www.youtube.com/watch?v=YtDH2NKSBpw',
   },
 ]
