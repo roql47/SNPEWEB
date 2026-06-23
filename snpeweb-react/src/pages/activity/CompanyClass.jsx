@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
+import TranslatedInquiryPage from '../../components/common/TranslatedInquiryPage'
 import { dataStore } from '../../lib/dataStore'
 import { Building2, Users, Clock, CheckCircle, Send, AlertCircle } from 'lucide-react'
 
@@ -19,11 +20,13 @@ const INITIAL_FORM = {
 }
 
 export default function CompanyClass() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [form, setForm] = useState(INITIAL_FORM)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState(null)
+
+  if (!i18n.resolvedLanguage?.startsWith('ko')) return <TranslatedInquiryPage variant="corporate" />
 
   const update = (field) => (e) => {
     const value = field === 'agree' ? e.target.checked : e.target.value

@@ -3,6 +3,7 @@
  * AdminLevelPage에서 저장한 page_contents 데이터를 표시
  */
 import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { dataStore } from '../../lib/dataStore'
 import { sanitizeHtml } from '../../lib/sanitize'
 import { Award, BookOpen, Users, Zap, Star, Target, Layers, Info } from 'lucide-react'
@@ -10,6 +11,7 @@ import { Award, BookOpen, Users, Zap, Star, Target, Layers, Info } from 'lucide-
 const ICON_MAP = { Award, BookOpen, Users, Zap, Star, Target, Layers, Info }
 
 export default function LevelPageContent({ slug }) {
+  const { t } = useTranslation()
   const [content, setContent] = useState(null)
   const [loading, setLoading] = useState(true)
 
@@ -31,7 +33,7 @@ export default function LevelPageContent({ slug }) {
   if (!content) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-24 text-center text-gray-400 text-sm">
-        콘텐츠를 불러올 수 없습니다.
+        {t('common.contentUnavailable')}
       </div>
     )
   }
@@ -86,7 +88,7 @@ export default function LevelPageContent({ slug }) {
           <div className="grid md:grid-cols-2 gap-6">
             {content.goals?.length > 0 && (
               <div className="bg-gray-50 rounded-2xl p-6">
-                <h3 className="font-bold text-gray-900 mb-4">교육 목표</h3>
+                <h3 className="font-bold text-gray-900 mb-4">{t('common.educationGoals')}</h3>
                 <ul className="space-y-2.5 text-sm text-gray-700">
                   {content.goals.map((g, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -99,7 +101,7 @@ export default function LevelPageContent({ slug }) {
             )}
             {content.targets?.length > 0 && (
               <div className="bg-gray-50 rounded-2xl p-6">
-                <h3 className="font-bold text-gray-900 mb-4">교육 대상</h3>
+                <h3 className="font-bold text-gray-900 mb-4">{t('common.educationTargets')}</h3>
                 <ul className="space-y-2.5 text-sm text-gray-700">
                   {content.targets.map((t, i) => (
                     <li key={i} className="flex items-start gap-2">
@@ -116,7 +118,7 @@ export default function LevelPageContent({ slug }) {
         {/* 마스터: 커리큘럼 */}
         {isMaster && content.curriculum?.length > 0 && (
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">커리큘럼</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">{t('common.curriculum')}</h3>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
               {content.curriculum.map((item, i) => (
                 <div key={i} className="flex items-center gap-3 bg-gray-50 rounded-xl p-4">
@@ -133,7 +135,7 @@ export default function LevelPageContent({ slug }) {
         {/* 마스터: 강사진 */}
         {isMaster && content.instructors?.length > 0 && (
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">전문 강사진</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">{t('common.instructors')}</h3>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {content.instructors.map((inst, i) => (
                 <div key={i} className="bg-white border border-gray-100 rounded-xl p-4 text-center hover:shadow-md transition-shadow">

@@ -1,43 +1,41 @@
+import { useTranslation } from 'react-i18next'
+
 const benefits = [
   {
     icon: '/images/benefits/emotional.png',
-    title: '정서 안정',
-    en: 'Emotional Stability',
-    desc: '우울증, 스트레스 완화로\n자존감 향상 및 정서적 안정 도움',
+    titleKey: 'home.benefits.emotional.title',
+    descKey: 'home.benefits.emotional.desc',
   },
   {
     icon: '/images/benefits/physio.png',
-    title: '생리학적 개선',
-    en: 'Physiological Effect',
-    desc: '불면증, 팔 다리 저림, 무월경 등\n신체 기능 회복에 도움',
+    titleKey: 'home.benefits.physio.title',
+    descKey: 'home.benefits.physio.desc',
   },
   {
     icon: '/images/benefits/positive.png',
-    title: '긍정 마인드 향상',
-    en: 'Positive Mind',
-    desc: '행복감 증가, 삶의 만족도 향상\n동기부여 및 대인관계 개선',
+    titleKey: 'home.benefits.positive.title',
+    descKey: 'home.benefits.positive.desc',
   },
   {
     icon: '/images/benefits/posture.png',
-    title: '체형 교정 효과',
-    en: 'Orthodontic Effect',
-    desc: '휜다리, 거북목, 라운드숄더\n허리·골반 밸런스 개선',
+    titleKey: 'home.benefits.posture.title',
+    descKey: 'home.benefits.posture.desc',
   },
   {
     icon: '/images/benefits/pain.png',
-    title: '만성 통증 완화',
-    en: 'Pain Relief',
-    desc: '목, 어깨, 허리 등\n근육 긴장 완화 및 통증 감소',
+    titleKey: 'home.benefits.pain.title',
+    descKey: 'home.benefits.pain.desc',
   },
   {
     icon: '/images/benefits/body.png',
-    title: '신체 기능 개선',
-    en: 'Physical Improvement',
-    desc: '근력 강화, 체중 조절, 피로 개선\n전반적인 신체 컨디션 향상',
+    titleKey: 'home.benefits.body.title',
+    descKey: 'home.benefits.body.desc',
   },
 ]
 
 export default function EffectList() {
+  const { t } = useTranslation()
+
   return (
     <section className="py-20 md:py-28 bg-white">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12">
@@ -49,10 +47,10 @@ export default function EffectList() {
             Wellness Benefits
           </h2>
           <p className="text-base md:text-lg text-gray-500 leading-relaxed">
-            마음과 신체의 균형을 통해
+            {t('home.benefitsIntroLine1')}
             <br className="hidden md:block" />
             <span className="md:hidden"> </span>
-            일상 속 건강한 변화를 경험하세요
+            {t('home.benefitsIntroLine2')}
           </p>
         </div>
 
@@ -65,15 +63,15 @@ export default function EffectList() {
               <div className="w-24 h-24 md:w-28 md:h-28 mb-5 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1">
                 <img
                   src={b.icon}
-                  alt={b.title}
+                  alt={t(b.titleKey)}
                   className="w-full h-full object-contain"
                 />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 tracking-tight">
-                {b.title}
+                {t(b.titleKey)}
               </h3>
               <p className="text-sm md:text-[15px] text-gray-500 leading-relaxed whitespace-pre-line">
-                {b.desc}
+                {t(b.descKey)}
               </p>
             </div>
           ))}

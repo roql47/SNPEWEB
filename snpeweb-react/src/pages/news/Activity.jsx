@@ -6,8 +6,8 @@ import { Calendar, MapPin, ExternalLink } from 'lucide-react'
 import { dataStore } from '../../lib/dataStore'
 
 const TABS = [
-  { value: 'activity', label: '활동소식' },
-  { value: 'press', label: '언론보도' },
+  { value: 'activity', labelKey: 'activityPage.tabs.activity' },
+  { value: 'press', labelKey: 'activityPage.tabs.press' },
 ]
 
 export default function Activity() {
@@ -40,11 +40,11 @@ export default function Activity() {
   // 활동소식 — 연도 필터 / 그룹핑
   const years = useMemo(() => {
     const set = new Set(activities.map((a) => a.date.slice(0, 4)))
-    return ['전체', ...Array.from(set).sort((a, b) => b.localeCompare(a))]
+    return ['all', ...Array.from(set).sort((a, b) => b.localeCompare(a))]
   }, [activities])
-  const [selectedYear, setSelectedYear] = useState('전체')
+  const [selectedYear, setSelectedYear] = useState('all')
 
-  const filtered = selectedYear === '전체'
+  const filtered = selectedYear === 'all'
     ? activities
     : activities.filter((a) => a.date.startsWith(selectedYear))
 
@@ -80,7 +80,7 @@ export default function Activity() {
                     : 'text-gray-600 hover:bg-gray-50'
                 }`}
               >
-                {opt.label}
+                {t(opt.labelKey)}
               </button>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function Activity() {
                         : 'bg-white border border-gray-200 text-gray-600 hover:border-snpe-dark'
                     }`}
                   >
-                    {y}
+                    {y === 'all' ? t('activityPage.all') : y}
                   </button>
                 ))}
               </div>
@@ -106,7 +106,7 @@ export default function Activity() {
               <div className="space-y-12">
                 {grouped.map(([year, items]) => (
                   <div key={year}>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">{year}년</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">{t('activityPage.year', { year })}</h3>
                     <div className="space-y-4">
                       {items.map((a) => (
                         <article key={a.id} className="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
@@ -133,7 +133,7 @@ export default function Activity() {
                 ))}
                 {activities.length === 0 && (
                   <div className="text-center py-12 text-gray-400">
-                    <p>등록된 활동내역이 없습니다.</p>
+                    <p>{t('activityPage.emptyActivity')}</p>
                   </div>
                 )}
               </div>
@@ -156,7 +156,7 @@ export default function Activity() {
                       )}
                     </h4>
                     <p className="text-xs text-gray-400">
-                      {n.source && <>{n.source} · </>}{n.date}
+                      {n.source && <>{n.source}{t('activityPage.separator')}</>}{n.date}
                     </p>
                     {n.summary && <p className="text-sm text-gray-500 mt-2">{n.summary}</p>}
                   </div>
@@ -168,7 +168,7 @@ export default function Activity() {
                 </article>
               ))}
               {news.length === 0 && (
-                <div className="text-center py-12 text-gray-400">등록된 언론보도가 없습니다.</div>
+                <div className="text-center py-12 text-gray-400">{t('activityPage.emptyPress')}</div>
               )}
             </div>
           )}

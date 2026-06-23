@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
+import TranslatedInquiryPage from '../../components/common/TranslatedInquiryPage'
 import { dataStore } from '../../lib/dataStore'
 import { CheckCircle, ArrowRight, AlertCircle, Send } from 'lucide-react'
 
@@ -41,7 +42,7 @@ const steps = [
 ]
 
 export default function Franchise() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [form, setForm] = useState(INITIAL_FORM)
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -76,6 +77,8 @@ export default function Franchise() {
       setSubmitting(false)
     }
   }
+
+  if (!i18n.resolvedLanguage?.startsWith('ko')) return <TranslatedInquiryPage variant="franchise" />
 
   if (submitted) {
     return (

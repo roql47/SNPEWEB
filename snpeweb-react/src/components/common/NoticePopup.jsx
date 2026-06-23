@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { dataStore } from '../../lib/dataStore'
 import { sanitizeHtml } from '../../lib/sanitize'
 
@@ -26,6 +27,7 @@ const writeHiddenMap = (map) => {
 }
 
 export default function NoticePopup() {
+  const { t } = useTranslation()
   const [popup, setPopup] = useState(null)
   const [pos, setPos] = useState(null) // { x, y } — null이면 가운데 정렬
   const dragRef = useRef(null)
@@ -159,12 +161,12 @@ export default function NoticePopup() {
               className="absolute top-0 left-0 right-12 h-8 z-[5] cursor-move"
               onMouseDown={onDragStart}
               onTouchStart={onDragStart}
-              title="드래그해서 이동"
+              title={t('common.dragToMove')}
             />
             {/* X 버튼 */}
             <button
               onClick={close}
-              aria-label="닫기"
+              aria-label={t('common.close')}
               className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors"
             >
               <X size={16} />
@@ -205,12 +207,12 @@ export default function NoticePopup() {
               className="flex items-center justify-between pl-4 pr-2 h-9 border-b border-gray-100 bg-gray-50/50 cursor-move select-none"
               onMouseDown={onDragStart}
               onTouchStart={onDragStart}
-              title="드래그해서 이동"
+              title={t('common.dragToMove')}
             >
               <span className="text-[10px] font-semibold text-gray-500 tracking-wider uppercase">Notice</span>
               <button
                 onClick={close}
-                aria-label="닫기"
+                aria-label={t('common.close')}
                 className="w-6 h-6 rounded-full hover:bg-gray-200 text-gray-500 hover:text-gray-800 flex items-center justify-center transition-colors"
               >
                 <X size={14} />
@@ -249,14 +251,14 @@ export default function NoticePopup() {
                 onChange={(e) => { if (e.target.checked) closeForToday() }}
               />
               <span className="text-[11px] text-gray-300 group-hover:text-white transition-colors select-none">
-                오늘 하루 보지 않기
+                {t('common.hideToday')}
               </span>
             </label>
             <button
               onClick={closeForever}
               className="text-[11px] text-gray-400 hover:text-white transition-colors underline underline-offset-2"
             >
-              다시 보지 않기
+              {t('common.hideForever')}
             </button>
           </div>
 
@@ -265,7 +267,7 @@ export default function NoticePopup() {
             onClick={close}
             className="text-[11px] text-gray-300 hover:text-white transition-colors font-medium"
           >
-            닫기 ✕
+            {t('common.closeWithX')}
           </button>
         </div>
       </div>

@@ -25,33 +25,53 @@ function RichText({ html, fallback, className = '' }) {
 const ICON_MAP = { Layers, BookOpen, Users, Target, Award, Sparkles, HeartPulse, Activity, Heart, Star, GraduationCap, Info }
 
 const STATUS_LABEL = {
-  open: { text: '모집중', cls: 'bg-green-50 text-green-700' },
-  closing: { text: '마감 임박', cls: 'bg-amber-50 text-amber-700' },
-  closed: { text: '모집 마감', cls: 'bg-gray-100 text-gray-600' },
-  done: { text: '종료', cls: 'bg-gray-100 text-gray-500' },
+  open: { key: 'degreePage.status.open', cls: 'bg-green-50 text-green-700' },
+  closing: { key: 'degreePage.status.closing', cls: 'bg-amber-50 text-amber-700' },
+  closed: { key: 'degreePage.status.closed', cls: 'bg-gray-100 text-gray-600' },
+  done: { key: 'degreePage.status.done', cls: 'bg-gray-100 text-gray-500' },
 }
 
 const DEFAULT_ORDER = ['intro', 'philosophy', 'features', 'target', 'roadmap', 'schedule', 'career', 'contact']
 
 // 성장 로드맵 도식 (PPT 슬라이드 20) — LEVEL 1 → MASTER
 const GROWTH_ROADMAP = [
-  { level: 'LEVEL 1', en: 'Foundation', desc: '운동 원리와 기본 동작 습득', path: '/level1' },
-  { level: 'LEVEL 2', en: 'Certified Instructor', desc: '회원 지도와 효과적 티칭 기술', path: '/level2' },
-  { level: 'LEVEL 3', en: 'Advanced Specialist', desc: '전후 변화 분석과 맞춤 관리', path: '/level3' },
-  { level: 'MASTER', en: 'Educator & Leader', desc: '교육 · 연구 리더십 역량 강화', path: '/master' },
+  {
+    level: 'LEVEL 1',
+    subtitle: { ko: 'Foundation', en: 'Foundation', ja: '基礎課程' },
+    descKey: 'degreePage.roadmap.steps.level1.desc',
+    path: '/level1',
+  },
+  {
+    level: 'LEVEL 2',
+    subtitle: { ko: 'Certified Instructor', en: 'Certified Instructor', ja: '認定指導者' },
+    descKey: 'degreePage.roadmap.steps.level2.desc',
+    path: '/level2',
+  },
+  {
+    level: 'LEVEL 3',
+    subtitle: { ko: 'Advanced Specialist', en: 'Advanced Specialist', ja: '上級スペシャリスト' },
+    descKey: 'degreePage.roadmap.steps.level3.desc',
+    path: '/level3',
+  },
+  {
+    level: 'MASTER',
+    subtitle: { ko: 'Educator & Leader', en: 'Educator & Leader', ja: '教育者・リーダー' },
+    descKey: 'degreePage.roadmap.steps.master.desc',
+    path: '/master',
+  },
 ]
 
 function GrowthRoadmap() {
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.resolvedLanguage || i18n.language || 'ko').split('-')[0]
+
   return (
     <section className="py-16 md:py-20 bg-gradient-to-b from-white to-mint-lighter/30">
       <div className="max-w-5xl mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">CERTIFICATION ROADMAP</p>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">SNPE 자격 성장 로드맵</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            LEVEL 1부터 MASTER 과정까지, 단계적으로 설계된 전문 교육 시스템으로
-            운동 이해부터 교육자 역량까지 체계적으로 성장합니다.
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{t('degreePage.roadmap.title')}</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">{t('degreePage.roadmap.intro')}</p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-4 md:gap-3 relative">
@@ -65,8 +85,8 @@ function GrowthRoadmap() {
                   {i + 1}
                 </span>
                 <p className="text-base font-bold text-gray-900 group-hover:text-snpe-dark transition-colors">{step.level}</p>
-                <p className="text-xs text-snpe-dark font-semibold mb-2">{step.en}</p>
-                <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+                <p className="text-xs text-snpe-dark font-semibold mb-2">{step.subtitle[lang] || step.subtitle.en}</p>
+                <p className="text-sm text-gray-500 leading-relaxed">{t(step.descKey)}</p>
               </Link>
               {i < GROWTH_ROADMAP.length - 1 && (
                 <span className="hidden md:flex absolute top-1/2 -right-2 z-10 -translate-y-1/2 text-snpe-dark/40 text-xl">→</span>
@@ -126,7 +146,7 @@ export default function Degree() {
       <>
         <PageBanner title={t('pages.degree')} subtitle={t('pages.degreeSub')} />
         <div className="max-w-3xl mx-auto px-4 py-24 text-center">
-          <p className="text-gray-500">콘텐츠를 불러올 수 없습니다.</p>
+          <p className="text-gray-500">{t('common.contentUnavailable')}</p>
         </div>
       </>
     )
@@ -348,19 +368,21 @@ function RoadmapSection({ sec }) {
 }
 
 function ScheduleSection({ eduByCategory }) {
+  const { t } = useTranslation()
+
   return (
     <div>
-      <h3 className="text-2xl font-bold text-gray-900 mb-5">교육 일정 및 신청</h3>
-      <p className="text-sm text-gray-500 mb-4">교육 일정은 운영 상황에 따라 변경될 수 있습니다.</p>
+      <h3 className="text-2xl font-bold text-gray-900 mb-5">{t('degreePage.schedule.title')}</h3>
+      <p className="text-sm text-gray-500 mb-4">{t('degreePage.schedule.intro')}</p>
       <div className="overflow-x-auto">
         <table className="w-full text-sm border-collapse">
           <thead>
             <tr className="bg-gray-50 text-gray-700">
-              <th className="text-left px-4 py-3 font-semibold rounded-tl-xl">과정</th>
-              <th className="text-left px-4 py-3 font-semibold">교육 기간</th>
-              <th className="text-left px-4 py-3 font-semibold">장소</th>
-              <th className="text-center px-4 py-3 font-semibold">모집 상태</th>
-              <th className="text-center px-4 py-3 font-semibold rounded-tr-xl">신청</th>
+              <th className="text-left px-4 py-3 font-semibold rounded-tl-xl">{t('degreePage.schedule.course')}</th>
+              <th className="text-left px-4 py-3 font-semibold">{t('degreePage.schedule.period')}</th>
+              <th className="text-left px-4 py-3 font-semibold">{t('degreePage.schedule.location')}</th>
+              <th className="text-center px-4 py-3 font-semibold">{t('degreePage.schedule.status')}</th>
+              <th className="text-center px-4 py-3 font-semibold rounded-tr-xl">{t('degreePage.schedule.apply')}</th>
             </tr>
           </thead>
           <tbody>
@@ -374,15 +396,15 @@ function ScheduleSection({ eduByCategory }) {
                     <td className="px-4 py-3.5 text-gray-600">{fmtPeriod(r.start_date, r.end_date)}</td>
                     <td className="px-4 py-3.5 text-gray-600">{r.location || '-'}</td>
                     <td className="px-4 py-3.5 text-center">
-                      <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${st.cls}`}>{st.text}</span>
+                      <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-medium ${st.cls}`}>{t(st.key)}</span>
                     </td>
                     <td className="px-4 py-3.5 text-center">
                       {canApply && r.apply_url ? (
                         <a href={r.apply_url} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-snpe-dark underline">
-                          신청하기
+                          {t('degreePage.schedule.applyNow')}
                         </a>
                       ) : (
-                        <span className="text-xs font-medium text-gray-400">준비중</span>
+                        <span className="text-xs font-medium text-gray-400">{t('degreePage.schedule.preparing')}</span>
                       )}
                     </td>
                   </tr>
@@ -390,7 +412,7 @@ function ScheduleSection({ eduByCategory }) {
               })
             ) : (
               <tr>
-                <td colSpan={5} className="px-4 py-12 text-center text-gray-400 text-sm">등록된 교육 일정이 없습니다.</td>
+                <td colSpan={5} className="px-4 py-12 text-center text-gray-400 text-sm">{t('degreePage.schedule.empty')}</td>
               </tr>
             )}
           </tbody>
@@ -417,6 +439,8 @@ function CareerSection({ sec }) {
 }
 
 function ContactSection({ sec }) {
+  const { t } = useTranslation()
+
   return (
     <LayoutWrapper image={sec.image_url} layout={sec.layout} ratio={sec.image_ratio} alt={sec.title}>
       <div className="bg-snpe-dark/10 rounded-2xl p-6 md:p-8 h-full">
@@ -425,10 +449,10 @@ function ContactSection({ sec }) {
         <ul className="space-y-1.5 text-sm text-gray-700">
           {sec.team && <li>• {sec.team}</li>}
           {sec.email && (
-            <li>• 이메일 : <a href={`mailto:${sec.email}`} className="text-snpe-dark underline">{sec.email}</a></li>
+            <li>{t('degreePage.contact.email')}: <a href={`mailto:${sec.email}`} className="text-snpe-dark underline">{sec.email}</a></li>
           )}
-          {sec.phone && <li>• 전화 : {sec.phone}</li>}
-          {sec.hours && <li className="text-gray-500 pt-1">상담 가능 시간 : {sec.hours}</li>}
+          {sec.phone && <li>{t('degreePage.contact.phone')}: {sec.phone}</li>}
+          {sec.hours && <li className="text-gray-500 pt-1">{t('degreePage.contact.hours')}: {sec.hours}</li>}
         </ul>
       </div>
     </LayoutWrapper>

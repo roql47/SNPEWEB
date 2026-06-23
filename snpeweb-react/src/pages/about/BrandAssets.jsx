@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useSearchParams } from 'react-router-dom'
 import PageBanner from '../../components/common/PageBanner'
 import { Palette, Shield, FileCheck } from 'lucide-react'
+import TranslatedBrandAssets from './TranslatedBrandAssets'
 
 const TABS = [
   { id: 'bi', label: 'BI 소개', icon: Palette },
@@ -261,7 +262,7 @@ function IpContent() {
 }
 
 export default function BrandAssets() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
   const initialTab = searchParams.get('tab') === 'ip' ? 'ip' : 'bi'
   const [activeTab, setActiveTab] = useState(initialTab)
@@ -271,6 +272,8 @@ export default function BrandAssets() {
     const next = searchParams.get('tab') === 'ip' ? 'ip' : 'bi'
     if (next !== activeTab) setActiveTab(next)
   }, [searchParams])
+
+  if (!i18n.resolvedLanguage?.startsWith('ko')) return <TranslatedBrandAssets />
 
   const handleTabClick = (id) => {
     setActiveTab(id)

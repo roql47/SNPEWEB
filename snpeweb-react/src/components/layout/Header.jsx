@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Menu, X, Globe, ChevronDown } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { mainNav } from '../../data/navigation'
@@ -8,7 +8,6 @@ const LANGUAGES = [
   { code: 'ko', label: '한국어', flag: 'KR' },
   { code: 'en', label: 'English', flag: 'EN' },
   { code: 'ja', label: '日本語', flag: 'JP' },
-  { code: 'zh', label: '中文', flag: 'CN' },
 ]
 
 export default function Header() {
@@ -17,12 +16,11 @@ export default function Header() {
   const [activeMenu, setActiveMenu] = useState(null)
   const [scrolled, setScrolled] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
-  const location = useLocation()
   const headerRef = useRef(null)
   const langRef = useRef(null)
 
-  const currentLang = LANGUAGES.find((l) => l.code === i18n.language) || LANGUAGES[0]
-  const isHome = location.pathname === '/'
+  const currentLang =
+    LANGUAGES.find((l) => i18n.resolvedLanguage?.startsWith(l.code)) || LANGUAGES[0]
   // 모든 페이지 상단(스크롤 전)에서 투명 오버레이 — 배너/히어로 이미지가 헤더 뒤로 비치도록
   const heroOverlay = !scrolled
 
@@ -55,6 +53,8 @@ export default function Header() {
     i18n.changeLanguage(code)
     setLangOpen(false)
   }
+
+  const isCurrentLanguage = (code) => i18n.resolvedLanguage?.startsWith(code)
 
   return (
     <>
@@ -89,7 +89,7 @@ export default function Header() {
                       key={lang.code}
                       onClick={() => changeLanguage(lang.code)}
                       className={`w-full text-left px-4 py-2 text-sm transition-colors ${
-                        lang.code === i18n.language
+                        isCurrentLanguage(lang.code)
                           ? 'text-snpe-dark font-medium bg-snpe/5'
                           : 'text-gray-600 hover:text-snpe-dark hover:bg-gray-50'
                       }`}
@@ -209,7 +209,7 @@ export default function Header() {
                   key={lang.code}
                   onClick={() => changeLanguage(lang.code)}
                   className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors ${
-                    lang.code === i18n.language
+                    isCurrentLanguage(lang.code)
                       ? 'bg-snpe-dark text-white'
                       : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
                   }`}

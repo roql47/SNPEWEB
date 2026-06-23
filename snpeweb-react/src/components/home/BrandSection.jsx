@@ -1,4 +1,8 @@
+import { useTranslation } from 'react-i18next'
+
 export default function BrandSection() {
+  const { t } = useTranslation()
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-white via-mint-lighter/40 to-mint-lighter/70 py-20 md:py-28">
       <div className="max-w-[1440px] mx-auto px-6 text-center">
@@ -11,14 +15,14 @@ export default function BrandSection() {
 
         <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold text-mint-darker leading-tight mb-8 md:mb-10">
           <span className="inline-block border-b-2 border-mint-darker pb-2">
-            스스로 회복할 수 있다는 자신감
+            {t('home.brandTitle')}
           </span>
         </h2>
 
         <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-          당신의 통증과 체형 고민,
+          {t('home.brandLine1')}
           <br />
-          SNPE가 새로운 시작이 됩니다.
+          {t('home.brandLine2')}
         </p>
       </div>
 

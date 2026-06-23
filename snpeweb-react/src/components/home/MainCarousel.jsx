@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, ExternalLink } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import { dataStore } from '../../lib/dataStore'
 
 export default function MainCarousel() {
+  const { t } = useTranslation()
   const [branches, setBranches] = useState([])
 
   useEffect(() => {
@@ -18,8 +20,8 @@ export default function MainCarousel() {
     <section className="py-20 md:py-24 bg-mint-lighter/30">
       <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-3">SNPE 직영점</h2>
-          <p className="text-sm md:text-base text-gray-600">SNPE 본사 직영 센터에서 전문 수업을 만나보세요</p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t('home.branchesTitle')}</h2>
+          <p className="text-sm md:text-base text-gray-600">{t('home.branchesSubtitle')}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -41,7 +43,7 @@ export default function MainCarousel() {
                   />
                 )}
                 <span className="absolute top-3 left-3 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-mint-darker text-white text-[11px] font-bold tracking-wider shadow-sm">
-                  <MapPin size={11} /> 직영
+                  <MapPin size={11} /> {t('home.branchBadge')}
                 </span>
               </div>
               <div className="p-5 flex items-start gap-3">
@@ -64,7 +66,7 @@ export default function MainCarousel() {
             to="/search-center"
             className="inline-flex items-center gap-2 px-6 py-3 border border-mint-darker rounded-full text-sm text-mint-darker font-medium hover:bg-mint-darker hover:text-white transition-all"
           >
-            <MapPin size={16} /> 전국 전문센터 찾기
+            <MapPin size={16} /> {t('home.findCenters')}
           </Link>
         </div>
       </div>

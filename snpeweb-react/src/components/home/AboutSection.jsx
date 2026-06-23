@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 export default function AboutSection() {
+  const { t } = useTranslation()
   const [visible, setVisible] = useState(false)
   const [imgFailed, setImgFailed] = useState(false)
   const ref = useRef(null)
@@ -28,24 +30,24 @@ export default function AboutSection() {
               ABOUT SNPE
             </p>
             <h2 className="font-heading font-bold text-[#111] leading-[1.2] tracking-[-0.03em] text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8">
-              정렬은 움직임에서 시작됩니다
+              {t('home.aboutSectionTitle')}
               <br />
-              <span className="text-lg md:text-xl lg:text-2xl font-medium text-gray-500">Alignment Begins with Movement</span>
+              <span className="text-lg md:text-xl lg:text-2xl font-medium text-gray-500">{t('home.aboutSectionSubtitle')}</span>
             </h2>
             <div className="space-y-5 text-[#111] text-sm md:text-base lg:text-lg leading-relaxed tracking-[-0.01em]">
               <p>
-                SNPE는 몸의 정렬과 움직임 회복을 통해
+                {t('home.aboutSectionP1Line1')}
                 <br className="hidden md:block" />
-                만성적인 불편감과 무너진 균형을 스스로 인지하고 회복하도록 돕는
+                {t('home.aboutSectionP1Line2')}
                 <br className="hidden md:block" />
-                자기 주도형 움직임 시스템입니다.
+                {t('home.aboutSectionP1Line3')}
               </p>
               <p>
-                척추에서 시작된 SNPE는
+                {t('home.aboutSectionP2Line1')}
                 <br className="hidden md:block" />
-                이제 발·골반·호흡·움직임 체인까지 연결하며
+                {t('home.aboutSectionP2Line2')}
                 <br className="hidden md:block" />
-                더 건강하게 움직이는 삶을 위한 웰니스 시스템으로 발전하고 있습니다.
+                {t('home.aboutSectionP2Line3')}
               </p>
             </div>
             <div className="mt-10 md:mt-12">
@@ -53,7 +55,7 @@ export default function AboutSection() {
                 to="/about"
                 className="inline-flex items-center justify-center bg-mint hover:bg-mint-dark text-white text-base font-medium tracking-tight rounded-full px-8 py-3.5 transition-colors"
               >
-                자세히 보기
+                {t('home.learnMore')}
               </Link>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
+import TranslatedInquiryPage from '../../components/common/TranslatedInquiryPage'
 import { dataStore } from '../../lib/dataStore'
 import { Send, AlertCircle } from 'lucide-react'
 
@@ -24,7 +25,9 @@ export default function CustomerInquiry() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState(null)
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+
+  if (!i18n.resolvedLanguage?.startsWith('ko')) return <TranslatedInquiryPage variant="corporate" />
 
   const handleSubmit = async (e) => {
     e.preventDefault()
