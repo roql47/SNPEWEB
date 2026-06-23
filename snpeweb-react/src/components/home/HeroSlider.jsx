@@ -30,13 +30,13 @@ export default function HeroSlider() {
         <div className="relative z-10 h-full flex flex-col items-center justify-end px-4 text-center pb-4 sm:pb-6 md:pb-24">
           <div className="mb-2 md:mb-8">
             <h1 className="text-lg sm:text-2xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg leading-tight mb-1 md:mb-4">
-              Built on Self Recovery
+              {t('home.heroTitle')}
             </h1>
             <p className="text-xs sm:text-base md:text-xl text-white/90 drop-shadow font-medium mb-0.5 md:mb-1">
-              움직임을 통해 몸과 삶의 균형을 회복하는 웰니스 시스템
+              {t('home.heroSubtitle')}
             </p>
             <p className="text-[10px] sm:text-sm md:text-base text-white/70 drop-shadow">
-              A movement-based wellness system for restoring balance and well-being
+              {t('home.heroDescription')}
             </p>
           </div>
 

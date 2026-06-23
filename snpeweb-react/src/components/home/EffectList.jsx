@@ -41,10 +41,10 @@ export default function EffectList() {
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="text-center mb-16">
           <p className="text-mint-darker text-xs md:text-sm font-semibold uppercase tracking-[0.25em] mb-3">
-            Benefits
+            {t('home.benefitsLabel')}
           </p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-5">
-            Wellness Benefits
+            {t('home.benefitsTitle')}
           </h2>
           <p className="text-base md:text-lg text-gray-500 leading-relaxed">
             {t('home.benefitsIntroLine1')}

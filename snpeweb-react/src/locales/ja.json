@@ -53,19 +53,22 @@
   },
   "home": {
     "heroAlt": "SNPE - 正しい姿勢 正しい体型 正しい健康",
+    "heroTitle": "自己回復を基盤に",
+    "heroSubtitle": "動きを通じて、身体と暮らしのバランスを整えるウェルネスシステム",
+    "heroDescription": "より健やかなアライメント、回復、ウェルビーイングを支えるムーブメントウェルネス",
     "scrollDown": "下にスクロール",
     "snpeTitle": "SNPE",
     "snpeDesc1": "人間本来の姿勢への",
     "snpeDesc2": "回復を目指す",
     "snpeAccent": "新しいパラダイムの運動法",
-    "aboutTitle": "ABOUT SNPE",
+    "aboutTitle": "SNPEについて",
     "aboutLine1": "姿勢ベルトと様々なツール、姿勢分析APPを活用した",
     "aboutBelt": "姿勢ベルト",
     "aboutLine2": "自分で正しい姿勢と体型に回復する",
     "aboutSelf": "セルフ運動法",
     "aboutLine3": "筋骨格系疾患、体型の不均衡、O脚、産後回復などに効果的な",
     "aboutAccent": "新しいパラダイムの運動",
-    "movementTitle": "SNPE メイン動作",
+    "movementTitle": "SNPEムーブメントシステム",
     "viewAll": "すべて見る →",
     "effectEmotional": "精神的安定",
     "effectPhysio": "生理学的効果",
@@ -75,6 +78,10 @@
     "effectPhysical": "体力向上",
     "researchTitle": "研究の価値",
     "researchDesc": "SNPE運動の科学的効果を証明する研究論文",
+    "researchMediaTitle": "SNPE研究・メディア",
+    "researchLabel": "研究",
+    "videoLabel": "映像",
+    "viewMore": "詳しく見る",
     "viewPaper": "論文を見る →",
     "partnersTitle": "SNPE パートナー",
     "appTitle": "SNPE APP",
@@ -85,7 +92,7 @@
     "brandLine1": "痛みや体型のお悩みに、",
     "brandLine2": "SNPEが新しい始まりになります。",
     "aboutSectionTitle": "アライメントは動きから始まります",
-    "aboutSectionSubtitle": "Alignment Begins with Movement",
+    "aboutSectionSubtitle": "動きを通じて身体のバランスを整えます",
     "aboutSectionP1Line1": "SNPEは身体のアライメントと動きの回復を通じて、",
     "aboutSectionP1Line2": "慢性的な不快感や崩れたバランスに自ら気づき、",
     "aboutSectionP1Line3": "回復へ導く自己主導型のムーブメントシステムです。",
@@ -94,6 +101,8 @@
     "aboutSectionP2Line3": "より健康的に動く暮らしのためのウェルネスシステムへ進化しています。",
     "learnMore": "詳しく見る",
     "movementSubtitle": "基本動作を行いながら身体の変化を体験してください",
+    "benefitsLabel": "効果",
+    "benefitsTitle": "ウェルネス効果",
     "benefitsIntroLine1": "心と身体のバランスを通じて、",
     "benefitsIntroLine2": "日常の中で健康的な変化を体験してください",
     "benefits": {
@@ -163,12 +172,12 @@
   "aboutPage": {
     "what": {
       "eyebrow": "01. What is SNPE?",
-      "title": "Built on Self Recovery",
+      "title": "自己回復を基盤に",
       "subtitle": "アライメントは動きから始まります",
       "subtitleEn": "Alignment Begins with Movement",
       "imageAlt": "SNPE紹介",
       "body": [
-        "SNPE（Self Natural Posture Exercise）は、人体本来のアライメントと動きの回復を助ける自己主導型のムーブメント回復システム（Self Recovery Movement System）です。",
+        "SNPE（Self Natural Posture Exercise）は、人体本来のアライメントと動きの回復を助ける、自己主導型のムーブメント回復システムです。",
         "単に筋肉を強化したり、特定の部位を繰り返し使う運動ではありません。誤った姿勢習慣や動きのパターンによって崩れた身体のバランスを自ら認識し、回復できるよう設計された統合ムーブメントシステムです。",
         "SNPEは脊椎を中心とした姿勢回復の考え方から出発しましたが、現在では足・骨盤・呼吸・ムーブメントチェーン（Kinetic Chain）、そして日常の動作習慣までつなぐ、より統合的で科学的なムーブメントシステムへ発展しています。"
       ]
@@ -180,7 +189,7 @@
       "body": [
         "SNPEは、繰り返される脊椎のアンバランスと動きの問題に対する長年の研究と現場経験の中から始まりました。",
         "初期のSNPE哲学は、「誰かに依存せず、自分で回復できる動きは可能なのか？」という問いから出発しました。",
-        "SNPE創案者である故チェ・ジュンギ教授は、繰り返す腰痛と動きの制限を経験しながら、身体のアライメントと動きの回復原理を長年研究してきました。その後、カイロプラクティック、運動療法、姿勢矯正理論、動きの観察経験をもとに、SNPEは自己主導型（Self Recovery）のムーブメントシステムへ発展してきました。"
+        "SNPE創案者である故チェ・ジュンギ教授は、繰り返す腰痛と動きの制限を経験しながら、身体のアライメントと動きの回復原理を長年研究してきました。その後、カイロプラクティック、運動療法、姿勢矯正理論、動きの観察経験をもとに、SNPEは自己主導型のムーブメントシステムへ発展してきました。"
       ],
       "note": [
         "特にSNPEは、歯が長い時間をかけて徐々に整列していく原理から着想を得て、反復的で正しい動きの学習を通じて身体のアライメントと動きのバランスが回復できるよう設計されました。これは瞬間的な矯正よりも、継続的な動きの習慣と感覚認知を重視するSNPEの核心哲学の一つです。",
@@ -238,7 +247,7 @@
       "body": [
         "SNPEは単なる運動プログラムを越えて、人の動きと生活のバランスを研究する統合ムーブメントシステムへ発展しています。",
         "AIとデジタル技術が急速に進化する時代の中で、SNPEは動きのデータと評価システムを基盤に、より精密で個人化されたムーブメント環境をつくっています。",
-        "また、Movement Science、ウェルネス、デジタルヘルスケア技術をつなげ、人それぞれ異なる動きの特性と回復プロセスをより深く理解する方向へ発展しています。",
+        "また、ムーブメントサイエンス、ウェルネス、デジタルヘルスケア技術をつなげ、人それぞれ異なる動きの特性と回復プロセスをより深く理解する方向へ発展しています。",
         "今後SNPEは、AIベースの動作分析とグローバル教育システムをつなげ、健康的な動きを日常の中で継続できるよう支えるグローバルムーブメントブランドへ成長していきます。"
       ]
     },
@@ -249,7 +258,7 @@
       "missionBody": [
         "現代人の生活は、長時間座る習慣、スマートフォンやパソコンの使用、運動不足、そして加齢によって身体のバランスを失いやすくなっています。",
         "SNPEは科学的根拠に基づく運動法とツール、教育システムを通じて、人々が自ら正しい姿勢と健康的な動きを回復し、失われた身体機能とバランスを取り戻せるよう支援します。",
-        "私たちは、人間が本来持っている自己回復力（Self Recovery）を目覚めさせ、誰もが健康で美しい人生を送るための方法を提示することを使命としています。"
+        "私たちは、人間が本来持っている自己回復力を目覚めさせ、誰もが健康で美しい人生を送るための方法を提示することを使命としています。"
       ],
       "visionTitle": "人類の自己回復文化をリードする\nGlobal Human Recovery Brand",
       "visionBody": [
@@ -480,7 +489,7 @@
     "philosophy": "哲学と核心原理",
     "philosophySub": "SNPEの動きの哲学と核心原理をご紹介します",
     "evolution": "SNPEの発展過程",
-    "evolutionSub": "Built on Self Recovery. Evolving Through Movement Science.",
+    "evolutionSub": "自己回復を基盤に、ムーブメントサイエンスとともに進化します。",
     "brandAssets": "ブランド資産",
     "brandAssetsSub": "SNPEのブランドアイデンティティと知的財産権をご紹介します",
     "history": "沿革",
@@ -498,7 +507,7 @@
     "programs": "SNPEプログラム",
     "programsSub": "ライン・姿勢・動き・コンディションまで統合的に変化させるSNPEプログラム",
     "assessment": "体型・動作評価システム",
-    "assessmentSub": "体型分析から動作評価まで、科学的な記録に基づくSelf Recovery System",
+    "assessmentSub": "体型分析から動作評価まで、科学的な記録に基づく自己回復システム",
     "baseExercise": "基本動作",
     "baseExerciseSub": "SNPEの核心的な基本動作を学びましょう",
     "snpeVideo": "運動動画",
@@ -788,7 +797,7 @@
           "desc": "足、骨盤、脊椎、呼吸、動きのつながりを理解します。"
         },
         {
-          "title": "Self Recovery Practice",
+          "title": "自己回復プラクティス",
           "desc": "自分で身体を回復へ導く動きのルーティンを練習します。"
         }
       ]
@@ -879,7 +888,7 @@
       ],
       "details": [
         {
-          "title": "Movement Science",
+          "title": "ムーブメントサイエンス",
           "desc": "SNPEの動きの原理を科学的に分析します。"
         },
         {
@@ -931,9 +940,9 @@
   },
   "historyPage": {
     "hero": {
-      "title": "Built on Self Recovery.\nEvolving Through Movement Science.",
-      "desc1": "SNPEはSelf Recoveryの哲学をもとに、姿勢、動き、ツール、教育、ウェルネス領域へ拡張してきたMovement Wellness Systemです。",
-      "desc2": "初期の脊椎中心の動きの回復から出発し、現在は足、骨盤、呼吸、ムーブメントチェーン、AI分析までつながるSelf Recovery Wellness Platformへ発展しています。"
+      "title": "自己回復を基盤に。\nムーブメントサイエンスとともに進化する。",
+      "desc1": "SNPEは自己回復の哲学をもとに、姿勢、動き、専用ツール、教育、ウェルネスの領域へ発展してきた、動きのウェルネスシステムです。",
+      "desc2": "初期の脊椎中心の動きの回復から出発し、現在は足、骨盤、呼吸、ムーブメントチェーン、AI分析までつながる自己回復型ウェルネスプラットフォームへ発展しています。"
     },
     "labels": {
       "viewDetails": "詳しく見る",
@@ -944,10 +953,10 @@
         "id": "snpe-1",
         "badge": "SNPE 1.0",
         "period": "2003 - 2012",
-        "title": "Self Recoveryの始まり",
-        "summary": "Self Recoveryの哲学を中心にSNPEの基礎が形成された時期です。自分の身体を理解し、正しい動きを繰り返しながら回復する原理が体系化されました。",
+        "title": "自己回復の始まり",
+        "summary": "自己回復の哲学を中心にSNPEの基礎が形成された時期です。自分の身体を理解し、正しい動きを繰り返しながら回復する原理が体系化されました。",
         "evolution": [
-          "Self Recovery哲学の確立",
+          "自己回復哲学の確立",
           "正しい姿勢と動きの原理研究",
           "姿勢矯正と運動療法理論の融合",
           "脊椎中心の回復運動の体系化",
@@ -1030,8 +1039,8 @@
         "id": "snpe-3",
         "badge": "SNPE 3.0",
         "period": "2023 -",
-        "title": "Technology, Data & Global Vision",
-        "summary": "Movement Science、データ、AI技術をつなげ、より精密で個別化された動きの回復環境をつくる段階です。SNPEはグローバル教育とデジタルヘルスケアにつながるSelf Recovery Wellness Platformへ拡張しています。",
+        "title": "技術・データ・グローバルビジョン",
+        "summary": "ムーブメントサイエンス、データ、AI技術をつなげ、より精密で個別化された動きの回復環境をつくる段階です。SNPEはグローバル教育とデジタルヘルスケアにつながる自己回復型ウェルネスプラットフォームへ拡張しています。",
         "evolution": [
           "AI基盤の体型および動作分析",
           "個別運動推薦の高度化",
@@ -1053,10 +1062,10 @@
           "AI動作分析システム"
         ],
         "future": [
-          "Personalized Movement Solution開発",
-          "AI基盤SNPE Appおよびデータプラットフォーム高度化",
-          "Digital Healthcareコンテンツ拡張",
-          "Wellness、Recovery、Lifestyle統合プログラム",
+          "個別化されたムーブメントソリューションの開発",
+          "AI基盤のSNPEアプリおよびデータプラットフォームの高度化",
+          "デジタルヘルスケアコンテンツの拡張",
+          "ウェルネス、回復、ライフスタイルを統合したプログラム",
           "グローバル教育およびコンテンツプラットフォーム構築",
           "動きの科学とウェルネス研究拡大"
         ],
@@ -1077,7 +1086,7 @@
       }
     ],
     "vision": {
-      "title": "未来のSelf Recovery Wellness Systemへ。",
+      "title": "未来の自己回復型ウェルネスシステムへ。",
       "desc": "SNPEは標準化された運動ブランドを越え、動きの科学と技術をつなげます。これからも人々が自分の身体を理解し回復できるよう支えるグローバルムーブメントシステムとして成長していきます。"
     }
   },
@@ -1172,7 +1181,7 @@
       ],
       "pillars": [
         {
-          "title": "Movement Science",
+          "title": "ムーブメントサイエンス",
           "desc": "動きの科学に基づく分析"
         },
         {

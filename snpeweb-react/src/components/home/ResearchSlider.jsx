@@ -15,7 +15,7 @@ export default function ResearchSlider() {
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-heading font-bold text-[#111] leading-[1.1] tracking-[-0.035em] text-[32px] md:text-[42px] lg:text-[58px]">
-            SNPE Research &amp; Media
+            {t('home.researchMediaTitle')}
           </h2>
           <p className="mt-5 text-[#111] text-base md:text-xl lg:text-[26px] tracking-[-0.025em]">
             {t('home.researchMediaSubtitle')}
@@ -30,7 +30,7 @@ export default function ResearchSlider() {
               className="text-mint text-sm md:text-base font-semibold mb-4"
               style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}
             >
-              Research
+              {t('home.researchLabel')}
             </p>
             <Link
               to="/research"
@@ -67,7 +67,7 @@ export default function ResearchSlider() {
                 </div>
               </div>
               <div className="absolute right-6 md:right-10 bottom-6 md:bottom-8 inline-flex items-center gap-1.5 text-xs md:text-sm text-[#515151] font-medium tracking-[0.05em]">
-                VIEW MORE
+                {t('home.viewMore')}
                 <span className="w-6 h-6 rounded-full bg-mint-lighter flex items-center justify-center">
                   <ArrowUpRight size={14} className="text-mint-darker group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" strokeWidth={2.5} />
                 </span>
@@ -81,7 +81,7 @@ export default function ResearchSlider() {
               className="text-mint text-sm md:text-base font-semibold mb-4"
               style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}
             >
-              Video
+              {t('home.videoLabel')}
             </p>
             <a
               href="https://www.youtube.com/watch?v=LfWjDXopI4Y"

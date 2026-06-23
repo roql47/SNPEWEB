@@ -41,7 +41,7 @@ export default function MovementCarousel() {
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="text-center mb-12 md:mb-16">
           <h2 className="font-heading text-3xl md:text-5xl lg:text-[58px] font-bold text-[#111] mb-5 tracking-[-0.035em] leading-[1.1]">
-            SNPE Movement System
+            {t('home.movementTitle')}
           </h2>
           <p className="text-base md:text-xl lg:text-[26px] text-[#111] tracking-[-0.025em]">
             {t('home.movementSubtitle')}

@@ -27,7 +27,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,715fr)_minmax(0,1133fr)] gap-10 md:gap-14 items-center">
           <div className={`transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             <p className="text-mint text-base md:text-lg font-semibold tracking-tight mb-5" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.015em' }}>
-              ABOUT SNPE
+              {t('home.aboutTitle')}
             </p>
             <h2 className="font-heading font-bold text-[#111] leading-[1.2] tracking-[-0.03em] text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8">
               {t('home.aboutSectionTitle')}
