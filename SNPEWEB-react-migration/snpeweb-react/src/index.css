@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-snpe: #e4dcd5;
+  --color-snpe-light: #f3efec;
+  --color-snpe-dark: #6d9293;
+  --color-snpe-darker: #4f6f70;
+  --color-snpe-hover: #d5cbc2;
+  --color-snpe-research: #eee8e3;
+
+  --font-sans: 'NanumBarunGothic', 'Noto Sans KR', sans-serif;
+  --font-heading: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+  --breakpoint-sm: 544px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 921px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  src: url('/fonts/NanumBarunGothicSubset.woff2') format('woff2'),
+       url('/fonts/NanumBarunGothicSubset.woff') format('woff'),
+       url('/fonts/NanumBarunGothicSubset.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-gray-700 bg-white antialiased;
+  }
+  ::selection {
+    background-color: #e4dcd5;
+    color: #2f2621;
+  }
+}

@@ -1,0 +1,1757 @@
+{
+  "nav": {
+    "about": "About SNPE",
+    "exercise": "Programs",
+    "education": "Education & Certification",
+    "network": "Official Network",
+    "news": "News & Updates",
+    "support": "Support"
+  },
+  "subnav": {
+    "aboutSnpe": "What is SNPE?",
+    "overview": "Overview",
+    "philosophy": "Philosophy & Principles",
+    "evolution": "Evolution",
+    "brandAssets": "Brand Assets & IP",
+    "history": "History",
+    "historyCert": "History & Certifications",
+    "bi": "BI Introduction",
+    "certification": "Awards & Certifications",
+    "intellectualProperty": "Intellectual Property",
+    "beginnerGuide": "Beginner's Guide",
+    "programs": "SNPE Programs",
+    "assessment": "Posture & Movement",
+    "baseExercise": "Basic Movements",
+    "snpeVideo": "Exercise Videos",
+    "snpeApp": "Self Body Analysis",
+    "experienceCase": "SNPE Experience",
+    "snpeExperience": "SNPE Experience",
+    "degree": "Certification Courses",
+    "level1": "LEVEL 1",
+    "level2": "LEVEL 2",
+    "level3": "LEVEL 3",
+    "notice": "Notices",
+    "press": "Press",
+    "activity": "Activities",
+    "searchCenter": "Official Centers",
+    "certTeacher": "Certified Instructors",
+    "master": "Master Program",
+    "studio": "SNPE Studios",
+    "franchise": "Partnership & Certification",
+    "faq": "FAQ",
+    "corporate": "Corporate Wellness",
+    "research": "Research & Publications"
+  },
+  "header": {
+    "shop": "SNPE SHOP",
+    "mypage": "My Page",
+    "login": "Login",
+    "register": "Sign Up",
+    "searchPlaceholder": "Search Centers",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "home": {
+    "heroAlt": "SNPE - Correct Posture, Correct Body, Correct Health",
+    "heroTitle": "Built on Self-Recovery",
+    "heroSubtitle": "A wellness system that restores balance in body and life through movement",
+    "heroDescription": "Movement-based wellness for healthier alignment, recovery, and well-being",
+    "scrollDown": "Scroll down",
+    "snpeTitle": "SNPE",
+    "snpeDesc1": "Aiming for recovery to",
+    "snpeDesc2": "the natural human posture,",
+    "snpeAccent": "a new paradigm of exercise",
+    "aboutTitle": "ABOUT SNPE",
+    "aboutLine1": "Using posture belts, various tools, and posture analysis APP,",
+    "aboutBelt": "Posture Belt",
+    "aboutLine2": "Self-recovery to correct posture and body alignment,",
+    "aboutSelf": "Self Exercise",
+    "aboutLine3": "Effective for musculoskeletal disorders, body imbalance, bow legs, postpartum recovery, and more,",
+    "aboutAccent": "a new paradigm of exercise",
+    "movementTitle": "SNPE Movement System",
+    "viewAll": "View All →",
+    "effectEmotional": "Emotional Stability",
+    "effectPhysio": "Physiological Effect",
+    "effectPositive": "Positive Mind",
+    "effectCorrect": "Orthodontic Effect",
+    "effectPain": "Pain Relief",
+    "effectPhysical": "Physical Improvement",
+    "researchTitle": "Our research value",
+    "researchDesc": "Research papers proving the scientific effects of SNPE exercise",
+    "researchMediaTitle": "SNPE Research & Media",
+    "researchLabel": "Research",
+    "videoLabel": "Video",
+    "viewMore": "VIEW MORE",
+    "viewPaper": "View Paper →",
+    "partnersTitle": "SNPE Partners",
+    "appTitle": "SNPE APP",
+    "appSubtitle": "Smart self-therapy you can manage on your own",
+    "appDesc": "The SNPE app measures your body condition through posture analysis and provides customized exercise programs.",
+    "naverMap": "View on Naver Map",
+    "brandTitle": "Confidence in Your Body's Ability to Recover",
+    "brandLine1": "For pain and body alignment concerns,",
+    "brandLine2": "SNPE can be your new beginning.",
+    "aboutSectionTitle": "Alignment Begins with Movement",
+    "aboutSectionSubtitle": "Alignment Begins with Movement",
+    "aboutSectionP1Line1": "SNPE helps restore body alignment and movement,",
+    "aboutSectionP1Line2": "supporting you in recognizing chronic discomfort and lost balance,",
+    "aboutSectionP1Line3": "through a self-directed movement system.",
+    "aboutSectionP2Line1": "Starting from the spine, SNPE now connects",
+    "aboutSectionP2Line2": "the feet, pelvis, breathing, and movement chains,",
+    "aboutSectionP2Line3": "evolving into a wellness system for a healthier moving life.",
+    "learnMore": "Learn More",
+    "movementSubtitle": "Follow the basic movements and experience changes in your body",
+    "benefitsLabel": "Benefits",
+    "benefitsTitle": "Wellness Benefits",
+    "benefitsIntroLine1": "Through balance of mind and body,",
+    "benefitsIntroLine2": "experience healthy changes in daily life",
+    "benefits": {
+      "emotional": {
+        "title": "Emotional Stability",
+        "desc": "Helps ease depression and stress\nwhile supporting self-esteem and emotional stability"
+      },
+      "physio": {
+        "title": "Physiological Improvement",
+        "desc": "Supports recovery of body functions\nsuch as sleep issues, numbness, and menstrual irregularity"
+      },
+      "positive": {
+        "title": "Positive Mindset",
+        "desc": "Helps increase happiness and life satisfaction\nwhile improving motivation and relationships"
+      },
+      "posture": {
+        "title": "Postural Correction",
+        "desc": "Helps improve bow legs, forward head, rounded shoulders,\nand waist-pelvis balance"
+      },
+      "pain": {
+        "title": "Chronic Pain Relief",
+        "desc": "Helps ease muscle tension and reduce pain\nin the neck, shoulders, back, and more"
+      },
+      "body": {
+        "title": "Physical Function Improvement",
+        "desc": "Supports strength, weight control, fatigue recovery,\nand overall body condition"
+      }
+    },
+    "researchMediaSubtitle": "SNPE verified through research outcomes and media",
+    "researchCardTitle": "SNPE Research Report",
+    "researchCardLead1": "Analysis of experience cases to verify SNPE effects",
+    "researchCardLead2": "Approximately 1,000 records from 2006 to 2018 were analyzed",
+    "researchCardDesc1": "The report verifies effects on chronic pain, corrective therapy,",
+    "researchCardDesc2": "physiological changes, and emotional, clinical, and psychological symptoms,",
+    "researchCardDesc3": "and presents comparative analysis results on SNPE tools",
+    "researchCardDesc4": "and movement-specific effects.",
+    "videoTitle": "How to Use SNPE Foot Balance",
+    "videoAria": "How to use SNPE Foot Balance video (opens in a new tab)",
+    "videoDesc1": "The easiest start for correcting foot balance",
+    "videoDesc2": "Learn how to use SNPE Foot Balance step by step",
+    "appHeadlineLine1": "Manage yourself smartly",
+    "appHeadlineLine2": "with your own health routine",
+    "appSectionP1Line1": "The SNPE app analyzes posture",
+    "appSectionP1Line2": "to measure your body condition and provide personalized exercise programs.",
+    "appSectionP2Line1": "Design your own personalized health routine",
+    "appSectionP2Line2": "and receive feedback from specialists.",
+    "appStoreComingTitle": "iOS support is planned for a future release",
+    "appStoreComing": "App Store support coming soon",
+    "appAvailability": "※ The SNPE app is currently available only on Google Play (Android). iOS support is planned for a future release.",
+    "branchesTitle": "SNPE Direct Centers",
+    "branchesSubtitle": "Meet professional classes at SNPE headquarters-operated centers",
+    "branchBadge": "Direct",
+    "findCenters": "Find SNPE Centers Nationwide"
+  },
+  "common": {
+    "close": "Close",
+    "closeWithX": "Close ✕",
+    "dragToMove": "Drag to move",
+    "hideToday": "Do not show today",
+    "hideForever": "Do not show again",
+    "contentUnavailable": "Unable to load content.",
+    "educationGoals": "Education Goals",
+    "educationTargets": "Who It Is For",
+    "curriculum": "Curriculum",
+    "instructors": "Instructors"
+  },
+  "aboutPage": {
+    "what": {
+      "eyebrow": "01. What is SNPE?",
+      "title": "Built on Self Recovery",
+      "subtitle": "Alignment Begins with Movement",
+      "subtitleEn": "Alignment Begins with Movement",
+      "imageAlt": "About SNPE",
+      "body": [
+        "SNPE (Self Natural Posture Exercise) is a self-directed movement recovery system designed to help restore the body's natural alignment and movement.",
+        "It is not simply an exercise that strengthens muscles or repeatedly uses a specific body part. It is an integrated movement system designed to help people recognize and restore balance disrupted by poor posture habits and movement patterns.",
+        "SNPE began with a spine-centered concept of posture recovery, but it has evolved into a more integrated and scientific movement system that connects the feet, pelvis, breathing, kinetic chain, and everyday movement habits."
+      ]
+    },
+    "beginning": {
+      "eyebrow": "The Beginning of SNPE",
+      "title": "SNPE began with the question of recurring chronic lower back pain",
+      "imageAlt": "The beginning of SNPE",
+      "body": [
+        "SNPE began through long-term research and field experience with recurring spinal imbalance and movement problems.",
+        "The early philosophy of SNPE started with the question: \"Is movement that allows people to recover on their own, without depending on someone else, possible?\"",
+        "The founder of SNPE, the late Professor Choi Jung-ki, experienced recurring lower back pain and movement limitations, and studied the principles of body alignment and movement recovery for many years. Based on chiropractic, exercise therapy, posture correction theory, and movement observation, SNPE developed into a self-directed movement system."
+      ],
+      "note": [
+        "SNPE was especially inspired by the way teeth gradually align over time. It was designed so that repeated, correct movement learning can help restore body alignment and movement balance. This is one of SNPE's core ideas: sustainable movement habits and sensory awareness matter more than momentary correction.",
+        "To help restore stiff and restricted deep muscles and movement patterns more gently, SNPE also developed its own exercise tools inspired by finger pressure and biomechanical principles."
+      ],
+      "quote": "\"Alignment is not forced.\nIt is restored through repeated correct movement.\""
+    },
+    "expanding": {
+      "eyebrow": "Expanding Beyond Posture",
+      "title": "Expanding into movement-based wellness",
+      "imageAlt": "SNPE wellness",
+      "body": [
+        "Today, SNPE goes beyond posture correction or musculoskeletal pain management. It is expanding into a movement system that views life balance and wellness through the recovery of body alignment and movement.",
+        "SNPE takes an integrated view of chronic pain, discomfort, tension, and movement limitations caused by repeated lifestyle habits and movement patterns, and values more natural and sustainable movement recovery.",
+        "Beyond body alignment and movement function, SNPE connects breathing and nervous system recovery, body balance and shape management, embodied awareness and self-efficacy, and wellness from the perspectives of healthy aging and longevity.",
+        "From growing children to adults and seniors, SNPE aims to be a sustainable movement system that helps people of many ages and lifestyles understand their bodies and restore movement balance on their own."
+      ]
+    },
+    "keyAreas": {
+      "eyebrow": "Key Areas of SNPE",
+      "title": "Movement-based wellness pursued by SNPE",
+      "items": [
+        {
+          "en": "Physical Alignment",
+          "local": "Restoring body alignment and movement"
+        },
+        {
+          "en": "Breathing & Nervous System Recovery",
+          "local": "Breathing and nervous system recovery"
+        },
+        {
+          "en": "Body Balance & Shape",
+          "local": "Body balance and movement-based shape care"
+        },
+        {
+          "en": "Embodied Awareness & Self-Efficacy",
+          "local": "Restoring body awareness and self-efficacy"
+        },
+        {
+          "en": "Lifestyle Wellness & Movement Balance",
+          "local": "Lifestyle wellness and movement balance"
+        },
+        {
+          "en": "Senior Wellness & Longevity",
+          "local": "Senior wellness and healthy movement"
+        }
+      ],
+      "quote": "\"Wellness for Better Movement & Longevity\"",
+      "quoteSub": "Wellness for moving longer and healthier"
+    },
+    "future": {
+      "eyebrow": "The Future of SNPE",
+      "title": "Researching the future of movement",
+      "imageAlt": "The future of SNPE",
+      "body": [
+        "SNPE is developing beyond a simple exercise program into an integrated movement system that studies human movement and life balance.",
+        "In an era of rapid AI and digital technology, SNPE is building a more precise and personalized movement environment based on movement data and evaluation systems.",
+        "SNPE also connects movement science, wellness, and digital healthcare technology to better understand each person's movement characteristics and recovery process.",
+        "Going forward, SNPE aims to connect AI-based movement analysis with a global education system and grow into a global movement brand that helps people sustain healthy movement in daily life."
+      ]
+    },
+    "missionVision": {
+      "eyebrow": "Mission & Vision",
+      "title": "The direction SNPE pursues",
+      "missionTitle": "Helping people recover their bodies on their own",
+      "missionBody": [
+        "Modern life, including long hours of sitting, smartphone and computer use, lack of exercise, and aging, causes many people to lose physical balance.",
+        "Through science-based exercise methods, tools, and education systems, SNPE helps people restore correct posture and healthy movement, and regain lost physical function and balance.",
+        "Our mission is to awaken the self-recovery ability that humans naturally possess and present a way for anyone to live a healthy and beautiful life."
+      ],
+      "visionTitle": "A Global Human Recovery Brand\nleading a culture of self-recovery",
+      "visionBody": [
+        "SNPE goes beyond providing exercise methods and tools. It builds a culture of self-recovery in which anyone can understand their body and manage their health independently.",
+        "Through scientific research, education, and innovative solutions, we aim to help restore natural human health and balance, and grow into a global Human Recovery Brand that creates healthier individuals, communities, and society.",
+        "Contributing to healthy and beautiful lives around the world is the future SNPE pursues."
+      ]
+    }
+  },
+  "baseExercisePage": {
+    "main": {
+      "1": {
+        "desc": "Wear the posture belt, clasp both hands behind your back, and sit in a chair pose. This helps spinal alignment and neck disc prevention."
+      },
+      "2": {
+        "desc": "Tie the legs with the posture belt, kneel, and recline backward. This helps pelvic correction and diaphragm stretching."
+      },
+      "3": {
+        "desc": "Lie face down, bend the knees, and lift the legs. This helps bow-leg correction and hip-up training."
+      },
+      "4": {
+        "desc": "Lie on the floor, pull the knees toward the chest, and roll back and forth. This helps massage the spine and support blood circulation."
+      }
+    },
+    "coreTitle": "Movement Recovery by Body Area",
+    "coreIntroLine1": "With specialized programs for each spinal area,",
+    "coreIntroLine2": "experience deeper posture recovery",
+    "core": {
+      "c": {
+        "title": "Cervical Spine",
+        "desc": "A movement for restoring mobility in the cervical spine area.",
+        "tags": [
+          "Cervical",
+          "Forward Head",
+          "Neck Pain"
+        ]
+      },
+      "t": {
+        "title": "Thoracic Spine",
+        "desc": "A movement for improving mobility in the thoracic spine area.",
+        "tags": [
+          "Shoulder Pain",
+          "Scoliosis",
+          "Back Pain"
+        ]
+      },
+      "l": {
+        "title": "Lumbar Spine",
+        "desc": "A movement for restoring a normal curve in the lumbar spine area.",
+        "tags": [
+          "Lumbar",
+          "Flat Back",
+          "Low Back Pain"
+        ]
+      },
+      "sc": {
+        "title": "Sacrum & Coccyx",
+        "desc": "A movement for correcting alignment around the sacrum and coccyx.",
+        "tags": [
+          "Pelvis",
+          "Coccyx",
+          "Lower Body Circulation"
+        ]
+      }
+    }
+  },
+  "beginnerGuidePage": {
+    "title": "SNPE Guide for Beginners",
+    "intro": "You do not have to start with anything difficult. SNPE is a process of understanding your body's condition and learning correct movement step by step. Follow these five steps to check your posture and movement habits and begin healthy body balance.",
+    "steps": {
+      "1": {
+        "title": "Learn About SNPE",
+        "desc": "Understand how SNPE manages movement and postural balance. From recurring discomfort in the neck, back, and pelvis to body imbalance, bow legs, forward head posture, and posture habits, learn why body alignment and movement patterns matter."
+      },
+      "2": {
+        "title": "Self Body Analysis",
+        "desc": "Use the SNPE app and self-checks to understand your current body shape and movement condition. Check shoulder height difference, pelvic balance, leg alignment, and posture habits to understand the movement direction you need."
+      },
+      "3": {
+        "title": "Learn Basic Movements",
+        "desc": "Learn SNPE basic belt exercises and tool MOVE movements while building a sense of correct body alignment. Experience the principles of movement starting from the feet, how to use SNPE tools, basic posture, and the connection between breathing and movement."
+      },
+      "4": {
+        "title": "Follow Exercise Videos",
+        "desc": "Practice movement repeatedly with exercise videos. Even short routines can gradually change movement patterns and posture habits when repeated consistently. Use home training, recovery routines, and body-area programs in ways that fit your lifestyle."
+      },
+      "5": {
+        "title": "Visit a Professional Center",
+        "desc": "If you need more systematic care, receive professional guidance at an SNPE center. Experienced center directors and officially certified instructors suggest personalized programs based on body evaluation and movement analysis. Through private lessons or small group lessons, you can experience more accurate movement and body balance."
+      }
+    }
+  },
+  "philosophyPage": {
+    "intro": {
+      "eyebrow": "02. Philosophy & Principles",
+      "title": "The body moves toward self-recovery",
+      "subtitle": "SNPE focuses on understanding your body's movement\nand repeatedly learning correct movement patterns.",
+      "lead": "The core philosophy of SNPE begins with the belief that the body naturally has a direction toward restoring balance on its own.",
+      "cards": [
+        {
+          "en": "Selection",
+          "local": "Selection"
+        },
+        {
+          "en": "Concentration",
+          "local": "Concentration"
+        },
+        {
+          "en": "Repetition",
+          "local": "Repetition"
+        }
+      ],
+      "body": "Based on the principles of selection, concentration, and repetition, SNPE pursues a more natural and sustainable recovery of movement. Rather than focusing only on momentary change, SNPE places greater value on helping the body understand and practice movement principles and build correct posture habits."
+    },
+    "meaning": {
+      "eyebrow": "The Meaning of SNPE",
+      "title": "Exercise for self-recovery of natural posture and movement",
+      "body": "The name SNPE stands for Self · Natural · Posture · Exercise, and is based on a philosophy that pursues recovery of natural human movement."
+    },
+    "principles": {
+      "eyebrow": "Core Principles of SNPE",
+      "title": "Core Principles of SNPE",
+      "items": [
+        {
+          "no": "01",
+          "en": "Natural Posture",
+          "local": "Restoring natural human alignment",
+          "body": "SNPE uses NP (Natural Posture), the natural alignment state the human body should have, as the standard for all movement. Correct alignment is not simply about fixing posture. It becomes the starting point where each joint and muscle can function most efficiently. Rather than forcing a specific posture, SNPE focuses on restoring the body's natural movement patterns so the body can find balanced alignment on its own.",
+          "quote": "Natural Posture is not forced. It is restored through movement."
+        },
+        {
+          "no": "02",
+          "en": "Mobility & Balance",
+          "local": "Restoring mobility and balance",
+          "body": "Poor posture and repeated daily habits stiffen muscles and fascia, limiting range of movement. SNPE begins by gently releasing a tense and stiff body. By using bands, belts, and tool systems, it helps ease tension in body tissues and restore the joints' natural range of motion. Through recognizing and resolving left-right imbalance, SNPE creates an environment where the body can choose more natural and stable movement.",
+          "quote": "Restore mobility. Restore balance."
+        },
+        {
+          "no": "03",
+          "en": "Core Stability",
+          "local": "Restoring central stability",
+          "body": "Once movement becomes freer, the body needs a strong center to support that movement stably. In SNPE, the core is not simply abdominal muscle strength. It means central stability that connects the whole body. By activating deep muscles, SNPE helps force transfer efficiently on correct alignment and relearns step by step so the center and limbs can coordinate organically.",
+          "quote": "Restore alignment. Reconnect the core."
+        },
+        {
+          "no": "04",
+          "en": "Movement & Repetition",
+          "local": "Correct movement is completed through repetition",
+          "body": "The body is influenced more by postures repeated throughout daily life than by one hour of exercise. Just as incorrect movement becomes fixed through repetition, correct movement must also be learned by the body through practice and repetition in everyday life. SNPE sees daily movements such as walking, sitting, standing, and breathing as the core of change. Sustainable recovery through continuous observation and improvement of one's body is the ultimate value SNPE pursues.",
+          "quote": "Repetition reshapes movement."
+        }
+      ]
+    },
+    "closing": "Recovery through movement. This is the philosophy of SNPE."
+  },
+  "footer": {
+    "company": "Curing Co., Ltd.",
+    "address": "4F, 8, Bongeunsa-ro 68-gil, Gangnam-gu, Seoul",
+    "bizNum": "393-87-01993",
+    "ceo": "Cho Nara",
+    "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
+    "about": "About Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "shopCta": "SNPE SHOP →"
+  },
+  "movements": {
+    "numbered": "Movement {{number}}",
+    "m1num": "No.1",
+    "m1title": "Chair Pose with Hands Clasped Behind",
+    "m1tags": [
+      "Spine",
+      "Neck Disc",
+      "Back Health"
+    ],
+    "m2num": "No.2",
+    "m2title": "Kneeling & Lying Back with Legs Bound",
+    "m2tags": [
+      "Pelvis",
+      "Diaphragm",
+      "Body Temperature"
+    ],
+    "m3num": "No.3",
+    "m3title": "Prone Knee Bend & Leg Lift",
+    "m3tags": [
+      "Bow Legs",
+      "Knees",
+      "Hip-up"
+    ],
+    "m4num": "No.4",
+    "m4title": "Spine Stimulating Roll",
+    "m4tags": [
+      "Spine",
+      "Circulation",
+      "Abs"
+    ],
+    "cmTitle": "Cervical Movement",
+    "cmTags": [
+      "Neck",
+      "Forward Head"
+    ],
+    "lmTitle": "Lumbar Movement",
+    "lmTags": [
+      "Lumbar Disc",
+      "Flat Back"
+    ],
+    "tmTitle": "Thoracic Movement",
+    "tmTags": [
+      "Shoulder",
+      "Scoliosis"
+    ],
+    "scTitle": "Sacrum Coccygeal Movement",
+    "scTags": [
+      "Pelvis",
+      "Coccyx"
+    ]
+  },
+  "research": {
+    "paper1title": "[Paper] SNPE Exercise for Cervical & Shoulder Pain Relief",
+    "paper1desc": "A study on the effects of SNPE exercise on reducing cervical and shoulder pain",
+    "paper2title": "[Paper] SNPE Exercise for Stress & Pain Reduction",
+    "paper2desc": "The effects of SNPE exercise on stress markers and chronic pain",
+    "paper3title": "[Paper] Better SNPE Movement 2 & 3 = Less Back & Pelvic Pain",
+    "paper3desc": "Correlation study between SNPE basic movement proficiency and lumbar/pelvic pain"
+  },
+  "pages": {
+    "about": "What is SNPE?",
+    "aboutSub": "Introducing the philosophy and brand direction of SNPE",
+    "philosophy": "Philosophy & Principles",
+    "philosophySub": "Introducing the movement philosophy and core principles of SNPE",
+    "evolution": "Evolution",
+    "evolutionSub": "Built on Self Recovery. Evolving Through Movement Science.",
+    "brandAssets": "Brand Assets & IP",
+    "brandAssetsSub": "Introducing SNPE brand identity and intellectual property",
+    "history": "History",
+    "historySub": "The journey of SNPE",
+    "historyCert": "History & Certifications",
+    "historyCertSub": "The journey and certifications of SNPE",
+    "bi": "BI Introduction",
+    "biSub": "SNPE posture exercise is a new paradigm aimed at restoring the natural human posture.",
+    "certification": "Awards & Certifications",
+    "certSub": "Awards and certifications of SNPE",
+    "intellectualProperty": "Intellectual Property",
+    "intellectualPropertySub": "SNPE intellectual property portfolio",
+    "beginnerGuide": "Beginner's Guide",
+    "beginnerGuideSub": "A guide for those starting SNPE exercise",
+    "programs": "SNPE Programs",
+    "programsSub": "SNPE programs that integrate line, posture, movement, and condition",
+    "assessment": "Posture & Movement Assessment",
+    "assessmentSub": "A science- and record-based Self Recovery System from posture analysis to movement assessment",
+    "baseExercise": "Basic Movements",
+    "baseExerciseSub": "Learn the core basic movements of SNPE",
+    "snpeVideo": "Exercise Videos",
+    "snpeVideoSub": "Watch SNPE exercise videos",
+    "experienceCase": "SNPE Experience",
+    "experienceCaseSub": "Discover SNPE exercise experience stories",
+    "snpeApp": "Self Body Analysis",
+    "snpeAppSub": "Check your body type with posture analysis",
+    "snpeExperience": "SNPE Experience",
+    "snpeExperienceSub": "Stories of change from those who experienced SNPE firsthand",
+    "degree": "Certification Guide",
+    "degreeSub": "SNPE professional certification courses",
+    "level1": "LEVEL 1",
+    "level1Sub": "SNPE LEVEL 1 Curriculum",
+    "level2": "LEVEL 2",
+    "level2Sub": "SNPE LEVEL 2 Curriculum",
+    "level3": "LEVEL 3",
+    "level3Sub": "SNPE LEVEL 3 Curriculum",
+    "notice": "Notices",
+    "noticeSub": "Check SNPE notices",
+    "press": "Press Coverage",
+    "pressSub": "SNPE in the media",
+    "activity": "Activity News",
+    "activitySub": "Latest activities and events from SNPE",
+    "searchCenter": "Find a Center",
+    "searchCenterSub": "Search for a nearby SNPE center",
+    "certTeacher": "Find an Instructor",
+    "certTeacherSub": "Search for SNPE certified instructors",
+    "master": "Master Course",
+    "masterSub": "SNPE Master Course",
+    "studio": "Find SNPE STUDIO",
+    "studioSub": "Search for SNPE STUDIO locations",
+    "franchise": "Franchise Information",
+    "franchiseSub": "Information about opening an SNPE franchise",
+    "faq": "FAQ",
+    "faqSub": "Frequently asked questions and answers",
+    "customerInquiry": "Corporate Training",
+    "customerInquirySub": "Apply for SNPE corporate training",
+    "customerInquiryThanksSub": "Thank you for your application",
+    "companyClass": "Corporate Training",
+    "companyClassSub": "SNPE corporate training programs",
+    "cultureCenter": "Community Centers",
+    "cultureCenterSub": "SNPE programs at community centers",
+    "research": "Research Papers",
+    "researchSub": "Introducing SNPE-related research papers",
+    "training": "Expert Training",
+    "trainingSub": "SNPE expert training courses",
+    "online": "Online Registration",
+    "onlineSub": "Register for SNPE online courses",
+    "mypage": "My Page",
+    "login": "Login",
+    "register": "Sign Up",
+    "tools": {
+      "sectionTitle": "SNPE Tools",
+      "intro": "SNPE belt exercise is more than simply fixing the body in place — it is a process of regaining the body's lost center and helping the body itself remember the sense of correct movement.",
+      "basic": {
+        "title": "Basic SNPE Tools",
+        "sub": "Essential tools for SNPE exercise."
+      },
+      "recommend": {
+        "title": "Recommended SNPE Tools",
+        "sub": "Ceramics and rollers that provide additional stimulation beyond the basic tools."
+      },
+      "items": {
+        "belt": {
+          "name": "SNPE Correct Posture Belt",
+          "desc": "A non-elastic leg belt that stably aligns the lower body and pelvis."
+        },
+        "pelvicBand": {
+          "name": "Pelvic Band",
+          "desc": "An elastic band that stably supports the pelvis and hip joints."
+        },
+        "wavePillow": {
+          "name": "Wave Pillow",
+          "desc": "A wave-shaped pillow designed for the spinal curve that gently releases muscles across a wide area."
+        },
+        "danason": {
+          "name": "Danason",
+          "desc": "A finger-shaped acupressure tool that locally releases stiff areas."
+        },
+        "ovalCeramic": {
+          "name": "Oval Ceramic",
+          "desc": "An oval-shaped ceramic warmed to provide deep, focused release on the neck, back, waist, or abdomen."
+        },
+        "twoRail": {
+          "name": "Two Rail",
+          "desc": "A rail-type self-care tool that simultaneously delivers compression and release along the spine and fascial lines."
+        },
+        "waveRoller2": {
+          "name": "Wave Roller (2 nodes)",
+          "desc": "A self myofascial release tool that, like teeth alignment, applies progressive movement to displaced and stiff spine."
+        },
+        "dokkaebi": {
+          "name": "Dokkaebi Hand",
+          "desc": "A tool that gently releases tension in stiffened muscles and fascia, letting members feel their body's changes."
+        },
+        "waveRoller": {
+          "name": "Wave Roller (4 nodes)",
+          "desc": "A self myofascial release tool that, like teeth alignment, applies progressive movement to displaced and stiff spine."
+        },
+        "waveStick": {
+          "name": "Wave Stick",
+          "desc": "A self-care tool that comfortably releases deep tension in the neck, back, waist, and abdomen with warming heat and weighted pressure."
+        },
+        "eightCells": {
+          "name": "8-Node Roller",
+          "desc": "Six finger-shaped pressure points reach deep knots that hands cannot reach."
+        },
+        "doubleFoamRoller": {
+          "name": "Double Foam Roller",
+          "desc": "Recommended for myofascial release before and after exercise, offering stable support and deep release across a wide surface."
+        }
+      }
+    }
+  },
+  "degreePage": {
+    "status": {
+      "open": "Open",
+      "closing": "Closing Soon",
+      "closed": "Closed",
+      "done": "Completed"
+    },
+    "roadmap": {
+      "title": "SNPE Certification Growth Roadmap",
+      "intro": "From LEVEL 1 to MASTER, SNPE offers a structured professional education path that builds movement understanding and teaching competency step by step.",
+      "steps": {
+        "level1": {
+          "desc": "Movement principles and essential exercises"
+        },
+        "level2": {
+          "desc": "Member guidance and effective teaching skills"
+        },
+        "level3": {
+          "desc": "Advanced analysis and personalized coaching"
+        },
+        "master": {
+          "desc": "Training and research leadership competency"
+        }
+      }
+    },
+    "schedule": {
+      "title": "Education Schedule & Application",
+      "intro": "Education schedules may change depending on operating conditions.",
+      "course": "Course",
+      "period": "Training Period",
+      "location": "Location",
+      "status": "Recruitment Status",
+      "apply": "Apply",
+      "applyNow": "Apply Now",
+      "preparing": "Preparing",
+      "empty": "No education schedule has been registered."
+    },
+    "contact": {
+      "email": "Email",
+      "phone": "Phone",
+      "hours": "Consultation Hours"
+    }
+  },
+  "support": {
+    "faq": {
+      "categories": {
+        "all": "All",
+        "exercise": "Exercise",
+        "registration": "Registration",
+        "instructor": "Instructor",
+        "corporate": "Corporate Class",
+        "other": "Other"
+      },
+      "empty": "No FAQs are registered in this category."
+    },
+    "online": {
+      "tabs": {
+        "all": "All",
+        "live": "Live",
+        "vod": "VOD"
+      },
+      "badges": {
+        "live": "Live",
+        "vod": "VOD"
+      },
+      "apply": "Apply for Course",
+      "courses": {
+        "intro": {
+          "title": "SNPE Intro Course (Online)",
+          "price": "KRW 280,000",
+          "schedule": "Every Tuesday 19:00-20:30",
+          "duration": "8 weeks",
+          "desc": "An online introductory course covering SNPE basic movements 1-4 and MOVE exercises."
+        },
+        "intensive": {
+          "title": "SNPE Intensive Course (Online)",
+          "price": "KRW 420,000",
+          "schedule": "Every Saturday 10:00-11:30",
+          "duration": "12 weeks",
+          "desc": "An intensive course for learning advanced SNPE movements and tool usage."
+        },
+        "care": {
+          "title": "SNPE Daily Care (VOD)",
+          "price": "KRW 150,000",
+          "schedule": "Available for 90 days after enrollment",
+          "duration": "20 lessons",
+          "desc": "A VOD daily-care program you can follow anytime, anywhere."
+        },
+        "level3": {
+          "title": "Level 3 Certification Course (Online)",
+          "price": "Contact us",
+          "schedule": "Opens quarterly",
+          "duration": "40 hours",
+          "desc": "Online training for professional SNPE instructor certification."
+        }
+      }
+    },
+    "regions": {
+      "all": "All",
+      "seoul": "Seoul",
+      "gyeonggi": "Gyeonggi",
+      "incheon": "Incheon",
+      "busan": "Busan",
+      "daegu": "Daegu",
+      "daejeon": "Daejeon",
+      "gwangju": "Gwangju",
+      "chungcheong": "Chungcheong",
+      "gyeongsang": "Gyeongsang",
+      "gangwon": "Gangwon"
+    },
+    "searchCenter": {
+      "title": "What is an SNPE Professional Center?",
+      "desc": "An SNPE Professional Center is an officially certified movement center approved by SNPE headquarters. Certified instructors who completed the official curriculum provide structured assessment and professional SNPE movement programs.",
+      "total": "{{count}} centers",
+      "direct": "Direct",
+      "map": "Map",
+      "empty": "No centers are registered."
+    },
+    "studio": {
+      "title": "What is SNPE STUDIO?",
+      "desc": "SNPE STUDIO is a small official SNPE-certified studio operated by a certified instructor. Each approved studio runs flexibly according to its own space, character, and operating style.",
+      "placeholder": "Enter a studio name or region",
+      "total": "{{count}} studios",
+      "owner": "Owner {{owner}}",
+      "map": "Naver Map",
+      "empty": "No results found."
+    },
+    "certTeacher": {
+      "title": "What is an SNPE Certified Instructor?",
+      "desc": "SNPE Certified Instructors are professionals who have completed SNPE instructor training and passed the required assessment. They maintain expertise through continuing education and certification renewal under SNPE headquarters standards.",
+      "ambassadors": "SNPE Ambassador Instructors",
+      "searchTitle": "Find an SNPE Certified Instructor",
+      "searchDesc": "Search by instructor name, region, or certification level.",
+      "placeholder": "Search by name, region, or level",
+      "empty": "No certified instructors are registered.",
+      "searchCount": "{{count}} results",
+      "total": "{{count}} certified instructors registered.",
+      "noResults": "No results found.",
+      "region": "Region",
+      "intro": "Introduction"
+    }
+  },
+  "educationCoursePages": {
+    "apply": "Apply",
+    "next": "View Next Course",
+    "curriculumTitle": "Core Curriculum",
+    "level1": {
+      "badge": "SNPE LEVEL 1",
+      "title": "A 10-week course to rebuild your movement foundation",
+      "intro": "An integrated movement program that reconnects the body step by step, from the feet and pelvis to the spine, shoulders, and neck.",
+      "bullets": [
+        {
+          "title": "Restore Basic Alignment",
+          "desc": "Understand foundational body alignment through the feet and pelvis."
+        },
+        {
+          "title": "Build Movement Habits",
+          "desc": "Create a repeatable movement routine for daily life."
+        },
+        {
+          "title": "Prepare for LEVEL 2",
+          "desc": "Build the foundation for the professional instructor pathway."
+        }
+      ],
+      "details": [
+        {
+          "title": "Movement Foundation",
+          "desc": "Learn SNPE basic movements and the principles of tool use."
+        },
+        {
+          "title": "Body Chain",
+          "desc": "Understand the connection between the feet, pelvis, spine, shoulders, and neck."
+        },
+        {
+          "title": "Self Recovery Practice",
+          "desc": "Develop routines for sensing and managing your own body."
+        }
+      ]
+    },
+    "level2": {
+      "badge": "SNPE LEVEL 2",
+      "title": "From understanding movement to guiding meaningful change",
+      "intro": "A professional instructor course for teaching members and designing classes based on SNPE philosophy and core movements.",
+      "bullets": [
+        {
+          "title": "Teaching Competency",
+          "desc": "Learn how to observe members and guide movement safely."
+        },
+        {
+          "title": "Teaching Practice",
+          "desc": "Practice group and personal lesson design with field-oriented training."
+        },
+        {
+          "title": "Center Activity Foundation",
+          "desc": "Build the skills needed for SNPE professional centers and studios."
+        }
+      ],
+      "details": [
+        {
+          "title": "Theory",
+          "desc": "Study SNPE philosophy, alignment principles, and teaching standards."
+        },
+        {
+          "title": "Practice",
+          "desc": "Practice key movements and tool use from a teaching perspective."
+        },
+        {
+          "title": "Field Training",
+          "desc": "Learn class flow, member observation, and practical guidance."
+        }
+      ]
+    },
+    "level3": {
+      "badge": "SNPE LEVEL 3",
+      "title": "Advanced specialist training for designing the direction of change",
+      "intro": "An advanced instructor course for analyzing posture and movement patterns more deeply and designing personalized recovery directions.",
+      "bullets": [
+        {
+          "title": "Movement Analysis",
+          "desc": "Observe alignment and movement patterns as an integrated system."
+        },
+        {
+          "title": "Personalized Design",
+          "desc": "Build program directions based on each member?s condition."
+        },
+        {
+          "title": "Professional Growth",
+          "desc": "Strengthen advanced case management and coaching competency."
+        }
+      ],
+      "details": [
+        {
+          "title": "Advanced Assessment",
+          "desc": "Learn criteria for analyzing body shape and movement changes."
+        },
+        {
+          "title": "Program Design",
+          "desc": "Design routines aligned with individual goals and conditions."
+        },
+        {
+          "title": "Case Study",
+          "desc": "Record and interpret real change processes through field cases."
+        }
+      ]
+    },
+    "master": {
+      "badge": "MASTER COURSE",
+      "title": "The master course for leading SNPE education and research",
+      "intro": "The highest-level professional educator course integrating SNPE philosophy, movement science, curriculum design, and global education competency.",
+      "bullets": [
+        {
+          "title": "Educational Leadership",
+          "desc": "Strengthen instructor training and curriculum operation skills."
+        },
+        {
+          "title": "Research-Based Thinking",
+          "desc": "Connect movement science and case studies to education."
+        },
+        {
+          "title": "Global Expansion",
+          "desc": "Prepare for domestic and international education activities."
+        }
+      ],
+      "details": [
+        {
+          "title": "Movement Science",
+          "desc": "Deepen SNPE movement principles from a scientific perspective."
+        },
+        {
+          "title": "Instructor Training",
+          "desc": "Study teaching methods and curriculum design for training instructors."
+        },
+        {
+          "title": "Research & Global Practice",
+          "desc": "Connect case studies, data, and global education operations."
+        }
+      ]
+    }
+  },
+  "translatedInquiry": {
+    "thanksSub": "Your request has been received.",
+    "submittedTitle": "Request received.",
+    "submittedBody": "Our team will review it and contact you soon. Thank you.",
+    "writeAgain": "Submit another request",
+    "error": "An error occurred while submitting your request. Please try again later.",
+    "submitting": "Submitting...",
+    "organization": "Company / Organization",
+    "manager": "Contact Person",
+    "phone": "Phone",
+    "email": "Email",
+    "preferredDate": "Preferred Date",
+    "participants": "Expected Participants",
+    "address": "Preferred Location",
+    "message": "Message",
+    "agree": "I agree to the collection and use of personal information.",
+    "model": "Application Model",
+    "select": "Select",
+    "name": "Name",
+    "certLevel": "SNPE Certification Status",
+    "region": "Preferred Region",
+    "corporate": {
+      "title": "Corporate & Institutional Program",
+      "subtitle": "SNPE wellness programs for organizations",
+      "heading": "Corporate Program Inquiry",
+      "desc": "Tell us about your organization, and we will help plan an SNPE wellness program suited to your goals and environment.",
+      "submit": "Submit Corporate Inquiry"
+    },
+    "franchise": {
+      "title": "Franchise & Certification",
+      "subtitle": "SNPE Professional Center and STUDIO consultation",
+      "heading": "Opening Consultation",
+      "desc": "Leave your preferred model and region, and our team will contact you with guidance.",
+      "submit": "Submit Consultation Request",
+      "heroTitle": "Join SNPE as a partner spreading the value of correct posture",
+      "heroDesc": "We operate two partnership models: Professional Centers (franchise) and SNPE STUDIO (certified).",
+      "compareTitle": "Franchise vs Certified Studio",
+      "supportTitle": "Headquarters Support",
+      "stepsTitle": "Opening Process",
+      "centerHeader": "SNPE Professional Center",
+      "studioHeader": "SNPE STUDIO",
+      "modelCenter": "SNPE Professional Center (mid-large, HQ standard system)",
+      "modelStudio": "SNPE STUDIO (compact, flexible operation)",
+      "certOptions": {
+        "level2": "LEVEL 2 certified",
+        "level3": "LEVEL 3 specialist course completed",
+        "inProgress": "In progress (currently enrolled)",
+        "none": "Not yet certified"
+      },
+      "spaceOptions": {
+        "owned": "Owned / leased",
+        "reviewing": "Under review",
+        "none": "Not yet secured"
+      },
+      "timingOptions": {
+        "immediate": "Immediate (within 1-2 months)",
+        "3months": "Within 3 months",
+        "6months": "Within 6 months",
+        "inquiry": "Inquiry only (long-term)"
+      },
+      "comparison": [
+        {
+          "label": "Qualification",
+          "center": "SNPE instructor certification",
+          "studio": "SNPE instructor certification"
+        },
+        {
+          "label": "Concept",
+          "center": "HQ-standard professional education center",
+          "studio": "Flexible private studio"
+        },
+        {
+          "label": "Core value",
+          "center": "Brand consistency and systematic education",
+          "studio": "Flexible operation by individuality"
+        },
+        {
+          "label": "Curriculum",
+          "center": "HQ curriculum and regular training required",
+          "studio": "Programs set by operator discretion"
+        },
+        {
+          "label": "Size",
+          "center": "Mid-to-large recommended",
+          "studio": "Compact / efficient space"
+        },
+        {
+          "label": "Rights",
+          "center": "Full CI/BI and HQ system use",
+          "studio": "Brand use approval and design assets"
+        },
+        {
+          "label": "Territory",
+          "center": "1km radius protection",
+          "studio": "1km radius protection"
+        }
+      ],
+      "supports": [
+        {
+          "title": "Brand & Infrastructure",
+          "items": [
+            "Official trade name and logo use",
+            "System usage rights"
+          ]
+        },
+        {
+          "title": "Franchise Support",
+          "items": [
+            "Regular education updates",
+            "Operations policy guidance"
+          ]
+        },
+        {
+          "title": "Marketing & Design",
+          "items": [
+            "Operation templates and promo guides",
+            "Local market insights",
+            "Graphic design assets"
+          ]
+        },
+        {
+          "title": "Opening Benefits",
+          "items": [
+            "Discounts on SNPE tools",
+            "Individual cost structure guidance"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "num": "01",
+          "title": "Inquiry",
+          "desc": "Submit the opening consultation form."
+        },
+        {
+          "num": "02",
+          "title": "Consultation",
+          "desc": "A manager will contact you in order."
+        },
+        {
+          "num": "03",
+          "title": "Review",
+          "desc": "Instructor qualification and business capability are reviewed."
+        },
+        {
+          "num": "04",
+          "title": "Contract",
+          "desc": "Sign the franchise/certified contract and open."
+        }
+      ]
+    },
+    "hasSpace": "Space ownership status",
+    "timing": "Preferred opening timing",
+    "venueType": "Venue type",
+    "requestType": "Request type",
+    "budget": "Budget range",
+    "venueOptions": {
+      "visit": "On-site visit",
+      "center": "At center",
+      "online": "Online"
+    },
+    "requestOptions": {
+      "once": "One-time lecture",
+      "regular": "Regular program",
+      "wellness": "Employee wellness",
+      "other": "Other"
+    }
+  },
+  "historyPage": {
+    "hero": {
+      "title": "Built on Self Recovery.\nEvolving Through Movement Science.",
+      "desc1": "Built on the philosophy of Self Recovery, SNPE continues to connect movement, alignment, tools, education, and data into an evolving Movement Wellness System.",
+      "desc2": "From early posture-recovery exercise to professional education, movement assessment, digital content, and AI-based technology, SNPE is evolving into a global Self Recovery Wellness Platform."
+    },
+    "labels": {
+      "viewDetails": "View Details",
+      "imageAlt": "tools and materials"
+    },
+    "eras": [
+      {
+        "id": "snpe-1",
+        "badge": "SNPE 1.0",
+        "period": "2003 - 2012",
+        "title": "The Beginning of Self Recovery",
+        "summary": "This was the formative stage of the Self Recovery philosophy and early movement-correction principles. Based on spine- and pelvis-centered recovery, SNPE developed exercise principles and early tools that help people restore alignment on their own.",
+        "evolution": [
+          "Establishment of the Self Recovery philosophy",
+          "Development of early movement-correction principles",
+          "Development of posture belts and early corrective tools",
+          "Creation of a spine- and pelvis-centered movement system",
+          "Research on movement correction based on NP Technique"
+        ],
+        "milestones": [
+          {
+            "year": "2003",
+            "event": "First SNPE course opened at Kyonggi University Social Education Center"
+          },
+          {
+            "year": "2007",
+            "event": "Publication of early SNPE-related books"
+          },
+          {
+            "year": "2010",
+            "event": "Opening of graduate-level SNPE instructor training"
+          }
+        ],
+        "tools": [
+          "Posture Belt",
+          "Pelvic Correction Belt",
+          "Wave Pillow",
+          "Early corrective tools"
+        ]
+      },
+      {
+        "id": "snpe-2",
+        "badge": "SNPE 2.0",
+        "period": "2013 - 2022",
+        "title": "Expansion & Systemization",
+        "book": {
+          "title": "SNPE Correct Posture Spinal Exercise",
+          "caption": "Published in 2017"
+        },
+        "summary": "SNPE expanded its education, tools, centers, and content systems. It moved beyond spine-centered exercise to include the feet, pelvis, neck, shoulders, and full-body movement, evolving into an integrated movement program with professional education and assessment systems.",
+        "evolution": [
+          "Systemization of instructor education",
+          "Expansion of professional centers nationwide",
+          "Advancement of tool-based movement systems",
+          "Development of movement assessment and education systems",
+          "Introduction of online content and digital education"
+        ],
+        "academic": [
+          "Expansion of academic research in sports and exercise fields",
+          "Collaboration with universities and graduate schools",
+          "Advancement of movement assessment and education frameworks"
+        ],
+        "milestones": [
+          {
+            "year": "2013",
+            "event": "SNPE instructor course opened at Dongguk University Future Convergence Education Center"
+          },
+          {
+            "year": "2015",
+            "event": "SNPE major opened at PIC"
+          },
+          {
+            "year": "2016",
+            "event": "SNPE posture analysis app developed"
+          },
+          {
+            "year": "2017",
+            "event": "SNPE Correct Posture Spinal Exercise published"
+          },
+          {
+            "year": "2020",
+            "event": "SNPE graduate-school track opened in Korea"
+          }
+        ],
+        "tools": [
+          "Posture Belt and Pelvic Band",
+          "Expanded tool series",
+          "Wave Pillow and Wave tools",
+          "Specialized hand-pressure tools",
+          "Spinal rollers and support tools"
+        ]
+      },
+      {
+        "id": "snpe-3",
+        "badge": "SNPE 3.0",
+        "period": "2023 -",
+        "title": "Technology, Data & Global Vision",
+        "summary": "SNPE is building more precise and personalized movement solutions based on movement science, data, and AI. It is evolving beyond exercise into an integrated Self Recovery Wellness Platform that connects alignment, recovery, wellness, and lifestyle.",
+        "evolution": [
+          "Development of AI-based movement analysis",
+          "Construction of data-based assessment platforms",
+          "Expansion of digital education content",
+          "Creation of global-standard education systems",
+          "Expansion into a wellness-centered integrated platform",
+          "Development of specialist and master education systems"
+        ],
+        "milestones": [
+          {
+            "year": "2024",
+            "event": "SNPE track opened at CHA University Graduate School of Sports Medicine"
+          }
+        ],
+        "tools": [
+          "Advanced tool lineup",
+          "Data-based assessment tools",
+          "Digital healthcare content",
+          "AI movement analysis solutions"
+        ],
+        "future": [
+          "Development of personalized movement solutions",
+          "AI-based SNPE app and data platform",
+          "Expansion of digital healthcare content",
+          "Integrated wellness, recovery, and lifestyle programs",
+          "Global education and content platform",
+          "Expansion of movement science and wellness research"
+        ],
+        "global": [
+          {
+            "region": "USA",
+            "label": "United States"
+          },
+          {
+            "region": "Southeast Asia",
+            "label": "Southeast Asia"
+          },
+          {
+            "region": "Japan",
+            "label": "Japan"
+          }
+        ]
+      }
+    ],
+    "vision": {
+      "title": "Toward the future of Self Recovery Wellness.",
+      "desc": "SNPE goes beyond a standardized exercise brand by connecting movement science and technology. It continues to grow as a global movement system that helps people understand and recover their own bodies."
+    }
+  },
+  "brandAssetsPage": {
+    "bi": {
+      "title": "BI Introduction",
+      "desc": "The visual elements that form SNPE's brand identity must be used accurately according to brand guidelines.",
+      "logoDesc": "The SNPE logo visualizes the signature movement and spinal curve, expressing the core value of Self Natural Posture Exercise.",
+      "colorDesc": "The mint color represents stability, recovery, and trust, the qualities pursued by SNPE movement."
+    },
+    "ip": {
+      "title": "SNPE Registered Trademarks",
+      "desc": "SNPE-related trademarks are officially registered and legally protected.",
+      "registrationNo": "Registration No.",
+      "patentsTitle": "Patents & Certifications",
+      "patentsDesc": "SNPE holds more than 144 intellectual-property rights covering exercise methods, tool structures, and designs."
+    },
+    "guidelines": {
+      "title": "SNPE Trademark Usage Guidelines",
+      "desc": "These guidelines protect the SNPE brand value and the rights of officially certified instructors and partners."
+    },
+    "rules": [
+      {
+        "title": "No Unauthorized Online Promotion or Sales",
+        "body": "Online classes, advertising, group purchases, or sales using the SNPE name are not allowed without headquarters approval."
+      },
+      {
+        "title": "No Unauthorized Use in Offline Facilities",
+        "body": "SNPE trademarks may not be used on signs, promotional materials, or interiors without an official contract."
+      },
+      {
+        "title": "No Unauthorized Trademarked Goods",
+        "body": "Products engraved, printed, distributed, or sold with SNPE trademarks require prior authorization."
+      },
+      {
+        "title": "No Impersonation of Official Channels",
+        "body": "Account names or wording that may be mistaken for SNPE headquarters, official certification, or professional centers are prohibited."
+      }
+    ]
+  },
+  "researchPage": {
+    "tabs": {
+      "all": "All",
+      "domestic": "Domestic",
+      "overseas": "International"
+    },
+    "slideAlt": "SNPE research {{number}}",
+    "total": "{{count}} papers",
+    "year": "{{year}}",
+    "openPaper": "Open paper"
+  },
+  "registerPage": {
+    "title": "Sign Up",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "passwordConfirm": "Confirm Password",
+    "phone": "Phone",
+    "passwordPlaceholder": "Enter at least 8 characters",
+    "agree": "I agree to the Terms of Use and Privacy Policy. (Required)",
+    "submit": "Sign Up",
+    "hasAccount": "Already have an account?",
+    "login": "Login",
+    "passwordMismatch": "Passwords do not match.",
+    "preparing": "Sign-up is currently being prepared."
+  },
+  "masterPage": {
+    "intro": {
+      "title": "What is a Master Instructor?",
+      "body": [
+        "An SNPE Master Instructor is the highest-level professional educator who deeply understands SNPE philosophy and movement principles and can lead instructor training and advanced professional education.",
+        "The SNPE MASTER COURSE is the most advanced program for instructors who want to build deeper expertise and educational capability after LEVEL 3.",
+        "The course is taught by master’s- and doctoral-level specialists and university faculty, with the goal of developing professionals who can lead education, research, and the global wellness industry."
+      ]
+    },
+    "learn": {
+      "title": "What You Will Learn",
+      "items": [
+        "Anatomy, neuroscience, and exercise-physiology analysis of SNPE movement principles",
+        "Advanced movement-science training for SNPE movements and tool application",
+        "Education planning, lecture design, and practical teaching for SNPE instructor programs",
+        "SNPE case research and practical application through diverse case studies",
+        "Advanced curriculum design and teaching methodology for SNPE instructor programs",
+        "Global SNPE education activities, overseas lecture opportunities, and international education competency"
+      ]
+    },
+    "vision": {
+      "title": "Professional educators leading future education systems and global wellness",
+      "body": [
+        "The SNPE MASTER COURSE develops professional educators who can lead SNPE’s future education system and the global wellness industry through education, research, and field experience.",
+        "Master Instructors may serve as advanced educators for SNPE LEVEL 2 and LEVEL 3 instructor programs and grow as core professionals who teach and research SNPE in universities, graduate programs, academic education fields, wellness, and healthcare industries."
+      ],
+      "pillars": [
+        {
+          "title": "Movement Science",
+          "desc": "Movement-science-based analysis"
+        },
+        {
+          "title": "Wellness",
+          "desc": "Wellness-based movement application"
+        },
+        {
+          "title": "Healthcare",
+          "desc": "Healthcare-linked management"
+        },
+        {
+          "title": "Data-Driven Program",
+          "desc": "Data-based program development"
+        }
+      ]
+    },
+    "grading": {
+      "title": "Master Grading System",
+      "items": [
+        {
+          "tier": "BRONZE MASTER",
+          "label": "Eligibility",
+          "requirements": [
+            "Completed SNPE LEVEL 3",
+            "At least 5 years of SNPE member coaching experience",
+            "Master’s degree or higher in an SNPE-related field preferred"
+          ],
+          "desc": "The first Master Instructor level earned by eligible instructors after completing the MASTER COURSE."
+        },
+        {
+          "tier": "SILVER MASTER",
+          "label": "Promotion Criteria",
+          "requirements": [
+            "After earning BRONZE MASTER",
+            "At least 5 years of SNPE instructor education and domestic or international lecture experience",
+            "Completion of SILVER MASTER continuing education"
+          ],
+          "desc": "An advanced educator level with deeper educational competency and field experience based on instructor development and education-system operation."
+        },
+        {
+          "tier": "GOLD MASTER",
+          "label": "Promotion Criteria",
+          "requirements": [
+            "After earning SILVER MASTER",
+            "Doctoral degree preferred",
+            "SNPE research experience",
+            "At least 10 years of SNPE instructor education and professional educator activity",
+            "Completion of GOLD MASTER continuing education"
+          ],
+          "desc": "The highest Master Instructor level, leading SNPE education philosophy, systems, research, and global activity."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Master Instructors leading the future of SNPE",
+      "desc": "We build a more professional and future-oriented SNPE education ecosystem by connecting education, research, and the global wellness industry.",
+      "button": "Ask About the Course"
+    }
+  },
+  "assessmentPage": {
+    "intro": "SNPE connects personal records with professional assessment so users can understand their bodies more objectively and recover through proper movement.",
+    "self": {
+      "title": "Self Body Assessment",
+      "imageAlt": "SNPE self body assessment screen",
+      "desc1": "At home, users can use the SNPE app to photograph the body from the front, side, and back and complete basic movement checks. Recording and comparing changes becomes the first step in understanding and caring for the body.",
+      "itemTitle": "Assessment Items",
+      "items": [
+        "Basic posture assessment",
+        "SNPE exercise posture assessment",
+        "Scoliosis and facial asymmetry",
+        "Hip changes and leg alignment",
+        "Personalized exercise recommendations"
+      ],
+      "desc2": "The SNPE app is the first assessment tool that helps users understand their current body condition and begin self recovery."
+    },
+    "pro": {
+      "title": "Professional Body & Movement Assessment",
+      "desc1": "More specialized assessments are conducted through SNPE professional centers and certified instructors. Centers use assessment systems to analyze body alignment and movement in greater detail.",
+      "systemTitle": "Assessment Systems",
+      "analysisTitle": "Analysis Areas",
+      "systems": [
+        "SNPE body and movement assessment system",
+        "SNPE foot assessment board",
+        "Exbody body composition analysis",
+        "Functional movement assessment",
+        "SNPE movement-pattern assessment"
+      ],
+      "analysis": [
+        "Body alignment",
+        "Foot function",
+        "Balance ability",
+        "Movement patterns",
+        "Compensation patterns",
+        "Left-right asymmetry",
+        "Function"
+      ],
+      "desc2": "Beyond static posture, SNPE evaluates foot function, balance, compensation patterns, and asymmetry to design a personal movement direction and recovery process. This helps users understand their current state more clearly and set an effective path for recovery."
+    },
+    "closing": {
+      "title": "Start on your own, then advance with an expert",
+      "kicker": "Start with Self Assessment. Advance with Professional Guidance.",
+      "body": "By repeating the cycle of recording, understanding, moving, and recovering, SNPE supports sustainable habits for healthier posture and balanced movement."
+    }
+  },
+  "experienceCasePage": {
+    "heroTitle": "Stories from people who experienced SNPE firsthand",
+    "heroDesc": "People who felt changes after they began moving. People who became freer from everyday pain.\nEvery recovery story is different, but the direction of change is shared.",
+    "highlights": [
+      {
+        "title": "Postural Change",
+        "desc": "Feel tight muscles release and experience the gradual recovery of pelvic and spinal alignment."
+      },
+      {
+        "title": "Pain Relief",
+        "desc": "Experience changes as chronic discomfort in the neck, shoulders, lower back, and pelvis becomes lighter."
+      },
+      {
+        "title": "Body Balance",
+        "desc": "Build left-right balance and core stability through SNPE movements and tools."
+      }
+    ],
+    "periodLabel": "Training period",
+    "readMore": "Details",
+    "empty": "Experience stories are being prepared. More recovery stories will be added soon.",
+    "ctaTitle": "Want to feel how your body can change?",
+    "ctaDesc": "Visit a nearby SNPE professional center and experience it yourself.",
+    "ctaButton": "Find a center",
+    "noDetail": "No detailed content is available."
+  },
+  "programsPage": {
+    "tabs": {
+      "snpe": "SNPE PROGRAM",
+      "official": "SNPE OFFICIAL PROGRAM"
+    },
+    "snpe": {
+      "introTitle": "Movement programs for integrated change",
+      "introBody": [
+        "From recurring discomfort in the neck, shoulders, lower back, and pelvis to postural imbalance, facial asymmetry, shoulder asymmetry, leg alignment, and scoliosis. SNPE builds better posture and balanced movement from the body’s alignment and movement patterns.",
+        "It is not just exercise. SNPE manages daily body-use habits and movement patterns to improve line, posture, movement, and conditioning in an integrated way."
+      ],
+      "categories": [
+        {
+          "no": "01",
+          "en": "Body Alignment Programs",
+          "title": "Body Balance Programs",
+          "desc": "Programs for postural imbalance and body alignment. SNPE analyzes whole-body movement patterns from the neck, shoulders, lower back, pelvis, legs, and feet to support better alignment and body-line recovery.",
+          "items": [
+            "Forward head & straight-neck balance",
+            "Shoulder asymmetry balance",
+            "Lower-back & pelvic alignment",
+            "Pelvic line care",
+            "Bowleg/O-leg balance",
+            "Scoliosis balance care",
+            "Facial asymmetry balance",
+            "Foot alignment & gait balance",
+            "Body analysis & posture correction program"
+          ]
+        },
+        {
+          "no": "02",
+          "en": "Self Recovery Care",
+          "title": "Self Recovery Care",
+          "desc": "Programs for managing and recovering from repeated tension and fatigue in daily life. SNPE tools and movement routines help release tension and build recovery habits.",
+          "items": [
+            "Neck & shoulder recovery",
+            "Lower-back & pelvic recovery",
+            "Lower-body circulation care",
+            "Fascia release",
+            "Fatigue recovery stretching",
+            "Movement conditioning",
+            "Lymph circulation care",
+            "Breathing & relaxation",
+            "Recovery flow"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "title": "Life Balance Programs",
+        "desc": "SNPE provides posture, movement, and balance-recovery programs tailored to each life stage, considering the physical characteristics and movement patterns that change with age and lifestyle.",
+        "note": "The right program may vary depending on age, lifestyle, and body condition. A nearby SNPE professional center can guide you through a detailed consultation.",
+        "items": [
+          {
+            "en": "Kids & Growth",
+            "title": "Growth Balance Program",
+            "desc": "A kids and youth program for healthy posture habits and balanced growth."
+          },
+          {
+            "en": "Student Balance",
+            "title": "Student Posture Care Program",
+            "desc": "A program that supports posture balance and healthy movement habits in long study routines."
+          },
+          {
+            "en": "Adult Wellness",
+            "title": "Adult Movement Balance Program",
+            "desc": "A program for managing repeated posture habits and body imbalance while building healthier movement."
+          },
+          {
+            "en": "Prenatal & Postnatal Care",
+            "title": "Prenatal & Postnatal Balance Program",
+            "desc": "A program for balance and movement recovery through pregnancy and postpartum changes."
+          },
+          {
+            "en": "Senior Balance",
+            "title": "Senior Balance Program",
+            "desc": "A movement, balance, and function-care program for healthy aging and stable daily living."
+          }
+        ]
+      }
+    },
+    "official": {
+      "introTitle": "SNPE Professional Center Official Programs",
+      "introBody": [
+        "The SNPE Official Program is SNPE’s official education and movement system, built on scientific assessment and standardized exercise protocols. At SNPE professional centers, the SNPE posture assessment protocol is used to accurately evaluate each member’s body type and movement, then provide the most suitable program based on lifestyle analysis, personal goals, and current condition.",
+        "The program consists of four categories—START, RECOVERY, BODY LINE, and CONDITIONING—with a total of 10 official programs. From foundations and recovery to body-line improvement and conditioning, you can experience a Self Recovery System that builds a healthier body step by step."
+      ],
+      "systemTitle": "SNPE Official Program System",
+      "systemSubtitle": "4 categories · 10 specialized programs",
+      "detailTitle": "Program Details",
+      "targetLabel": "For",
+      "effectLabel": "Benefits",
+      "typeTitle": "Program Types",
+      "recommendationLabel": "Recommended for",
+      "findCenter": "Find an SNPE Professional Center",
+      "categories": [
+        {
+          "no": "1",
+          "en": "START",
+          "title": "Foundation",
+          "subtitle": "SNPE Basic",
+          "programs": [
+            {
+              "name": "SNPE Basic",
+              "en": "SNPE Basic",
+              "target": "Those starting SNPE for the first time, beginners, or anyone who wants to learn the basics of healthy posture",
+              "effect": "Build a foundation for understanding SNPE’s core principles and restoring body alignment. Learning correct movement early helps maximize the benefits of later programs.",
+              "tags": [
+                "Healthy posture",
+                "Posture correction",
+                "Body alignment",
+                "Beginner",
+                "Posture habits"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "2",
+          "en": "RECOVERY",
+          "title": "Recovery",
+          "subtitle": "Pain & discomfort relief",
+          "programs": [
+            {
+              "name": "Neck & Shoulder Recovery",
+              "en": "Neck & Shoulder Recovery",
+              "target": "Those with neck pain, stiff shoulders, forward head posture, or rounded shoulders",
+              "effect": "Gently release tense neck and shoulder muscles and restore healthy upper-body alignment. Reduce everyday stiffness and create more comfortable movement.",
+              "tags": [
+                "Neck pain",
+                "Forward head",
+                "Rounded shoulders",
+                "Stiff shoulders",
+                "Straight neck"
+              ]
+            },
+            {
+              "name": "Low Back & Pelvis Recovery",
+              "en": "Low Back & Pelvis Recovery",
+              "target": "Those with low-back pain, pelvic imbalance, or long hours of sitting",
+              "effect": "Restore balance in the pelvis and lower back to reduce strain and build stable posture. Also helpful for preventing recurring low-back discomfort.",
+              "tags": [
+                "Low-back pain",
+                "Pelvic alignment",
+                "Disc care",
+                "Pelvic imbalance",
+                "Back discomfort"
+              ]
+            },
+            {
+              "name": "Foot & Lower Body Recovery",
+              "en": "Foot & Lower Body Recovery",
+              "target": "Those whose feet tire easily, who stand for long periods, or who want better lower-body circulation and posture",
+              "effect": "Restore foot arch function to support comfortable walking, and realign the lower body to strengthen whole-body posture foundations.",
+              "tags": [
+                "Plantar fasciitis",
+                "Flat feet",
+                "Lower-body swelling",
+                "Foot fatigue",
+                "Leg swelling"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "3",
+          "en": "BODY LINE",
+          "title": "Body Line",
+          "subtitle": "Line & imbalance improvement",
+          "programs": [
+            {
+              "name": "Face & Shoulder Line",
+              "en": "Face & Shoulder Line",
+              "target": "Those concerned about facial asymmetry, rounded shoulders, or upper-body line",
+              "effect": "Realign the neck and shoulders to refine the face line and create a slimmer shoulder line. Improve circulation around the face and shoulders to reduce puffiness and refresh your appearance.",
+              "tags": [
+                "Facial asymmetry",
+                "Rounded shoulders",
+                "Neck angle",
+                "Shoulder line",
+                "Face line"
+              ]
+            },
+            {
+              "name": "Waist & Pelvic Line",
+              "en": "Waist & Pelvic Line",
+              "target": "Those who want to improve waist and pelvic line",
+              "effect": "Activate the core and restore pelvic alignment to create a slim, firm waist line. Balance left-right body asymmetry for a natural, stable body line.",
+              "tags": [
+                "Pelvic alignment",
+                "Waist line",
+                "Core training",
+                "Abdominal line",
+                "Posture correction"
+              ]
+            },
+            {
+              "name": "Leg Line",
+              "en": "Leg Line",
+              "target": "Those concerned about bow legs, knock knees, or lower-body swelling",
+              "effect": "Improve lower-body alignment and circulation for balanced leg lines and lighter legs. Distribute load more evenly across the legs to improve gait and walking balance.",
+              "tags": [
+                "Bow legs",
+                "Knock knees",
+                "Leg line",
+                "Lower-body swelling",
+                "Calf tension"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "4",
+          "en": "CONDITIONING",
+          "title": "Conditioning",
+          "subtitle": "Strength & vitality",
+          "programs": [
+            {
+              "name": "SNPE Flow",
+              "en": "SNPE Flow",
+              "target": "Those who want to move joyfully while building flexibility and stamina together",
+              "effect": "Rhythmic whole-body movement improves flexibility, balance, and cardiorespiratory endurance for a more energetic body. Enjoyable movement also helps relieve stress and build positive exercise habits.",
+              "tags": [
+                "Cardio",
+                "Weight management",
+                "Full-body",
+                "Flexibility",
+                "Stamina"
+              ]
+            },
+            {
+              "name": "SNPE Fit",
+              "en": "SNPE Fit",
+              "target": "Those who want solid strength and a balanced body line",
+              "effect": "Strengthen whole-body muscles to build a balanced body and firm body line. Raising basal metabolism supports healthier body-shape management without rebound.",
+              "tags": [
+                "Strength training",
+                "Core training",
+                "Body line",
+                "Muscle tone",
+                "Body shaping"
+              ]
+            },
+            {
+              "name": "Body Release",
+              "en": "Body Release",
+              "target": "Those who feel fatigued or heavy in the body",
+              "effect": "Gently release whole-body tension and promote circulation to ease fatigue and restore a comfortable condition. Better sleep and recovery also support the next day’s condition.",
+              "tags": [
+                "Fascia release",
+                "Fatigue recovery",
+                "Circulation",
+                "Full-body release",
+                "Recovery"
+              ]
+            }
+          ]
+        }
+      ],
+      "types": [
+        {
+          "en": "Group Lesson",
+          "title": "Group Lesson",
+          "subtitle": "A small-group program for growing together",
+          "desc": "Based on SNPE movement principles and tools, this program helps restore healthy posture and gradually improve body function and condition. Train together for motivation and build sustainable healthy movement habits.",
+          "targets": [
+            "Those who want consistent posture care and prevention",
+            "Those who want motivation from training together",
+            "Those who want to build healthy exercise habits",
+            "Those who want to improve posture and physical function"
+          ]
+        },
+        {
+          "en": "Personal Lesson",
+          "title": "Personal Lesson",
+          "subtitle": "1:1 customized solution",
+          "desc": "Design a personalized exercise program based on body analysis and movement assessment. From pain care to posture correction, body line, and conditioning, create step-by-step change that fits your body and helps you maintain it on your own.",
+          "targets": [
+            "Those who want to manage neck, shoulder, low-back, or pelvic discomfort",
+            "Those who want to improve body shape and body line together",
+            "Those who want to manage facial asymmetry, shoulder asymmetry, or bowed legs through exercise",
+            "Those who need prenatal or postnatal recovery exercise",
+            "Those who want weight management and body balance together",
+            "Those who need customized training based on precise assessment"
+          ]
+        }
+      ]
+    }
+  },
+  "activityPage": {
+    "tabs": {
+      "activity": "Activities",
+      "press": "Press Coverage"
+    },
+    "all": "All",
+    "year": "{{year}}",
+    "emptyActivity": "No activity posts have been registered.",
+    "emptyPress": "No press coverage has been registered.",
+    "separator": " · "
+  },
+  "loginPage": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "Enter your email address",
+    "passwordPlaceholder": "Enter your password",
+    "submit": "Login",
+    "forgotPassword": "Forgot password",
+    "register": "Sign up",
+    "preparing": "Login is currently being prepared."
+  }
+}

@@ -1,0 +1,268 @@
+import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import { Menu, X, Globe, ChevronDown } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { mainNav } from '../../data/navigation'
+
+const LANGUAGES = [
+  { code: 'ko', label: '한국어', flag: 'KR' },
+  { code: 'en', label: 'English', flag: 'EN' },
+  { code: 'ja', label: '日本語', flag: 'JP' },
+]
+
+export default function Header() {
+  const { t, i18n } = useTranslation()
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [activeMenu, setActiveMenu] = useState(null)
+  const [scrolled, setScrolled] = useState(false)
+  const [langOpen, setLangOpen] = useState(false)
+  const headerRef = useRef(null)
+  const langRef = useRef(null)
+
+  const currentLang =
+    LANGUAGES.find((l) => i18n.resolvedLanguage?.startsWith(l.code)) || LANGUAGES[0]
+  // 모든 페이지 상단(스크롤 전)에서 투명 오버레이 — 배너/히어로 이미지가 헤더 뒤로 비치도록
+  const heroOverlay = !scrolled
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setLangOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const changeLanguage = (code) => {
+    i18n.changeLanguage(code)
+    setLangOpen(false)
+  }
+
+  const isCurrentLanguage = (code) => i18n.resolvedLanguage?.startsWith(code)
+
+  return (
+    <>
+      {/* Top utility bar — 항상 민트 컬러 유지 */}
+      <div
+        className="hidden lg:block text-white text-sm relative z-[60] bg-mint"
+      >
+        <div className="max-w-[1440px] mx-auto px-4 flex items-center justify-between h-10">
+          <a
+            href="https://www.snpeshop.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity font-medium"
+          >
+            {t('header.shop')}
+          </a>
+          <div className="flex items-center gap-4">
+            {/* Language switcher */}
+            <div className="relative" ref={langRef}>
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="hover:opacity-80 transition-opacity flex items-center gap-1"
+              >
+                <Globe size={14} />
+                <span>{currentLang.flag}</span>
+                <ChevronDown size={12} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {langOpen && (
+                <div className="absolute right-0 top-full mt-1 bg-white rounded-lg shadow-xl border border-gray-100 py-1 min-w-[120px] z-50">
+                  {LANGUAGES.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => changeLanguage(lang.code)}
+                      className={`w-full text-left px-4 py-2 text-sm transition-colors ${
+                        isCurrentLanguage(lang.code)
+                          ? 'text-snpe-dark font-medium bg-snpe/5'
+                          : 'text-gray-600 hover:text-snpe-dark hover:bg-gray-50'
+                      }`}
+                    >
+                      {lang.flag} {lang.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main header — 홈 히어로 위에서는 강한 투명, 그 외에는 가독성 위주 */}
+      <header
+        ref={headerRef}
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          heroOverlay
+            ? 'bg-white/35 backdrop-blur-[3px] border-b border-white/30'
+            : scrolled
+              ? 'bg-white/95 backdrop-blur-md shadow-md'
+              : 'bg-white/85 backdrop-blur-md border-b border-gray-100'
+        }`}
+      >
+        <div className="relative max-w-[1440px] mx-auto px-4 flex items-center justify-between h-16 lg:h-20">
+          {/* Logo */}
+          <Link to="/" className="flex-shrink-0">
+            <img
+              src={heroOverlay ? '/images/기본로고_02.svg' : '/images/기본로고_01.svg'}
+              alt="SNPE"
+              className="h-8 lg:h-11 transition-opacity duration-300"
+            />
+          </Link>
+
+          {/* Desktop nav — 로고는 좌측 고정, 메뉴는 헤더 중앙 정렬 */}
+          <nav className="hidden lg:flex items-center gap-0 h-full absolute left-1/2 -translate-x-1/2">
+            {mainNav.map((item) => {
+              const label = t(item.titleKey)
+              return (
+                <div
+                  key={item.titleKey}
+                  className="relative h-full flex items-center group"
+                  onMouseEnter={() => setActiveMenu(item.titleKey)}
+                  onMouseLeave={() => setActiveMenu(null)}
+                >
+                  <Link
+                    to={item.path}
+                    className="px-5 xl:px-7 h-full flex items-center text-[15px] font-medium tracking-tight transition-colors"
+                    style={
+                      item.titleKey === 'nav.education'
+                        ? { color: '#72D4B4' }
+                        : heroOverlay
+                          ? { color: 'rgba(255,255,255,0.9)' }
+                          : { color: '#374151' }
+                    }
+                  >
+                    {label}
+                  </Link>
+                  <div
+                    className={`absolute top-full left-1/2 -translate-x-1/2 bg-white rounded-lg shadow-xl border border-gray-100 py-2 min-w-[180px] whitespace-nowrap transition-all duration-200 ${
+                      activeMenu === item.titleKey
+                        ? 'opacity-100 translate-y-0 pointer-events-auto'
+                        : 'opacity-0 -translate-y-2 pointer-events-none'
+                    }`}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.path}
+                        to={child.path}
+                        className="block px-5 py-2.5 text-sm text-gray-600 hover:text-snpe-dark hover:bg-snpe/5 transition-colors"
+                      >
+                        {t(child.titleKey)}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
+          </nav>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="lg:hidden p-2 text-gray-700 hover:text-snpe-dark transition-colors"
+            aria-label={t('header.menuOpen')}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </header>
+
+      {/* Mobile menu overlay */}
+      {mobileOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setMobileOpen(false)} />
+          <div className="absolute top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl overflow-y-auto">
+            {/* Mobile menu header */}
+            <div className="flex items-center justify-between px-4 h-14 border-b border-gray-100">
+              <Link to="/" onClick={() => setMobileOpen(false)} className="flex-shrink-0">
+                <img src="/images/기본로고_01.svg" alt="SNPE" className="h-7" />
+              </Link>
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="p-2 text-gray-500 hover:text-gray-800 transition-colors"
+                aria-label={t('header.menuClose')}
+              >
+                <X size={22} />
+              </button>
+            </div>
+
+            {/* Mobile language switcher */}
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-gray-100">
+              <Globe size={16} className="text-gray-500" />
+              {LANGUAGES.map((lang) => (
+                <button
+                  key={lang.code}
+                  onClick={() => changeLanguage(lang.code)}
+                  className={`px-2.5 py-1 rounded-full text-xs font-medium transition-colors ${
+                    isCurrentLanguage(lang.code)
+                      ? 'bg-snpe-dark text-white'
+                      : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                  }`}
+                >
+                  {lang.flag}
+                </button>
+              ))}
+            </div>
+
+            {/* Mobile nav items */}
+            <nav className="py-2">
+              {mainNav.map((item) => (
+                <MobileNavGroup
+                  key={item.titleKey}
+                  item={item}
+                  onClose={() => setMobileOpen(false)}
+                />
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
+
+function MobileNavGroup({ item, onClose }) {
+  const { t } = useTranslation()
+  const [open, setOpen] = useState(false)
+
+  return (
+    <div className="border-b border-gray-50">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-5 py-3.5 text-[15px] font-medium text-gray-700 hover:text-snpe-dark transition-colors"
+      >
+        {t(item.titleKey)}
+        <span className={`transition-transform duration-200 text-gray-400 ${open ? 'rotate-180' : ''}`}>
+          ▾
+        </span>
+      </button>
+      <div className={`overflow-hidden transition-all duration-200 ${open ? 'max-h-96' : 'max-h-0'}`}>
+        {item.children.map((child) => (
+          <Link
+            key={child.path}
+            to={child.path}
+            onClick={onClose}
+            className="block pl-10 pr-5 py-2.5 text-sm text-gray-500 hover:text-snpe-dark transition-colors"
+          >
+            {t(child.titleKey)}
+          </Link>
+        ))}
+      </div>
+    </div>
+  )
+}

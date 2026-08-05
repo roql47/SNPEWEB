@@ -1,0 +1,1641 @@
+{
+  "nav": {
+    "about": "SNPE 소개",
+    "exercise": "프로그램",
+    "education": "교육시스템",
+    "network": "공식 네트워크",
+    "news": "소식",
+    "support": "고객지원"
+  },
+  "subnav": {
+    "aboutSnpe": "SNPE란?",
+    "overview": "개요",
+    "philosophy": "철학과 핵심원리",
+    "evolution": "SNPE의 발전과정",
+    "brandAssets": "브랜드 자산",
+    "history": "연혁",
+    "historyCert": "연혁 및 인증",
+    "bi": "BI 소개",
+    "certification": "수상 및 인증",
+    "intellectualProperty": "지식재산권",
+    "beginnerGuide": "입문자 가이드",
+    "programs": "SNPE 프로그램",
+    "assessment": "체형·움직임 평가",
+    "baseExercise": "기본 동작",
+    "snpeVideo": "운동영상",
+    "snpeApp": "셀프 체형분석",
+    "experienceCase": "SNPE 체험사례",
+    "snpeExperience": "SNPE 운동 경험",
+    "degree": "자격증 안내",
+    "level1": "LEVEL 1",
+    "level2": "LEVEL 2",
+    "level3": "LEVEL 3",
+    "notice": "공지사항",
+    "press": "언론보도",
+    "activity": "활동소식",
+    "searchCenter": "전문센터",
+    "certTeacher": "인증강사",
+    "master": "마스터 과정",
+    "studio": "스튜디오",
+    "franchise": "가맹 · 인증 안내",
+    "faq": "자주 묻는 질문",
+    "corporate": "기업 · 기관 프로그램",
+    "research": "연구논문"
+  },
+  "header": {
+    "shop": "SNPE SHOP",
+    "mypage": "마이페이지",
+    "login": "로그인",
+    "register": "회원가입",
+    "searchPlaceholder": "수련센터 검색",
+    "menuOpen": "메뉴 열기",
+    "menuClose": "메뉴 닫기"
+  },
+  "home": {
+    "heroAlt": "SNPE - 바른자세 바른체형 바른건강",
+    "heroTitle": "Built on Self Recovery",
+    "heroSubtitle": "움직임을 통해 몸과 삶의 균형을 회복하는 웰니스 시스템",
+    "heroDescription": "A movement-based wellness system for restoring balance and well-being",
+    "scrollDown": "아래로 스크롤",
+    "snpeTitle": "SNPE",
+    "snpeDesc1": "인간 본연의 자세로",
+    "snpeDesc2": "회복을 지향하는",
+    "snpeAccent": "새로운 패러다임의 운동법",
+    "aboutTitle": "ABOUT SNPE",
+    "aboutLine1": "바른자세벨트와 다양한 도구, 자세분석 APP을 활용한",
+    "aboutBelt": "바른자세벨트",
+    "aboutLine2": "스스로 바른자세와 바른체형으로 회복하는",
+    "aboutSelf": "셀프 운동법",
+    "aboutLine3": "근골격계 질환, 체형불균형, 오다리, 산후회복 등에 효과적인",
+    "aboutAccent": "새로운 패러다임의 운동",
+    "movementTitle": "SNPE Movement System",
+    "viewAll": "전체 보기 →",
+    "effectEmotional": "정서적 안정",
+    "effectPhysio": "생리학적 효과",
+    "effectPositive": "긍정적 마인드",
+    "effectCorrect": "교정 효과",
+    "effectPain": "만성통증 완화",
+    "effectPhysical": "체력 향상",
+    "researchTitle": "Our research value",
+    "researchDesc": "SNPE 운동의 과학적 효과를 입증하는 연구논문",
+    "researchMediaTitle": "SNPE Research & Media",
+    "researchLabel": "Research",
+    "videoLabel": "Video",
+    "viewMore": "VIEW MORE",
+    "viewPaper": "논문 보기 →",
+    "partnersTitle": "SNPE Partners",
+    "appTitle": "SNPE APP",
+    "appSubtitle": "혼자서도 똑똑하게 관리하는 셀프테라피",
+    "appDesc": "SNPE 앱에서는 자세분석을 통해 나의 체형 상태를 측정하고 맞춤형 운동 프로그램을 제공합니다.",
+    "naverMap": "네이버 지도 보기",
+    "brandTitle": "스스로 회복할 수 있다는 자신감",
+    "brandLine1": "당신의 통증과 체형 고민,",
+    "brandLine2": "SNPE가 새로운 시작이 됩니다.",
+    "aboutSectionTitle": "정렬은 움직임에서 시작됩니다",
+    "aboutSectionSubtitle": "Alignment Begins with Movement",
+    "aboutSectionP1Line1": "SNPE는 몸의 정렬과 움직임 회복을 통해",
+    "aboutSectionP1Line2": "만성적인 불편감과 무너진 균형을 스스로 인지하고 회복하도록 돕는",
+    "aboutSectionP1Line3": "자기 주도형 움직임 시스템입니다.",
+    "aboutSectionP2Line1": "척추에서 시작된 SNPE는",
+    "aboutSectionP2Line2": "이제 발·골반·호흡·움직임 체인까지 연결하며",
+    "aboutSectionP2Line3": "더 건강하게 움직이는 삶을 위한 웰니스 시스템으로 발전하고 있습니다.",
+    "learnMore": "자세히 보기",
+    "movementSubtitle": "기본 동작을 따라하며 몸의 변화를 경험해보세요",
+    "benefitsLabel": "Benefits",
+    "benefitsTitle": "Wellness Benefits",
+    "benefitsIntroLine1": "마음과 신체의 균형을 통해",
+    "benefitsIntroLine2": "일상 속 건강한 변화를 경험하세요",
+    "benefits": {
+      "emotional": {
+        "title": "정서 안정",
+        "desc": "우울증, 스트레스 완화로\n자존감 향상 및 정서적 안정 도움"
+      },
+      "physio": {
+        "title": "생리학적 개선",
+        "desc": "불면증, 팔 다리 저림, 무월경 등\n신체 기능 회복에 도움"
+      },
+      "positive": {
+        "title": "긍정 마인드 향상",
+        "desc": "행복감 증가, 삶의 만족도 향상\n동기부여 및 대인관계 개선"
+      },
+      "posture": {
+        "title": "체형 교정 효과",
+        "desc": "휜다리, 거북목, 라운드숄더\n허리·골반 밸런스 개선"
+      },
+      "pain": {
+        "title": "만성 통증 완화",
+        "desc": "목, 어깨, 허리 등\n근육 긴장 완화 및 통증 감소"
+      },
+      "body": {
+        "title": "신체 기능 개선",
+        "desc": "근력 강화, 체중 조절, 피로 개선\n전반적인 신체 컨디션 향상"
+      }
+    },
+    "researchMediaSubtitle": "연구 결과와 미디어를 통해 검증된 SNPE",
+    "researchCardTitle": "SNPE 연구보고서",
+    "researchCardLead1": "SNPE 효과 검증을 위한 체험사례 분석",
+    "researchCardLead2": "2006년부터 2018년의 약 1,000건의 자료를 분석",
+    "researchCardDesc1": "만성 통증, 교정 치료, 생리학적 변화와",
+    "researchCardDesc2": "정서적·임상적 및 심리적 증상에 대한 효과를 검증하였으며,",
+    "researchCardDesc3": "SNPE 도구와 동작별 효과에 대한 비교 분석 결과를",
+    "researchCardDesc4": "확인할 수 있습니다.",
+    "videoTitle": "SNPE Foot Balance 풋 밸런스 사용법",
+    "videoAria": "SNPE Foot Balance 풋 밸런스 사용법 영상 (새 탭에서 열기)",
+    "videoDesc1": "발 균형을 바로잡는 가장 쉬운 시작",
+    "videoDesc2": "SNPE 풋 밸런스 사용법을 단계별로 알려드립니다",
+    "appHeadlineLine1": "혼자서도 똑똑하게 관리하는",
+    "appHeadlineLine2": "나만의 건강 루틴",
+    "appSectionP1Line1": "SNPE 앱에서는 자세 분석을 통해",
+    "appSectionP1Line2": "나의 체형 상태를 측정하고 맞춤형 운동 프로그램을 제공합니다.",
+    "appSectionP2Line1": "나만의 맞춤 건강 루틴을 설계하고",
+    "appSectionP2Line2": "전문가의 피드백을 받아보세요.",
+    "appStoreComingTitle": "iOS 추후 사용 가능 예정",
+    "appStoreComing": "App Store 추후 지원 예정",
+    "appAvailability": "※ 현재 SNPE 앱은 Google Play(Android)에서만 제공되며, iOS는 추후 사용 가능 예정입니다.",
+    "branchesTitle": "SNPE 직영점",
+    "branchesSubtitle": "SNPE 본사 직영 센터에서 전문 수업을 만나보세요",
+    "branchBadge": "직영",
+    "findCenters": "전국 전문센터 찾기"
+  },
+  "common": {
+    "close": "닫기",
+    "closeWithX": "닫기 ✕",
+    "dragToMove": "드래그해서 이동",
+    "hideToday": "오늘 하루 보지 않기",
+    "hideForever": "다시 보지 않기",
+    "contentUnavailable": "콘텐츠를 불러올 수 없습니다.",
+    "educationGoals": "교육 목표",
+    "educationTargets": "교육 대상",
+    "curriculum": "커리큘럼",
+    "instructors": "전문 강사진"
+  },
+  "aboutPage": {
+    "what": {
+      "eyebrow": "01. What is SNPE?",
+      "title": "Built on Self Recovery",
+      "subtitle": "정렬은 움직임에서 시작됩니다",
+      "subtitleEn": "Alignment Begins with Movement",
+      "imageAlt": "SNPE 소개",
+      "body": [
+        "SNPE(Self Natural Posture Exercise)는 인체 본연의 정렬과 움직임을 회복하도록 돕는 자기 주도형 움직임 회복 시스템(Self Recovery Movement System)입니다.",
+        "단순히 근육을 강화하거나 특정 부위를 반복적으로 사용하는 운동이 아니라, 잘못된 자세 습관과 움직임 패턴으로 인해 무너진 몸의 균형을 스스로 인지하고 회복하도록 설계된 통합 움직임 시스템입니다.",
+        "SNPE는 척추 중심의 자세 회복 개념에서 출발하였지만, 현재는 발·골반·호흡·움직임 체인(Kinetic Chain), 그리고 일상 속 움직임 습관까지 연결하는 보다 통합적이고 과학적인 움직임 시스템으로 발전하고 있습니다."
+      ]
+    },
+    "beginning": {
+      "eyebrow": "The Beginning of SNPE",
+      "title": "반복되는 만성 허리 통증에 대한 고민에서 시작된 SNPE",
+      "imageAlt": "SNPE의 시작",
+      "body": [
+        "SNPE는 반복되는 척추 불균형과 움직임 문제에 대한 오랜 연구와 현장 경험 속에서 시작되었습니다.",
+        "초기 SNPE 철학은 \"누군가에게 의존하지 않고 스스로 회복할 수 있는 움직임은 가능한가?\"라는 질문에서 출발했습니다.",
+        "SNPE 창안자 故 최중기 교수는 반복되는 허리 통증과 움직임 제한을 경험하며, 신체의 정렬과 움직임 회복의 원리를 오랫동안 연구해왔습니다. 이후 카이로프랙틱, 운동치료, 자세교정 이론과 움직임 관찰 경험을 바탕으로 SNPE는 자기 주도형(Self Recovery) 움직임 시스템으로 발전해왔습니다."
+      ],
+      "note": [
+        "특히 SNPE는 장시간에 걸쳐 치아가 점진적으로 정렬되는 원리에서 영감을 받아, 반복적이고 올바른 움직임 학습을 통해 신체의 정렬과 움직임 균형이 회복될 수 있도록 설계되었습니다. 이는 순간적인 교정보다 지속적인 움직임 습관과 감각 인지를 중요하게 바라보는 SNPE의 핵심 철학 중 하나입니다.",
+        "또한 굳어지고 제한된 깊은 근육과 움직임 패턴을 보다 부드럽게 회복하기 위해, 손가락의 압력과 인체역학 원리에서 영감을 받은 SNPE만의 고유한 운동 도구들이 함께 개발되었습니다."
+      ],
+      "quote": "\"정렬은 억지로 만드는 것이 아니라,\n올바른 움직임의 반복 속에서 회복된다.\""
+    },
+    "expanding": {
+      "eyebrow": "Expanding Beyond Posture",
+      "title": "움직임 기반 웰니스로의 확장",
+      "imageAlt": "SNPE 웰니스",
+      "body": [
+        "현재 SNPE는 단순한 자세 교정이나 근골격계 통증 관리에 머물지 않고, 몸의 정렬과 움직임 회복을 기반으로 삶의 균형과 웰니스를 함께 바라보는 움직임 시스템으로 확장되고 있습니다.",
+        "반복되는 생활 습관과 움직임 패턴 속에서 발생하는 만성적인 통증과 불편감, 긴장과 움직임 제한을 통합적으로 바라보며, 보다 자연스럽고 지속 가능한 움직임 회복을 중요하게 생각합니다.",
+        "SNPE는 신체 정렬과 움직임 기능 회복을 넘어, 호흡과 신경계 회복, 바디 밸런스와 체형 관리, 몸의 감각 회복과 자기 효능감(Self-Efficacy), 그리고 Healthy Aging과 Longevity 관점의 웰니스까지 연결하며 보다 통합적인 움직임 경험을 연구하고 있습니다.",
+        "또한 성장기 유소년부터 성인, 시니어까지 다양한 연령과 라이프스타일 속에서 누구나 자신의 몸을 이해하고 스스로 움직임의 균형을 회복할 수 있도록 돕는 지속 가능한 움직임 시스템을 지향합니다."
+      ]
+    },
+    "keyAreas": {
+      "eyebrow": "Key Areas of SNPE",
+      "title": "SNPE가 지향하는 움직임 기반 웰니스",
+      "items": [
+        {
+          "en": "Physical Alignment",
+          "local": "신체 정렬과 움직임 회복"
+        },
+        {
+          "en": "Breathing & Nervous System Recovery",
+          "local": "호흡과 신경계 회복"
+        },
+        {
+          "en": "Body Balance & Shape",
+          "local": "바디 밸런스와 움직임 기반 체형 관리"
+        },
+        {
+          "en": "Embodied Awareness & Self-Efficacy",
+          "local": "몸의 감각 회복과 자기 회복력"
+        },
+        {
+          "en": "Lifestyle Wellness & Movement Balance",
+          "local": "라이프스타일 웰니스와 움직임 균형"
+        },
+        {
+          "en": "Senior Wellness & Longevity",
+          "local": "시니어 웰니스와 건강한 움직임"
+        }
+      ],
+      "quote": "\"Wellness for Better Movement & Longevity\"",
+      "quoteSub": "더 오래, 더 건강하게 움직이기 위한 웰니스"
+    },
+    "future": {
+      "eyebrow": "The Future of SNPE",
+      "title": "움직임의 미래를 연구하다",
+      "imageAlt": "SNPE의 미래",
+      "body": [
+        "SNPE는 단순한 운동 프로그램을 넘어, 사람의 움직임과 삶의 균형을 연구하는 통합 움직임 시스템으로 발전하고 있습니다.",
+        "AI와 디지털 기술이 빠르게 발전하는 시대 속에서 SNPE는 움직임 데이터와 평가 시스템을 기반으로 보다 정교하고 개인화된 움직임 환경을 만들어가고 있습니다.",
+        "또한 움직임 과학(Movement Science), 웰니스, 디지털 헬스케어 기술을 연결하며 사람마다 다른 움직임 특성과 회복 과정을 더 깊이 이해하는 방향으로 발전하고 있습니다.",
+        "앞으로 SNPE는 AI 기반 움직임 분석과 글로벌 교육 시스템을 연결하며, 건강한 움직임을 삶 속에서 지속할 수 있도록 돕는 글로벌 움직임 브랜드로 발전해가고자 합니다."
+      ]
+    },
+    "missionVision": {
+      "eyebrow": "Mission & Vision",
+      "title": "SNPE가 지향하는 방향",
+      "missionTitle": "인간 스스로 몸을 회복할 수 있도록 돕는다",
+      "missionBody": [
+        "현대인의 삶은 장시간 앉아 있는 생활, 스마트폰과 컴퓨터 사용, 운동 부족, 그리고 노화로 인해 신체의 균형을 잃어가고 있습니다.",
+        "SNPE는 과학적 기반의 운동법과 도구, 교육 시스템을 통해 사람들이 스스로 바른 자세와 건강한 움직임을 회복하고, 잃어버린 신체 기능과 균형을 되찾을 수 있도록 돕습니다.",
+        "우리는 인간이 본래 가지고 있는 자가회복력(Self Recovery)을 깨워, 누구나 건강하고 아름다운 삶을 살아갈 수 있는 방법을 제시하는 것을 사명으로 합니다."
+      ],
+      "visionTitle": "인류의 자가회복 문화를 선도하는\nGlobal Human Recovery Brand",
+      "visionBody": [
+        "SNPE는 단순히 운동법과 도구를 제공하는 브랜드를 넘어, 누구나 자신의 몸을 이해하고 스스로 건강을 관리할 수 있는 자가회복 문화를 만들어갑니다.",
+        "우리는 과학적 연구와 교육, 혁신적인 솔루션을 통해 인간 본연의 건강과 균형을 회복하도록 돕고, 더 건강한 개인과 공동체, 그리고 사회를 만들어가는 글로벌 Human Recovery Brand로 성장하고자 합니다.",
+        "전 세계인의 건강하고 아름다운 삶에 기여하는 것이 SNPE가 지향하는 미래입니다."
+      ]
+    }
+  },
+  "baseExercisePage": {
+    "main": {
+      "1": {
+        "desc": "바른자세벨트를 착용하고 양손을 뒤로 깍지 끼고 의자 자세로 앉습니다. 척추 정렬과 목 디스크 예방에 효과적입니다."
+      },
+      "2": {
+        "desc": "바른자세벨트로 다리를 묶고 무릎을 꿇은 상태에서 뒤로 눕습니다. 골반 교정과 횡격막 스트레칭에 효과적입니다."
+      },
+      "3": {
+        "desc": "엎드린 상태에서 무릎을 굽혀 다리를 들어 올립니다. 휜다리 교정과 힙업에 효과적입니다."
+      },
+      "4": {
+        "desc": "바닥에 누워 무릎을 가슴으로 당기고 전후로 구릅니다. 척추 마사지와 혈액순환에 도움됩니다."
+      }
+    },
+    "coreTitle": "부위별 움직임 회복",
+    "coreIntroLine1": "척추 부위별 특화 프로그램으로",
+    "coreIntroLine2": "더 깊은 자세 회복을 경험하세요",
+    "core": {
+      "c": {
+        "title": "경추",
+        "desc": "경추(목뼈) 부위의 움직임을 회복하는 동작",
+        "tags": [
+          "경추",
+          "거북목",
+          "목 통증"
+        ]
+      },
+      "t": {
+        "title": "흉추",
+        "desc": "흉추(등뼈) 부위의 움직임 개선",
+        "tags": [
+          "어깨 통증",
+          "척추측만증",
+          "등 통증"
+        ]
+      },
+      "l": {
+        "title": "요추",
+        "desc": "요추(허리뼈) 부위의 정상적인 커브 회복",
+        "tags": [
+          "요추",
+          "일자허리",
+          "허리 통증"
+        ]
+      },
+      "sc": {
+        "title": "천골(엉치뼈)·미추(꼬리뼈)",
+        "desc": "천골(엉치뼈)·미추(꼬리뼈) 부위의 정렬 교정",
+        "tags": [
+          "골반",
+          "미추",
+          "하체 순환"
+        ]
+      }
+    }
+  },
+  "beginnerGuidePage": {
+    "title": "처음 시작하는 분들을 위한 SNPE 가이드",
+    "intro": "처음부터 어렵게 시작하지 않아도 됩니다. SNPE는 내 몸의 상태를 이해하고, 바른 움직임을 하나씩 익혀가는 과정입니다. 아래 5단계를 따라 나의 자세와 움직임 습관을 점검하고, 건강한 바디 밸런스를 시작해보세요.",
+    "steps": {
+      "1": {
+        "title": "SNPE 알아보기",
+        "desc": "SNPE가 어떤 원리로 움직임과 자세 균형을 관리하는지 이해합니다. 목·허리·골반의 반복되는 불편함부터 체형 불균형, 휜다리, 거북목, 자세 습관까지 왜 몸의 정렬과 움직임 패턴이 중요한지 알아봅니다."
+      },
+      "2": {
+        "title": "셀프 체형분석",
+        "desc": "SNPE 앱과 셀프 체크를 통해 현재 나의 체형과 움직임 상태를 확인합니다. 어깨 높이 차이, 골반 밸런스, 다리 정렬, 자세 습관 등을 점검하며 나에게 필요한 움직임 방향을 이해할 수 있습니다."
+      },
+      "3": {
+        "title": "기본동작 배우기",
+        "desc": "SNPE 기본 벨트운동과 도구 MOVE 동작을 배우며 몸의 바른 정렬 감각을 익혀갑니다. 발부터 시작되는 움직임 원리와 SNPE 도구 사용법, 기본 자세, 호흡과 움직임 연결 방법을 단계적으로 경험합니다."
+      },
+      "4": {
+        "title": "운동 영상 따라하기",
+        "desc": "운동 영상을 보며 반복적으로 움직임을 연습합니다. 짧은 루틴이라도 꾸준히 반복하며 몸의 움직임 패턴과 자세 습관을 자연스럽게 변화시켜 나갑니다. 홈트레이닝, Recovery 루틴, 부위별 프로그램 등 라이프스타일에 맞춰 다양하게 활용할 수 있습니다."
+      },
+      "5": {
+        "title": "전문센터 방문",
+        "desc": "보다 체계적인 관리가 필요하다면 SNPE 전문센터에서 전문적인 지도를 받아보세요. 오랜 경험을 갖춘 센터장과 공식 인증강사가 체형 평가와 움직임 분석을 기반으로 나에게 맞는 맞춤형 프로그램을 제안합니다. 개인레슨과 소수정예 그룹레슨을 통해 보다 정확한 움직임과 바디 밸런스를 경험할 수 있습니다."
+      }
+    }
+  },
+  "philosophyPage": {
+    "intro": {
+      "eyebrow": "02. Philosophy & Principles",
+      "title": "몸은 스스로 회복하는 방향으로 움직인다",
+      "subtitle": "SNPE는 몸의 움직임을 스스로 이해하고,\n바른 움직임 패턴을 반복 학습해가는 과정에 집중합니다.",
+      "lead": "SNPE의 핵심 철학은 몸은 본래 스스로 균형을 회복하려는 방향성을 가지고 있다는 믿음에서 시작됩니다.",
+      "cards": [
+        {
+          "en": "Selection",
+          "local": "선택"
+        },
+        {
+          "en": "Concentration",
+          "local": "집중"
+        },
+        {
+          "en": "Repetition",
+          "local": "반복"
+        }
+      ],
+      "body": "SNPE는 선택(Selection) · 집중(Concentration) · 반복(Repetition)의 원리를 바탕으로 보다 자연스럽고 지속 가능한 움직임 회복을 지향합니다. 순간적인 변화보다 몸 스스로 움직임의 원리를 이해하고 실천하며, 바른 자세 습관을 만들어가는 과정에 더 큰 의미를 둡니다."
+    },
+    "meaning": {
+      "eyebrow": "The Meaning of SNPE",
+      "title": "인간 본연의 자세와 움직임을 스스로 회복하는 운동",
+      "body": "SNPE라는 이름은 Self · Natural · Posture · Exercise의 의미를 담고 있으며, 인간 본연의 움직임 회복을 지향하는 철학을 기반으로 합니다."
+    },
+    "principles": {
+      "eyebrow": "Core Principles of SNPE",
+      "title": "SNPE의 핵심 원리",
+      "items": [
+        {
+          "no": "01",
+          "en": "Natural Posture",
+          "local": "인간 본연의 정렬을 회복하다",
+          "body": "SNPE는 인체가 본래 지녀야 할 자연스러운 정렬 상태, 즉 NP(Natural Posture)를 모든 움직임의 기준으로 삼습니다. 바른 정렬은 단순히 자세를 바로잡는 것에 그치지 않고, 몸의 각 관절과 근육이 가장 효율적으로 기능할 수 있는 출발점이 됩니다. 우리는 특정 자세를 강요하는 대신, 몸이 스스로 균형 잡힌 정렬을 찾아갈 수 있도록 인체 본연의 움직임 패턴을 회복하는 데 집중합니다.",
+          "quote": "Natural Posture is not forced. It is restored through movement."
+        },
+        {
+          "no": "02",
+          "en": "Mobility & Balance",
+          "local": "움직임과 균형을 회복하다",
+          "body": "잘못된 자세와 반복된 일상은 근육과 근막을 경직시켜 움직임의 범위를 제한합니다. SNPE는 긴장되고 굳어진 몸을 부드럽게 풀어내는 것에서 시작합니다. 밴드·벨트·도구 시스템을 활용하여 신체조직의 긴장을 완화하고, 관절이 가진 본래의 가동 범위를 회복하도록 돕습니다. 특히 좌우 불균형을 스스로 인지하고 해소하는 과정을 통해 몸이 보다 자연스럽고 안정적인 움직임을 선택할 수 있는 환경을 조성합니다.",
+          "quote": "Restore mobility. Restore balance."
+        },
+        {
+          "no": "03",
+          "en": "Core Stability",
+          "local": "몸의 중심 안정성을 회복하다",
+          "body": "움직임이 자유로워졌다면, 이제 그 움직임을 안정적으로 지지할 견고한 중심이 필요합니다. SNPE가 정의하는 코어(Core)는 단순한 복부 근육의 강화가 아닌, 몸 전체를 연결하는 중심 안정성입니다. 깊은 근육(Deep Muscle)의 활성화를 통해 바른 정렬 위에서 힘이 효율적으로 전달되도록 하며, 몸의 중심과 사지가 유기적으로 협응할 수 있도록 단계별로 재학습합니다.",
+          "quote": "Restore alignment. Reconnect the core."
+        },
+        {
+          "no": "04",
+          "en": "Movement & Repetition",
+          "local": "바른 움직임은 반복을 통해 완성된다",
+          "body": "몸은 하루 한 시간의 운동보다 일상에서 반복하는 자세에 더 큰 영향을 받습니다. 잘못된 움직임이 반복으로 굳어졌듯, 바른 움직임 또한 일상 속 실천과 반복을 통해 몸에 학습되어야 합니다. SNPE는 걷기, 앉기, 서기, 호흡하기와 같은 일상적 움직임을 변화의 핵심으로 봅니다. 자신의 몸을 끊임없이 관찰하고 개선해 나가는 지속 가능한 회복이 바로 SNPE가 추구하는 궁극적인 가치입니다.",
+          "quote": "Repetition reshapes movement."
+        }
+      ]
+    },
+    "closing": "움직임을 통한 회복, SNPE의 철학입니다."
+  },
+  "footer": {
+    "company": "(주)큐링 Curing Co.",
+    "address": "서울특별시 강남구 봉은사로 68길 8, 4층",
+    "bizNum": "393-87-01993",
+    "ceo": "조나라",
+    "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
+    "about": "회사소개",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "shopCta": "SNPE SHOP →"
+  },
+  "movements": {
+    "numbered": "{{number}}번 동작",
+    "m1num": "1번",
+    "m1title": "손 뒤로 깍지 끼고 의자 자세",
+    "m1tags": [
+      "척추",
+      "목 디스크",
+      "허리 건강"
+    ],
+    "m2num": "2번",
+    "m2title": "무릎 꿇고 다리 묶어 뒤로 눕기",
+    "m2tags": [
+      "골반",
+      "횡격막",
+      "체온 상승"
+    ],
+    "m3num": "3번",
+    "m3title": "엎드려 무릎 굽혀 다리 들기",
+    "m3tags": [
+      "오다리",
+      "무릎",
+      "힙업"
+    ],
+    "m4num": "4번",
+    "m4title": "척추 자극주며 구르기",
+    "m4tags": [
+      "척추",
+      "혈액순환",
+      "복근"
+    ],
+    "cmTitle": "Cervical Movement",
+    "cmTags": [
+      "목",
+      "거북목"
+    ],
+    "lmTitle": "Lumbar Movement",
+    "lmTags": [
+      "요추 디스크",
+      "일자허리"
+    ],
+    "tmTitle": "Thoracic Movement",
+    "tmTags": [
+      "어깨",
+      "척추측만증"
+    ],
+    "scTitle": "Sacrum Coccygeal Movement",
+    "scTags": [
+      "골반",
+      "미추"
+    ]
+  },
+  "research": {
+    "paper1title": "[논문] 경추와 어깨 통증 완화에 탁월한 SNPE 운동",
+    "paper1desc": "SNPE 운동이 경추 및 어깨 통증 감소에 미치는 효과에 관한 연구",
+    "paper2title": "[논문] 스트레스와 통증 감소에 탁월한 SNPE 운동",
+    "paper2desc": "SNPE 운동이 스트레스 지표 및 만성 통증에 미치는 영향",
+    "paper3title": "[논문] SNPE 2번, 3번 동작이 잘 될수록 허리, 골반 통증이 감소된다",
+    "paper3desc": "SNPE 기본동작 수행도와 요통/골반통의 상관관계 연구"
+  },
+  "pages": {
+    "about": "SNPE란?",
+    "aboutSub": "SNPE의 철학과 브랜드 방향성을 소개합니다",
+    "philosophy": "철학과 핵심원리",
+    "philosophySub": "SNPE의 움직임 철학과 핵심 원리를 소개합니다",
+    "evolution": "SNPE의 발전과정",
+    "evolutionSub": "Built on Self Recovery. Evolving Through Movement Science.",
+    "brandAssets": "브랜드 자산",
+    "brandAssetsSub": "SNPE의 브랜드 아이덴티티와 지식재산권을 소개합니다",
+    "history": "연혁",
+    "historySub": "SNPE의 발자취를 소개합니다",
+    "historyCert": "연혁 및 인증",
+    "historyCertSub": "SNPE의 발자취와 인증 현황을 소개합니다",
+    "bi": "BI 소개",
+    "biSub": "SNPE 바른자세운동은 인간 본연의 자세로 회복을 지향하는 새로운 패러다임 운동법입니다.",
+    "certification": "수상 및 인증",
+    "certSub": "SNPE의 수상 이력 및 인증 현황을 소개합니다",
+    "intellectualProperty": "지식재산권",
+    "intellectualPropertySub": "SNPE의 지식재산권 현황을 소개합니다",
+    "beginnerGuide": "입문자 가이드",
+    "beginnerGuideSub": "SNPE 운동을 처음 시작하시는 분들을 위한 안내입니다",
+    "programs": "SNPE 프로그램",
+    "programsSub": "라인, 자세, 움직임, 컨디션까지 통합적으로 변화시키는 SNPE 프로그램",
+    "assessment": "체형·움직임 평가 시스템",
+    "assessmentSub": "체형 분석부터 움직임 평가까지, 과학적 기록 기반의 Self Recovery System",
+    "baseExercise": "기본동작",
+    "baseExerciseSub": "SNPE의 핵심 기본 동작을 배워보세요",
+    "snpeVideo": "운동 영상",
+    "snpeVideoSub": "SNPE 운동 영상을 확인하세요",
+    "experienceCase": "SNPE 체험사례",
+    "experienceCaseSub": "SNPE 운동을 직접 경험한 분들의 변화 이야기",
+    "snpeApp": "셀프 체형분석",
+    "snpeAppSub": "자세분석으로 나의 체형을 확인하세요",
+    "snpeExperience": "SNPE 운동 경험",
+    "snpeExperienceSub": "몸이 달라지는 경험, 직접 느껴보고 싶다면\n가까운 SNPE 전문센터에서 체험해보세요.",
+    "degree": "자격증안내",
+    "degreeSub": "SNPE 전문가 자격증 과정을 안내합니다",
+    "level1": "LEVEL 1",
+    "level1Sub": "SNPE LEVEL 1 교육과정",
+    "level2": "LEVEL 2",
+    "level2Sub": "SNPE LEVEL 2 교육과정",
+    "level3": "LEVEL 3",
+    "level3Sub": "SNPE LEVEL 3 교육과정",
+    "notice": "공지사항",
+    "noticeSub": "SNPE의 공지사항을 확인하세요",
+    "press": "언론 보도",
+    "pressSub": "SNPE 관련 언론 보도를 확인하세요",
+    "activity": "활동소식",
+    "activitySub": "SNPE의 다양한 활동 소식을 전합니다",
+    "searchCenter": "전문센터 검색",
+    "searchCenterSub": "가까운 SNPE 전문센터를 검색하세요",
+    "certTeacher": "인증강사 검색",
+    "certTeacherSub": "SNPE 인증강사를 검색하세요",
+    "master": "마스터 과정",
+    "masterSub": "SNPE 마스터 과정을 안내합니다",
+    "studio": "SNPE STUDIO 검색",
+    "studioSub": "SNPE STUDIO를 검색하세요",
+    "franchise": "가맹점 개설안내",
+    "franchiseSub": "SNPE 가맹점 개설에 관한 안내입니다",
+    "faq": "자주하는 질문",
+    "faqSub": "자주 묻는 질문과 답변입니다",
+    "customerInquiry": "기업특강 신청",
+    "customerInquirySub": "기업 대상 SNPE 특강을 신청하세요",
+    "customerInquiryThanksSub": "신청해 주셔서 감사합니다",
+    "companyClass": "기업 특강",
+    "companyClassSub": "SNPE 기업 특강 프로그램을 소개합니다",
+    "cultureCenter": "문화센터 / 자치센터",
+    "cultureCenterSub": "문화센터 및 자치센터 SNPE 프로그램",
+    "research": "연구논문",
+    "researchSub": "SNPE 관련 연구논문을 소개합니다",
+    "training": "전문가 양성",
+    "trainingSub": "SNPE 전문가 양성 과정을 안내합니다",
+    "online": "온라인 수강신청",
+    "onlineSub": "SNPE 온라인 교육을 신청하세요",
+    "mypage": "마이페이지",
+    "login": "로그인",
+    "register": "회원가입",
+    "tools": {
+      "sectionTitle": "SNPE 도구 소개",
+      "intro": "SNPE 벨트 운동은 몸을 단순히 고정하는 운동이 아니라, 흩어졌던 몸의 중심을 다시 찾고 바른 움직임의 감각을 몸 스스로 기억하게 만드는 과정입니다.",
+      "basic": {
+        "title": "SNPE 기본도구",
+        "sub": "SNPE 운동에 필수적인 기본 도구입니다."
+      },
+      "recommend": {
+        "title": "SNPE 추천도구",
+        "sub": "기본 도구 외 다양한 자극을 주는 도자기·롤러류 도구입니다."
+      },
+      "items": {
+        "belt": {
+          "name": "SNPE 바른자세벨트",
+          "desc": "하체와 골반의 정렬을 보다 안정적으로 잡아주는 비탄력성 다리벨트"
+        },
+        "pelvicBand": {
+          "name": "골반밴드",
+          "desc": "골반과 고관절 주변을 안정적으로 잡아주는 탄력성 밴드"
+        },
+        "wavePillow": {
+          "name": "웨이브 베개",
+          "desc": "척추 곡선을 고려한 웨이브 형태의 베개로 넓은 부위의 근육을 부드럽게 풀어주는 도구"
+        },
+        "danason": {
+          "name": "다나손",
+          "desc": "손가락 형태의 지압봉으로 굳은 부위를 국소적으로 풀어주는 도구"
+        },
+        "ovalCeramic": {
+          "name": "타원도자기",
+          "desc": "타원 형태의 도자기로 목·등·허리·복부 같은 부위에 따뜻하게 데워 한 부위에 깊은 이완감을 제공해주는 도구"
+        },
+        "twoRail": {
+          "name": "투레일",
+          "desc": "척추 라인을 따라 주변 기립근과 근막라인을 압박과 이완을 동시에 느끼게 해주는 레일형 셀프 케어 도구"
+        },
+        "waveRoller2": {
+          "name": "웨이브롤러 2구",
+          "desc": "신체와 닿는 면적이 좁아 척추의 가로 돌기를 보다 강하게 자극할 수 있는 도구"
+        },
+        "dokkaebi": {
+          "name": "도깨비손",
+          "desc": "6개의 손가락형 지압봉이 손이 닿지 않던 깊은 뭉침까지 풀어주며, 온·냉 사용 시 근육 이완 및 붓기 완화, 피부 진정에 도움을 주는 셀프 케어 도구"
+        },
+        "waveRoller": {
+          "name": "웨이브롤러 4구",
+          "desc": "굳은 등과 허리 라인을 시원하게 풀어주는 셀프 롤링 근막이완 도구"
+        },
+        "waveStick": {
+          "name": "웨이브스틱",
+          "desc": "일반 폼롤러와 비교할 수 없는 단단함과 적절한 돌기 간격이 다양한 부위에 사용하기 좋아 원하는 부위를 집중적으로 이완할 수 있는 도구"
+        },
+        "eightCells": {
+          "name": "웨이브롤러 10구",
+          "desc": "웨이브 모양 특수 설계 및 단단한 나무 재질 롤러로 하체 근육을 깊게 자극하는 강도 높은 스트레칭으로 붓기 완화에 도움이 되는 도구"
+        },
+        "doubleFoamRoller": {
+          "name": "더블폼롤러",
+          "desc": "운동 전후 근막 이완에 추천하는 도구로, 넓은 면을 안정적으로 지지하며 깊은 이완을 도와줍니다."
+        }
+      }
+    }
+  },
+  "degreePage": {
+    "status": {
+      "open": "모집중",
+      "closing": "마감임박",
+      "closed": "모집마감",
+      "done": "종료"
+    },
+    "roadmap": {
+      "title": "SNPE 자격 성장 로드맵",
+      "intro": "LEVEL 1부터 MASTER 과정까지, SNPE는 움직임 이해와 지도 역량을 단계적으로 쌓아가는 체계적인 전문 교육 과정을 제공합니다.",
+      "steps": {
+        "level1": {
+          "desc": "움직임 원리와 필수 동작 이해"
+        },
+        "level2": {
+          "desc": "회원 지도와 효과적인 티칭 역량"
+        },
+        "level3": {
+          "desc": "심화 분석과 개인 맞춤 코칭"
+        },
+        "master": {
+          "desc": "교육·연구 리더십 역량"
+        }
+      }
+    },
+    "schedule": {
+      "title": "교육 일정 및 신청",
+      "intro": "교육 일정은 운영 상황에 따라 변경될 수 있습니다.",
+      "course": "과정",
+      "period": "교육 기간",
+      "location": "장소",
+      "status": "모집 상태",
+      "apply": "신청",
+      "applyNow": "신청하기",
+      "preparing": "준비중",
+      "empty": "등록된 교육 일정이 없습니다."
+    },
+    "contact": {
+      "email": "이메일",
+      "phone": "전화",
+      "hours": "상담 가능 시간"
+    }
+  },
+  "support": {
+    "faq": {
+      "categories": {
+        "all": "전체",
+        "exercise": "운동",
+        "registration": "수강신청",
+        "instructor": "강사관련",
+        "corporate": "출강관련",
+        "other": "기타"
+      },
+      "empty": "등록된 FAQ가 없습니다."
+    },
+    "online": {
+      "tabs": {
+        "all": "전체",
+        "live": "실시간",
+        "vod": "VOD"
+      },
+      "badges": {
+        "live": "실시간",
+        "vod": "VOD"
+      },
+      "apply": "수강 신청",
+      "courses": {
+        "intro": {
+          "title": "SNPE 입문반 (실시간)",
+          "price": "280,000원",
+          "schedule": "매주 월 19:00-20:30",
+          "duration": "8주",
+          "desc": "SNPE 기본이론과 1~4번 MOVE 동작을 배우는 온라인 입문 과정"
+        },
+        "intensive": {
+          "title": "SNPE 심화반 (실시간)",
+          "price": "420,000원",
+          "schedule": "매주 토 10:00-11:30",
+          "duration": "12주",
+          "desc": "SNPE 운동 원리와 도구 활용을 깊이 있게 배우는 심화 과정"
+        },
+        "care": {
+          "title": "SNPE 리커버리 케어 (VOD)",
+          "price": "150,000원",
+          "schedule": "총 20강 / 90일 수강",
+          "duration": "약 20강",
+          "desc": "일상 속 회복 루틴을 따라 할 수 있는 VOD 프로그램"
+        },
+        "level3": {
+          "title": "Level 3 온라인 특강 (실시간)",
+          "price": "별도 안내",
+          "schedule": "일정 공지",
+          "duration": "40시간",
+          "desc": "SNPE 지도자를 위한 심화 이론과 실전 적용 특강"
+        }
+      }
+    },
+    "regions": {
+      "all": "전체",
+      "seoul": "서울",
+      "gyeonggi": "경기",
+      "incheon": "인천",
+      "busan": "부산",
+      "daegu": "대구",
+      "daejeon": "대전",
+      "gwangju": "광주",
+      "chungcheong": "충청",
+      "gyeongsang": "경상",
+      "gangwon": "강원"
+    },
+    "searchCenter": {
+      "title": "SNPE 전문센터란?",
+      "desc": "SNPE 전문센터는 SNPE 본부로부터 공식 인증을 받은 움직임 전문 센터입니다. 공식 교육과정을 이수한 인증강사가 체계적인 평가와 전문적인 SNPE 움직임 프로그램을 제공합니다.",
+      "total": "총 {{count}}개 센터",
+      "direct": "직영",
+      "map": "지도",
+      "empty": "등록된 센터가 없습니다."
+    },
+    "studio": {
+      "title": "SNPE STUDIO란?",
+      "desc": "SNPE STUDIO는 인증강사가 운영하는 소규모 공식 SNPE 인증 스튜디오입니다. 승인된 스튜디오는 각 공간의 특성과 운영 스타일에 맞춰 유연하게 SNPE 프로그램을 제공합니다.",
+      "placeholder": "스튜디오명 또는 지역을 입력하세요",
+      "total": "총 {{count}}개 스튜디오",
+      "owner": "대표 {{owner}}",
+      "map": "Naver 지도",
+      "empty": "검색 결과가 없습니다."
+    },
+    "certTeacher": {
+      "title": "SNPE 인증강사란?",
+      "desc": "SNPE 인증강사는 SNPE 본부의 공식 교육 과정을 이수하고 인증을 받은 전문 지도자입니다. 체계적인 교육과 검증을 바탕으로 회원에게 안전하고 정확한 SNPE 운동 지도를 제공합니다.",
+      "ambassadors": "SNPE 홍보대사 강사",
+      "searchTitle": "SNPE 인증강사 검색",
+      "searchDesc": "이름, 지역, 등급으로 강사를 검색할 수 있습니다.",
+      "placeholder": "이름, 지역, 등급 입력",
+      "empty": "등록된 인증강사가 없습니다.",
+      "searchCount": "검색 결과 {{count}}명",
+      "total": "총 {{count}}명의 인증강사가 등록되어 있습니다.",
+      "noResults": "검색 결과가 없습니다.",
+      "region": "지역",
+      "intro": "소개"
+    }
+  },
+  "educationCoursePages": {
+    "apply": "신청하기",
+    "next": "다음 과정 보기",
+    "curriculumTitle": "교육 과정 구성",
+    "level1": {
+      "badge": "SNPE LEVEL 1",
+      "title": "내 몸을 이해하는 첫 번째 10주",
+      "intro": "SNPE의 기본 원리와 발, 골반, 척추, 호흡의 연결을 배우며 움직임의 기초를 다지는 과정입니다.",
+      "bullets": [
+        {
+          "title": "기본 원리 이해",
+          "desc": "몸의 정렬과 움직임 회복의 기본 개념을 배웁니다."
+        },
+        {
+          "title": "필수 동작 학습",
+          "desc": "SNPE 기본 동작과 도구 사용법을 익힙니다."
+        },
+        {
+          "title": "LEVEL 2 준비",
+          "desc": "다음 단계 학습을 위한 기초 역량을 쌓습니다."
+        }
+      ],
+      "details": [
+        {
+          "title": "Movement Foundation",
+          "desc": "SNPE 운동 원리와 기본 동작을 학습합니다."
+        },
+        {
+          "title": "Body Chain",
+          "desc": "발, 골반, 척추, 호흡, 움직임의 연결성을 이해합니다."
+        },
+        {
+          "title": "Self Recovery Practice",
+          "desc": "스스로 몸을 회복하는 움직임 루틴을 연습합니다."
+        }
+      ]
+    },
+    "level2": {
+      "badge": "SNPE LEVEL 2",
+      "title": "회원 지도를 위한 전문 지도 역량",
+      "intro": "SNPE 원리를 바탕으로 회원을 안전하고 효과적으로 지도하기 위한 티칭 역량을 기르는 과정입니다.",
+      "bullets": [
+        {
+          "title": "지도 역량",
+          "desc": "회원의 움직임을 관찰하고 지도하는 방법을 배웁니다."
+        },
+        {
+          "title": "티칭 방법",
+          "desc": "설명과 시범, 피드백을 체계적으로 연습합니다."
+        },
+        {
+          "title": "현장 적용",
+          "desc": "SNPE 수업 운영에 필요한 기본 실무를 익힙니다."
+        }
+      ],
+      "details": [
+        {
+          "title": "Theory",
+          "desc": "SNPE 이론, 해부학 기초, 지도 원리를 학습합니다."
+        },
+        {
+          "title": "Practice",
+          "desc": "회원 지도에 필요한 실습과 피드백을 진행합니다."
+        },
+        {
+          "title": "Field Training",
+          "desc": "현장 수업 운영과 케이스 대응을 연습합니다."
+        }
+      ]
+    },
+    "level3": {
+      "badge": "SNPE LEVEL 3",
+      "title": "심화 분석과 맞춤형 코칭 역량",
+      "intro": "개인의 움직임 특성과 체형을 분석하고 맞춤형 프로그램을 설계하는 전문 과정입니다.",
+      "bullets": [
+        {
+          "title": "심화 분석",
+          "desc": "개인의 자세와 움직임 패턴을 분석합니다."
+        },
+        {
+          "title": "프로그램 설계",
+          "desc": "목표와 상태에 맞는 운동 방향을 구성합니다."
+        },
+        {
+          "title": "전문 코칭",
+          "desc": "보다 깊이 있는 지도와 피드백 역량을 강화합니다."
+        }
+      ],
+      "details": [
+        {
+          "title": "Advanced Assessment",
+          "desc": "체형과 움직임을 심층적으로 평가합니다."
+        },
+        {
+          "title": "Program Design",
+          "desc": "개인별 회복 목표에 맞는 프로그램을 설계합니다."
+        },
+        {
+          "title": "Case Study",
+          "desc": "다양한 사례를 통해 실전 적용 능력을 높입니다."
+        }
+      ]
+    },
+    "master": {
+      "badge": "MASTER COURSE",
+      "title": "SNPE 교육과 연구를 이끄는 최고 전문 과정",
+      "intro": "SNPE 철학, 움직임 과학, 교육 설계, 연구 역량을 바탕으로 전문 교육자를 양성하는 최고 단계 과정입니다.",
+      "bullets": [
+        {
+          "title": "교육 리더십",
+          "desc": "전문 교육자로서 필요한 교육 역량을 강화합니다."
+        },
+        {
+          "title": "연구 및 분석",
+          "desc": "SNPE 이론과 움직임 과학을 더 깊이 연구합니다."
+        },
+        {
+          "title": "글로벌 역량",
+          "desc": "국내외 교육 활동을 위한 전문성을 확장합니다."
+        }
+      ],
+      "details": [
+        {
+          "title": "Movement Science",
+          "desc": "SNPE 움직임 원리를 과학적으로 분석합니다."
+        },
+        {
+          "title": "Instructor Training",
+          "desc": "지도사 교육을 설계하고 운영하는 능력을 기릅니다."
+        },
+        {
+          "title": "Research & Global Practice",
+          "desc": "연구, 교육, 글로벌 활동 역량을 함께 강화합니다."
+        }
+      ]
+    }
+  },
+  "translatedInquiry": {
+    "thanksSub": "문의가 접수되었습니다.",
+    "submittedTitle": "문의가 접수되었습니다.",
+    "submittedBody": "담당자가 확인 후 빠르게 연락드리겠습니다. 감사합니다.",
+    "writeAgain": "새 문의 작성",
+    "error": "문의 접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+    "submitting": "접수 중...",
+    "organization": "회사/기관명",
+    "manager": "담당자명",
+    "phone": "연락처",
+    "email": "이메일",
+    "preferredDate": "희망 일정",
+    "participants": "예상 인원",
+    "address": "진행 장소",
+    "message": "문의 내용",
+    "agree": "개인정보 수집 및 이용에 동의합니다.",
+    "model": "운영 모델",
+    "select": "선택하세요",
+    "name": "이름",
+    "certLevel": "SNPE 자격 단계",
+    "region": "희망 지역",
+    "hasSpace": "개설 입지(상가) 보유 여부",
+    "timing": "개설 희망 시기",
+    "corporate": {
+      "title": "기업·기관 프로그램",
+      "subtitle": "조직의 건강한 움직임을 위한 SNPE 웰니스 프로그램",
+      "heading": "기업·기관 프로그램 문의",
+      "desc": "조직의 목적과 환경에 맞는 SNPE 프로그램을 제안해드립니다.",
+      "submit": "기업·기관 프로그램 문의하기"
+    },
+    "franchise": {
+      "title": "가맹·인증 안내",
+      "subtitle": "SNPE 전문센터와 STUDIO 운영 문의",
+      "heading": "운영 문의 작성",
+      "desc": "운영 희망 지역과 조건을 남겨주시면 안내드리겠습니다.",
+      "submit": "운영 문의 보내기"
+    },
+    "venueType": "진행 장소 유형",
+    "requestType": "신청 유형",
+    "budget": "예산 범위",
+    "venueOptions": {
+      "visit": "방문 출강",
+      "center": "센터 내 진행",
+      "online": "온라인 진행"
+    },
+    "requestOptions": {
+      "once": "1회 특강",
+      "regular": "정기 프로그램",
+      "wellness": "임직원 웰니스 프로그램",
+      "other": "기타"
+    }
+  },
+  "historyPage": {
+    "hero": {
+      "title": "Built on Self Recovery.\nEvolving Through Movement Science.",
+      "desc1": "SNPE는 Self Recovery 철학을 바탕으로 자세, 움직임, 도구, 교육, 웰니스 영역으로 확장해 온 Movement Wellness System입니다.",
+      "desc2": "초기 척추 중심의 움직임 회복에서 출발해 현재는 발과 골반, 호흡, 움직임 체인과 AI 기반 분석까지 연결하는 Self Recovery Wellness Platform으로 발전하고 있습니다."
+    },
+    "labels": {
+      "viewDetails": "자세히 보기",
+      "imageAlt": "역사 이미지"
+    },
+    "eras": [
+      {
+        "id": "snpe-1",
+        "badge": "SNPE 1.0",
+        "period": "2003 - 2012",
+        "title": "Self Recovery의 시작",
+        "summary": "Self Recovery 철학을 중심으로 SNPE의 기초가 형성된 시기입니다. 스스로 몸을 이해하고 바른 움직임을 반복하며 회복하는 원리가 체계화되었습니다.",
+        "evolution": [
+          "Self Recovery 철학 정립",
+          "바른 자세와 움직임 원리 연구",
+          "자세교정과 운동치료 이론 접목",
+          "척추 중심의 회복 운동 체계화",
+          "NP Technique 기반 움직임 원리 정립"
+        ],
+        "milestones": [
+          {
+            "year": "2003",
+            "event": "바른자세 연구를 통한 SNPE 기초 형성"
+          },
+          {
+            "year": "2007",
+            "event": "SNPE 운동 원리 및 도구 개발"
+          },
+          {
+            "year": "2010",
+            "event": "초기 SNPE 교육 과정 운영"
+          }
+        ],
+        "tools": [
+          "바른자세벨트",
+          "웨이브베개",
+          "도자기볼",
+          "초기 교정 도구"
+        ]
+      },
+      {
+        "id": "snpe-2",
+        "badge": "SNPE 2.0",
+        "period": "2013 - 2022",
+        "title": "Expansion & Systemization",
+        "book": {
+          "title": "SNPE 바른자세 척추운동",
+          "caption": "2017 출간"
+        },
+        "summary": "센터, 교육, 도구, 콘텐츠가 본격적으로 확장된 시기입니다. SNPE는 개인 운동법을 넘어 교육 과정, 앱, 전문센터, 지도자 양성 시스템으로 발전했습니다.",
+        "evolution": [
+          "전문센터 네트워크 확대",
+          "지도자 교육 체계화",
+          "도구 및 프로그램 라인업 확장",
+          "SNPE 앱과 체형분석 시스템 도입",
+          "교육 콘텐츠와 출판물 기반 확립"
+        ],
+        "academic": [
+          "대학 및 기관 교육 연계",
+          "석·박사급 전문 강사진 참여",
+          "연구와 현장 교육 기반 강화"
+        ],
+        "milestones": [
+          {
+            "year": "2013",
+            "event": "전문센터 네트워크와 SNPE 교육 확장"
+          },
+          {
+            "year": "2015",
+            "event": "PIC SNPE 프로그램 운영"
+          },
+          {
+            "year": "2016",
+            "event": "SNPE 바른자세 App 출시"
+          },
+          {
+            "year": "2017",
+            "event": "SNPE 바른자세 척추운동 출간"
+          },
+          {
+            "year": "2020",
+            "event": "온라인 교육과 디지털 콘텐츠 확대"
+          }
+        ],
+        "tools": [
+          "바른자세벨트, 웨이브베개",
+          "다양한 운동 도구",
+          "체형분석 앱과 시스템",
+          "교육 콘텐츠",
+          "센터 운영 시스템"
+        ]
+      },
+      {
+        "id": "snpe-3",
+        "badge": "SNPE 3.0",
+        "period": "2023 -",
+        "title": "Technology, Data & Global Vision",
+        "summary": "Movement Science, 데이터, AI 기술을 연결해 더 정교하고 개인화된 움직임 회복 환경을 만드는 단계입니다. SNPE는 글로벌 교육 및 디지털 헬스케어와 연결되는 Self Recovery Wellness Platform으로 확장되고 있습니다.",
+        "evolution": [
+          "AI 기반 체형 및 움직임 분석",
+          "개인 맞춤 운동 추천 고도화",
+          "디지털 교육 콘텐츠 강화",
+          "글로벌 교육 시스템 확장",
+          "웰니스와 헬스케어 연계 강화",
+          "움직임 과학 및 데이터 연구 확대"
+        ],
+        "milestones": [
+          {
+            "year": "2024",
+            "event": "CHA University 연계 SNPE 교육 및 연구 확대"
+          }
+        ],
+        "tools": [
+          "AI 분석 솔루션",
+          "디지털 교육 콘텐츠",
+          "데이터 기반 프로그램",
+          "AI 움직임 분석 시스템"
+        ],
+        "future": [
+          "Personalized Movement Solution 개발",
+          "AI 기반 SNPE App 및 데이터 플랫폼 고도화",
+          "Digital Healthcare 콘텐츠 확장",
+          "Wellness, Recovery, Lifestyle 통합 프로그램",
+          "글로벌 교육 및 콘텐츠 플랫폼 구축",
+          "움직임 과학과 웰니스 연구 확대"
+        ],
+        "global": [
+          {
+            "region": "USA",
+            "label": "미국"
+          },
+          {
+            "region": "Southeast Asia",
+            "label": "동남아시아"
+          },
+          {
+            "region": "Japan",
+            "label": "일본"
+          }
+        ]
+      }
+    ],
+    "vision": {
+      "title": "미래의 Self Recovery Wellness System을 향해.",
+      "desc": "SNPE는 표준화된 운동 브랜드를 넘어 움직임 과학과 기술을 연결합니다. 앞으로도 사람들이 자신의 몸을 이해하고 회복할 수 있도록 돕는 글로벌 움직임 시스템으로 성장해갑니다."
+    }
+  },
+  "brandAssetsPage": {
+    "bi": {
+      "title": "BI 소개",
+      "desc": "SNPE의 브랜드 아이덴티티를 구성하는 시각 요소는 브랜드 가이드에 따라 정확하게 사용되어야 합니다.",
+      "logoDesc": "SNPE 로고는 대표 움직임과 척추 곡선을 시각화하여 Self Natural Posture Exercise의 핵심 가치를 표현합니다.",
+      "colorDesc": "민트 컬러는 SNPE 움직임이 지향하는 안정감, 회복, 신뢰의 이미지를 담고 있습니다."
+    },
+    "ip": {
+      "title": "SNPE 등록 상표",
+      "desc": "SNPE 관련 상표는 공식적으로 등록되어 법적으로 보호받고 있습니다.",
+      "registrationNo": "등록번호",
+      "patentsTitle": "특허 및 인증",
+      "patentsDesc": "SNPE는 운동 방법, 도구 구조, 디자인 등 144건 이상의 지식재산권을 보유하고 있습니다."
+    },
+    "guidelines": {
+      "title": "SNPE 상표 사용 가이드라인",
+      "desc": "SNPE 브랜드 가치와 공식 인증강사 및 파트너의 권리를 보호하기 위한 사용 기준입니다."
+    },
+    "rules": [
+      {
+        "title": "온라인 무단 홍보 및 판매 금지",
+        "body": "본사 승인 없이 SNPE 명칭을 사용한 온라인 강의, 광고, 공동구매, 제품 판매를 할 수 없습니다."
+      },
+      {
+        "title": "오프라인 시설 무단 사용 금지",
+        "body": "공식 계약 없이 간판, 홍보물, 인테리어 등에 SNPE 상표를 사용할 수 없습니다."
+      },
+      {
+        "title": "상표 적용 상품 무단 제작 금지",
+        "body": "SNPE 상표가 각인되거나 인쇄된 상품의 제작, 유통, 판매는 사전 승인이 필요합니다."
+      },
+      {
+        "title": "공식 채널 사칭 금지",
+        "body": "SNPE 본사, 공식 인증, 전문센터로 오인될 수 있는 계정명이나 표현은 사용할 수 없습니다."
+      }
+    ]
+  },
+  "researchPage": {
+    "tabs": {
+      "all": "전체",
+      "domestic": "국내",
+      "overseas": "해외"
+    },
+    "slideAlt": "SNPE 연구 {{number}}",
+    "total": "총 {{count}}편",
+    "year": "{{year}}년",
+    "openPaper": "논문 보기"
+  },
+  "registerPage": {
+    "title": "회원가입",
+    "name": "이름",
+    "email": "이메일",
+    "password": "비밀번호",
+    "passwordConfirm": "비밀번호 확인",
+    "phone": "연락처",
+    "passwordPlaceholder": "8자 이상 입력",
+    "agree": "이용약관 및 개인정보처리방침에 동의합니다. (필수)",
+    "submit": "회원가입",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "login": "로그인",
+    "passwordMismatch": "비밀번호가 일치하지 않습니다.",
+    "preparing": "회원가입 기능은 현재 준비 중입니다."
+  },
+  "masterPage": {
+    "intro": {
+      "title": "마스터강사란?",
+      "body": [
+        "SNPE 마스터강사는 SNPE의 철학과 움직임 원리를 깊이 이해하고, 지도사 교육 및 전문 교육을 수행할 수 있는 최고 단계의 전문 교육자입니다. 국내외 대학, 본사 지도사 과정, 전문 교육 프로그램에서 SNPE를 교육할 수 있는 교수급 교육 인재를 목표로 하며, 연구·교육·실전 지도 역량을 함께 갖춘 전문가 과정입니다.",
+        "SNPE MASTER COURSE는 LEVEL 3 이후 더 깊은 전문성과 교육 역량을 쌓고자 하는 지도자를 위한 최고 심화 과정입니다. 기능해부학, 신경해부학, 웰니스 기반 운동 응용, 고급 티칭 스킬 및 실전 워크숍까지 폭넓게 다루며, SNPE 철학과 이론을 보다 전문적으로 연구하고 교육할 수 있는 역량을 강화합니다.",
+        "차의과학대학교·국민대학교 출신 석·박사급 전문 강사진과 국내외 대학 교수진이 직접 교육하며, 단순한 운동 지도자를 넘어 교육·연구·글로벌 웰니스 산업을 이끌 수 있는 전문 인재 양성을 목표로 합니다."
+      ]
+    },
+    "learn": {
+      "title": "무엇을 배우나요",
+      "items": [
+        "SNPE 운동 원리에 대한 해부학·신경과학·운동생리학 기반 분석",
+        "SNPE 동작 및 도구 활용에 대한 운동과학 기반 심화 트레이닝",
+        "SNPE 지도사 과정 운영을 위한 교육 기획·강의 설계 및 실전 티칭",
+        "다양한 케이스 스터디를 통한 SNPE 사례 연구 및 실전 적용",
+        "SNPE 지도사 과정 운영을 위한 교육 설계 및 티칭 교수법 심화",
+        "글로벌 SNPE 교육 활동과 해외 특강 기회 및 국제 교육 역량 강화"
+      ]
+    },
+    "vision": {
+      "title": "미래 교육 시스템과 글로벌 웰니스를 이끄는 전문 교육자",
+      "body": [
+        "SNPE MASTER COURSE는 교육·연구·현장 경험을 기반으로 SNPE의 미래 교육 시스템과 글로벌 웰니스 산업을 함께 이끌어갈 전문 교육자를 양성합니다.",
+        "마스터강사는 향후 SNPE LEVEL 2 · LEVEL 3 지도사 과정의 전문 교육강사로 활동할 수 있으며, 국내외 대학 및 대학원 과정, 학술·교육 분야, 웰니스·헬스케어 산업 전반에서 SNPE를 전문적으로 교육하고 연구하는 핵심 인재로 성장하게 됩니다."
+      ],
+      "pillars": [
+        {
+          "title": "Movement Science",
+          "desc": "움직임 과학 기반 분석"
+        },
+        {
+          "title": "Wellness",
+          "desc": "웰니스 기반 운동 적용"
+        },
+        {
+          "title": "Healthcare",
+          "desc": "헬스케어 연계 관리"
+        },
+        {
+          "title": "Data-Driven Program",
+          "desc": "데이터 기반 프로그램 개발"
+        }
+      ]
+    },
+    "grading": {
+      "title": "마스터 등급 체계",
+      "items": [
+        {
+          "tier": "BRONZE MASTER",
+          "label": "지원 자격",
+          "requirements": [
+            "SNPE LEVEL 3 이수자",
+            "SNPE 회원 지도 경력 5년 이상",
+            "SNPE 전공 석사 학위 이상 우대"
+          ],
+          "desc": "조건을 충족한 지도자가 MASTER COURSE를 이수하여 취득하는 첫 단계의 마스터강사 과정입니다."
+        },
+        {
+          "tier": "SILVER MASTER",
+          "label": "승급 기준",
+          "requirements": [
+            "BRONZE MASTER 취득 후",
+            "SNPE 지도사 교육 및 국내외 특강 경력 5년 이상",
+            "SILVER MASTER 승급 보수교육 이수"
+          ],
+          "desc": "지도사 양성과 교육 시스템 운영 경험을 기반으로 더 심화된 교육 역량과 현장 경험을 갖춘 전문 교육자 단계입니다."
+        },
+        {
+          "tier": "GOLD MASTER",
+          "label": "승급 기준",
+          "requirements": [
+            "SILVER MASTER 취득 후",
+            "박사 학위 우대",
+            "SNPE 연구 경력 보유자",
+            "SNPE 지도사 교육 및 전문 교육강사 활동 경력 10년 이상",
+            "GOLD MASTER 승급 보수교육 이수"
+          ],
+          "desc": "SNPE 교육 철학과 시스템을 깊이 이해하고 교육·연구·글로벌 활동 전반을 이끄는 최고 단계의 마스터강사입니다."
+        }
+      ]
+    },
+    "cta": {
+      "title": "SNPE의 미래를 함께 이끌 마스터강사",
+      "desc": "교육·연구·글로벌 웰니스 산업을 연결하여 보다 전문적이고 미래지향적인 SNPE 교육 생태계를 구축해 나갑니다.",
+      "button": "과정 문의하기"
+    }
+  },
+  "assessmentPage": {
+    "intro": "SNPE는 사용자의 기록과 전문가 평가를 연결하여 자신의 몸을 객관적으로 이해하고, 올바른 움직임을 통해 스스로 회복할 수 있도록 돕는 자기회복 시스템입니다.",
+    "self": {
+      "title": "셀프 체형 평가",
+      "imageAlt": "SNPE 셀프 체형 평가 화면",
+      "desc1": "집에서는 SNPE 앱을 사용하여 정면, 측면, 후면 체형 촬영과 기본 움직임 평가를 스스로 진행할 수 있습니다. 체형과 움직임의 변화를 기록하고 비교하며 자신의 몸을 이해하고 관리하는 첫 단계가 됩니다.",
+      "itemTitle": "평가 항목",
+      "items": [
+        "기본 자세 평가",
+        "SNPE 운동 자세 평가",
+        "척추측만 및 얼굴 비대칭",
+        "고관절 변화와 다리 정렬",
+        "개인 맞춤 운동 추천"
+      ],
+      "desc2": "SNPE 앱은 자신의 몸 상태를 이해하고 스스로 회복(Self Recovery)을 시작할 수 있도록 돕는 첫 번째 평가 도구입니다."
+    },
+    "pro": {
+      "title": "전문 체형·움직임 평가",
+      "desc1": "보다 전문적인 평가는 SNPE 전문센터와 인증강사를 통해 진행합니다. SNPE 전문센터에서는 평가 시스템을 활용하여 신체 정렬과 움직임 상태를 입체적으로 분석합니다.",
+      "systemTitle": "평가 시스템",
+      "analysisTitle": "분석 항목",
+      "systems": [
+        "SNPE 체형 및 움직임 평가 시스템",
+        "SNPE 발 평가 보드",
+        "Exbody 체성분 분석",
+        "기능적 움직임 평가",
+        "SNPE 고유 움직임 패턴 평가"
+      ],
+      "analysis": [
+        "신체 정렬",
+        "발 기능",
+        "균형 능력",
+        "움직임 패턴",
+        "보상 움직임",
+        "좌우 비대칭",
+        "기능"
+      ],
+      "desc2": "정적 체형뿐 아니라 발 기능, 균형 능력, 움직임 보상 패턴, 좌우 비대칭 등을 종합적으로 분석하여 개인별 운동 방향과 회복 과정을 설계합니다. 이를 통해 현재 상태를 더 정확하게 이해하고 효율적인 회복 방향을 설정할 수 있습니다."
+    },
+    "closing": {
+      "title": "스스로 시작하고, 전문가와 함께 발전하세요",
+      "kicker": "Start with Self Assessment. Advance with Professional Guidance.",
+      "body": "기록하고, 이해하고, 움직이고, 회복하는 과정을 반복하며 건강한 자세와 균형 있는 몸을 만들어가는 지속 가능한 건강 습관으로 발전시켜 나갑니다."
+    }
+  },
+  "experienceCasePage": {
+    "heroTitle": "SNPE를 직접 경험한 사람들의 이야기",
+    "heroDesc": "움직임을 시작한 뒤 변화를 느낀 사람들, 생활 속 통증에서 자유로워진 사람들.\nSNPE 운동을 통해 몸이 회복되는 경험은 사람마다 다르지만 변화의 흐름은 닮아 있습니다.",
+    "highlights": [
+      {
+        "title": "체형의 변화",
+        "desc": "굳어 있던 근육이 풀리고 골반과 척추 정렬이 회복되는 과정을 직접 느낄 수 있습니다."
+      },
+      {
+        "title": "통증의 완화",
+        "desc": "목, 어깨, 허리, 골반의 불편감 등 일상 속 만성 통증이 줄어드는 변화를 경험합니다."
+      },
+      {
+        "title": "몸의 균형",
+        "desc": "SNPE 동작과 도구를 활용해 좌우 균형과 코어 안정성을 높여갑니다."
+      }
+    ],
+    "periodLabel": "수련기간",
+    "readMore": "자세히",
+    "empty": "실제 체험사례 콘텐츠를 준비 중입니다. 곧 다양한 회복 이야기로 찾아뵙겠습니다.",
+    "ctaTitle": "몸이 달라지는 경험, 직접 느껴보고 싶다면",
+    "ctaDesc": "가까운 SNPE 전문센터에서 체험해보세요.",
+    "ctaButton": "전문센터 찾기",
+    "noDetail": "상세 내용이 없습니다."
+  },
+  "programsPage": {
+    "tabs": {
+      "snpe": "SNPE PROGRAM",
+      "official": "SNPE OFFICIAL PROGRAM"
+    },
+    "snpe": {
+      "introTitle": "통합적으로 변화시키는 움직임 프로그램",
+      "introBody": [
+        "목, 어깨, 허리, 골반의 반복되는 불편감부터 체형 불균형, 얼굴 비대칭, 어깨 비대칭, 휜다리, 척추측만까지. SNPE는 몸의 정렬과 움직임 패턴을 바탕으로 바른 자세와 균형 있는 움직임을 만들어가는 프로그램입니다.",
+        "단순 운동이 아니라 몸의 사용 습관과 움직임 패턴을 관리하여 라인, 자세, 움직임, 컨디션까지 통합적으로 변화시키는 것을 목표로 합니다."
+      ],
+      "categories": [
+        {
+          "no": "01",
+          "en": "Body Alignment Programs",
+          "title": "바디 밸런스 프로그램",
+          "desc": "체형 불균형과 자세 정렬을 위한 프로그램입니다. 목, 어깨, 허리, 골반, 다리, 발까지 전신의 움직임 패턴을 분석하고 바른 정렬과 라인 회복을 돕습니다.",
+          "items": [
+            "거북목·일자목 밸런스",
+            "어깨 비대칭 밸런스",
+            "허리·골반 정렬",
+            "골반 라인 케어",
+            "휜다리·오다리 밸런스",
+            "척추측만 밸런스 케어",
+            "얼굴 비대칭 밸런스",
+            "발 정렬 및 보행 밸런스",
+            "체형 분석 & 자세 교정 프로그램"
+          ]
+        },
+        {
+          "no": "02",
+          "en": "Self Recovery Care",
+          "title": "셀프 리커버리 케어",
+          "desc": "일상 속 반복되는 긴장과 피로를 스스로 관리하고 회복하기 위한 프로그램입니다. SNPE 도구와 움직임 루틴을 활용해 몸의 긴장을 완화하고 회복 습관을 만들 수 있도록 구성합니다.",
+          "items": [
+            "목·어깨 Recovery",
+            "허리·골반 Recovery",
+            "하체 순환 케어",
+            "근막 이완 & Release",
+            "피로 회복 스트레칭",
+            "움직임 컨디셔닝",
+            "림프 순환 케어",
+            "호흡 & Relaxation",
+            "Recovery Flow"
+          ]
+        }
+      ],
+      "lifecycle": {
+        "title": "라이프 밸런스 프로그램",
+        "desc": "SNPE는 연령과 삶의 단계에 따라 달라지는 신체 특성과 움직임 패턴을 고려하여 각 시기에 필요한 자세, 움직임, 균형 회복 프로그램을 제공합니다. 건강한 움직임 습관은 특정 시기에만 필요한 것이 아니라 삶의 전 과정에서 지속적으로 관리되어야 하는 중요한 자산입니다.",
+        "note": "나에게 맞는 프로그램은 연령, 생활습관, 몸 상태에 따라 달라질 수 있습니다. 자세한 상담은 가까운 SNPE 전문센터에서 안내받을 수 있습니다.",
+        "items": [
+          {
+            "en": "Kids & Growth",
+            "title": "성장기 밸런스 프로그램",
+            "desc": "올바른 자세 습관과 균형 있는 성장 환경을 위한 키즈·청소년 프로그램"
+          },
+          {
+            "en": "Student Balance",
+            "title": "학생 자세 관리 프로그램",
+            "desc": "장시간 앉아 있는 학습 환경 속에서 자세 균형과 건강한 움직임 습관을 돕는 프로그램"
+          },
+          {
+            "en": "Adult Wellness",
+            "title": "성인 움직임 밸런스 프로그램",
+            "desc": "반복되는 자세 습관과 신체 불균형을 관리하며 건강한 움직임을 만들어가는 프로그램"
+          },
+          {
+            "en": "Prenatal & Postnatal Care",
+            "title": "산전·산후 밸런스 프로그램",
+            "desc": "임신과 출산 과정에서 변화하는 몸의 균형과 움직임 회복을 위한 프로그램"
+          },
+          {
+            "en": "Senior Balance",
+            "title": "시니어 밸런스 프로그램",
+            "desc": "건강한 노화와 안정적인 일상생활을 위한 움직임, 균형, 기능 관리 프로그램"
+          }
+        ]
+      }
+    },
+    "official": {
+      "introTitle": "SNPE 전문센터 공식 프로그램",
+      "introBody": [
+        "SNPE 공식 프로그램은 과학적인 평가와 표준화된 운동 프로토콜을 기반으로 개발된 SNPE의 공식 교육·운동 시스템입니다. SNPE 전문센터에서는 SNPE 자세평가 프로토콜을 적용하여 회원의 체형과 움직임을 정확하게 평가하고, 생활 습관 분석을 기반으로 개인의 목적과 상태에 맞는 최적의 운동 프로그램을 제공합니다.",
+        "프로그램은 START · RECOVERY · BODY LINE · CONDITIONING의 4개 카테고리, 총 10개의 공식 프로그램으로 구성되어 있으며, 기초부터 회복, 체형 개선, 컨디셔닝까지 단계적으로 건강한 몸을 만들어가는 Self Recovery System을 경험할 수 있습니다."
+      ],
+      "systemTitle": "SNPE Official Program System",
+      "systemSubtitle": "4개 카테고리 · 10개 전문 프로그램",
+      "detailTitle": "프로그램 상세 안내",
+      "targetLabel": "대상",
+      "effectLabel": "효과",
+      "typeTitle": "프로그램 진행 방식",
+      "recommendationLabel": "추천 대상",
+      "findCenter": "SNPE 전문센터 찾기",
+      "categories": [
+        {
+          "no": "1",
+          "en": "START",
+          "title": "기초",
+          "subtitle": "SNPE Basic",
+          "programs": [
+            {
+              "name": "SNPE 베이직",
+              "en": "SNPE Basic",
+              "target": "SNPE를 처음 시작하는 분, 운동이 처음이거나 바른 자세의 기본을 배우고 싶은 분",
+              "effect": "SNPE의 핵심 원리를 이해하고 몸의 정렬을 바로잡는 기초를 만듭니다. 올바른 움직임을 익혀 이후 프로그램의 효과를 더욱 높일 수 있습니다.",
+              "tags": [
+                "바른자세",
+                "자세교정",
+                "체형교정",
+                "운동초보",
+                "자세습관"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "2",
+          "en": "RECOVERY",
+          "title": "회복",
+          "subtitle": "통증·불편감 개선",
+          "programs": [
+            {
+              "name": "목·어깨 회복",
+              "en": "Neck & Shoulder Recovery",
+              "target": "목 통증, 어깨 결림, 거북목, 라운드숄더가 고민인 분",
+              "effect": "긴장된 목과 어깨 근육을 부드럽게 이완하고 올바른 상체 정렬을 회복합니다. 일상 속 뻐근함을 줄이고 편안한 움직임을 만듭니다.",
+              "tags": [
+                "목통증",
+                "거북목",
+                "라운드숄더",
+                "어깨결림",
+                "일자목"
+              ]
+            },
+            {
+              "name": "허리·골반 회복",
+              "en": "Low Back & Pelvis Recovery",
+              "target": "허리 통증, 골반 불균형, 오래 앉아 생활하는 분",
+              "effect": "골반과 허리의 균형을 회복하여 허리 부담을 줄이고 안정적인 자세를 만듭니다. 재발하기 쉬운 허리 불편감 예방에도 도움을 줍니다.",
+              "tags": [
+                "허리통증",
+                "골반교정",
+                "허리디스크",
+                "골반불균형",
+                "허리불편감"
+              ]
+            },
+            {
+              "name": "발·하체 회복",
+              "en": "Foot & Lower Body Recovery",
+              "target": "발이 쉽게 피로하거나 오래 서 있는 분, 하체 순환과 자세를 개선하고 싶은 분",
+              "effect": "발의 아치와 기능을 회복하여 편안한 보행을 돕고, 하체의 균형과 정렬을 바로잡아 전신 자세의 기초를 만듭니다.",
+              "tags": [
+                "족저근막염",
+                "평발",
+                "하체부종",
+                "발피로",
+                "다리붓기"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "3",
+          "en": "BODY LINE",
+          "title": "바디라인",
+          "subtitle": "체형 라인·불균형 개선",
+          "programs": [
+            {
+              "name": "얼굴·어깨 라인",
+              "en": "Face & Shoulder Line",
+              "target": "얼굴 비대칭, 굽은 어깨, 상체 라인이 고민인 분",
+              "effect": "목·어깨 정렬을 바로잡아 갸름한 얼굴선과 슬림한 어깨라인을 만듭니다. 얼굴과 어깨 주변 순환을 촉진해 붓기를 줄이고 생기 있는 인상을 완성합니다.",
+              "tags": [
+                "얼굴비대칭",
+                "굽은어깨",
+                "목각도",
+                "어깨라인",
+                "작은얼굴"
+              ]
+            },
+            {
+              "name": "허리·골반 라인",
+              "en": "Waist & Pelvic Line",
+              "target": "허리와 골반 라인을 개선하고 싶은 분",
+              "effect": "코어를 활성화하고 골반 정렬을 회복하여 슬림하고 탄탄한 허리 라인을 만들어 드립니다. 체형의 좌우 균형을 맞춰 자연스럽고 안정적인 바디라인을 완성합니다.",
+              "tags": [
+                "골반교정",
+                "허리라인",
+                "코어운동",
+                "복부라인",
+                "자세교정"
+              ]
+            },
+            {
+              "name": "다리 라인",
+              "en": "Leg Line",
+              "target": "O다리, X다리, 하체 부종이 고민인 분",
+              "effect": "하체 정렬과 순환을 개선하여 균형 잡힌 다리 라인과 가벼운 하체를 만듭니다. 다리 전체의 부담을 고르게 분산시켜 걸음걸이와 보행 균형을 개선합니다.",
+              "tags": [
+                "O다리",
+                "X다리",
+                "다리라인",
+                "하체부종",
+                "종아리알"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "4",
+          "en": "CONDITIONING",
+          "title": "컨디셔닝",
+          "subtitle": "체력 강화·활력 충전",
+          "programs": [
+            {
+              "name": "SNPE 플로우",
+              "en": "SNPE Flow",
+              "target": "즐겁게 움직이며 유연성과 체력을 함께 기르고 싶은 분",
+              "effect": "리듬감 있는 전신 움직임으로 유연성, 균형감각, 심폐지구력을 함께 향상시키며 활력 있는 몸을 만듭니다. 즐겁게 움직이는 과정에서 스트레스를 해소하고 긍정적인 운동 습관을 만듭니다.",
+              "tags": [
+                "유산소운동",
+                "다이어트운동",
+                "전신운동",
+                "유연성",
+                "체력향상"
+              ]
+            },
+            {
+              "name": "SNPE 핏",
+              "en": "SNPE Fit",
+              "target": "탄탄한 근력과 균형 잡힌 바디라인을 만들고 싶은 분",
+              "effect": "전신 근력을 강화하여 균형 잡힌 몸과 탄탄한 바디라인을 만듭니다. 기초대사량을 높여 요요 없는 건강한 체형 관리를 돕습니다.",
+              "tags": [
+                "근력운동",
+                "코어운동",
+                "바디라인",
+                "탄력있는몸",
+                "체형관리"
+              ]
+            },
+            {
+              "name": "바디 릴리스",
+              "en": "Body Release",
+              "target": "피로가 쌓이고 몸이 무겁게 느껴지는 분",
+              "effect": "전신의 긴장을 부드럽게 이완하고 순환을 촉진하여 몸의 피로를 풀고 편안한 컨디션을 회복합니다. 숙면과 회복력을 높여 다음날의 컨디션까지 긍정적인 영향을 줍니다.",
+              "tags": [
+                "근막이완",
+                "피로회복",
+                "혈액순환",
+                "전신이완",
+                "힐링운동"
+              ]
+            }
+          ]
+        }
+      ],
+      "types": [
+        {
+          "en": "Group Lesson",
+          "title": "그룹레슨",
+          "subtitle": "함께 성장하는 소수정예 그룹 프로그램",
+          "desc": "SNPE의 움직임 원리와 도구 시스템을 기반으로 바른 자세를 회복하고, 몸의 기능과 컨디션을 단계적으로 향상시키는 프로그램입니다. 함께 운동하며 동기부여를 얻고, 스스로 건강한 움직임 습관을 만들어갑니다.",
+          "targets": [
+            "자세를 꾸준히 관리하고 예방하고 싶은 분",
+            "함께 운동하며 동기부여를 얻고 싶은 분",
+            "건강한 운동 습관을 만들고 싶은 분",
+            "바른 자세와 신체 기능을 향상시키고 싶은 분"
+          ]
+        },
+        {
+          "en": "Personal Lesson",
+          "title": "개인레슨",
+          "subtitle": "1:1 맞춤 솔루션",
+          "desc": "체형 분석과 움직임 평가를 바탕으로 개인별 맞춤 운동 프로그램을 설계합니다. 통증 관리부터 체형 교정, 바디라인, 컨디셔닝까지 몸의 상태에 맞춰 단계적으로 변화를 만들어 드리며, 스스로 건강한 몸을 유지할 수 있도록 돕습니다.",
+          "targets": [
+            "목·어깨·허리·골반의 불편감을 관리하고 싶은 분",
+            "체형과 바디라인을 함께 개선하고 싶은 분",
+            "얼굴 비대칭, 어깨 비대칭, 휜다리 등을 운동으로 관리하고 싶은 분",
+            "산전·산후 회복 운동이 필요한 분",
+            "체중 감량과 바디 밸런스를 함께 관리하고 싶은 분",
+            "정밀 평가를 기반으로 맞춤 운동이 필요한 분"
+          ]
+        }
+      ]
+    }
+  },
+  "activityPage": {
+    "tabs": {
+      "activity": "활동소식",
+      "press": "언론보도"
+    },
+    "all": "전체",
+    "year": "{{year}}년",
+    "emptyActivity": "등록된 활동내역이 없습니다.",
+    "emptyPress": "등록된 언론보도가 없습니다.",
+    "separator": " · "
+  },
+  "loginPage": {
+    "title": "로그인",
+    "email": "이메일",
+    "password": "비밀번호",
+    "emailPlaceholder": "이메일 주소를 입력하세요",
+    "passwordPlaceholder": "비밀번호를 입력하세요",
+    "submit": "로그인",
+    "forgotPassword": "비밀번호 찾기",
+    "register": "회원가입",
+    "preparing": "로그인 기능은 현재 준비 중입니다."
+  }
+}

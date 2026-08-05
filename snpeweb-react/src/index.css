@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-snpe: #e4dcd5;
+  --color-snpe-light: #f3efec;
+  --color-snpe-dark: #7a6d62;
+  --color-snpe-darker: #5c4f44;
+  --color-snpe-hover: #d5cbc2;
+  --color-snpe-research: #eee8e3;
+  --color-snpe-accent: #6b5e53;
+  --color-snpe-accent-light: #8a7d72;
+
+  --color-mint: #6b5e53;
+  --color-mint-light: #8a7d72;
+  --color-mint-lighter: #f0ebe6;
+  --color-mint-dark: #5c4f44;
+  --color-mint-darker: #4a3e35;
+
+  --color-ink: #111111;
+  --color-ink-soft: #515151;
+  --color-tag-bg: #f0f1f4;
+  --color-tag-text: #757d86;
+
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', sans-serif;
+  --font-heading: 'Pretendard Variable', 'Pretendard', 'Helvetica Neue', sans-serif;
+
+  --breakpoint-sm: 544px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 921px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1440px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans bg-white antialiased;
+    color: #1f1f1f;
+  }
+  ::selection {
+    background-color: #e4dcd5;
+    color: #2f2621;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* RichTextEditor로 작성된 콘텐츠 렌더링 — 게시판형 */
+  .rt-content p { margin: 0.5em 0; }
+  .rt-content h1 { font-size: 1.875em; font-weight: 700; margin: 0.6em 0 0.4em; }
+  .rt-content h2 { font-size: 1.5em; font-weight: 700; margin: 0.6em 0 0.4em; }
+  .rt-content h3 { font-size: 1.25em; font-weight: 600; margin: 0.6em 0 0.4em; }
+  .rt-content h4 { font-size: 1.1em; font-weight: 600; margin: 0.6em 0 0.4em; }
+  .rt-content strong { font-weight: 700; }
+  .rt-content em { font-style: italic; }
+  .rt-content u { text-decoration: underline; }
+  .rt-content s { text-decoration: line-through; }
+  .rt-content ul, .rt-content ol { padding-left: 1.5em; margin: 0.5em 0; }
+  .rt-content ul { list-style: disc; }
+  .rt-content ol { list-style: decimal; }
+  .rt-content blockquote {
+    border-left: 3px solid #d1d5db;
+    padding-left: 1em;
+    color: #6b7280;
+    margin: 0.5em 0;
+  }
+  .rt-content a { color: #2563eb; text-decoration: underline; }
+  .rt-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  .rt-content img[data-align="left"]   { float: left;  margin-right: 1em; margin-bottom: 0.5em; }
+  .rt-content img[data-align="right"]  { float: right; margin-left: 1em;  margin-bottom: 0.5em; }
+  .rt-content img[data-align="center"] { display: block; margin: 1em auto; }
+  .rt-content img[data-align="inline"] { display: inline-block; margin: 0 0.3em; vertical-align: middle; }
+  .rt-content p::after { content: ''; display: block; clear: both; }
+}

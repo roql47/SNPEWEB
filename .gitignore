@@ -2,3 +2,33 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# Secrets / env
+.env
+.env.*
+*/.env
+*/.env.*
+
+# Figma dev artifacts
+_figma_*
+_fetch_*
+_parse_*
+_extract_*
+_inspect_*
+_ip_parsed*
+_run_*
+_check_*
+_commit_*
+_crop_*
+_detect_*
+_list_*
+_nodes_*
+_tmp_*
+_walk_*
+_git_*
+_drawing.txt
+_rich.txt
+snpeweb-react/public/images/figma/
+
+# Working xlsx / docs
+*.xlsx
