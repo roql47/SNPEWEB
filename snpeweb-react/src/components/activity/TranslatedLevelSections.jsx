@@ -247,184 +247,620 @@ const CONTENT = {
   },
   ja: {
     level1: {
-      eyebrow: 'SNPE LEVEL 1',
-      title: '身体の土台を10週間でつくり直す',
+      eyebrow: "SNPE LEVEL 1",
+      title: "自分の体の基準をつくり直す10週間",
       intro: [
-        'LEVEL 1は、足から骨盤、腰、背中、肩、首、全身の連動までを再接続する統合型ムーブメントプログラムです。',
-        '一時的な変化ではなく、安定したアライメントと繰り返せる動きの習慣を身体に覚えさせます。',
+        "足から始まり、骨盤・腰・背中・肩・首・全身まで",
+        "体全体を順番につなぎ直していく、10週間の統合ムーブメントプログラムです。",
+        "早い変化よりも、「元に戻らない変化」をつくること——それがLEVEL 1の始まりです。",
       ],
-      buttons: ['LEVEL 1 に申し込む', 'カカオで問い合わせ'],
-      whyTitle: 'なぜ良くなっても不調が戻るのか',
+      buttons: [
+        "お申し込み",
+        "KakaoTalkで相談",
+      ],
+      whyTitle: "なぜ、良くなってもまた戻ってしまうのでしょうか?",
       compare: [
         {
-          title: '繰り返されるパターン',
+          title: "繰り返されるパターン",
           bad: true,
-          body: '痛みやこわばりが戻る理由は、身体が同じ動きのパターンを使い続けるためです。問題は一部位だけではなく、全身のつながり方にあります。',
-          points: ['パターン中心の観察', '日常姿勢の認識', '全身のつながり'],
+          body: "腰が良くなると肩が痛み、肩が良くなると今度は首がつらくなる——そんな経験。問題は特定の部位そのものよりも、体が慣れ親しんだ動作パターンにあります。",
+          points: [
+            "パターン中心の観察",
+            "日常姿勢の認識",
+            "全身のつながり",
+          ],
         },
         {
-          title: 'SNPEのアプローチ',
-          body: 'SNPE LEVEL 1は、反復運動、感覚認知、セルフリカバリーを通じて身体の基本的な連動を回復します。',
-          points: ['足・骨盤・腰・背中・肩・首', '動きの習慣づくり', 'セルフリカバリーの土台'],
+          title: "SNPEのアプローチ",
+          bad: false,
+          body: "体はもともと、慣れたやり方へ戻ろうとします。SNPE LEVEL 1は、体全体のつながりの構造を学び直し、新しい動きの基準を体に定着させていくプロセスです。",
+          points: [
+            "足・骨盤・腰・背中・肩・首",
+            "動きの習慣づくり",
+            "セルフリカバリーの土台",
+          ],
         },
       ],
-      philosophyTitle: 'プログラム哲学',
-      philosophyQuote: '問題は痛む場所だけではありません。身体が覚えてしまった動き方です。',
-      philosophyBody:
-        'LEVEL 1は、反復、認識、動きの学習を軸にしたセルフリカバリープログラムです。自分のアライメントを感じ、より健康的な動きのパターンを再構築します。',
-      journeyTitle: '10週間の流れ',
+      philosophyTitle: "Program Philosophy",
+      philosophyQuote: "問題は「部位」ではなく、「体の使い方」です。",
+      philosophyBody: "治療を受けてもまた戻り、運動をしても慣れた姿勢へ帰ってしまう理由——体が、その使い方をすでに記憶しているからです。SNPE LEVEL 1は単なる運動プログラムではなく、反復・感覚の認識・動きの学習を通じて、体そのものが正しい動きを記憶するように設計された、Self Recoveryベースのプログラムです。",
+      journeyTitle: "10週間で、こう変わります",
       journey: [
-        ['1-4週', '足と下半身の土台', '足の感覚を回復し、下半身の連動と歩行パターンをつくります。'],
-        ['5-10週', '骨盤と腰', '骨盤バランス、股関節の可動性、体幹安定性を回復します。'],
-        ['11-15週', '背中と肩', '胸椎の可動性、肩の安定性、上半身の連動を高めます。'],
-        ['16-20週', '首と全身統合', '首の緊張を和らげ、全身を個別ルーティンとして統合します。'],
+        [
+          "第1~4回",
+          "足・下半身の土台",
+          "足のアーチ感覚の回復、足底筋膜と下半身チェーンの連結、歩行パターンの調整、足と骨盤のつながりの構築",
+        ],
+        [
+          "第5~10回",
+          "骨盤・腰",
+          "骨盤の前後傾の調整、左右バランスの回復、股関節の可動性アップ、中臀筋と体幹の安定化",
+        ],
+        [
+          "第11~15回",
+          "背中・肩",
+          "胸椎の可動性の回復、猫背パターンの改善、肩甲骨の安定化、肩・首のつながりの回復",
+        ],
+        [
+          "第16~20回",
+          "首・全身",
+          "頸椎の安定化、首の緊張の緩和、全身をつなぐルーティンの完成、パーソナルルーティンの整理",
+        ],
       ],
-      experienceTitle: '体験できる変化',
+      experienceTitle: "LEVEL 1で体験する変化",
       experience: [
-        ['緊張パターンの認識', '身体に残った緊張と姿勢の癖を認識します。'],
-        ['動きの改善', '腰、背中、肩、首のつながりを改善します。'],
-        ['習慣化', '日常でも続けられる動きの習慣をつくります。'],
+        [
+          "緊張パターンへの気づき",
+          "体の緊張パターンに気づき、歩行と姿勢の変化を自分で実感します。",
+        ],
+        [
+          "動きの改善",
+          "腰・肩・首の動きが改善され、体全体のつながりの感覚が戻ってきます。",
+        ],
+        [
+          "習慣づくり",
+          "正しい動きの習慣が身につき、日常の動きの効率が高まります。",
+        ],
       ],
-      recommendTitle: 'このような方におすすめ',
+      recommendTitle: "受講対象",
       recommend: [
-        '姿勢を整え、健康な身体の土台をつくりたい方。',
-        '腰、背中、肩、首の不快感が繰り返される方。',
-        '自分の身体を自分で管理する方法を学びたい方。',
-        'LEVEL 1後にSNPE指導者教育へ進みたい方。',
+        "姿勢を整え、健やかで品のある暮らしをつくりたい方",
+        "繰り返す腰・肩・首の痛みから抜け出したい方",
+        "運動と治療を繰り返しても、また不調が戻ってくる方",
+        "自分の体を自分でケアする方法を学びたい方",
+        "ウェルネスライフスタイルと正しい動きの習慣に関心のある方",
+        "SNPE指導者課程(LEVEL 2)や専門講師教育に関心のある方",
       ],
       schedule: [
-        ['opening', '開講', '6月24日開講 / 10週間コース'],
-        ['time', '授業時間', '平日夜または週末クラス'],
-        ['tuition', '受講料', '180万ウォン'],
-        ['place', '場所', 'SNPE江南本院'],
+        [
+          "opening",
+          "開講",
+          "6月24日(水)開講/10週間課程(週2回/計40時間)",
+        ],
+        [
+          "time",
+          "レッスン時間",
+          "毎週水曜(19:00~21:00)/日曜(10:00~12:00)",
+        ],
+        [
+          "tuition",
+          "受講料",
+          "180万ウォン",
+        ],
+        [
+          "place",
+          "会場",
+          "SNPEカンナム本院",
+        ],
       ],
-      closingTitle: '土台から始めましょう',
-      closingBody: 'LEVEL 1は、自分の身体を理解し、動きを土台からつくり直す最初のステップです。',
+      closingTitle: "受付のご案内",
+      closingBody: "SNPE LEVEL 1は、単に「運動を学ぶ課程」ではなく、体の基準をつくり直す旅です。",
+      phases: [
+        {
+          eyebrow: "PHASE 1 · 2",
+          title: "足と骨盤から始まる変化",
+          items: [
+            {
+              range: "第1~4回",
+              title: "足・下半身の土台",
+              paras: [
+                "すべての変化の出発点である、足の感覚とアライメントを取り戻します。",
+                "足底筋膜と下半身チェーンをつなぎ、歩行パターンを整えながら、足と骨盤のつながりを築いていきます。",
+              ],
+              quote: "「体の土台は、足から始まります。」",
+            },
+            {
+              range: "第5~10回",
+              title: "骨盤・腰",
+              paras: [
+                "体の中心である骨盤と股関節の使い方を、安定的につくり直します。",
+                "左右バランスを取り戻し、中臀筋と体幹の安定化を通じて、体の中心が安定し始める期間です。",
+              ],
+              quote: "",
+            },
+          ],
+        },
+        {
+          eyebrow: "PHASE 3 · 4",
+          title: "腰から、全身の統合まで",
+          items: [
+            {
+              range: "第11~15回",
+              title: "背中・肩",
+              paras: [
+                "硬くなった上半身をひらき、緊張のパターンをゆるめていきます。",
+                "胸椎の可動性の回復、猫背パターンの改善、肩甲骨の安定化、肩・首のつながりの回復",
+              ],
+              quote: "",
+            },
+            {
+              range: "第16~20回",
+              title: "首・全身",
+              paras: [
+                "頸椎の安定化と首の緊張の緩和を通じて、体全体をひとつの流れとしてつなぐ、最後の統合ステージです。",
+                "第1回と比べたときの変化を、自分の目で確かめることになります。",
+              ],
+              quote: "",
+            },
+          ],
+        },
+      ],
+      programBadge: "",
     },
     level2: {
-      eyebrow: 'SNPE LEVEL 2',
-      title: '動きを理解する人から、変化を導く専門家へ',
+      eyebrow: "SNPE LEVEL 2",
+      title: "体の動きを理解する人から、人の変化を導く専門家へ",
       intro: [
-        'LEVEL 2は、身体のアライメントと動きを理解し、現場で会員を指導する力を養う専門指導者課程です。',
-        '理論、SNPE基本動作、レッスン設計、現場実習を通じて実践的な指導力を育てます。',
+        "LEVEL 2は、単に運動の動作を学ぶ課程ではありません。体のアライメントと動きを理解し、人の痛みと姿勢を見つめる基準を学び、実際の現場で会員を指導できる力を育てる、専門家課程です。",
+        "SNPE LEVEL 2は、「運動を教える人」である前に、人の体を理解する人を育てる教育を目指します。",
       ],
-      buttons: ['金曜クラスに申し込む', '土曜クラスに申し込む', 'お問い合わせ'],
-      whyTitle: 'なぜLEVEL 2が必要なのか',
+      buttons: [
+        "金曜クラスに申し込む",
+        "土曜クラスに申し込む",
+        "お問い合わせ",
+      ],
+      whyTitle: "なぜ、LEVEL 2は違うのでしょうか?",
       compare: [
         {
-          title: '一般的な運動教育',
+          title: "一般的な運動教育",
           bad: true,
-          body: '決められた順序で動きを真似し、見える結果を確認することに集中しがちです。',
-          points: ['動作の暗記', '標準化された指導', '短期結果中心'],
+          body: "動作を覚えて真似する方式に集中します。決められた順番どおりに繰り返し、形を身につけるにとどまります。",
+          points: [
+            "動作の暗記中心",
+            "画一的な指導方式",
+            "表面的な結果に集中",
+          ],
         },
         {
-          title: 'SNPE LEVEL 2',
-          body: '身体がなぜ崩れるのか、痛みがなぜ繰り返されるのか、一人ひとりをどう導くのかを理解することから始めます。',
-          points: ['アライメントと動きの原理', '個別指導力', '実践的なティーチング'],
+          title: "SNPE LEVEL 2",
+          bad: false,
+          body: "なぜ体が崩れるのか、なぜ痛みが繰り返されるのか、なぜ同じ運動をしても結果が変わるのか——それを理解することから始めます。",
+          points: [
+            "体のアライメントと動きの原理の理解",
+            "パーソナライズされた指導力の開発",
+            "根本的な変化を導く基準の確立",
+          ],
         },
       ],
-      programTitle: '12週間プログラム',
-      programIntro: '理論、動きの理解、指導練習、現場適用までを段階的につなげます。',
+      programTitle: "12週間のコアカリキュラム",
+      programIntro: "LEVEL 2の教育は、単なる実習の繰り返しではなく、理論・動きの理解・ティーチング・現場での応用まで、段階的につながっていきます。",
       stages: [
-        ['1段階', '理論教育', 'SNPEの核心理論と機能解剖を学びます。'],
-        ['2段階', 'SNPE 8 Essential Movements', 'ベルトとツールを使ったコンディショニングシステムを練習します。'],
-        ['3段階', '指導練習', 'グループ・個人レッスンを設計し指導します。'],
-        ['4段階', '現場実習', '専門センターで2週間の実習を行います。'],
+        [
+          "STEP 1",
+          "理論教育",
+          "SNPEコア理論と機能解剖学の学習",
+        ],
+        [
+          "STEP 2",
+          "SNPE 8 Essential Movements 実習",
+          "ベルトとツール運動によるセルフコンディショニングシステムの実習",
+        ],
+        [
+          "STEP 3",
+          "ティーチングトレーニング",
+          "グループ・パーソナルレッスンの構成と指導実習",
+        ],
+        [
+          "STEP 4",
+          "現場実習",
+          "専門センターでの2週間の現場実習",
+        ],
       ],
-      curriculumTitle: '主要カリキュラム',
+      curriculumTitle: "SNPEコア理論と動きの理解",
       curriculum: [
-        ['SNPE概念', 'SNPEの哲学、基盤、全体システムを理解します。'],
-        ['9つの核心理論', 'アライメント、不均衡の原因、回復原理を学びます。'],
-        ['機能解剖', '脊柱、骨盤、足のアライメント、歩行、感覚安定性を学びます。'],
-        ['指導法', 'レッスンの流れ、会員観察、キューイング、修正を練習します。'],
-        ['現場実習', '実際の授業を経験し、講師のフィードバックを受けます。'],
+        [
+          "SNPE概論",
+          "SNPEの哲学的基盤と、システム全体への深い理解を形成します。",
+        ],
+        [
+          "9つのコア理論",
+          "体のアライメント、崩れる原因、回復の原理まで、体系的に学びます。",
+        ],
+        [
+          "動きの回復原理",
+          "理論が実際の現場指導とどうつながるのかを、実践的に習得します。",
+        ],
       ],
-      careerTitle: 'LEVEL 2 キャリアパス',
-      careerBody:
-        'LEVEL 2修了後は、SNPE指導者として現場活動を始め、グループレッスン、個人レッスン、基本評価、会員コーチングの実践力を身につけます。',
-      skillsTitle: '習得能力',
-      skills: ['SNPE基本評価', '会員コーチング', 'グループ・個人レッスン運営', '基本プログラム設計', '会員管理'],
-      fieldsTitle: '活動分野',
-      fields: ['SNPE専門センター', 'SNPE認証スタジオ', '文化・体育センター', '企業・公共機関講座', 'SNPEアンバサダー活動'],
-      recommendTitle: 'このような方におすすめ',
+      careerTitle: "SNPE指導者として、活動を始める",
+      careerBody: "SNPE指導者として現場での活動を始めるステップです。LEVEL 2課程を通じて会員指導とティーチングの力を学び、公式指導者としてさまざまな現場で活動できる基盤を備えます。グループレッスンの指導からパーソナルレッスンの運営、基本の体型評価と会員コーチングまで、実践中心で学びます。",
+      skillsTitle: "コアスキル",
+      skills: [
+        "SNPE基本評価",
+        "会員への指導法とコーチング",
+        "基本プログラムの運営",
+        "パーソナル・グループレッスンの進行",
+        "会員管理",
+      ],
+      fieldsTitle: "活動フィールド",
+      fields: [
+        "SNPE専門センターの運営・講師活動",
+        "SNPE認定スタジオの運営・講師",
+        "カルチャーセンター・スポーツセンターの講師",
+        "企業・学校・官公庁への出張レッスン",
+        "SNPE Ambassador(広報・販売パートナー)",
+      ],
+      recommendTitle: "こんな方におすすめします",
       recommend: [
-        '身体をより深く理解したい方。',
-        '実践的な指導力を高めたい運動指導者。',
-        '個別プログラムで会員を導きたい方。',
-        'SNPE指導分野へ専門性を広げたい方。',
+        "体をもっと深く理解したい方——表面的な動作の先にある、体がなぜそう動くのかという根本原理を知りたい方",
+        "運動を原理から学びたい方——暗記する教育ではなく、理解して応用できる本物の知識を求める方",
+        "会員をきちんと指導したい方——1対1やグループ指導で、実質的な変化をつくり出したい運動講師",
+        "ピラティス・ヨガ・フィットネスの専門性を広げたい方——これまでの専門分野に、SNPEの動きをプラスしたい方",
+        "SNPE講師として成長したい方——専門センターで活動したい方、独立して活動したい方",
       ],
       schedule: [
-        ['opening', '開講', '7月3日 金曜クラス / 7月4日 土曜クラス'],
-        ['period', '課程', '12週間、週1回、現場実習を含む計84時間'],
-        ['time', '授業時間', '10:00-18:00 休憩含む'],
-        ['tuition', '受講料', '650万ウォン'],
-        ['place', '場所', 'SNPE江南本院'],
-        ['capacity', '定員', '24名、先着順'],
+        [
+          "opening",
+          "開講",
+          "7/3(金)および7/4(土)",
+        ],
+        [
+          "period",
+          "課程",
+          "全12週・週1回・計84時間(現場実習14時間を含む)",
+        ],
+        [
+          "time",
+          "レッスン時間",
+          "金/土 10:00~18:00(休憩1時間を含む)",
+        ],
+        [
+          "tuition",
+          "受講料",
+          "650万ウォン",
+        ],
+        [
+          "place",
+          "会場",
+          "SNPEカンナム本院(ソウル市江南区ソンヌン路823、ハニャンタウン3F)",
+        ],
+        [
+          "capacity",
+          "募集定員",
+          "24名限定(先着順)",
+        ],
       ],
-      closingTitle: '変化を導ける力へ',
-      closingBody: 'LEVEL 2は、自分の動きの経験を専門的な指導力へ広げる課程です。',
+      closingTitle: "体の変化は、誰かの人生を変える始まりになります",
+      closingBody: "LEVEL 2は、あなたの変化を専門性へと広げていく課程です。あなたの専門性が、誰かの人生を変える力になります。",
+      programBadge: "10週間の教育+2週間の現場実習=12週間の課程",
+      curriculumIntro: "SNPE概論と9つのコア理論を通じて、体のアライメントと動きの回復原理を学びます。単に「姿勢を正しくする」のではなく、体がなぜゆがみ、崩れるのかを理解するプロセスです。",
+      anatomyTitle: "機能解剖学にもとづくムーブメント教育",
+      anatomyIntro: "オンラインの機能解剖学課程もあわせて行われます。暗記型の解剖学ではなく、実際の会員の動きを理解するための、機能中心の解剖学教育です。",
+      anatomy: [
+        [
+          "背骨と骨盤",
+          "背骨のカーブと骨盤の位置が全身のアライメントに与える影響を、動きの視点から理解します。",
+        ],
+        [
+          "呼吸と体幹の安定化",
+          "正しい呼吸パターンが、体幹の安定化と全身の動きにどう寄与するのかを学びます。",
+        ],
+        [
+          "足と下肢のアライメント",
+          "足のアーチ構造と下肢のアライメントが全身に及ぼす連鎖的な影響を理解します。",
+        ],
+      ],
+      essentialsTitle: "セルフコンディショニングシステム",
+      essentialsIntro: "首・肩・腰・骨盤・下肢のアライメントまで、SNPEの多彩なムーブメントシステムを通じて、体のバランス回復と動きの再教育の方法を学びます。",
+      essentials: [
+        [
+          "SNPEベルト運動",
+          "SNPE専用ベルトを活用した、背骨のアライメントと姿勢ケアの運動システム。首・腰・骨盤、それぞれの部位別プロトコルを習得します。",
+        ],
+        [
+          "SNPEツール運動",
+          "多彩なSNPE専用ツールを活用し、体のアンバランスを効果的に取り戻す運動方法を学び、実習します。",
+        ],
+      ],
+      teachingTitle: "ティーチングとレッスン構成のトレーニング",
+      teachingIntro: "良い指導者とは、動作を説明するだけの人ではありません。会員の動きを観察し、必要な情報を伝え、変化を導き出せる人です。",
+      teaching: [
+        [
+          "グループレッスンの構成法",
+          "さまざまなレベルの会員のための、体系的なグループレッスン設計",
+        ],
+        [
+          "パーソナルレッスンの構成法",
+          "1:1のオーダーメイドプログラムの設計と進め方",
+        ],
+        [
+          "ティーチング実習",
+          "本番と同じ環境での、繰り返しの指導経験",
+        ],
+        [
+          "会員の観察",
+          "動作パターンの分析と、課題を見抜く力の開発",
+        ],
+        [
+          "動作の修正",
+          "ティーチングとフィードバックによる、効果的な動作修正の技術",
+        ],
+        [
+          "レッスン運営の方法",
+          "時間管理、流れの調整、レッスン環境づくりの力",
+        ],
+      ],
+      groupTitle: "実践グループレッスン実習",
+      groupIntro: "実際の会員プログラムをベースに、グループレッスンの実習を行います。学んで終わりではなく、実際に説明し、指導する経験までつなげます。実習後は講師からきめ細かなフィードバックを受け、指導力をすばやく伸ばしていきます。",
+      groupLessons: [
+        {
+          title: "首・肩プログラム",
+          desc: "現代人の代表的な悩みである首と肩の緊張をゆるめ、アライメントを取り戻すレッスンの構成と指導実習",
+          img: "/images/level2/lesson-neck.png",
+        },
+        {
+          title: "腰・骨盤プログラム",
+          desc: "腰の痛みと骨盤のアンバランスを扱うプログラムの構成と、会員に合わせた指導方法の実習",
+          img: "/images/level2/lesson-back.png",
+        },
+        {
+          title: "O脚プログラム",
+          desc: "下肢のアライメントの課題を扱うレッスン設計と、段階的な動作修正の指導経験",
+          img: "/images/level2/lesson-leg.png",
+        },
+      ],
+      fieldTitle: "2週間の専門センター現場実習",
+      fieldIntro: "教育のあとは、SNPE専門センターでの現場実習を行います。実際のレッスン環境の中で、指導者としての感覚と姿勢を体で身につける時間です。",
+      fieldwork: [
+        [
+          "01",
+          "会員への応対",
+          "実際のセンター会員とのコミュニケーション、初回カウンセリングと関係づくりの方法を経験します。",
+        ],
+        [
+          "02",
+          "レッスンの流れの理解",
+          "専門講師の実際のレッスンを観察しながら、レッスン構成と流れの原理を体得します。",
+        ],
+        [
+          "03",
+          "ティーチング補助とキューイング",
+          "実際のレッスン補助の役割を通じて、キューイングの方法とタイミングを現場でトレーニングします。",
+        ],
+        [
+          "04",
+          "現場フィードバック",
+          "専門講師から、即時かつ具体的なフィードバックを受けながら、すばやく成長します。",
+        ],
+        [
+          "05",
+          "センター運営の方法",
+          "実際の専門センターの運営構造とプログラム管理の方法を、直接体験します。",
+        ],
+      ],
+      aimsTitle: "LEVEL 2が目指すもの",
+      aimsIntro: "SNPE LEVEL 2は、単なる資格取得をゴールにしません。体を見つめる基準を学び、人の動きを理解し、現場で実際の変化をつくり出せる指導者を育てます。",
+      aims: [
+        [
+          "基準を立てる",
+          "体を見つめる明確な分析基準と視点を備えた専門家へと成長します。",
+        ],
+        [
+          "動きを理解する",
+          "人の動作パターンを読み取り、その原因をとらえる深い理解力を育てます。",
+        ],
+        [
+          "変化をつくる",
+          "理論と実習が統合された力で、会員の実質的で続く変化を導きます。",
+        ],
+      ],
+      durationCards: [
+        [
+          "10週間",
+          "教育課程",
+          "理論から実習まで、体系的なカリキュラム",
+        ],
+        [
+          "2週間",
+          "現場実習",
+          "専門センターでの実践経験",
+        ],
+        [
+          "12週間",
+          "総教育期間",
+          "完成された指導者を育てる集中課程",
+        ],
+      ],
     },
     level3: {
-      eyebrow: 'SNPE LEVEL 3 - Advanced SNPE Specialist',
-      title: '指導者から、変化の方向を設計する専門家へ',
+      eyebrow: "SNPE LEVEL 3 · Advanced SNPE Specialist",
+      title: "動きを理解する指導者から、変化の方向を設計する専門家へ",
       intro: [
-        'LEVEL 3は動作を教える段階を超え、姿勢と動きのパターンを観察し、身体のつながりを理解して回復の方向を設計する専門家を育成します。',
-        '現場で使える専門分析、プログラム設計、ケーススタディ、コーチング戦略を深めます。',
+        "LEVEL 3は、単に運動を指導する課程を超えて、会員の姿勢と動きを観察し、体のつながりと動作パターンを理解し、実際の変化をつくり出せる専門指導者へと成長する課程です。",
+        "SNPEは、体を部分でとらえません。足から骨盤、背骨、呼吸、そして日常の動きの習慣までつながった、ひとつのムーブメントシステムとして理解します。LEVEL 3は、会員のいまの状態をより深く理解し、動きの回復の方向を設計できる専門家を育てます。",
       ],
-      buttons: ['LEVEL 3 に申し込む', 'お問い合わせ'],
-      whyTitle: 'なぜLEVEL 3が必要なのか',
+      buttons: [
+        "LEVEL 3に申し込む",
+        "お問い合わせ",
+      ],
+      whyTitle: "なぜ、LEVEL 3は違うのでしょうか?",
       compare: [
         {
-          title: '一般的な運動指導',
+          title: "一般的な運動指導",
           bad: true,
-          body: '運動方法を説明し、準備されたプログラムを適用することに集中しがちです。',
-          points: ['運動処方中心', 'プログラム適用中心', '短期結果中心'],
+          body: "運動の方法を説明し、決められたプログラムを当てはめることに集中します。",
+          points: [
+            "運動処方中心",
+            "プログラム適用中心",
+            "短期の結果中心",
+          ],
         },
         {
-          title: 'SNPE LEVEL 3',
-          body: '会員ごとに動きがなぜ違うのか、変化がなぜ止まったり繰り返されたりするのかを理解することから始めます。',
-          points: ['動きのパターン分析', '原因中心の観察', '個別回復設計'],
+          title: "SNPE LEVEL 3",
+          bad: false,
+          body: "会員がなぜそう動くのか、なぜ同じ運動をしても結果が異なるのか、なぜ変化が繰り返されたり止まったりするのか——それを理解することから始めます。",
+          points: [
+            "動作パターンの理解",
+            "変化の原因の観察",
+            "一人ひとりの回復の方向の設計",
+          ],
         },
       ],
-      goalsTitle: '教育目標',
+      goalsTitle: "LEVEL 3の教育目標",
       goals: [
-        ['動きの理解', '姿勢を超えて動きそのものを分析します。'],
-        ['連動の観察', '身体のつながりと全身バランスを観察します。'],
-        ['個別設計', '会員ごとの回復方向を設計します。'],
-        ['変化をつくる力', '実際の変化を導く現場型コーチングを育てます。'],
-        ['専門指導力', '専門家としての観察力とコーチングを強化します。'],
+        [
+          "動きの理解",
+          "姿勢を超えて、動きそのものを理解し分析する視点を備えます。",
+        ],
+        [
+          "つながりの観察",
+          "動きのつながりと体のバランスを、体系的に観察・評価します。",
+        ],
+        [
+          "一人ひとりの設計",
+          "会員ごとの動きの回復の方向を、パーソナライズして戦略的に設計します。",
+        ],
+        [
+          "変化をつくる力",
+          "実際の変化事例をつくり出せる、現場中心の指導力を築きます。",
+        ],
+        [
+          "専門的な指導力",
+          "SNPE専門家としての観察力とコーチング指導力を、さらに深めていきます。",
+        ],
       ],
-      curriculumTitle: '5つの核心カリキュラム',
+      curriculumTitle: "5つのコアカリキュラム",
       curriculum: [
-        ['Alignment & Movement', '全身のアライメントが動きに与える影響を分析します。'],
-        ['Movement Pattern Analysis', '歩行、姿勢転換、日常動作のパターンを評価します。'],
-        ['Recovery Through Movement', '動きに基づく回復戦略を構築します。'],
-        ['Program Design & Coaching', 'プログラム設計と結果中心のコーチングを統合します。'],
-        ['Case Study', '実際のケースを分析し、専門的なケースポートフォリオを構築します。'],
+        [
+          "アライメントと動きのつながり",
+          "身体のアライメントが、動き全体の仕組みにどう影響するのかを深く分析します。構造的なアライメントと機能的な動きの相互作用を理解し、臨床的に応用する力を育てます。",
+        ],
+        [
+          "動作パターンの理解",
+          "歩行、姿勢の切り替え、日常動作の中に隠れた動作パターンを、体系的に評価・分類します。代償パターンと機能的な制限を見抜く、専門的な観察の枠組みを確立します。",
+        ],
+        [
+          "動きにもとづく回復戦略",
+          "受け身のケアから、能動的な動きの回復へと切り替える戦略を学びます。一人ひとりの回復段階に合わせた、オーダーメイドのムーブメント処方の原理を体系的に習得します。",
+        ],
+        [
+          "変化をつくる指導",
+          "データにもとづくプログラム設計と、結果を重視したコーチング戦略を統合します。短期的な修正を超えて、長期的な動きの変化を導き出す、専門的な指導の仕組みを築きます。",
+        ],
+        [
+          "実際の変化事例の研究",
+          "現場で集められた実際の会員事例を分析し、動きの回復プロセスを批判的に検討します。自分だけの専門事例ポートフォリオを築く力を育てます。",
+        ],
       ],
-      requirementsTitle: 'LEVEL 3 受講条件',
+      requirementsTitle: "LEVEL 3の受講要件",
       requirements: [
-        ['SNPE LEVEL 2 修了', 'LEVEL 2の正式修了が必要です。'],
-        ['現場指導経験', '会員指導経験のある指導者におすすめです。'],
-        ['専門性拡張の意思', 'ムーブメントサイエンスを深く学びたい方に適しています。'],
+        [
+          "SNPE Level 2修了",
+          "Level 2課程の正式な修了者",
+        ],
+        [
+          "LEVEL 3はSNPE LEVEL 2修了者を対象とし、現場での指導経験を持つ専門家に最適化されています。",
+          "",
+        ],
+        [
+          "専門性を広げる意志",
+          "ムーブメントサイエンスを深く学ぶ意志",
+        ],
       ],
-      careerTitle: 'LEVEL 3 キャリアパス',
-      careerBody:
-        'LEVEL 3は、体型と動きを分析し、個別プログラムを設計し、意味あるBefore & Afterケースをつくれる上級指導者を育成します。',
-      skillsTitle: '習得能力',
-      skills: ['高度な体型評価', '動きの分析', '痛みと機能問題へのアプローチ', '個別プログラム設計', 'ケース管理と変化記録'],
-      fieldsTitle: '専門活動分野',
-      fields: ['SNPEマスター課程への進路', '専門センター指導', 'SNPEスタジオ指導', '企業・公共機関講座', 'SNPEアンバサダー活動'],
+      careerTitle: "変化をつくり出す専門指導者",
+      careerBody: "会員の実際の変化をつくり出す、専門指導者の課程です。LEVEL 3は、単に動作を教える講師ではなく、体型と動きを分析し、実質的なBefore & Afterの事例をつくり出せる専門指導者を育てます。痛みや機能の課題にアプローチし、長期の会員コーチングとオーダーメイドプログラムの設計力を備えていきます。",
+      skillsTitle: "コアスキル",
+      skills: [],
+      fieldsTitle: "活動フィールド",
+      fields: [
+        "SNPEマスター講師",
+        "SNPE専門センターの運営・中核講師",
+        "SNPE STUDIOの運営・中核講師",
+        "出張レッスン(企業・学校・官公庁・カルチャー・スポーツセンターなど)",
+        "SNPE Ambassador(広報・販売パートナー)",
+      ],
       schedule: [
-        ['opening', '開講', '未定'],
-        ['period', '課程', '6週間、週1回、現場実習を含む計36時間'],
-        ['time', '授業時間', '10:00-17:00 休憩含む'],
-        ['tuition', '受講料', '300万ウォン'],
-        ['place', '場所', 'SNPE江南本院'],
-        ['capacity', '定員', '24名、先着順'],
+        [
+          "opening",
+          "開講",
+          "未定(追ってお知らせ)",
+        ],
+        [
+          "period",
+          "課程",
+          "全6週・週1回・計36時間(現場実習14時間を含む)",
+        ],
+        [
+          "time",
+          "レッスン時間",
+          "金/土 10:00~17:00(休憩1時間を含む)",
+        ],
+        [
+          "tuition",
+          "受講料",
+          "300万ウォン",
+        ],
+        [
+          "place",
+          "会場",
+          "SNPEカンナム本院(ソウル市江南区ソンヌン路823、ハニャンタウン3F)",
+        ],
+        [
+          "capacity",
+          "募集定員",
+          "24名限定(先着順)",
+        ],
       ],
-      closingTitle: '専門家への転換を始めましょう',
-      closingBody: 'LEVEL 3は、会員ごとの動きを理解し、意味ある変化を設計する専門家課程です。',
+      closingTitle: "いま、専門家への転換を始めてください",
+      closingBody: "LEVEL 3は、動作を教える課程を超えて、会員一人ひとりの動きを理解し、変化を設計する専門家課程です。単なる技術の向上ではなく、専門家としての思考の枠組みと臨床的な力を完成させる課程です。",
+      goalsIntro: "専門指導者として備えるべき5つのコアスキルを、体系的に育てます。",
+      curriculumIntro: "臨床にもとづくムーブメントサイエンスを中心に構成された、LEVEL 3専門教育課程です。",
+      integratedTitle: "専門領域——統合ムーブメントシステム",
+      integratedIntro: "人体は、ばらばらの部位の集合ではなく、ひとつの統合されたムーブメントシステムです。LEVEL 3は、それぞれの身体領域のつながりを読み取り、SNPEの運動をより深く活用する視点を育てます。",
+      integrated: [
+        [
+          "つながりの理解",
+          "人体は、ばらばらの部位の集合ではなく、ひとつの統合システム",
+        ],
+        [
+          "パターン分析",
+          "それぞれの身体領域のつながりが、動き全体に及ぼす影響の把握",
+        ],
+        [
+          "専門家の視点",
+          "SNPEの運動を深く活用する、専門家としての力の開発",
+        ],
+      ],
+      integratedNote: "このつながりを読み取ること——それが、SNPE LEVEL 3専門家の始まりです。",
+      specialistsTitle: "Movement Specialist",
+      specialists: [
+        [
+          "Spine Movement Specialist",
+          "背骨のアライメントと動作パターンを分析し、正しい姿勢とバランスの取れた動きのために、一人ひとりの体型特性に合わせたSNPEソリューションを提供します。",
+        ],
+        [
+          "Neck Movement Specialist",
+          "首と肩の動きのつながりを分析し、一人ひとりの習慣に合わせて、楽な動きと自然なアライメントの回復のためのSNPEソリューションを提供します。",
+        ],
+        [
+          "Pelvis Movement Specialist",
+          "骨盤と体の中心のバランスを評価し、安定した姿勢と動きのための、パーソナライズされたSNPEソリューションを提供します。",
+        ],
+        [
+          "Foot Movement Specialist",
+          "一人ひとりの足の構造と歩行パターンを分析し、体のバランスの出発点である足の機能回復のためのSNPEソリューションを提供します。",
+        ],
+      ],
+      whyNote: "体の動きを見つめる基準が変わるとき、会員の変化も変わります。",
     },
   },
 }
@@ -627,6 +1063,32 @@ export default function TranslatedLevelSections({ level }) {
           </div>
         </section>
 
+        {Array.isArray(copy.phases) && copy.phases.length > 0 && (
+          <section className="py-16 md:py-24 bg-mint-lighter/20">
+            <div className="max-w-5xl mx-auto px-4 space-y-16">
+              {copy.phases.map((phase) => (
+                <div key={phase.title}>
+                  <SectionHeader eyebrow={phase.eyebrow} title={phase.title} />
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {(phase.items || []).map((item) => (
+                      <div key={item.title} className="bg-white rounded-2xl p-6 border border-gray-100">
+                        <span className="text-xs font-semibold text-snpe-dark tracking-wider">{item.range}</span>
+                        <h3 className="text-lg font-bold text-gray-900 mt-2 mb-3">{item.title}</h3>
+                        <div className="space-y-2 text-sm text-gray-600 leading-relaxed">
+                          {(item.paras || []).map((p) => <p key={p}>{p}</p>)}
+                        </div>
+                        {item.quote && (
+                          <p className="mt-4 text-sm font-medium text-snpe-dark italic">{item.quote}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="py-16 md:py-24 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4">
             <SectionHeader eyebrow="EXPERIENCE" title={copy.experienceTitle} />
@@ -731,6 +1193,12 @@ export default function TranslatedLevelSections({ level }) {
 function Level2Body({ copy }) {
   return (
     <>
+      {copy.programBadge && (
+        <section className="py-8 bg-snpe-darker text-white text-center">
+          <p className="text-sm md:text-base font-semibold tracking-wide">{copy.programBadge}</p>
+        </section>
+      )}
+
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
           <SectionHeader eyebrow="12 WEEK PROGRAM" title={copy.programTitle}>
@@ -748,6 +1216,17 @@ function Level2Body({ copy }) {
               </div>
             ))}
           </div>
+          {Array.isArray(copy.durationCards) && copy.durationCards.length > 0 && (
+            <div className="grid sm:grid-cols-3 gap-4 mt-8">
+              {copy.durationCards.map(([num, title, desc]) => (
+                <div key={title} className="bg-white rounded-2xl p-5 border border-snpe/20 text-center">
+                  <p className="text-2xl font-bold text-snpe-dark mb-1">{num}</p>
+                  <h4 className="font-bold text-gray-900 mb-2 text-sm">{title}</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -757,9 +1236,11 @@ function Level2Body({ copy }) {
             <div className="rounded-3xl overflow-hidden shadow-md bg-gray-100">
               <img src={levelImages.level2.philosophy} alt="" className="w-full h-auto block" loading="lazy" />
             </div>
-            <SectionHeader eyebrow="CORE CURRICULUM" title={copy.curriculumTitle} />
+            <SectionHeader eyebrow="PROGRAM PHILOSOPHY" title={copy.curriculumTitle}>
+              {copy.curriculumIntro && <p>{copy.curriculumIntro}</p>}
+            </SectionHeader>
           </div>
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-3 gap-5">
             {copy.curriculum.map(([title, desc]) => (
               <div key={title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 flex gap-4">
                 <BookOpen size={22} className="text-snpe-dark flex-shrink-0 mt-1" />
@@ -773,6 +1254,124 @@ function Level2Body({ copy }) {
         </div>
       </section>
 
+      {copy.anatomy && (
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader eyebrow="ONLINE CURRICULUM" title={copy.anatomyTitle}>
+              {copy.anatomyIntro && <p>{copy.anatomyIntro}</p>}
+            </SectionHeader>
+            <div className="grid md:grid-cols-3 gap-5">
+              {copy.anatomy.map(([title, desc]) => (
+                <div key={title} className="bg-white rounded-2xl p-6 border border-gray-100">
+                  <h4 className="font-bold text-gray-900 mb-2">{title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {copy.essentials && (
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader eyebrow="SNPE 8 ESSENTIAL MOVEMENTS" title={copy.essentialsTitle}>
+              {copy.essentialsIntro && <p>{copy.essentialsIntro}</p>}
+            </SectionHeader>
+            <div className="grid md:grid-cols-2 gap-5">
+              {copy.essentials.map(([title, desc]) => (
+                <div key={title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                  <Activity size={22} className="text-snpe-dark mb-3" />
+                  <h4 className="font-bold text-gray-900 mb-2">{title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {copy.teaching && (
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader eyebrow="TEACHING TRAINING" title={copy.teachingTitle}>
+              {copy.teachingIntro && <p>{copy.teachingIntro}</p>}
+            </SectionHeader>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {copy.teaching.map(([title, desc]) => (
+                <div key={title} className="bg-white rounded-2xl p-5 border border-gray-100">
+                  <h4 className="font-bold text-gray-900 mb-2 text-sm">{title}</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {copy.groupLessons && (
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader eyebrow="GROUP LESSON PRACTICE" title={copy.groupTitle}>
+              {copy.groupIntro && <p>{copy.groupIntro}</p>}
+            </SectionHeader>
+            <div className="grid md:grid-cols-3 gap-5">
+              {copy.groupLessons.map((lesson) => (
+                <div key={lesson.title} className="rounded-2xl overflow-hidden border border-gray-100 bg-gray-50">
+                  {lesson.img && (
+                    <div className="aspect-[16/10] bg-gray-100 overflow-hidden">
+                      <img src={lesson.img} alt={lesson.title} className="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                  )}
+                  <div className="p-5">
+                    <h4 className="font-bold text-gray-900 mb-2">{lesson.title}</h4>
+                    <p className="text-sm text-gray-500 leading-relaxed">{lesson.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {copy.fieldwork && (
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader eyebrow="FIELD PRACTICE" title={copy.fieldTitle}>
+              {copy.fieldIntro && <p>{copy.fieldIntro}</p>}
+            </SectionHeader>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {copy.fieldwork.map(([num, title, desc]) => (
+                <div key={title} className="bg-white rounded-2xl p-5 border border-gray-100">
+                  <p className="text-snpe-dark font-bold text-sm mb-2">{num}</p>
+                  <h4 className="font-bold text-gray-900 mb-2 text-sm">{title}</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {copy.aims && (
+        <section className="py-16 md:py-24 bg-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader title={copy.aimsTitle}>
+              {copy.aimsIntro && <p>{copy.aimsIntro}</p>}
+            </SectionHeader>
+            <div className="grid md:grid-cols-3 gap-5">
+              {copy.aims.map(([title, desc]) => (
+                <div key={title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                  <Target size={22} className="text-snpe-dark mb-3" />
+                  <h4 className="font-bold text-gray-900 mb-2">{title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <CareerAndRecommend copy={copy} image={levelImages.level2.recommend} />
     </>
   )
@@ -781,9 +1380,19 @@ function Level2Body({ copy }) {
 function Level3Body({ copy }) {
   return (
     <>
+      {copy.whyNote && (
+        <section className="py-8 bg-mint-lighter/40">
+          <p className="max-w-3xl mx-auto px-4 text-center text-sm md:text-base text-gray-700 font-medium leading-relaxed">
+            {copy.whyNote}
+          </p>
+        </section>
+      )}
+
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
-          <SectionHeader eyebrow="EDUCATION GOALS" title={copy.goalsTitle} />
+          <SectionHeader eyebrow="EDUCATION GOALS" title={copy.goalsTitle}>
+            {copy.goalsIntro && <p>{copy.goalsIntro}</p>}
+          </SectionHeader>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {copy.goals.map(([title, desc]) => (
               <div key={title} className="bg-white rounded-2xl p-6 border border-gray-100">
@@ -798,7 +1407,9 @@ function Level3Body({ copy }) {
 
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <SectionHeader eyebrow="CORE CURRICULUM" title={copy.curriculumTitle} />
+          <SectionHeader eyebrow="CORE CURRICULUM" title={copy.curriculumTitle}>
+            {copy.curriculumIntro && <p>{copy.curriculumIntro}</p>}
+          </SectionHeader>
           <div className="space-y-4">
             {copy.curriculum.map(([title, desc], i) => (
               <div key={title} className="flex flex-col sm:flex-row gap-5 bg-gray-50 rounded-2xl p-6 border border-gray-100">
@@ -818,12 +1429,33 @@ function Level3Body({ copy }) {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-gray-50">
+      {copy.integrated && (
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader eyebrow="INTEGRATED MOVEMENT SYSTEM" title={copy.integratedTitle}>
+              {copy.integratedIntro && <p>{copy.integratedIntro}</p>}
+            </SectionHeader>
+            <div className="grid md:grid-cols-3 gap-5">
+              {copy.integrated.map(([title, desc]) => (
+                <div key={title} className="bg-white rounded-2xl p-6 border border-gray-100">
+                  <h4 className="font-bold text-gray-900 mb-2">{title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+            {copy.integratedNote && (
+              <p className="mt-8 text-center text-sm font-medium text-snpe-dark">{copy.integratedNote}</p>
+            )}
+          </div>
+        </section>
+      )}
+
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <SectionHeader eyebrow="LEVEL 2 vs. LEVEL 3" title={copy.requirementsTitle} />
           <div className="grid sm:grid-cols-3 gap-5">
             {copy.requirements.map(([title, desc]) => (
-              <div key={title} className="bg-white rounded-2xl p-6 border border-gray-100">
+              <div key={title} className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                 <CheckCircle2 size={20} className="text-snpe-dark mb-3" />
                 <h4 className="font-bold text-gray-900 mb-1">{title}</h4>
                 <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
@@ -832,6 +1464,22 @@ function Level3Body({ copy }) {
           </div>
         </div>
       </section>
+
+      {copy.specialists && (
+        <section className="py-16 md:py-24 bg-gray-50">
+          <div className="max-w-5xl mx-auto px-4">
+            <SectionHeader eyebrow="SPECIALIST PATH" title={copy.specialistsTitle || 'Movement Specialist'} />
+            <div className="grid md:grid-cols-2 gap-5">
+              {copy.specialists.map(([title, desc]) => (
+                <div key={title} className="bg-white rounded-2xl p-6 border border-gray-100">
+                  <h4 className="font-bold text-gray-900 mb-2">{title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <CareerAndRecommend copy={copy} />
     </>

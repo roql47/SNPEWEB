@@ -13,15 +13,43 @@ const categories = [
   { value: '기타', labelKey: 'support.faq.categories.other' },
 ]
 
+function normalizeFaqKey(text = '') {
+  return String(text)
+    .replace(/^Q\s*/i, '')
+    .replace(/\s+/g, '')
+    .toLowerCase()
+}
+
 export default function Faq() {
   const [activeCategory, setActiveCategory] = useState(categories[0].value)
   const [openIndex, setOpenIndex] = useState(null)
   const [faqs, setFaqs] = useState([])
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   useEffect(() => {
     dataStore.getFaqs().then(setFaqs)
   }, [])
+
+  const isJa = (i18n.language || '').startsWith('ja')
+  const jaEntries = t('support.faq.entries', { returnObjects: true })
+  const entryMap = Array.isArray(jaEntries)
+    ? Object.fromEntries(
+        jaEntries
+          .filter((e) => e?.questionKo)
+          .map((e) => [normalizeFaqKey(e.questionKo), e])
+      )
+    : {}
+
+  const localizeFaq = (f) => {
+    if (!isJa) return f
+    const hit = entryMap[normalizeFaqKey(f.question)]
+    if (!hit) return f
+    return {
+      ...f,
+      question: hit.question || f.question,
+      answer: hit.answer || f.answer,
+    }
+  }
 
   const filtered = activeCategory === categories[0].value ? faqs : faqs.filter((f) => f.category === activeCategory)
 
@@ -46,7 +74,9 @@ export default function Faq() {
           </div>
 
           <div className="space-y-3">
-            {filtered.map((f) => (
+            {filtered.map((raw) => {
+              const f = localizeFaq(raw)
+              return (
               <div key={f.id} className="border border-gray-100 rounded-xl overflow-hidden">
                 <button
                   onClick={() => setOpenIndex(openIndex === f.id ? null : f.id)}
@@ -67,7 +97,8 @@ export default function Faq() {
                   </div>
                 </div>
               </div>
-            ))}
+              )
+            })}
             {filtered.length === 0 && (
               <div className="border border-gray-100 rounded-xl px-6 py-16 text-center text-gray-400 text-sm">
                 {t('support.faq.empty')}

@@ -119,7 +119,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-xs px-4 py-2 border border-gray-600 rounded hover:border-gray-400 hover:text-white transition-colors"
             >
-              <ShoppingBag size={14} /> SNPE SHOP →
+              <ShoppingBag size={14} /> {t('footer.shopCta', { defaultValue: 'SNPE SHOP →' })}
             </a>
           </div>
         </div>

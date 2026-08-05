@@ -106,8 +106,38 @@ const fmtPeriod = (start, end) => {
   return f(start || end)
 }
 
+function applyDegreeOverlay(sec, overlaySec) {
+  if (!sec || !overlaySec || typeof overlaySec !== 'object') return sec
+  const next = { ...sec }
+  if (overlaySec.title) next.title = overlaySec.title
+  if (overlaySec.body) {
+    next.body = overlaySec.body
+    next.body_html = undefined
+    if (!overlaySec.intro) {
+      next.intro = overlaySec.body
+      next.intro_html = undefined
+    }
+  }
+  if (overlaySec.intro) {
+    next.intro = overlaySec.intro
+    next.intro_html = undefined
+  }
+  if (Array.isArray(overlaySec.items) && overlaySec.items.length) {
+    // features: {title,body} → {title,desc}; philosophy/target/career: string[]
+    next.items = overlaySec.items.map((item) => {
+      if (typeof item === 'string') return item
+      return { ...item, desc: item.desc || item.body || '' }
+    })
+  }
+  if (overlaySec.email) next.email = overlaySec.email
+  if (overlaySec.phone) next.phone = overlaySec.phone
+  if (overlaySec.hours) next.hours = overlaySec.hours
+  return next
+}
+
 export default function Degree() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const lang = (i18n.resolvedLanguage || i18n.language || 'ko').split('-')[0]
   const [content, setContent] = useState(null)
   const [educations, setEducations] = useState([])
   const [loading, setLoading] = useState(true)
@@ -153,6 +183,13 @@ export default function Degree() {
   }
 
   const order = content._sectionOrder || DEFAULT_ORDER
+  const overlay = lang === 'ja' ? t('degreePage.overlay', { returnObjects: true }) : null
+  const resolveSec = (key) => {
+    const sec = content[key]
+    if (!sec || sec.hidden) return null
+    if (overlay && overlay[key]) return applyDegreeOverlay(sec, overlay[key])
+    return sec
+  }
   const eduByCategory = ['level1', 'level2', 'level3']
     .map((cat) => {
       const rows = educations.filter((r) => r.category === cat)
@@ -171,8 +208,8 @@ export default function Degree() {
       <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-4 space-y-20">
           {order.map((key) => {
-            const sec = content[key]
-            if (!sec || sec.hidden) return null
+            const sec = resolveSec(key)
+            if (!sec) return null
 
             switch (key) {
               case 'intro':

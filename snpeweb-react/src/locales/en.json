@@ -422,7 +422,8 @@
     "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
     "about": "About Us",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Use"
+    "terms": "Terms of Use",
+    "shopCta": "SNPE SHOP →"
   },
   "movements": {
     "numbered": "Movement {{number}}",
@@ -935,7 +936,139 @@
       "subtitle": "SNPE Professional Center and STUDIO consultation",
       "heading": "Opening Consultation",
       "desc": "Leave your preferred model and region, and our team will contact you with guidance.",
-      "submit": "Submit Consultation Request"
+      "submit": "Submit Consultation Request",
+      "heroTitle": "Join SNPE as a partner spreading the value of correct posture",
+      "heroDesc": "We operate two partnership models: Professional Centers (franchise) and SNPE STUDIO (certified).",
+      "compareTitle": "Franchise vs Certified Studio",
+      "supportTitle": "Headquarters Support",
+      "stepsTitle": "Opening Process",
+      "centerHeader": "SNPE Professional Center",
+      "studioHeader": "SNPE STUDIO",
+      "modelCenter": "SNPE Professional Center (mid-large, HQ standard system)",
+      "modelStudio": "SNPE STUDIO (compact, flexible operation)",
+      "certOptions": {
+        "level2": "LEVEL 2 certified",
+        "level3": "LEVEL 3 specialist course completed",
+        "inProgress": "In progress (currently enrolled)",
+        "none": "Not yet certified"
+      },
+      "spaceOptions": {
+        "owned": "Owned / leased",
+        "reviewing": "Under review",
+        "none": "Not yet secured"
+      },
+      "timingOptions": {
+        "immediate": "Immediate (within 1-2 months)",
+        "3months": "Within 3 months",
+        "6months": "Within 6 months",
+        "inquiry": "Inquiry only (long-term)"
+      },
+      "comparison": [
+        {
+          "label": "Qualification",
+          "center": "SNPE instructor certification",
+          "studio": "SNPE instructor certification"
+        },
+        {
+          "label": "Concept",
+          "center": "HQ-standard professional education center",
+          "studio": "Flexible private studio"
+        },
+        {
+          "label": "Core value",
+          "center": "Brand consistency and systematic education",
+          "studio": "Flexible operation by individuality"
+        },
+        {
+          "label": "Curriculum",
+          "center": "HQ curriculum and regular training required",
+          "studio": "Programs set by operator discretion"
+        },
+        {
+          "label": "Size",
+          "center": "Mid-to-large recommended",
+          "studio": "Compact / efficient space"
+        },
+        {
+          "label": "Rights",
+          "center": "Full CI/BI and HQ system use",
+          "studio": "Brand use approval and design assets"
+        },
+        {
+          "label": "Territory",
+          "center": "1km radius protection",
+          "studio": "1km radius protection"
+        }
+      ],
+      "supports": [
+        {
+          "title": "Brand & Infrastructure",
+          "items": [
+            "Official trade name and logo use",
+            "System usage rights"
+          ]
+        },
+        {
+          "title": "Franchise Support",
+          "items": [
+            "Regular education updates",
+            "Operations policy guidance"
+          ]
+        },
+        {
+          "title": "Marketing & Design",
+          "items": [
+            "Operation templates and promo guides",
+            "Local market insights",
+            "Graphic design assets"
+          ]
+        },
+        {
+          "title": "Opening Benefits",
+          "items": [
+            "Discounts on SNPE tools",
+            "Individual cost structure guidance"
+          ]
+        }
+      ],
+      "steps": [
+        {
+          "num": "01",
+          "title": "Inquiry",
+          "desc": "Submit the opening consultation form."
+        },
+        {
+          "num": "02",
+          "title": "Consultation",
+          "desc": "A manager will contact you in order."
+        },
+        {
+          "num": "03",
+          "title": "Review",
+          "desc": "Instructor qualification and business capability are reviewed."
+        },
+        {
+          "num": "04",
+          "title": "Contract",
+          "desc": "Sign the franchise/certified contract and open."
+        }
+      ]
+    },
+    "hasSpace": "Space ownership status",
+    "timing": "Preferred opening timing",
+    "venueType": "Venue type",
+    "requestType": "Request type",
+    "budget": "Budget range",
+    "venueOptions": {
+      "visit": "On-site visit",
+      "center": "At center",
+      "online": "Online"
+    },
+    "requestOptions": {
+      "once": "One-time lecture",
+      "regular": "Regular program",
+      "wellness": "Employee wellness",
+      "other": "Other"
     }
   },
   "historyPage": {
@@ -1394,98 +1527,206 @@
     "official": {
       "introTitle": "SNPE Professional Center Official Programs",
       "introBody": [
-        "At SNPE professional centers, center directors and certified instructors with field experience guide customized programs based on body analysis, movement assessment, and lifestyle review.",
-        "SNPE goes beyond simple exercise by analyzing posture patterns and movement habits to support pain care, body balance, movement function, and body-line management.",
-        "Programs are designed to manage line, movement function, recovery routines, and body balance in an integrated way according to age and body condition."
+        "The SNPE Official Program is SNPE’s official education and movement system, built on scientific assessment and standardized exercise protocols. At SNPE professional centers, the SNPE posture assessment protocol is used to accurately evaluate each member’s body type and movement, then provide the most suitable program based on lifestyle analysis, personal goals, and current condition.",
+        "The program consists of four categories—START, RECOVERY, BODY LINE, and CONDITIONING—with a total of 10 official programs. From foundations and recovery to body-line improvement and conditioning, you can experience a Self Recovery System that builds a healthier body step by step."
       ],
+      "systemTitle": "SNPE Official Program System",
+      "systemSubtitle": "4 categories · 10 specialized programs",
+      "detailTitle": "Program Details",
+      "targetLabel": "For",
+      "effectLabel": "Benefits",
       "typeTitle": "Program Types",
       "recommendationLabel": "Recommended for",
-      "types": [
+      "findCenter": "Find an SNPE Professional Center",
+      "categories": [
         {
-          "en": "Personal Lesson",
-          "title": "Personal Lesson",
-          "desc": "A one-on-one customized program based on individual body type, movement patterns, and lifestyle habits. Body analysis and movement assessment are used to manage posture imbalance, pain patterns, and body-line concerns in depth.",
-          "targets": [
-            "Recurring neck, lower-back, or pelvic discomfort",
-            "Need for posture correction and body-line care",
-            "Facial asymmetry, shoulder asymmetry, or leg alignment care",
-            "Prenatal or postnatal recovery",
-            "Focused weight loss and body balance management"
+          "no": "1",
+          "en": "START",
+          "title": "Foundation",
+          "subtitle": "SNPE Basic",
+          "programs": [
+            {
+              "name": "SNPE Basic",
+              "en": "SNPE Basic",
+              "target": "Those starting SNPE for the first time, beginners, or anyone who wants to learn the basics of healthy posture",
+              "effect": "Build a foundation for understanding SNPE’s core principles and restoring body alignment. Learning correct movement early helps maximize the benefits of later programs.",
+              "tags": [
+                "Healthy posture",
+                "Posture correction",
+                "Body alignment",
+                "Beginner",
+                "Posture habits"
+              ]
+            }
           ]
         },
+        {
+          "no": "2",
+          "en": "RECOVERY",
+          "title": "Recovery",
+          "subtitle": "Pain & discomfort relief",
+          "programs": [
+            {
+              "name": "Neck & Shoulder Recovery",
+              "en": "Neck & Shoulder Recovery",
+              "target": "Those with neck pain, stiff shoulders, forward head posture, or rounded shoulders",
+              "effect": "Gently release tense neck and shoulder muscles and restore healthy upper-body alignment. Reduce everyday stiffness and create more comfortable movement.",
+              "tags": [
+                "Neck pain",
+                "Forward head",
+                "Rounded shoulders",
+                "Stiff shoulders",
+                "Straight neck"
+              ]
+            },
+            {
+              "name": "Low Back & Pelvis Recovery",
+              "en": "Low Back & Pelvis Recovery",
+              "target": "Those with low-back pain, pelvic imbalance, or long hours of sitting",
+              "effect": "Restore balance in the pelvis and lower back to reduce strain and build stable posture. Also helpful for preventing recurring low-back discomfort.",
+              "tags": [
+                "Low-back pain",
+                "Pelvic alignment",
+                "Disc care",
+                "Pelvic imbalance",
+                "Back discomfort"
+              ]
+            },
+            {
+              "name": "Foot & Lower Body Recovery",
+              "en": "Foot & Lower Body Recovery",
+              "target": "Those whose feet tire easily, who stand for long periods, or who want better lower-body circulation and posture",
+              "effect": "Restore foot arch function to support comfortable walking, and realign the lower body to strengthen whole-body posture foundations.",
+              "tags": [
+                "Plantar fasciitis",
+                "Flat feet",
+                "Lower-body swelling",
+                "Foot fatigue",
+                "Leg swelling"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "3",
+          "en": "BODY LINE",
+          "title": "Body Line",
+          "subtitle": "Line & imbalance improvement",
+          "programs": [
+            {
+              "name": "Face & Shoulder Line",
+              "en": "Face & Shoulder Line",
+              "target": "Those concerned about facial asymmetry, rounded shoulders, or upper-body line",
+              "effect": "Realign the neck and shoulders to refine the face line and create a slimmer shoulder line. Improve circulation around the face and shoulders to reduce puffiness and refresh your appearance.",
+              "tags": [
+                "Facial asymmetry",
+                "Rounded shoulders",
+                "Neck angle",
+                "Shoulder line",
+                "Face line"
+              ]
+            },
+            {
+              "name": "Waist & Pelvic Line",
+              "en": "Waist & Pelvic Line",
+              "target": "Those who want to improve waist and pelvic line",
+              "effect": "Activate the core and restore pelvic alignment to create a slim, firm waist line. Balance left-right body asymmetry for a natural, stable body line.",
+              "tags": [
+                "Pelvic alignment",
+                "Waist line",
+                "Core training",
+                "Abdominal line",
+                "Posture correction"
+              ]
+            },
+            {
+              "name": "Leg Line",
+              "en": "Leg Line",
+              "target": "Those concerned about bow legs, knock knees, or lower-body swelling",
+              "effect": "Improve lower-body alignment and circulation for balanced leg lines and lighter legs. Distribute load more evenly across the legs to improve gait and walking balance.",
+              "tags": [
+                "Bow legs",
+                "Knock knees",
+                "Leg line",
+                "Lower-body swelling",
+                "Calf tension"
+              ]
+            }
+          ]
+        },
+        {
+          "no": "4",
+          "en": "CONDITIONING",
+          "title": "Conditioning",
+          "subtitle": "Strength & vitality",
+          "programs": [
+            {
+              "name": "SNPE Flow",
+              "en": "SNPE Flow",
+              "target": "Those who want to move joyfully while building flexibility and stamina together",
+              "effect": "Rhythmic whole-body movement improves flexibility, balance, and cardiorespiratory endurance for a more energetic body. Enjoyable movement also helps relieve stress and build positive exercise habits.",
+              "tags": [
+                "Cardio",
+                "Weight management",
+                "Full-body",
+                "Flexibility",
+                "Stamina"
+              ]
+            },
+            {
+              "name": "SNPE Fit",
+              "en": "SNPE Fit",
+              "target": "Those who want solid strength and a balanced body line",
+              "effect": "Strengthen whole-body muscles to build a balanced body and firm body line. Raising basal metabolism supports healthier body-shape management without rebound.",
+              "tags": [
+                "Strength training",
+                "Core training",
+                "Body line",
+                "Muscle tone",
+                "Body shaping"
+              ]
+            },
+            {
+              "name": "Body Release",
+              "en": "Body Release",
+              "target": "Those who feel fatigued or heavy in the body",
+              "effect": "Gently release whole-body tension and promote circulation to ease fatigue and restore a comfortable condition. Better sleep and recovery also support the next day’s condition.",
+              "tags": [
+                "Fascia release",
+                "Fatigue recovery",
+                "Circulation",
+                "Full-body release",
+                "Recovery"
+              ]
+            }
+          ]
+        }
+      ],
+      "types": [
         {
           "en": "Group Lesson",
           "title": "Group Lesson",
-          "desc": "A small-group program based on SNPE movement principles and tools. It helps participants experience alignment, balance recovery, and conditioning in a systematic way while building motivation and sustainable movement habits together.",
-          "targets": []
-        }
-      ],
-      "centerTitle": "Representative Center Programs",
-      "findCenter": "Find a center",
-      "classGroups": [
-        {
-          "title": "Intro Programs",
-          "items": [
-            {
-              "no": "1",
-              "name": "Foot",
-              "desc": "Understand the foundation of whole-body balance through foot alignment and movement recovery."
-            },
-            {
-              "no": "2",
-              "name": "Basic",
-              "desc": "Learn basic SNPE movements and how to use the tools."
-            }
+          "subtitle": "A small-group program for growing together",
+          "desc": "Based on SNPE movement principles and tools, this program helps restore healthy posture and gradually improve body function and condition. Train together for motivation and build sustainable healthy movement habits.",
+          "targets": [
+            "Those who want consistent posture care and prevention",
+            "Those who want motivation from training together",
+            "Those who want to build healthy exercise habits",
+            "Those who want to improve posture and physical function"
           ]
         },
         {
-          "title": "Area-Specific Balance Programs",
-          "items": [
-            {
-              "no": "3",
-              "name": "Neck & Shoulder",
-              "desc": "Release neck and shoulder tension and recover healthy alignment."
-            },
-            {
-              "no": "4",
-              "name": "Upper Body Line",
-              "desc": "Recover back and thoracic movement and build a healthier posture line."
-            },
-            {
-              "no": "5",
-              "name": "Lower Back & Pelvis",
-              "desc": "Recover lower-back and pelvic balance and stabilize movement."
-            },
-            {
-              "no": "6",
-              "name": "Leg Alignment",
-              "desc": "A leg movement program for lower-body alignment and gait balance."
-            }
-          ]
-        },
-        {
-          "title": "Functional Stability Program",
-          "items": [
-            {
-              "no": "7",
-              "name": "Core Balance",
-              "desc": "Strengthen core stability and whole-body movement balance."
-            }
-          ]
-        },
-        {
-          "title": "Release & Recovery Programs",
-          "items": [
-            {
-              "no": "8",
-              "name": "Lower-Body Circulation",
-              "desc": "A recovery program for lower-body tension relief and circulation balance."
-            },
-            {
-              "no": "9",
-              "name": "Fascia Release",
-              "desc": "A conditioning program for fascial release and movement recovery."
-            }
+          "en": "Personal Lesson",
+          "title": "Personal Lesson",
+          "subtitle": "1:1 customized solution",
+          "desc": "Design a personalized exercise program based on body analysis and movement assessment. From pain care to posture correction, body line, and conditioning, create step-by-step change that fits your body and helps you maintain it on your own.",
+          "targets": [
+            "Those who want to manage neck, shoulder, low-back, or pelvic discomfort",
+            "Those who want to improve body shape and body line together",
+            "Those who want to manage facial asymmetry, shoulder asymmetry, or bowed legs through exercise",
+            "Those who need prenatal or postnatal recovery exercise",
+            "Those who want weight management and body balance together",
+            "Those who need customized training based on precise assessment"
           ]
         }
       ]
@@ -1501,5 +1742,16 @@
     "emptyActivity": "No activity posts have been registered.",
     "emptyPress": "No press coverage has been registered.",
     "separator": " · "
+  },
+  "loginPage": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "emailPlaceholder": "Enter your email address",
+    "passwordPlaceholder": "Enter your password",
+    "submit": "Login",
+    "forgotPassword": "Forgot password",
+    "register": "Sign up",
+    "preparing": "Login is currently being prepared."
   }
 }

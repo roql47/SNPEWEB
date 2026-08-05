@@ -10,7 +10,10 @@ export default function MainCarousel() {
 
   useEffect(() => {
     dataStore.getBranches()
-      .then(setBranches)
+      .then((list) => {
+        // 폐업: 잠실본점 제외
+        setBranches((list || []).filter((b) => !String(b.name || '').includes('잠실')))
+      })
       .catch(() => setBranches([]))
   }, [])
 
@@ -24,7 +27,11 @@ export default function MainCarousel() {
           <p className="text-sm md:text-base text-gray-600">{t('home.branchesSubtitle')}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div
+          className={`grid gap-6 mb-12 ${
+            branches.length === 2 ? 'md:grid-cols-2 max-w-3xl mx-auto' : 'md:grid-cols-3'
+          }`}
+        >
           {branches.map((b) => (
             <a
               key={b.id}

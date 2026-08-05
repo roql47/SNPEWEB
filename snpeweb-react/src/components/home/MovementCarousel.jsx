@@ -28,7 +28,8 @@ const movements = [
     num: '4',
     titleKey: 'movements.m4title',
     tagsKey: 'movements.m4tags',
-    img: '/images/position_4.png',
+    // 기본동작 페이지와 동일: 발목 벨트가 올바른 position_6 사용
+    img: '/images/position_6.png',
     imgClass: 'right-0 bottom-0 h-full',
   },
 ]

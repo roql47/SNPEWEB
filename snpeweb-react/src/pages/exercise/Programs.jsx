@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import PageBanner from '../../components/common/PageBanner'
-import { Activity, Waves, Sparkles, User, Users, ArrowRight, Baby, GraduationCap, HeartPulse, Flower2, PersonStanding } from 'lucide-react'
+import { Activity, Waves, Sparkles, User, Users, ArrowRight, Baby, GraduationCap, HeartPulse, Flower2, PersonStanding, Layers } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const categoryIcons = [Activity, Waves]
 const lifecycleIcons = [Baby, GraduationCap, PersonStanding, Flower2, HeartPulse]
-const programTypeIcons = [User, Users]
+const officialCategoryIcons = [Layers, HeartPulse, Activity, Sparkles]
+const programTypeIcons = [Users, User]
 
 const TABS = [
   { id: 'snpe', key: 'programsPage.tabs.snpe' },
@@ -21,7 +22,7 @@ export default function Programs() {
   const lifecyclePrograms = t('programsPage.snpe.lifecycle.items', { returnObjects: true })
   const officialBody = t('programsPage.official.introBody', { returnObjects: true })
   const programTypes = t('programsPage.official.types', { returnObjects: true })
-  const classGroups = t('programsPage.official.classGroups', { returnObjects: true })
+  const officialCategories = t('programsPage.official.categories', { returnObjects: true })
 
   return (
     <>
@@ -140,9 +141,128 @@ export default function Programs() {
               <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">SNPE OFFICIAL PROGRAM</p>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5">{t('programsPage.official.introTitle')}</h2>
               <div className="space-y-3 text-gray-600 leading-relaxed max-w-2xl mx-auto text-left md:text-center">
-                {officialBody.map((text) => (
-                  <p key={text}>{text}</p>
-                ))}
+                {Array.isArray(officialBody) &&
+                  officialBody.map((text) => (
+                    <p key={text}>{text}</p>
+                  ))}
+              </div>
+            </div>
+          </section>
+
+          {/* PPTX 표형 개요: 4카테고리 · 10프로그램 */}
+          <section className="py-16 md:py-20 bg-white">
+            <div className="max-w-6xl mx-auto px-4">
+              <div className="text-center mb-10">
+                <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">
+                  {t('programsPage.official.systemTitle')}
+                </p>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800">
+                  {t('programsPage.official.systemSubtitle')}
+                </h3>
+              </div>
+
+              <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
+                {Array.isArray(officialCategories) &&
+                  officialCategories.map((cat, index) => {
+                    const Icon = officialCategoryIcons[index] || Layers
+                    return (
+                      <div
+                        key={cat.en}
+                        className="rounded-3xl border border-gray-100 bg-gray-50/80 p-5 md:p-6 flex flex-col"
+                      >
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="w-9 h-9 rounded-full bg-snpe-darker text-white text-sm font-bold flex items-center justify-center">
+                            {cat.no}
+                          </span>
+                          <div className="w-9 h-9 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center">
+                            <Icon size={18} />
+                          </div>
+                        </div>
+                        <p className="text-xs font-semibold tracking-[0.18em] text-snpe-dark">{cat.en}</p>
+                        <h3 className="text-lg font-bold text-gray-900 mt-1">{cat.title}</h3>
+                        {cat.subtitle && (
+                          <p className="text-sm text-gray-500 mt-1 mb-4">{cat.subtitle}</p>
+                        )}
+                        <ul className="mt-auto space-y-2.5 pt-2 border-t border-gray-200/80">
+                          {cat.programs.map((program) => (
+                            <li key={program.en} className="text-sm">
+                              <p className="font-semibold text-gray-900">{program.en}</p>
+                              <p className="text-gray-500">{program.name}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )
+                  })}
+              </div>
+            </div>
+          </section>
+
+          {/* 프로그램 상세 안내 */}
+          <section className="py-16 md:py-24 bg-gray-50">
+            <div className="max-w-5xl mx-auto px-4">
+              <div className="text-center mb-12">
+                <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">PROGRAM DETAIL</p>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800">
+                  {t('programsPage.official.detailTitle')}
+                </h3>
+              </div>
+
+              <div className="space-y-12">
+                {Array.isArray(officialCategories) &&
+                  officialCategories.map((cat) => (
+                    <div key={`detail-${cat.en}`}>
+                      <div className="flex items-center gap-3 mb-5">
+                        <span className="px-3 py-1 rounded-full bg-snpe-darker text-white text-xs font-bold tracking-wider">
+                          {cat.en}
+                        </span>
+                        <h4 className="text-lg font-bold text-gray-900">
+                          {cat.title}
+                          {cat.subtitle ? ` · ${cat.subtitle}` : ''}
+                        </h4>
+                        <span className="h-px flex-1 bg-gray-200" />
+                      </div>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {cat.programs.map((program) => (
+                          <div
+                            key={program.en}
+                            className="bg-white rounded-2xl p-6 border border-gray-100"
+                          >
+                            <p className="text-xs font-semibold text-snpe-dark tracking-wide">{program.en}</p>
+                            <h5 className="text-base md:text-lg font-bold text-gray-900 mt-1 mb-4">
+                              {program.name}
+                            </h5>
+                            <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+                              <p>
+                                <span className="font-semibold text-gray-800">
+                                  {t('programsPage.official.targetLabel')}
+                                </span>{' '}
+                                {program.target}
+                              </p>
+                              <p>
+                                <span className="font-semibold text-gray-800">
+                                  {t('programsPage.official.effectLabel')}
+                                </span>{' '}
+                                {program.effect}
+                              </p>
+                            </div>
+                            {Array.isArray(program.tags) && program.tags.length > 0 && (
+                              <div className="flex flex-wrap gap-2 mt-4">
+                                {program.tags.map((tag) => (
+                                  <span
+                                    key={tag}
+                                    className="px-3 py-1 bg-mint-lighter/50 text-snpe-darker text-xs rounded-full"
+                                  >
+                                    {tag}
+                                  </span>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </section>
@@ -154,64 +274,38 @@ export default function Programs() {
                 <h3 className="text-xl md:text-2xl font-bold text-gray-800">{t('programsPage.official.typeTitle')}</h3>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
-                {programTypes.map((p, index) => {
-                  const Icon = programTypeIcons[index] || User
-                  return (
-                    <div key={p.en} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
-                      <div className="w-12 h-12 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center mb-4">
-                        <Icon size={22} />
-                      </div>
-                      <p className="text-xs text-snpe-dark font-semibold">{p.en}</p>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">{p.title}</h3>
-                      <p className="text-sm text-gray-600 leading-relaxed">{p.desc}</p>
-                      {p.targets.length > 0 && (
-                        <>
-                          <p className="text-xs font-semibold text-gray-500 mt-5 mb-2">{t('programsPage.official.recommendationLabel')}</p>
-                          <ul className="space-y-1.5">
-                            {p.targets.map((tg) => (
-                              <li key={tg} className="flex items-start gap-2 text-sm text-gray-700">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-snpe-dark flex-shrink-0" />
-                                {tg}
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </section>
-
-          <section className="py-16 md:py-24 bg-gray-50">
-            <div className="max-w-5xl mx-auto px-4">
-              <div className="text-center mb-12">
-                <p className="text-xs font-semibold tracking-[0.3em] text-snpe-dark mb-3">SNPE CENTER PROGRAMS</p>
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800">{t('programsPage.official.centerTitle')}</h3>
-              </div>
-              <div className="space-y-10">
-                {classGroups.map((g) => (
-                  <div key={g.title}>
-                    <h3 className="text-lg font-bold text-snpe-dark mb-4 flex items-center gap-2">
-                      {g.title}
-                      <span className="h-px flex-1 bg-gray-200" />
-                    </h3>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      {g.items.map((it) => (
-                        <div key={it.no} className="flex items-start gap-4 bg-white rounded-2xl p-5 border border-gray-100">
-                          <span className="w-8 h-8 rounded-full bg-snpe-darker text-white text-sm flex items-center justify-center font-bold flex-shrink-0">
-                            {it.no}
-                          </span>
-                          <div>
-                            <h4 className="font-bold text-gray-900 mb-1">{it.name}</h4>
-                            <p className="text-sm text-gray-500 leading-relaxed">{it.desc}</p>
-                          </div>
+                {Array.isArray(programTypes) &&
+                  programTypes.map((p, index) => {
+                    const Icon = programTypeIcons[index] || User
+                    return (
+                      <div key={p.en} className="bg-gray-50 rounded-2xl p-7 border border-gray-100">
+                        <div className="w-12 h-12 rounded-xl bg-snpe-dark/10 text-snpe-dark flex items-center justify-center mb-4">
+                          <Icon size={22} />
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                        <p className="text-xs text-snpe-dark font-semibold">{p.en}</p>
+                        <h3 className="text-lg font-bold text-gray-900 mt-1">{p.title}</h3>
+                        {p.subtitle && (
+                          <p className="text-sm font-medium text-gray-500 mt-1 mb-3">{p.subtitle}</p>
+                        )}
+                        <p className="text-sm text-gray-600 leading-relaxed">{p.desc}</p>
+                        {Array.isArray(p.targets) && p.targets.length > 0 && (
+                          <>
+                            <p className="text-xs font-semibold text-gray-500 mt-5 mb-2">
+                              {t('programsPage.official.recommendationLabel')}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {p.targets.map((tg) => (
+                                <li key={tg} className="flex items-start gap-2 text-sm text-gray-700">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-snpe-dark flex-shrink-0" />
+                                  {tg}
+                                </li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
+                      </div>
+                    )
+                  })}
               </div>
 
               <div className="mt-14 text-center">
