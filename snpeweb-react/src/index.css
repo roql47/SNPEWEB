@@ -23,6 +23,8 @@
 
   --font-sans: 'Pretendard Variable', 'Pretendard', 'Noto Sans KR', sans-serif;
   --font-heading: 'Pretendard Variable', 'Pretendard', 'Helvetica Neue', sans-serif;
+  --font-sans-ja: 'Noto Sans JP', 'Pretendard Variable', 'Pretendard', sans-serif;
+  --font-heading-ja: 'Noto Sans JP', 'Pretendard Variable', 'Pretendard', 'Helvetica Neue', sans-serif;
 
   --breakpoint-sm: 544px;
   --breakpoint-md: 768px;
@@ -34,6 +36,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+  /* JA: Noto Sans JP 우선 — Pretendard 부분 글리프 폴백으로 한 글자만 튀는 현상 방지 */
+  html[lang='ja'] {
+    --font-sans: var(--font-sans-ja);
+    --font-heading: var(--font-heading-ja);
   }
   body {
     @apply font-sans bg-white antialiased;
