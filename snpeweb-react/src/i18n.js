@@ -6,6 +6,12 @@ import ko from './locales/ko.json'
 import en from './locales/en.json'
 import ja from './locales/ja.json'
 
+function syncHtmlLang(lng) {
+  if (typeof document === 'undefined') return
+  const code = String(lng || 'ko').split('-')[0]
+  document.documentElement.lang = code
+}
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -24,5 +30,8 @@ i18n
       caches: ['localStorage'],
     },
   })
+
+syncHtmlLang(i18n.resolvedLanguage || i18n.language)
+i18n.on('languageChanged', syncHtmlLang)
 
 export default i18n
