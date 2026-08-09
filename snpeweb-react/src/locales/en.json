@@ -108,11 +108,11 @@
     "benefits": {
       "emotional": {
         "title": "Emotional Stability",
-        "desc": "Helps ease depression and stress\nwhile supporting self-esteem and emotional stability"
+        "desc": "Relieves daily stress and anxiety\nwhile cultivating self-confidence and inner calm."
       },
       "physio": {
         "title": "Physiological Improvement",
-        "desc": "Supports recovery of body functions\nsuch as sleep issues, numbness, and menstrual irregularity"
+        "desc": "Supports systemic recovery — improving sleep quality,\ncirculation, and internal harmony."
       },
       "positive": {
         "title": "Positive Mindset",
@@ -120,11 +120,11 @@
       },
       "posture": {
         "title": "Postural Correction",
-        "desc": "Helps improve bow legs, forward head, rounded shoulders,\nand waist-pelvis balance"
+        "desc": "Improves forward head posture, rounded shoulders,\nleg alignment, and pelvic stability."
       },
       "pain": {
         "title": "Chronic Pain Relief",
-        "desc": "Helps ease muscle tension and reduce pain\nin the neck, shoulders, back, and more"
+        "desc": "Eases chronic muscle tension and relieves discomfort\nin the neck, shoulders, and lower back."
       },
       "body": {
         "title": "Physical Function Improvement",
@@ -187,7 +187,7 @@
       "title": "SNPE began with the question of recurring chronic lower back pain",
       "imageAlt": "The beginning of SNPE",
       "body": [
-        "SNPE began through long-term research and field experience with recurring spinal imbalance and movement problems.",
+        "SNPE was born from years of research and clinical experience addressing recurring spinal imbalances and movement dysfunction.",
         "The early philosophy of SNPE started with the question: \"Is movement that allows people to recover on their own, without depending on someone else, possible?\"",
         "The founder of SNPE, the late Professor Choi Jung-ki, experienced recurring lower back pain and movement limitations, and studied the principles of body alignment and movement recovery for many years. Based on chiropractic, exercise therapy, posture correction theory, and movement observation, SNPE developed into a self-directed movement system."
       ],
@@ -354,7 +354,7 @@
   "philosophyPage": {
     "intro": {
       "eyebrow": "02. Philosophy & Principles",
-      "title": "The body moves toward self-recovery",
+      "title": "Your Body is Built to Heal Itself",
       "subtitle": "SNPE focuses on understanding your body's movement\nand repeatedly learning correct movement patterns.",
       "lead": "The core philosophy of SNPE begins with the belief that the body naturally has a direction toward restoring balance on its own.",
       "cards": [
@@ -375,7 +375,7 @@
     },
     "meaning": {
       "eyebrow": "The Meaning of SNPE",
-      "title": "Exercise for self-recovery of natural posture and movement",
+      "title": "Movement for Natural Posture Restoration",
       "body": "The name SNPE stands for Self · Natural · Posture · Exercise, and is based on a philosophy that pursues recovery of natural human movement."
     },
     "principles": {
