@@ -133,8 +133,8 @@
     },
     "researchMediaSubtitle": "研究成果とメディアを通じて検証されてきたSNPE",
     "researchCardTitle": "SNPE研究報告書",
-    "researchCardLead1": "SNPEの効果検証のための体験事例分析",
-    "researchCardLead2": "2006年から2018年までの約1,000件のデータを分析しました",
+    "researchCardLead1": "正しい姿勢運動(SNPE)の効果検証のための事例分析",
+    "researchCardLead2": "2004年から2018年までの約1,500件のSNPE体験事例を分析しました",
     "researchCardDesc1": "慢性的な痛み、矯正ケア、生理学的な変化、",
     "researchCardDesc2": "そして情緒面・臨床面・心理面の症状への効果を検証しており、",
     "researchCardDesc3": "SNPEツールや動作ごとの効果を比較分析した結果を",
@@ -665,6 +665,7 @@
     "contact": {
       "email": "メール",
       "phone": "電話",
+      "kakao": "カカオトークチャンネル",
       "hours": "相談可能時間"
     },
     "overlay": {
@@ -727,8 +728,8 @@
       "contact": {
         "title": "お問い合わせ",
         "body": "教育課程に関するお問い合わせは、以下のチャンネルからどうぞ。",
-        "email": "contact@mycuring.com",
-        "phone": "02-539-2925",
+        "email": "snpeedu@mycuring.com",
+        "kakao": "SNPE",
         "hours": "平日 10:00~16:00"
       }
     }
@@ -894,7 +895,7 @@
     },
     "searchCenter": {
       "title": "SNPE専門センターとは?",
-      "desc": "SNPE専門センターは、SNPE本部から公式認証を受けたムーブメント専門センターです。公式教育課程を修了した認定講師が、体系的な評価と専門的なSNPEムーブメントプログラムを提供します。",
+      "desc": "SNPE専門センターは、SNPEの哲学と運動システムを専門的に体験できる公式認証センターです。SNPE認定講師が一人ひとりの体の状態と動きを確認し、ゆるめる・整える・活性化させることを基盤とした体系的なSNPEプログラムを提供します。",
       "total": "{{count}}件のセンター",
       "direct": "直営",
       "map": "マップ",
@@ -902,7 +903,7 @@
     },
     "studio": {
       "title": "SNPE STUDIOとは?",
-      "desc": "SNPE STUDIOは、認定講師が運営する小規模な公式SNPE認証スタジオです。承認されたスタジオは、それぞれの空間の特性と運営スタイルに合わせて、柔軟にSNPEプログラムを提供します。",
+      "desc": "SNPE STUDIOは、SNPEの公式認証を受けた小規模な運動スペースで、公式教育課程を修了したSNPE認定講師とともにSNPEの運動を体験できます。",
       "placeholder": "スタジオ名または地域を入力してください",
       "total": "{{count}}件のスタジオ",
       "owner": "代表 {{owner}}",

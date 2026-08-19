@@ -133,8 +133,8 @@
     },
     "researchMediaSubtitle": "SNPE verified through research outcomes and media",
     "researchCardTitle": "SNPE Research Report",
-    "researchCardLead1": "Analysis of experience cases to verify SNPE effects",
-    "researchCardLead2": "Approximately 1,000 records from 2006 to 2018 were analyzed",
+    "researchCardLead1": "Case analysis to verify the effects of Self-Natural Posture Exercise (SNPE)",
+    "researchCardLead2": "Approximately 1,500 SNPE experience cases from 2004 to 2018 were analyzed",
     "researchCardDesc1": "The report verifies effects on chronic pain, corrective therapy,",
     "researchCardDesc2": "physiological changes, and emotional, clinical, and psychological symptoms,",
     "researchCardDesc3": "and presents comparative analysis results on SNPE tools",
@@ -664,6 +664,7 @@
     "contact": {
       "email": "Email",
       "phone": "Phone",
+      "kakao": "KakaoTalk Channel",
       "hours": "Consultation Hours"
     }
   },
@@ -736,7 +737,7 @@
     },
     "searchCenter": {
       "title": "What is an SNPE Professional Center?",
-      "desc": "An SNPE Professional Center is an officially certified movement center approved by SNPE headquarters. Certified instructors who completed the official curriculum provide structured assessment and professional SNPE movement programs.",
+      "desc": "An SNPE Professional Center is an officially certified center where you can experience SNPE's philosophy and movement system in depth. Certified SNPE instructors review each person's physical condition and movement, then deliver a systematic SNPE program built on release, alignment, and activation.",
       "total": "{{count}} centers",
       "direct": "Direct",
       "map": "Map",
@@ -744,7 +745,7 @@
     },
     "studio": {
       "title": "What is SNPE STUDIO?",
-      "desc": "SNPE STUDIO is a small official SNPE-certified studio operated by a certified instructor. Each approved studio runs flexibly according to its own space, character, and operating style.",
+      "desc": "SNPE STUDIO is a small officially SNPE-certified movement space where you can experience SNPE exercise together with a certified SNPE instructor who has completed the official curriculum.",
       "placeholder": "Enter a studio name or region",
       "total": "{{count}} studios",
       "owner": "Owner {{owner}}",

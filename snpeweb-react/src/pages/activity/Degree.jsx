@@ -131,6 +131,7 @@ function applyDegreeOverlay(sec, overlaySec) {
   }
   if (overlaySec.email) next.email = overlaySec.email
   if (overlaySec.phone) next.phone = overlaySec.phone
+  if (overlaySec.kakao) next.kakao = overlaySec.kakao
   if (overlaySec.hours) next.hours = overlaySec.hours
   return next
 }
@@ -489,6 +490,19 @@ function ContactSection({ sec }) {
             <li>{t('degreePage.contact.email')}: <a href={`mailto:${sec.email}`} className="text-snpe-dark underline">{sec.email}</a></li>
           )}
           {sec.phone && <li>{t('degreePage.contact.phone')}: {sec.phone}</li>}
+          {sec.kakao && (
+            <li>
+              {t('degreePage.contact.kakao')}:{' '}
+              <a
+                href="https://pf.kakao.com/_Tqyxib"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-snpe-dark underline"
+              >
+                {sec.kakao}
+              </a>
+            </li>
+          )}
           {sec.hours && <li className="text-gray-500 pt-1">{t('degreePage.contact.hours')}: {sec.hours}</li>}
         </ul>
       </div>
