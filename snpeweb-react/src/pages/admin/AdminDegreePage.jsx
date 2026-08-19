@@ -28,7 +28,7 @@ const DEFAULT_CONTENT = {
   target: { title: 'SNPE 교육 대상', intro: '', items: [''], image_url: '', layout: 'text-only', image_ratio: 50, hidden: false },
   roadmap: { title: 'SNPE 교육 구조', intro: '', items: [{ level: 'LEVEL 1', name: '', desc: '', path: '/level1', image_url: '' }], hidden: false },
   career: { title: '교육 후 진로', items: [''], image_url: '', layout: 'text-only', image_ratio: 50, hidden: false },
-  contact: { title: '문의 안내', intro: '', team: '', email: '', phone: '', hours: '', image_url: '', layout: 'text-only', image_ratio: 50, hidden: false },
+  contact: { title: '문의 안내', intro: '', team: '', email: '', phone: '', kakao: '', hours: '', image_url: '', layout: 'text-only', image_ratio: 50, hidden: false },
 }
 
 const LAYOUT_OPTIONS = [
@@ -435,6 +435,15 @@ function SectionEditor({ sectionKey, section, updateSection, meta }) {
               />
             </Field>
           </div>
+          <Field label="카카오톡 채널">
+            <input
+              type="text"
+              value={section.kakao || ''}
+              onChange={(e) => updateSection((s) => ({ ...s, kakao: e.target.value }))}
+              className="input"
+              placeholder="SNPE"
+            />
+          </Field>
           <Field label="상담 가능 시간">
             <input
               type="text"

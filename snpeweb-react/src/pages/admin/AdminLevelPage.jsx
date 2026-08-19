@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { dataStore } from '../../lib/dataStore'
 import RichTextEditor from '../../components/admin/RichTextEditor'
+import ImageUploader from '../../components/admin/ImageUploader'
 import { Save, RotateCcw, Plus, Trash2, ChevronUp, ChevronDown, ExternalLink } from 'lucide-react'
 
 const TABS = [
@@ -75,6 +76,8 @@ export default function AdminLevelPage() {
   }
 
   const isMaster = activeSlug === 'master'
+  const isLevel1 = activeSlug === 'level1'
+  const isLevel2 = activeSlug === 'level2'
 
   return (
     <div className="pb-24">
@@ -204,6 +207,110 @@ export default function AdminLevelPage() {
               </button>
             </div>
           </Card>
+
+          {/* LEVEL 1 전용: 접수 및 마감 정보 */}
+          {isLevel1 && (
+            <Card title="접수 및 마감 정보 (LEVEL 1 페이지)">
+              <p className="text-xs text-gray-500 mb-4 -mt-1">
+                LEVEL 1 페이지 교육일정 박스의 「접수 및 마감 정보」와 하단 접수 안내 배너에 표시됩니다.
+                비워두면 페이지의 기본 문구가 그대로 유지됩니다.
+                <br />
+                ※ 개강일 · 수업 시간 · 수강료 · 수련 장소는 <b>교육과정 일정 관리</b>에서 수정합니다.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <Field label="접수 시작">
+                  <input
+                    value={form.enroll_start || ''}
+                    onChange={(e) => set('enroll_start', e.target.value)}
+                    className="input"
+                    placeholder="예: 9월 8일(월)"
+                  />
+                </Field>
+                <Field label="모집 정원">
+                  <input
+                    value={form.enroll_capacity || ''}
+                    onChange={(e) => set('enroll_capacity', e.target.value)}
+                    className="input"
+                    placeholder="예: 20명 한정 운영 (선착순 마감)"
+                  />
+                </Field>
+                <Field label="신청 방법">
+                  <input
+                    value={form.enroll_method || ''}
+                    onChange={(e) => set('enroll_method', e.target.value)}
+                    className="input"
+                    placeholder="예: 하단 신청하기 링크 참조"
+                  />
+                </Field>
+              </div>
+              <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Field label="하단 접수 안내 배너 문구">
+                  <input
+                    value={form.enroll_notice || ''}
+                    onChange={(e) => set('enroll_notice', e.target.value)}
+                    className="input"
+                    placeholder="예: 접수 시작 9월 8일(월) · 20명 한정 선착순 마감"
+                  />
+                </Field>
+                <Field label="신청하기 버튼 링크">
+                  <input
+                    type="url"
+                    value={form.apply_url || ''}
+                    onChange={(e) => set('apply_url', e.target.value)}
+                    className="input"
+                    placeholder="https://www.s-ground.co.kr/course/..."
+                  />
+                </Field>
+              </div>
+            </Card>
+          )}
+
+          {/* LEVEL 1 전용: 수강 혜택 카드뉴스 이미지 */}
+          {isLevel1 && (
+            <Card title="수강 혜택 카드뉴스 이미지 (LEVEL 1 페이지)">
+              <p className="text-xs text-gray-500 mb-3 -mt-1">
+                교육일정 박스 아래에 전체 폭으로 노출되는 이미지입니다. 비워두면 기존 이미지가 유지됩니다.
+              </p>
+              <ImageUploader
+                value={form.benefits_image_url || ''}
+                onChange={(url) => set('benefits_image_url', url)}
+                folder="level1"
+                aspectRatio="4/5"
+                maxSizeMB={8}
+                sizeHint="가로 1000px 이상 권장 · 8MB 이하 (JPG/PNG)"
+              />
+            </Card>
+          )}
+
+          {/* LEVEL 2 전용: 신청 링크 */}
+          {isLevel2 && (
+            <Card title="신청 링크 (LEVEL 2 페이지)">
+              <p className="text-xs text-gray-500 mb-4 -mt-1">
+                금요반 · 토요반 「신청하기」 버튼이 연결되는 주소입니다. 기수가 바뀌면 이곳에서 수정하세요.
+                비워두면 기존 링크가 유지됩니다.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Field label="금요반 신청 URL">
+                  <input
+                    type="url"
+                    value={form.apply_url_friday || ''}
+                    onChange={(e) => set('apply_url_friday', e.target.value)}
+                    className="input"
+                    placeholder="https://www.s-ground.co.kr/course/..."
+                  />
+                </Field>
+                <Field label="토요반 신청 URL">
+                  <input
+                    type="url"
+                    value={form.apply_url_saturday || ''}
+                    onChange={(e) => set('apply_url_saturday', e.target.value)}
+                    className="input"
+                    placeholder="https://www.s-ground.co.kr/course/..."
+                  />
+                </Field>
+              </div>
+            </Card>
+          )}
 
           {/* 마스터 전용: 특징 카드 */}
           {isMaster && (

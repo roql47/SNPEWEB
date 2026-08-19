@@ -133,8 +133,8 @@
     },
     "researchMediaSubtitle": "연구 결과와 미디어를 통해 검증된 SNPE",
     "researchCardTitle": "SNPE 연구보고서",
-    "researchCardLead1": "SNPE 효과 검증을 위한 체험사례 분석",
-    "researchCardLead2": "2006년부터 2018년의 약 1,000건의 자료를 분석",
+    "researchCardLead1": "바른자세운동(SNPE) 효과검증을 위한 사례분석",
+    "researchCardLead2": "2004년부터 2018년의 약 1,500건의 SNPE 체험사례 분석",
     "researchCardDesc1": "만성 통증, 교정 치료, 생리학적 변화와",
     "researchCardDesc2": "정서적·임상적 및 심리적 증상에 대한 효과를 검증하였으며,",
     "researchCardDesc3": "SNPE 도구와 동작별 효과에 대한 비교 분석 결과를",
@@ -664,6 +664,7 @@
     "contact": {
       "email": "이메일",
       "phone": "전화",
+      "kakao": "카카오톡채널",
       "hours": "상담 가능 시간"
     }
   },
@@ -736,7 +737,7 @@
     },
     "searchCenter": {
       "title": "SNPE 전문센터란?",
-      "desc": "SNPE 전문센터는 SNPE 본사의 공식 인증을 받은 전문 운동 센터입니다. 공식 교육과정을 이수한 인증강사가 체계적인 평가와 프로그램을 통해 전문적인 SNPE 운동 서비스를 제공합니다.",
+      "desc": "SNPE 전문센터는 SNPE의 철학과 운동 시스템을 전문적으로 경험할 수 있는 공식 인증센터입니다. SNPE 인증강사가 개인의 몸 상태와 움직임을 살펴보고, 이완·정렬·활성화를 기반으로 한 체계적인 SNPE 프로그램을 제공합니다.",
       "total": "총 {{count}}개 센터",
       "direct": "직영",
       "map": "지도",
@@ -744,7 +745,7 @@
     },
     "studio": {
       "title": "SNPE STUDIO란?",
-      "desc": "SNPE STUDIO는 인증강사가 운영하는 소규모 SNPE 공식 인증 스튜디오입니다. 공식 브랜드 사용 승인을 받은 공간으로, 각 스튜디오의 특성과 운영 방식에 맞춰 자유롭고 유연하게 운영됩니다.",
+      "desc": "SNPE STUDIO는 SNPE 공식 인증을 받은 소규모 운동 공간으로, 공식 교육과정을 이수한 SNPE 인증강사와 함께 SNPE 운동을 경험할 수 있습니다.",
       "placeholder": "스튜디오명 또는 지역을 입력하세요",
       "total": "총 {{count}}개 스튜디오",
       "owner": "대표 {{owner}}",

@@ -31,7 +31,7 @@ import { sanitizeHtml } from '../../lib/sanitize'
 import useLevelSchedule, { mergeSchedule } from '../../hooks/useLevelSchedule'
 import useReveal from '../../hooks/useReveal'
 
-const ENROLL_URL = 'https://www.s-ground.co.kr/course/Level-1'
+const ENROLL_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8'
 const KAKAO_URL = 'https://pf.kakao.com/_Tqyxib'
 
 const IMG = {
@@ -150,14 +150,15 @@ const DEFAULT_TARGETS = [
 ]
 
 const SCHEDULE_INFO = [
-  { Icon: CalendarDays, label: '개강', value: '6월 24일(수) 개강 / 10주 과정 (주2회 / 총 40시간)' },
+  { Icon: CalendarDays, label: '개강', value: '10월 7일(수) 개강 / 10주 과정 (주2회 / 총 40시간)' },
   { Icon: Clock, label: '수업 시간', value: '매주 수요일 (19:00~21:00) / 일요일 (10:00~12:00)' },
   { Icon: Wallet, label: '수강료', value: '180만원' },
   { Icon: MapPin, label: '수련 장소', value: 'SNPE 강남본원' },
 ]
 
+// 접수 시작일은 기수마다 달라지므로 기본값을 비워두고 어드민 입력값으로 채운다(값이 없으면 항목을 숨김).
 const ENROLLMENT_INFO = [
-  { Icon: Calendar, label: '접수 시작', value: '5월 26일(화)' },
+  { Icon: Calendar, label: '접수 시작', value: '' },
   { Icon: Users, label: '모집 정원', value: '20명 한정 운영 (선착순 마감)' },
   { Icon: Send, label: '신청 방법', value: '하단 신청하기 링크 참조' },
 ]
@@ -259,8 +260,18 @@ export default function Level1Sections() {
     '수련 장소': 'location',
   })
 
+  // 어드민 "교육과정 페이지 관리 > LEVEL 1"의 접수 정보로 접수 및 마감 정보를 덮어쓴다
+  const enrollmentInfo = mergeSchedule(ENROLLMENT_INFO, admin, {
+    '접수 시작': 'enroll_start',
+    '모집 정원': 'enroll_capacity',
+    '신청 방법': 'enroll_method',
+  }).filter((s) => s.value)
+
   const targets = admin?.targets?.length > 0 ? admin.targets : DEFAULT_TARGETS
   const introHtml = admin?.intro_html || null
+  const benefitsImage = admin?.benefits_image_url || IMG.benefits
+  const enrollUrl = admin?.apply_url || ENROLL_URL
+  const enrollNotice = admin?.enroll_notice || '20명 한정 선착순 마감'
 
   return (
     <div className="bg-white">
@@ -287,7 +298,7 @@ export default function Level1Sections() {
           </Reveal>
           <Reveal delay={340}>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <PrimaryButton href={ENROLL_URL}>신청하기</PrimaryButton>
+              <PrimaryButton href={enrollUrl}>신청하기</PrimaryButton>
               <SecondaryButton href={KAKAO_URL}>카카오톡 문의</SecondaryButton>
             </div>
           </Reveal>
@@ -610,7 +621,7 @@ export default function Level1Sections() {
                 <div className="pt-6 border-t border-white/15">
                   <h3 className="font-bold text-lg mb-5">접수 및 마감 정보</h3>
                   <ul className="space-y-5">
-                    {ENROLLMENT_INFO.map((s, i) => {
+                    {enrollmentInfo.map((s, i) => {
                       const Icon = s.Icon
                       return (
                         <li key={i} className="flex gap-3">
@@ -655,7 +666,7 @@ export default function Level1Sections() {
           <Reveal delay={260}>
             <div className="mt-10 rounded-3xl overflow-hidden shadow-lg bg-white">
               <img
-                src={IMG.benefits}
+                src={benefitsImage}
                 alt="SNPE LEVEL 1 수강 혜택 카드뉴스"
                 className="w-full h-auto"
                 loading="lazy"
@@ -670,11 +681,11 @@ export default function Level1Sections() {
                   접수 안내
                 </p>
                 <p className="text-snpe-darker font-bold text-base md:text-lg">
-                  접수 시작 5월 26일(화) · 20명 한정 선착순 마감
+                  {enrollNotice}
                 </p>
               </div>
               <div className="flex gap-3">
-                <PrimaryButton href={ENROLL_URL}>신청하기</PrimaryButton>
+                <PrimaryButton href={enrollUrl}>신청하기</PrimaryButton>
                 <SecondaryButton href={KAKAO_URL}>카카오톡 문의</SecondaryButton>
               </div>
             </div>

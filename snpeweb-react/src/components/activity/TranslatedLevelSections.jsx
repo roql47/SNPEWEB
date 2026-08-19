@@ -8,17 +8,19 @@ import {
   Target,
   XCircle,
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { dataStore } from '../../lib/dataStore'
 import useLevelSchedule, { mergeSchedule } from '../../hooks/useLevelSchedule'
 
 const LINKS = {
   level1: {
-    primary: 'https://www.s-ground.co.kr/course/Level-1',
+    primary: 'https://www.s-ground.co.kr/course/SNPE-LEVEL-1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8',
     secondary: 'https://pf.kakao.com/_Tqyxib',
   },
   level2: {
-    friday: 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-140%EA%B8%B0-%EA%B8%88%EC%9A%94',
-    saturday: 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-141%EA%B8%B0-%ED%86%A0%EC%9A%94%EB%B0%98',
+    friday: 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-142%EA%B8%B0-%EA%B8%88%EC%9A%94%EB%B0%98',
+    saturday: 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-142%EA%B8%B0-%EA%B8%88%EC%9A%94%EB%B0%98-%EB%B3%B5%EC%A0%9C-2026-08-19%2014:38:47',
     secondary: 'http://pf.kakao.com/_Tqyxib/chat',
   },
   level3: {
@@ -111,7 +113,7 @@ const CONTENT = {
         'People interested in SNPE instructor education after LEVEL 1.',
       ],
       schedule: [
-        ['opening', 'Opening', 'June 24 opening / 10-week course'],
+        ['opening', 'Opening', 'October 7 (Wed) opening / 10-week course'],
         ['time', 'Class Time', 'Weekday evening or weekend class'],
         ['tuition', 'Tuition', 'KRW 1,800,000'],
         ['place', 'Training Location', 'SNPE Gangnam Headquarters'],
@@ -172,7 +174,7 @@ const CONTENT = {
         'Professionals who want to expand into SNPE instruction.',
       ],
       schedule: [
-        ['opening', 'Opening', 'July 3 Friday class / July 4 Saturday class'],
+        ['opening', 'Opening', 'Nov 13 (Fri) 142nd Friday class / Nov 14 (Sat) 143rd Saturday class'],
         ['period', 'Course', '12 weeks, once a week, 84 total hours including field practice'],
         ['time', 'Class Time', '10:00-18:00 including break'],
         ['tuition', 'Tuition', 'KRW 6,500,000'],
@@ -335,7 +337,7 @@ const CONTENT = {
         [
           "opening",
           "開講",
-          "6月24日(水)開講/10週間課程(週2回/計40時間)",
+          "10月7日(水)開講/10週間課程(週2回/計40時間)",
         ],
         [
           "time",
@@ -511,7 +513,7 @@ const CONTENT = {
         [
           "opening",
           "開講",
-          "7/3(金)および7/4(土)",
+          "142期 金曜クラス 11月13日(金)/143期 土曜クラス 11月14日(土)",
         ],
         [
           "period",
@@ -1000,6 +1002,20 @@ export default function TranslatedLevelSections({ level }) {
   const copy = CONTENT[lang][level]
   const c = COMMON[lang]
 
+  // 어드민 "교육과정 페이지 관리"의 신청 링크·혜택 이미지를 en/ja 페이지에도 반영
+  const [admin, setAdmin] = useState(null)
+  useEffect(() => {
+    dataStore.getPageContent(level).then(setAdmin).catch(() => setAdmin(null))
+  }, [level])
+
+  const links = {
+    ...LINKS[level],
+    ...(admin?.apply_url ? { primary: admin.apply_url } : null),
+    ...(admin?.apply_url_friday ? { friday: admin.apply_url_friday } : null),
+    ...(admin?.apply_url_saturday ? { saturday: admin.apply_url_saturday } : null),
+  }
+  const benefitsImage = admin?.benefits_image_url || levelImages.level1.benefits
+
   if (!copy) return null
 
   if (level === 'level1') {
@@ -1013,8 +1029,8 @@ export default function TranslatedLevelSections({ level }) {
               {copy.intro.map((p) => <p key={p}>{p}</p>)}
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-              <CTAButton href={LINKS.level1.primary}>{copy.buttons[0]}</CTAButton>
-              <CTAButton href={LINKS.level1.secondary} variant="secondary">{copy.buttons[1]}</CTAButton>
+              <CTAButton href={links.primary}>{copy.buttons[0]}</CTAButton>
+              <CTAButton href={links.secondary} variant="secondary">{copy.buttons[1]}</CTAButton>
             </div>
           </div>
         </section>
@@ -1107,7 +1123,7 @@ export default function TranslatedLevelSections({ level }) {
         <section className="py-16 md:py-24 bg-white">
           <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-[1fr_1.2fr] gap-10 items-center">
             <div className="rounded-3xl overflow-hidden shadow-md bg-gray-100">
-              <img src={levelImages.level1.benefits} alt="" className="w-full h-auto block" loading="lazy" />
+              <img src={benefitsImage} alt="" className="w-full h-auto block" loading="lazy" />
             </div>
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{copy.recommendTitle}</h2>
@@ -1124,7 +1140,7 @@ export default function TranslatedLevelSections({ level }) {
         </section>
 
         <ScheduleBox level="level1" rows={copy.schedule} c={c} />
-        <Closing title={copy.closingTitle} body={copy.closingBody} actions={<CTAButton href={LINKS.level1.primary}>{copy.buttons[0]} <ArrowRight size={16} /></CTAButton>} />
+        <Closing title={copy.closingTitle} body={copy.closingBody} actions={<CTAButton href={links.primary}>{copy.buttons[0]} <ArrowRight size={16} /></CTAButton>} />
       </div>
     )
   }
@@ -1143,14 +1159,14 @@ export default function TranslatedLevelSections({ level }) {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {level === 'level2' ? (
               <>
-                <CTAButton href={LINKS.level2.friday}>{copy.buttons[0]}</CTAButton>
-                <CTAButton href={LINKS.level2.saturday}>{copy.buttons[1]}</CTAButton>
-                <CTAButton href={LINKS.level2.secondary} variant="secondary">{copy.buttons[2]}</CTAButton>
+                <CTAButton href={links.friday}>{copy.buttons[0]}</CTAButton>
+                <CTAButton href={links.saturday}>{copy.buttons[1]}</CTAButton>
+                <CTAButton href={links.secondary} variant="secondary">{copy.buttons[2]}</CTAButton>
               </>
             ) : (
               <>
-                <CTAButton href={LINKS.level3.primary}>{copy.buttons[0]}</CTAButton>
-                <CTAButton href={LINKS.level3.secondary} variant="secondary">{copy.buttons[1]}</CTAButton>
+                <CTAButton href={links.primary}>{copy.buttons[0]}</CTAButton>
+                <CTAButton href={links.secondary} variant="secondary">{copy.buttons[1]}</CTAButton>
               </>
             )}
           </div>
@@ -1178,11 +1194,11 @@ export default function TranslatedLevelSections({ level }) {
         actions={
           level === 'level2' ? (
             <>
-              <CTAButton href={LINKS.level2.friday}>{c.fridayApply} <ArrowRight size={16} /></CTAButton>
-              <CTAButton href={LINKS.level2.saturday}>{c.saturdayApply} <ArrowRight size={16} /></CTAButton>
+              <CTAButton href={links.friday}>{c.fridayApply} <ArrowRight size={16} /></CTAButton>
+              <CTAButton href={links.saturday}>{c.saturdayApply} <ArrowRight size={16} /></CTAButton>
             </>
           ) : (
-            <CTAButton href={LINKS.level3.primary}>{c.applyLevel3} <ArrowRight size={16} /></CTAButton>
+            <CTAButton href={links.primary}>{c.applyLevel3} <ArrowRight size={16} /></CTAButton>
           )
         }
       />
@@ -1319,7 +1335,7 @@ function Level2Body({ copy }) {
               {copy.groupLessons.map((lesson) => (
                 <div key={lesson.title} className="rounded-2xl overflow-hidden border border-gray-100 bg-gray-50">
                   {lesson.img && (
-                    <div className="aspect-[16/10] bg-gray-100 overflow-hidden">
+                    <div className="aspect-[4/5] bg-gray-100 overflow-hidden">
                       <img src={lesson.img} alt={lesson.title} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   )}

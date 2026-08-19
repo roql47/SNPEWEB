@@ -14,12 +14,15 @@ import {
   Eye,
   ArrowRight,
 } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { dataStore } from '../../lib/dataStore'
 import useReveal from '../../hooks/useReveal'
 import useLevelSchedule, { mergeSchedule } from '../../hooks/useLevelSchedule'
 
 // 외부 신청/문의 링크 (PPT 슬라이드 12·14)
-const LEVEL2_FRI_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-140%EA%B8%B0-%EA%B8%88%EC%9A%94'
-const LEVEL2_SAT_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-141%EA%B8%B0-%ED%86%A0%EC%9A%94%EB%B0%98'
+// 기수가 바뀌면 어드민 "교육과정 페이지 관리 > LEVEL 2 > 신청 링크"에서 덮어쓸 수 있다.
+const LEVEL2_FRI_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-142%EA%B8%B0-%EA%B8%88%EC%9A%94%EB%B0%98'
+const LEVEL2_SAT_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-2-142%EA%B8%B0-%EA%B8%88%EC%9A%94%EB%B0%98-%EB%B3%B5%EC%A0%9C-2026-08-19%2014:38:47'
 const KAKAO_CHAT_URL = 'http://pf.kakao.com/_Tqyxib/chat'
 
 function Reveal({ children, delay = 0, className = '' }) {
@@ -122,7 +125,7 @@ const careerFields = [
 ]
 
 const schedule = [
-  { label: '개강', value: '7/3 금요일 및 7/4 토요일' },
+  { label: '개강', value: '142기 금요반 11월 13일(금) / 143기 토요반 11월 14일(토)' },
   { label: '과정', value: '총 12주 · 주 1회 · 총 84시간 (현장실습 14시간 포함)' },
   { label: '수업시간', value: '금/토 10:00–18:00 (휴게 1시간 포함)' },
   { label: '수강료', value: '650만원' },
@@ -143,6 +146,14 @@ export default function Level2Sections() {
   // 어드민 "교육과정 일정 관리"(level2)의 값으로 교육일정 표를 덮어쓴다(없으면 기본값 유지)
   const edu = useLevelSchedule('level2')
   const scheduleRows = mergeSchedule(schedule, edu, SCHEDULE_LABEL_MAP)
+
+  // 어드민 "교육과정 페이지 관리 > LEVEL 2"의 기수별 신청 링크
+  const [admin, setAdmin] = useState(null)
+  useEffect(() => {
+    dataStore.getPageContent('level2').then(setAdmin).catch(() => setAdmin(null))
+  }, [])
+  const fridayUrl = admin?.apply_url_friday || LEVEL2_FRI_URL
+  const saturdayUrl = admin?.apply_url_saturday || LEVEL2_SAT_URL
 
   return (
     <>
@@ -170,7 +181,7 @@ export default function Level2Sections() {
           <p className="mt-6 text-snpe-dark font-bold">10주 교육 + 2주 현장실습 = 12주 과정</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
-              href={LEVEL2_FRI_URL}
+              href={fridayUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="px-7 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
@@ -178,7 +189,7 @@ export default function Level2Sections() {
               금요반 신청하기
             </a>
             <a
-              href={LEVEL2_SAT_URL}
+              href={saturdayUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="px-7 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
@@ -426,7 +437,7 @@ export default function Level2Sections() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {groupLessons.map((g) => (
               <div key={g.title} className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-                <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+                <div className="aspect-[4/5] overflow-hidden bg-gray-100">
                   <img src={g.img} alt={g.title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="p-5">
@@ -604,7 +615,7 @@ export default function Level2Sections() {
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <a
-                href={LEVEL2_FRI_URL}
+                href={fridayUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
@@ -612,7 +623,7 @@ export default function Level2Sections() {
                 금요반 신청하기 <ArrowRight size={16} />
               </a>
               <a
-                href={LEVEL2_SAT_URL}
+                href={saturdayUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-snpe-darker text-white rounded-full font-medium hover:bg-snpe-dark transition-colors"
