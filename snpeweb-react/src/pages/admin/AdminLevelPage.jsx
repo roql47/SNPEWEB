@@ -223,7 +223,7 @@ export default function AdminLevelPage() {
                     value={form.enroll_start || ''}
                     onChange={(e) => set('enroll_start', e.target.value)}
                     className="input"
-                    placeholder="예: 9월 8일(월)"
+                    placeholder="예: 9월 1일"
                   />
                 </Field>
                 <Field label="모집 정원">
@@ -249,7 +249,7 @@ export default function AdminLevelPage() {
                     value={form.enroll_notice || ''}
                     onChange={(e) => set('enroll_notice', e.target.value)}
                     className="input"
-                    placeholder="예: 접수 시작 9월 8일(월) · 20명 한정 선착순 마감"
+                    placeholder="예: 접수 시작 9월 1일 · 20명 한정 선착순 마감"
                   />
                 </Field>
                 <Field label="신청하기 버튼 링크">
