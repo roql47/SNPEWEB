@@ -319,7 +319,7 @@ export default function AdminEducations() {
                       value={form.schedule_open}
                       onChange={(e) => setForm({ ...form, schedule_open: e.target.value })}
                       className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
-                      placeholder="예: 6월 24일(수) 개강 / 10주 과정 (주2회 / 총 40시간)"
+                      placeholder="예: 10월 7일(수) 개강 / 10주 과정 (주2회 / 총 40시간)"
                     />
                   </div>
                   <div>
