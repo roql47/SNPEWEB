@@ -270,6 +270,7 @@ export default function Level1Sections() {
   const targets = admin?.targets?.length > 0 ? admin.targets : DEFAULT_TARGETS
   const introHtml = admin?.intro_html || null
   const benefitsImage = admin?.benefits_image_url || IMG.benefits
+  const benefitsHidden = admin?.benefits_hidden === true
   const enrollUrl = admin?.apply_url || ENROLL_URL
   const enrollNotice = admin?.enroll_notice || '20명 한정 선착순 마감'
 
@@ -663,16 +664,18 @@ export default function Level1Sections() {
           </div>
 
           {/* 수강 혜택 카드뉴스 */}
-          <Reveal delay={260}>
-            <div className="mt-10 rounded-3xl overflow-hidden shadow-lg bg-white">
-              <img
-                src={benefitsImage}
-                alt="SNPE LEVEL 1 수강 혜택 카드뉴스"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-          </Reveal>
+          {!benefitsHidden && (
+            <Reveal delay={260}>
+              <div className="mt-10 rounded-3xl overflow-hidden shadow-lg bg-white">
+                <img
+                  src={benefitsImage}
+                  alt="SNPE LEVEL 1 수강 혜택 카드뉴스"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+            </Reveal>
+          )}
 
           <Reveal delay={340}>
             <div className="mt-8 bg-snpe rounded-3xl p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
