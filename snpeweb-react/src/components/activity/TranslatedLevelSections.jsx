@@ -1015,6 +1015,7 @@ export default function TranslatedLevelSections({ level }) {
     ...(admin?.apply_url_saturday ? { saturday: admin.apply_url_saturday } : null),
   }
   const benefitsImage = admin?.benefits_image_url || levelImages.level1.benefits
+  const benefitsHidden = admin?.benefits_hidden === true
 
   if (!copy) return null
 
@@ -1121,10 +1122,16 @@ export default function TranslatedLevelSections({ level }) {
         </section>
 
         <section className="py-16 md:py-24 bg-white">
-          <div className="max-w-5xl mx-auto px-4 grid lg:grid-cols-[1fr_1.2fr] gap-10 items-center">
-            <div className="rounded-3xl overflow-hidden shadow-md bg-gray-100">
-              <img src={benefitsImage} alt="" className="w-full h-auto block" loading="lazy" />
-            </div>
+          <div
+            className={`mx-auto px-4 grid gap-10 items-center ${
+              benefitsHidden ? 'max-w-3xl' : 'max-w-5xl lg:grid-cols-[1fr_1.2fr]'
+            }`}
+          >
+            {!benefitsHidden && (
+              <div className="rounded-3xl overflow-hidden shadow-md bg-gray-100">
+                <img src={benefitsImage} alt="" className="w-full h-auto block" loading="lazy" />
+              </div>
+            )}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">{copy.recommendTitle}</h2>
               <ul className="space-y-3">

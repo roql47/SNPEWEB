@@ -269,7 +269,8 @@ export default function AdminLevelPage() {
           {isLevel1 && (
             <Card title="수강 혜택 카드뉴스 이미지 (LEVEL 1 페이지)">
               <p className="text-xs text-gray-500 mb-3 -mt-1">
-                교육일정 박스 아래에 전체 폭으로 노출되는 이미지입니다. 비워두면 기존 이미지가 유지됩니다.
+                교육일정 박스 아래에 전체 폭으로 노출되는 이미지입니다. 새 기수 이미지를 올리면 교체되고,
+                아래 「이미지 숨기기」를 켜면 사이트에서 이 영역이 사라집니다.
               </p>
               <ImageUploader
                 value={form.benefits_image_url || ''}
@@ -279,6 +280,20 @@ export default function AdminLevelPage() {
                 maxSizeMB={8}
                 sizeHint="가로 1000px 이상 권장 · 8MB 이하 (JPG/PNG)"
               />
+              <label className="mt-4 flex items-start gap-2.5 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={form.benefits_hidden === true}
+                  onChange={(e) => set('benefits_hidden', e.target.checked)}
+                  className="mt-0.5 w-4 h-4 accent-mint"
+                />
+                <span className="text-sm text-gray-700">
+                  이미지 숨기기
+                  <span className="block text-xs text-gray-500 mt-0.5">
+                    새 기수 이미지가 준비되기 전까지 혜택 카드뉴스 영역을 노출하지 않습니다. (한국어 · 영어 · 일본어 페이지 모두 적용)
+                  </span>
+                </span>
+              </label>
             </Card>
           )}
 
