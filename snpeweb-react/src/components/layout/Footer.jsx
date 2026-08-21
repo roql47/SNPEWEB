@@ -1,13 +1,14 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ShoppingBag, ChevronDown } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import { socialLinks } from '../../data/socialLinks'
+
+const BROCHURE_URL = 'https://mycuring.com/'
+const SGROUND_URL = 'https://www.s-ground.co.kr'
+const SHOP_URL = 'https://www.snpeshop.com'
 
 export default function Footer() {
   const { t } = useTranslation()
-  const [isCompanyOpen, setIsCompanyOpen] = useState(false)
-  const currentYear = new Date().getFullYear()
 
   const footerNav = [
     { labelKey: 'footer.about', path: '/about' },
@@ -17,7 +18,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#2f2f2f] text-gray-400">
-      {/* Top bar */}
       <div className="border-b border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex flex-wrap items-center gap-4 text-xs">
@@ -59,76 +59,53 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Main info */}
-      <div className="max-w-[1440px] mx-auto px-6 py-8 md:py-10">
-        <div className="flex flex-col md:flex-row md:justify-between gap-6">
-          <div className="flex-1">
-            <button
-              type="button"
-              onClick={() => setIsCompanyOpen((prev) => !prev)}
-              aria-expanded={isCompanyOpen}
-              aria-controls="footer-company-info"
-              className="group flex items-center gap-1.5 text-white font-semibold text-sm mb-3 hover:text-[var(--color-mint)] transition-colors"
-            >
-              <span>{t('footer.company')}</span>
-              <ChevronDown
-                size={14}
-                className={`transition-transform duration-200 ${isCompanyOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            <div
-              id="footer-company-info"
-              className={`grid transition-all duration-300 ease-out ${
-                isCompanyOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-              }`}
-            >
-              <div className="overflow-hidden">
-                <div className="text-xs leading-[1.8] space-y-0.5 pt-1">
-                  <p>
-                    <span className="text-gray-500 mr-1.5">Address :</span>
-                    {t('footer.address')}
-                  </p>
-                  <p>
-                    <span className="text-gray-500 mr-1.5">Biz No. :</span>
-                    {t('footer.bizNum')}
-                    <span className="text-gray-500 mx-2">|</span>
-                    <span className="text-gray-500 mr-1.5">CEO :</span>
-                    {t('footer.ceo')}
-                  </p>
-                  <p>
-                    <span className="text-gray-500 mr-1.5">TEL :</span>
-                    02-539-2925
-                    <span className="text-gray-500 mx-2">|</span>
-                    <span className="text-gray-500 mr-1.5">FAX :</span>
-                    02-568-2925
-                    <span className="text-gray-500 mx-2">|</span>
-                    <span className="text-gray-500 mr-1.5">E-mail :</span>
-                    <a href="mailto:contact@mycuring.com" className="hover:text-white transition-colors">
-                      contact@mycuring.com
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="max-w-[1440px] mx-auto px-6 py-10 md:py-12 text-white text-[13px] md:text-sm leading-[1.8]">
+        <p>{t('footer.copyright')}</p>
+        <p>
+          {t('footer.bizNumLabel')} : {t('footer.bizNum')}
+          <span className="mx-1.5 text-white/50">|</span>
+          {t('footer.ceoLabel')} : {t('footer.ceo')}
+        </p>
+        <p>{t('footer.address')}</p>
 
-          <div className="flex flex-col items-start md:items-end gap-3">
-            <a
-              href="https://www.snpeshop.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs px-4 py-2 border border-gray-600 rounded hover:border-gray-400 hover:text-white transition-colors"
-            >
-              <ShoppingBag size={14} /> {t('footer.shopCta', { defaultValue: 'SNPE SHOP →' })}
-            </a>
-          </div>
+        <div className="mt-8">
+          <p className="font-bold text-white mb-1">{t('footer.otherInquiry')}</p>
+          <a href="mailto:contact@mycuring.com" className="block hover:opacity-80 transition-opacity">
+            contact@mycuring.com
+          </a>
+          <a href="tel:025392925" className="block hover:opacity-80 transition-opacity">
+            02-539-2925
+          </a>
         </div>
-      </div>
 
-      {/* Copyright */}
-      <div className="border-t border-white/10">
-        <div className="max-w-[1440px] mx-auto px-6 py-4 text-center text-[11px] text-gray-500">
-          {t('footer.copyright', { year: currentYear })}
+        <a
+          href={BROCHURE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-8 inline-flex items-center gap-1.5 text-snpe font-medium hover:opacity-80 transition-opacity"
+        >
+          {t('footer.brochure')}
+          <ArrowDown size={16} strokeWidth={2.2} />
+        </a>
+
+        <div className="mt-8">
+          <p className="font-bold text-white mb-1">{t('footer.relatedSites')}</p>
+          <a
+            href={SGROUND_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block hover:opacity-80 transition-opacity"
+          >
+            S-GROUND
+          </a>
+          <a
+            href={SHOP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block hover:opacity-80 transition-opacity"
+          >
+            SNPE SHOP
+          </a>
         </div>
       </div>
     </footer>

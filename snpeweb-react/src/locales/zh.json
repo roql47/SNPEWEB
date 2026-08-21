@@ -84,10 +84,15 @@
   },
   "footer": {
     "company": "(株)Curing Co.",
-    "address": "首尔特别市 江南区 奉恩寺路68街8号, 4楼",
+    "address": "首尔特别市 江南区 奉恩寺路68街8号, 3楼",
     "bizNum": "393-87-01993",
+    "bizNumLabel": "营业执照号",
     "ceo": "赵娜拉",
-    "copyright": "ⓒ {{year}} SNPE. All rights reserved.",
+    "ceoLabel": "代表",
+    "copyright": "Copyright © 2023 Curing Co. all rights reserved",
+    "otherInquiry": "其他咨询",
+    "brochure": "下载公司介绍资料",
+    "relatedSites": "相关网站",
     "about": "公司介绍",
     "privacy": "隐私政策",
     "terms": "使用条款"
