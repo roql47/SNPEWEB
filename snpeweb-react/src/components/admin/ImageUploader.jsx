@@ -50,11 +50,14 @@ export default function ImageUploader({ value, onChange, folder = 'degree', aspe
   return (
     <div className="space-y-2">
       {value ? (
-        <div className="relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50" style={{ aspectRatio }}>
+        <div
+          className="relative rounded-lg overflow-hidden border border-gray-200 bg-gray-50"
+          style={aspectRatio === 'auto' ? undefined : { aspectRatio }}
+        >
           <img
             src={value}
             alt="미리보기"
-            className="w-full h-full object-cover"
+            className={aspectRatio === 'auto' ? 'w-full h-auto block' : 'w-full h-full object-cover'}
             onError={(e) => { e.currentTarget.style.opacity = '0.3' }}
           />
           <button

@@ -737,7 +737,7 @@
     },
     "searchCenter": {
       "title": "What is an SNPE Professional Center?",
-      "desc": "An SNPE Professional Center is an officially certified center where you can experience SNPE's philosophy and movement system in depth. Certified SNPE instructors review each person's physical condition and movement, then deliver a systematic SNPE program built on release, alignment, and activation.",
+      "desc": "An SNPE Professional Center is an officially certified center where you can experience professional exercise programs grounded in the philosophy and principles of SNPE. Based on SNPE body-type analysis and posture assessment, it delivers SNPE programs that apply release, alignment, and activation in a systematic way.",
       "total": "{{count}} centers",
       "direct": "Direct",
       "map": "Map",
@@ -754,7 +754,7 @@
     },
     "certTeacher": {
       "title": "What is an SNPE Certified Instructor?",
-      "desc": "SNPE Certified Instructors are professionals who have completed SNPE instructor training and passed the required assessment. They maintain expertise through continuing education and certification renewal under SNPE headquarters standards.",
+      "desc": "SNPE Certified Instructors are professionals who have completed the SNPE Posture Exercise Instructor Course (LEVEL 2-3) and received official certification after passing strict evaluation criteria. They maintain their expertise through regular continuing education and certification renewal, and practice in accordance with SNPE's official education and instruction standards.",
       "ambassadors": "SNPE Ambassador Instructors",
       "searchTitle": "Find an SNPE Certified Instructor",
       "searchDesc": "Search by instructor name, region, or certification level.",
