@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { dataStore } from '../../lib/dataStore'
 import RichTextEditor from '../../components/admin/RichTextEditor'
 import ImageUploader from '../../components/admin/ImageUploader'
+import AdminEducations from './AdminEducations'
+import { LEVEL1_BENEFITS_IMAGE, LEVEL1_INSTRUCTOR_IMAGES } from '../../lib/level1Assets'
 import { Save, RotateCcw, Plus, Trash2, ChevronUp, ChevronDown, ExternalLink } from 'lucide-react'
 
 const TABS = [
@@ -10,6 +12,7 @@ const TABS = [
   { slug: 'level2', label: 'LEVEL 2', path: '/level2' },
   { slug: 'level3', label: 'LEVEL 3', path: '/level3' },
   { slug: 'master', label: 'MASTER',  path: '/master' },
+  { slug: 'other',  label: '기타 일정', path: null },
 ]
 
 const DEFAULT = {
@@ -37,6 +40,14 @@ export default function AdminLevelPage() {
     try {
       const data = await dataStore.getPageContent(slug)
       const merged = data ? { ...DEFAULT, ...data } : { ...DEFAULT }
+      if (slug === 'level1') {
+        if (merged.benefits_image_url == null || merged.benefits_image_url === undefined) {
+          merged.benefits_image_url = LEVEL1_BENEFITS_IMAGE
+        }
+        if (!Array.isArray(merged.instructor_images)) {
+          merged.instructor_images = LEVEL1_INSTRUCTOR_IMAGES.map((p) => ({ ...p }))
+        }
+      }
       setForms((prev) => ({ ...prev, [slug]: merged }))
       setOriginals((prev) => ({ ...prev, [slug]: JSON.parse(JSON.stringify(merged)) }))
       setLoadedSlugs((prev) => new Set([...prev, slug]))
@@ -45,7 +56,9 @@ export default function AdminLevelPage() {
     }
   }
 
-  useEffect(() => { loadSlug(activeSlug) }, [activeSlug])
+  useEffect(() => {
+    if (activeSlug !== 'other') loadSlug(activeSlug)
+  }, [activeSlug])
 
   const form = forms[activeSlug] || DEFAULT
   const original = originals[activeSlug]
@@ -59,8 +72,13 @@ export default function AdminLevelPage() {
   const save = async () => {
     setSaving(true)
     try {
-      await dataStore.updatePageContent(activeSlug, form)
-      setOriginals((prev) => ({ ...prev, [activeSlug]: JSON.parse(JSON.stringify(form)) }))
+      const payload = { ...form }
+      if (activeSlug === 'level1' && Array.isArray(payload.instructor_images)) {
+        payload.instructor_images = payload.instructor_images.filter((p) => p?.src)
+      }
+      await dataStore.updatePageContent(activeSlug, payload)
+      setForms((prev) => ({ ...prev, [activeSlug]: payload }))
+      setOriginals((prev) => ({ ...prev, [activeSlug]: JSON.parse(JSON.stringify(payload)) }))
       setSavedAt(new Date())
     } catch (e) {
       alert('저장 실패: ' + e.message)
@@ -78,12 +96,13 @@ export default function AdminLevelPage() {
   const isMaster = activeSlug === 'master'
   const isLevel1 = activeSlug === 'level1'
   const isLevel2 = activeSlug === 'level2'
+  const isOther = activeSlug === 'other'
 
   return (
-    <div className="pb-24">
+    <div className={isOther ? '' : 'pb-24'}>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">교육과정 페이지 관리</h1>
-        <p className="text-sm text-gray-500 mt-1">LEVEL 1 / 2 / 3 / MASTER 페이지 내용을 편집합니다.</p>
+        <h1 className="text-2xl font-bold text-gray-900">교육과정 관리</h1>
+        <p className="text-sm text-gray-500 mt-1">일정과 페이지 내용을 과정별로 한 화면에서 관리합니다.</p>
       </div>
 
       {/* 탭 */}
@@ -106,22 +125,33 @@ export default function AdminLevelPage() {
           </button>
         ))}
         <div className="ml-auto flex items-center pb-1">
-          <Link
-            to={TABS.find((t) => t.slug === activeSlug)?.path || '/'}
-            target="_blank"
-            className="text-xs text-blue-500 hover:underline flex items-center gap-1"
-          >
-            사이트에서 보기 <ExternalLink size={11} />
-          </Link>
+          {TABS.find((t) => t.slug === activeSlug)?.path && (
+            <Link
+              to={TABS.find((t) => t.slug === activeSlug).path}
+              target="_blank"
+              className="text-xs text-blue-500 hover:underline flex items-center gap-1"
+            >
+              사이트에서 보기 <ExternalLink size={11} />
+            </Link>
+          )}
         </div>
       </div>
 
-      {!loadedSlugs.has(activeSlug) ? (
+      {isOther ? (
+        <div className="bg-white rounded-2xl border border-gray-100 p-5">
+          <h3 className="text-sm font-bold text-gray-700 mb-4 pb-3 border-b border-gray-100">기업특강 · 문화센터 · 직무교육</h3>
+          <AdminEducations allowedCategories={['company', 'culture', 'training']} embedded />
+        </div>
+      ) : !loadedSlugs.has(activeSlug) ? (
         <div className="flex items-center justify-center h-40">
           <div className="animate-spin w-6 h-6 border-2 border-gray-300 border-t-gray-900 rounded-full" />
         </div>
       ) : (
         <div className="space-y-4">
+          <Card title="교육 일정">
+            <AdminEducations lockedCategory={activeSlug} embedded />
+          </Card>
+
           {/* 기본 정보 */}
           <Card title="기본 정보">
             <div className="grid grid-cols-2 gap-4">
@@ -215,7 +245,7 @@ export default function AdminLevelPage() {
                 LEVEL 1 페이지 교육일정 박스의 「접수 및 마감 정보」와 하단 접수 안내 배너에 표시됩니다.
                 비워두면 페이지의 기본 문구가 그대로 유지됩니다.
                 <br />
-                ※ 개강일 · 수업 시간 · 수강료 · 수련 장소는 <b>교육과정 일정 관리</b>에서 수정합니다.
+                ※ 개강 · 수업 시간 · 수강료 · 수련 장소는 위 「교육 일정」에서 수정합니다.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Field label="접수 시작">
@@ -269,31 +299,82 @@ export default function AdminLevelPage() {
           {isLevel1 && (
             <Card title="수강 혜택 카드뉴스 이미지 (LEVEL 1 페이지)">
               <p className="text-xs text-gray-500 mb-3 -mt-1">
-                교육일정 박스 아래에 전체 폭으로 노출되는 이미지입니다. 새 기수 이미지를 올리면 교체되고,
-                아래 「이미지 숨기기」를 켜면 사이트에서 이 영역이 사라집니다.
+                교육일정 박스 아래에 나오는 이미지입니다. 미리보기의 X를 누르면 사이트에서 내려가고, 새 파일을 올리면 교체됩니다.
               </p>
               <ImageUploader
                 value={form.benefits_image_url || ''}
                 onChange={(url) => set('benefits_image_url', url)}
                 folder="level1"
-                aspectRatio="4/5"
+                aspectRatio="auto"
                 maxSizeMB={8}
                 sizeHint="가로 1000px 이상 권장 · 8MB 이하 (JPG/PNG)"
               />
-              <label className="mt-4 flex items-start gap-2.5 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={form.benefits_hidden === true}
-                  onChange={(e) => set('benefits_hidden', e.target.checked)}
-                  className="mt-0.5 w-4 h-4 accent-mint"
-                />
-                <span className="text-sm text-gray-700">
-                  이미지 숨기기
-                  <span className="block text-xs text-gray-500 mt-0.5">
-                    새 기수 이미지가 준비되기 전까지 혜택 카드뉴스 영역을 노출하지 않습니다. (한국어 · 영어 · 일본어 페이지 모두 적용)
-                  </span>
-                </span>
-              </label>
+            </Card>
+          )}
+
+          {isLevel1 && (
+            <Card title="전문 강사진 이미지 (LEVEL 1 페이지)">
+              <p className="text-xs text-gray-500 mb-4 -mt-1">
+                「전문 강사진」 카드뉴스입니다. 각 장의 X 또는 삭제로 내리고, 파일을 올리면 교체되며, 아래에서 장을 추가할 수 있습니다. 전부 지우면 해당 섹션이 사이트에서 사라집니다.
+              </p>
+              <div className="space-y-4">
+                {(form.instructor_images || []).map((item, i) => (
+                  <div key={i} className="rounded-xl border border-gray-100 p-3 bg-gray-50/60">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-medium text-gray-500">{i + 1}번째 강사 이미지</span>
+                      <div className="flex gap-1">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const arr = [...form.instructor_images]
+                            if (i > 0) { [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]]; set('instructor_images', arr) }
+                          }}
+                          className="p-1 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                          disabled={i === 0}
+                        >
+                          <ChevronUp size={14} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const arr = [...form.instructor_images]
+                            if (i < arr.length - 1) { [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]; set('instructor_images', arr) }
+                          }}
+                          className="p-1 text-gray-400 hover:text-gray-700 disabled:opacity-30"
+                          disabled={i === form.instructor_images.length - 1}
+                        >
+                          <ChevronDown size={14} />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => set('instructor_images', form.instructor_images.filter((_, idx) => idx !== i))}
+                          className="p-1 text-red-400 hover:bg-red-50 rounded"
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      </div>
+                    </div>
+                    <ImageUploader
+                      value={item.src || ''}
+                      onChange={(url) => {
+                        const arr = [...form.instructor_images]
+                        arr[i] = { ...arr[i], src: url }
+                        set('instructor_images', arr)
+                      }}
+                      folder="level1"
+                      aspectRatio="auto"
+                      maxSizeMB={8}
+                    />
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  onClick={() => set('instructor_images', [...(form.instructor_images || []), { src: '', alt: '' }])}
+                  className="w-full py-2.5 border-2 border-dashed border-gray-200 rounded-xl text-sm text-gray-500 hover:border-gray-300 flex items-center justify-center gap-1"
+                >
+                  <Plus size={14} /> 강사 이미지 추가
+                </button>
+              </div>
             </Card>
           )}
 
@@ -400,7 +481,7 @@ export default function AdminLevelPage() {
         </div>
       )}
 
-      {/* 하단 저장 바 */}
+      {!isOther && (
       <div className="fixed bottom-0 left-60 right-0 bg-white border-t border-gray-200 px-6 md:px-8 py-4 flex items-center justify-between z-30">
         <div className="text-xs text-gray-500">
           {dirty ? (
@@ -422,6 +503,7 @@ export default function AdminLevelPage() {
           </button>
         </div>
       </div>
+      )}
 
       <style>{`
         .input {

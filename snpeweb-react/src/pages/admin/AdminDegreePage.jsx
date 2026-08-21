@@ -701,14 +701,14 @@ function ScheduleNotice() {
       <p className="font-medium mb-1">일정 표는 별도 메뉴에서 관리됩니다</p>
       <p className="text-blue-700 text-xs mb-3">
         과정/기간/장소/모집 상태/신청 URL은{' '}
-        <Link to="/admin/educations" className="underline font-medium">교육과정 일정 관리</Link>
+        <Link to="/admin/level-pages" className="underline font-medium">교육과정 관리</Link>
         에서 카테고리별(LEVEL 1/2/3)로 등록하시면 자격증 안내 페이지에 자동 표시됩니다.
       </p>
       <Link
-        to="/admin/educations"
+        to="/admin/level-pages"
         className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white text-xs rounded-lg hover:bg-blue-700"
       >
-        교육과정 일정 관리로 이동 <ExternalLink size={12} />
+        교육과정 관리로 이동 <ExternalLink size={12} />
       </Link>
     </div>
   )

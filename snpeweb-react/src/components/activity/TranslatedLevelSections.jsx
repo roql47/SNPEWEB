@@ -1014,8 +1014,10 @@ export default function TranslatedLevelSections({ level }) {
     ...(admin?.apply_url_friday ? { friday: admin.apply_url_friday } : null),
     ...(admin?.apply_url_saturday ? { saturday: admin.apply_url_saturday } : null),
   }
-  const benefitsImage = admin?.benefits_image_url || levelImages.level1.benefits
-  const benefitsHidden = admin?.benefits_hidden === true
+  const benefitsImage = Object.prototype.hasOwnProperty.call(admin || {}, 'benefits_image_url')
+    ? admin.benefits_image_url
+    : levelImages.level1.benefits
+  const showBenefits = Boolean(benefitsImage) && admin?.benefits_hidden !== true
 
   if (!copy) return null
 
@@ -1124,10 +1126,10 @@ export default function TranslatedLevelSections({ level }) {
         <section className="py-16 md:py-24 bg-white">
           <div
             className={`mx-auto px-4 grid gap-10 items-center ${
-              benefitsHidden ? 'max-w-3xl' : 'max-w-5xl lg:grid-cols-[1fr_1.2fr]'
+              showBenefits ? 'max-w-5xl lg:grid-cols-[1fr_1.2fr]' : 'max-w-3xl'
             }`}
           >
-            {!benefitsHidden && (
+            {showBenefits && (
               <div className="rounded-3xl overflow-hidden shadow-md bg-gray-100">
                 <img src={benefitsImage} alt="" className="w-full h-auto block" loading="lazy" />
               </div>

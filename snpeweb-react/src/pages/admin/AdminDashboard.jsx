@@ -45,7 +45,7 @@ export default function AdminDashboard() {
     { label: '전문센터', count: centers.length, icon: MapPin, to: '/admin/centers', color: 'bg-blue-500' },
     { label: 'SNPE STUDIO', count: studios.length, icon: Building2, to: '/admin/studios', color: 'bg-purple-500' },
     { label: '인증강사', count: teachers.length, icon: UserCheck, to: '/admin/cert-teachers', color: 'bg-indigo-500' },
-    { label: '교육과정', count: educations.length, icon: GraduationCap, to: '/admin/educations', color: 'bg-cyan-500' },
+    { label: '교육과정', count: educations.length, icon: GraduationCap, to: '/admin/level-pages', color: 'bg-cyan-500' },
     { label: '공지사항', count: notices.length, icon: Bell, to: '/admin/notices', color: 'bg-amber-500' },
     { label: '언론보도', count: news.length, icon: Newspaper, to: '/admin/news', color: 'bg-green-500' },
     { label: '활동내역', count: activities.length, icon: CalendarDays, to: '/admin/activities', color: 'bg-rose-500' },

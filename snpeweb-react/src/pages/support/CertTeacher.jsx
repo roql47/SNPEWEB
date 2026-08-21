@@ -52,12 +52,8 @@ export default function CertTeacher() {
         <div className="max-w-5xl mx-auto px-4">
 
           <div className="bg-snpe-dark/5 rounded-2xl p-8 mb-12">
-            <h2 className="text-xl font-bold text-gray-900 mb-3">SNPE 인증강사란?</h2>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              SNPE 인증강사는 SNPE 바른자세 척추운동 전문 교육과정(LEVEL 2~3)을 이수하고,
-              엄격한 평가를 통해 인증받은 전문 강사입니다. 인증강사는 정기적인 보수교육과
-              자격 갱신을 통해 전문성을 유지하며, SNPE 본사의 관리 하에 활동하고 있습니다.
-            </p>
+            <h2 className="text-xl font-bold text-gray-900 mb-3">{t('support.certTeacher.title')}</h2>
+            <p className="text-sm text-gray-600 leading-relaxed">{t('support.certTeacher.desc')}</p>
           </div>
 
           {ambassadors.length > 0 && (

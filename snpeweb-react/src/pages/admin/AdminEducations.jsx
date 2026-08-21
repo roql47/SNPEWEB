@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { dataStore } from '../../lib/dataStore'
-import { Plus, Pencil, Trash2, X, Calendar, MapPin } from 'lucide-react'
+import { Plus, Pencil, Trash2, X } from 'lucide-react'
 
-const CATEGORIES = [
+const ALL_CATEGORIES = [
   { value: 'level1', label: 'LEVEL 1' },
   { value: 'level2', label: 'LEVEL 2' },
   { value: 'level3', label: 'LEVEL 3' },
@@ -19,6 +19,8 @@ const STATUS = [
   { value: 'done', label: '종료', color: 'bg-gray-200 text-gray-500' },
 ]
 
+const LEVEL_PAGE_CATEGORIES = ['level1', 'level2', 'level3']
+
 const emptyForm = {
   category: 'level1',
   title: '',
@@ -29,7 +31,6 @@ const emptyForm = {
   status: 'open',
   description: '',
   apply_url: '',
-  // LEVEL 페이지 "교육 일정" 박스에 표시되는 자유 텍스트 항목
   schedule_open: '',
   course_period: '',
   class_time: '',
@@ -37,22 +38,42 @@ const emptyForm = {
   capacity_note: '',
 }
 
-// 카테고리별로 LEVEL 페이지 교육일정 박스가 노출되는지 안내
-const LEVEL_CATEGORIES = ['level1', 'level2', 'level3']
+/**
+ * 교육 일정 목록 + 편집 모달.
+ * - lockedCategory: LEVEL 1 탭처럼 한 과정만 다룰 때
+ * - allowedCategories: 기업특강/문화센터 등 일부만 다룰 때
+ */
+export default function AdminEducations({
+  lockedCategory = null,
+  allowedCategories = null,
+  embedded = false,
+}) {
+  const categories = ALL_CATEGORIES.filter((c) => {
+    if (lockedCategory) return c.value === lockedCategory
+    if (allowedCategories) return allowedCategories.includes(c.value)
+    return true
+  })
+  const defaultCategory = lockedCategory || categories[0]?.value || 'level1'
 
-export default function AdminEducations() {
   const [rows, setRows] = useState([])
   const [editing, setEditing] = useState(null)
-  const [form, setForm] = useState(emptyForm)
-  const [activeCategory, setActiveCategory] = useState('all')
+  const [form, setForm] = useState({ ...emptyForm, category: defaultCategory })
+  const [activeCategory, setActiveCategory] = useState(lockedCategory || 'all')
 
   const loadData = async () => setRows(await dataStore.getEducations())
   useEffect(() => { loadData() }, [])
 
-  const openNew = () => { setForm(emptyForm); setEditing('new') }
+  useEffect(() => {
+    setActiveCategory(lockedCategory || 'all')
+  }, [lockedCategory])
+
+  const openNew = () => {
+    setForm({ ...emptyForm, category: defaultCategory })
+    setEditing('new')
+  }
   const openEdit = (r) => {
     setForm({
-      category: r.category || 'level1',
+      category: r.category || defaultCategory,
       title: r.title || '',
       start_date: r.start_date || '',
       end_date: r.end_date || '',
@@ -69,12 +90,16 @@ export default function AdminEducations() {
     })
     setEditing(r.id)
   }
-  const close = () => { setEditing(null); setForm(emptyForm) }
+  const close = () => {
+    setEditing(null)
+    setForm({ ...emptyForm, category: defaultCategory })
+  }
 
   const save = async () => {
     if (!form.title.trim()) return
     const payload = {
       ...form,
+      category: lockedCategory || form.category,
       capacity: form.capacity === '' ? null : Number(form.capacity),
       start_date: form.start_date || null,
       end_date: form.end_date || null,
@@ -91,18 +116,27 @@ export default function AdminEducations() {
     await loadData()
   }
 
-  const labelOf = (cat) => CATEGORIES.find((c) => c.value === cat)?.label || cat
+  const labelOf = (cat) => ALL_CATEGORIES.find((c) => c.value === cat)?.label || cat
   const statusInfo = (s) => STATUS.find((x) => x.value === s) || STATUS[0]
-  const filtered = activeCategory === 'all' ? rows : rows.filter((r) => r.category === activeCategory)
+  const scoped = rows.filter((r) => categories.some((c) => c.value === r.category))
+  const filtered = activeCategory === 'all' ? scoped : scoped.filter((r) => r.category === activeCategory)
+  const showCategoryCol = !lockedCategory
+  const showCategoryChips = !lockedCategory && categories.length > 1
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+      <div className={`flex items-center justify-between flex-wrap gap-3 ${embedded ? 'mb-3' : 'mb-6'}`}>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">교육과정 일정 관리</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            총 {rows.length}건 · 카테고리별 회차/일정/모집 상태를 통합 관리합니다
-          </p>
+          {!embedded && <h1 className="text-2xl font-bold text-gray-900">교육과정 일정 관리</h1>}
+          {embedded ? (
+            <p className="text-xs text-gray-500">
+              모집 중인 최신 1건이 이 과정 페이지의 「교육 일정」과 자격증 안내 표에 표시됩니다. 총 {scoped.length}건
+            </p>
+          ) : (
+            <p className="text-sm text-gray-500 mt-1">
+              총 {rows.length}건 · 카테고리별 회차/일정/모집 상태를 통합 관리합니다
+            </p>
+          )}
         </div>
         <button
           onClick={openNew}
@@ -112,44 +146,46 @@ export default function AdminEducations() {
         </button>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-5">
-        <button
-          onClick={() => setActiveCategory('all')}
-          className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-            activeCategory === 'all'
-              ? 'bg-gray-900 text-white'
-              : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
-          }`}
-        >
-          전체 {rows.length > 0 && <span className={activeCategory === 'all' ? 'text-white/70' : 'text-gray-400'}>{rows.length}</span>}
-        </button>
-        {CATEGORIES.map((c) => {
-          const cnt = rows.filter((r) => r.category === c.value).length
-          return (
-            <button
-              key={c.value}
-              onClick={() => setActiveCategory(c.value)}
-              className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                activeCategory === c.value
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
-              }`}
-            >
-              {c.label}
-              {cnt > 0 && (
-                <span className={`ml-1.5 ${activeCategory === c.value ? 'text-white/70' : 'text-gray-400'}`}>{cnt}</span>
-              )}
-            </button>
-          )
-        })}
-      </div>
+      {showCategoryChips && (
+        <div className="flex flex-wrap gap-2 mb-5">
+          <button
+            onClick={() => setActiveCategory('all')}
+            className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              activeCategory === 'all'
+                ? 'bg-gray-900 text-white'
+                : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
+            }`}
+          >
+            전체 {scoped.length > 0 && <span className={activeCategory === 'all' ? 'text-white/70' : 'text-gray-400'}>{scoped.length}</span>}
+          </button>
+          {categories.map((c) => {
+            const cnt = scoped.filter((r) => r.category === c.value).length
+            return (
+              <button
+                key={c.value}
+                onClick={() => setActiveCategory(c.value)}
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                  activeCategory === c.value
+                    ? 'bg-gray-900 text-white'
+                    : 'bg-white text-gray-600 border border-gray-200 hover:border-gray-300'
+                }`}
+              >
+                {c.label}
+                {cnt > 0 && (
+                  <span className={`ml-1.5 ${activeCategory === c.value ? 'text-white/70' : 'text-gray-400'}`}>{cnt}</span>
+                )}
+              </button>
+            )
+          })}
+        </div>
+      )}
 
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="bg-gray-50 text-gray-600">
-                <th className="text-left px-4 py-3 font-medium w-28">카테고리</th>
+                {showCategoryCol && <th className="text-left px-4 py-3 font-medium w-28">카테고리</th>}
                 <th className="text-left px-4 py-3 font-medium">제목</th>
                 <th className="text-left px-4 py-3 font-medium w-44">기간</th>
                 <th className="text-left px-4 py-3 font-medium w-28">장소</th>
@@ -163,9 +199,11 @@ export default function AdminEducations() {
                 const st = statusInfo(r.status)
                 return (
                   <tr key={r.id} className="border-t border-gray-50 hover:bg-gray-50/50">
-                    <td className="px-4 py-3">
-                      <span className="px-2 py-0.5 bg-gray-100 rounded text-xs">{labelOf(r.category)}</span>
-                    </td>
+                    {showCategoryCol && (
+                      <td className="px-4 py-3">
+                        <span className="px-2 py-0.5 bg-gray-100 rounded text-xs">{labelOf(r.category)}</span>
+                      </td>
+                    )}
                     <td className="px-4 py-3 font-medium text-gray-900">{r.title}</td>
                     <td className="px-4 py-3 text-gray-600 text-xs">
                       {r.start_date || '-'}{r.end_date ? ` ~ ${r.end_date}` : ''}
@@ -192,7 +230,7 @@ export default function AdminEducations() {
               })}
               {filtered.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="px-4 py-12 text-center text-gray-400 text-sm">
+                  <td colSpan={showCategoryCol ? 7 : 6} className="px-4 py-12 text-center text-gray-400 text-sm">
                     등록된 교육 일정이 없습니다.
                   </td>
                 </tr>
@@ -210,17 +248,19 @@ export default function AdminEducations() {
               <button onClick={close} className="text-gray-400 hover:text-gray-700"><X size={20} /></button>
             </div>
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="text-sm font-medium text-gray-700 mb-1 block">카테고리</label>
-                  <select
-                    value={form.category}
-                    onChange={(e) => setForm({ ...form, category: e.target.value })}
-                    className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm bg-white"
-                  >
-                    {CATEGORIES.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
-                  </select>
-                </div>
+              <div className={`grid gap-3 ${lockedCategory ? 'grid-cols-1' : 'grid-cols-2'}`}>
+                {!lockedCategory && (
+                  <div>
+                    <label className="text-sm font-medium text-gray-700 mb-1 block">카테고리</label>
+                    <select
+                      value={form.category}
+                      onChange={(e) => setForm({ ...form, category: e.target.value })}
+                      className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm bg-white"
+                    >
+                      {categories.map((c) => <option key={c.value} value={c.value}>{c.label}</option>)}
+                    </select>
+                  </div>
+                )}
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-1 block">상태</label>
                   <select
@@ -238,7 +278,7 @@ export default function AdminEducations() {
                   value={form.title}
                   onChange={(e) => setForm({ ...form, title: e.target.value })}
                   className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
-                  placeholder="예: 2026년 5월 LEVEL 1 정규 과정"
+                  placeholder="예: 2026년 하반기 LEVEL 1 정규 과정"
                 />
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -303,15 +343,13 @@ export default function AdminEducations() {
                 />
               </div>
 
-              {/* LEVEL 페이지 "교육 일정" 박스 항목 — LEVEL 1/2/3 카테고리에서만 노출 */}
-              {LEVEL_CATEGORIES.includes(form.category) && (
+              {LEVEL_PAGE_CATEGORIES.includes(lockedCategory || form.category) && (
                 <div className="rounded-xl border border-snpe/30 bg-snpe/5 p-4 space-y-3">
                   <p className="text-sm font-bold text-snpe-dark">
-                    LEVEL 페이지 「교육 일정」 박스 표시 항목
+                    이 과정 페이지 「교육 일정」 박스 표시 항목
                   </p>
                   <p className="text-xs text-gray-500 -mt-1.5">
-                    이 카테고리에서 가장 먼저 모집 중(또는 최신)인 일정 1건이 해당 LEVEL 페이지의 교육 일정 박스에
-                    표시됩니다. 비워두면 페이지의 안내 문구가 그대로 유지됩니다.
+                    비워두면 페이지의 기본 문구가 그대로 유지됩니다.
                   </p>
                   <div>
                     <label className="text-sm font-medium text-gray-700 mb-1 block">개강 안내</label>

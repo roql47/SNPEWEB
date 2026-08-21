@@ -30,6 +30,7 @@ import { dataStore } from '../../lib/dataStore'
 import { sanitizeHtml } from '../../lib/sanitize'
 import useLevelSchedule, { mergeSchedule } from '../../hooks/useLevelSchedule'
 import useReveal from '../../hooks/useReveal'
+import { LEVEL1_BENEFITS_IMAGE, LEVEL1_INSTRUCTOR_IMAGES } from '../../lib/level1Assets'
 
 const ENROLL_URL = 'https://www.s-ground.co.kr/course/SNPE-LEVEL-1-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8'
 const KAKAO_URL = 'https://pf.kakao.com/_Tqyxib'
@@ -42,15 +43,8 @@ const IMG = {
   phase2: '/images/level1/phase2.png',
   phase3: '/images/level1/phase3.png',
   phase4: '/images/level1/phase4.png',
-  benefits: '/images/level1/benefits.jpg',
+  benefits: LEVEL1_BENEFITS_IMAGE,
 }
-
-const INSTRUCTORS = [
-  { src: '/images/level1/instructors/01-kimheeju.jpg', alt: 'SNPE LEVEL 1 강사 — 김희주 마스터' },
-  { src: '/images/level1/instructors/02-banjugyeong.jpg', alt: 'SNPE LEVEL 1 강사 — 반주경 센터장' },
-  { src: '/images/level1/instructors/03-jeongseonmi.jpg', alt: 'SNPE LEVEL 1 강사 — 정선미 센터장' },
-  { src: '/images/level1/instructors/04-leeseomgyeol.jpg', alt: 'SNPE LEVEL 1 강사 — 이섬결 마스터' },
-]
 
 // ─────────────────────────────────────────────────────────────
 // 정적 데이터
@@ -269,8 +263,13 @@ export default function Level1Sections() {
 
   const targets = admin?.targets?.length > 0 ? admin.targets : DEFAULT_TARGETS
   const introHtml = admin?.intro_html || null
-  const benefitsImage = admin?.benefits_image_url || IMG.benefits
-  const benefitsHidden = admin?.benefits_hidden === true
+  const benefitsImage = Object.prototype.hasOwnProperty.call(admin || {}, 'benefits_image_url')
+    ? admin.benefits_image_url
+    : IMG.benefits
+  const showBenefits = Boolean(benefitsImage) && admin?.benefits_hidden !== true
+  const instructorImages = Array.isArray(admin?.instructor_images)
+    ? admin.instructor_images.filter((p) => p?.src)
+    : LEVEL1_INSTRUCTOR_IMAGES
   const enrollUrl = admin?.apply_url || ENROLL_URL
   const enrollNotice = admin?.enroll_notice || '20명 한정 선착순 마감'
 
@@ -527,33 +526,35 @@ export default function Level1Sections() {
       </section>
 
       {/* ── INSTRUCTORS — 강사진 카드뉴스 ─────────────────── */}
-      <section className="py-24 md:py-32 bg-snpe-light/60">
-        <div className="max-w-[1100px] mx-auto px-6">
-          <Reveal>
-            <div className="text-center mb-12 md:mb-16">
-              <SectionLabel>Expert-Led Program</SectionLabel>
-              <h2 className="text-3xl md:text-4xl font-bold text-snpe-darker leading-snug">
-                전문 강사진
-              </h2>
-            </div>
-          </Reveal>
+      {instructorImages.length > 0 && (
+        <section className="py-24 md:py-32 bg-snpe-light/60">
+          <div className="max-w-[1100px] mx-auto px-6">
+            <Reveal>
+              <div className="text-center mb-12 md:mb-16">
+                <SectionLabel>Expert-Led Program</SectionLabel>
+                <h2 className="text-3xl md:text-4xl font-bold text-snpe-darker leading-snug">
+                  전문 강사진
+                </h2>
+              </div>
+            </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-7">
-            {INSTRUCTORS.map((p, i) => (
-              <Reveal key={p.src} delay={120 + i * 100}>
-                <div className="relative rounded-3xl overflow-hidden shadow-lg bg-white">
-                  <img
-                    src={p.src}
-                    alt={p.alt}
-                    className="w-full h-auto block"
-                    loading="lazy"
-                  />
-                </div>
-              </Reveal>
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-7">
+              {instructorImages.map((p, i) => (
+                <Reveal key={p.src || i} delay={120 + i * 100}>
+                  <div className="relative rounded-3xl overflow-hidden shadow-lg bg-white">
+                    <img
+                      src={p.src}
+                      alt={p.alt}
+                      className="w-full h-auto block"
+                      loading="lazy"
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── ENROLLMENT INFO ──────────────────────────────── */}
       <section className="py-24 md:py-32 bg-white">
@@ -664,7 +665,7 @@ export default function Level1Sections() {
           </div>
 
           {/* 수강 혜택 카드뉴스 */}
-          {!benefitsHidden && (
+          {!showBenefits ? null : (
             <Reveal delay={260}>
               <div className="mt-10 rounded-3xl overflow-hidden shadow-lg bg-white">
                 <img

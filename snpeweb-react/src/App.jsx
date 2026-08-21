@@ -53,7 +53,6 @@ import AdminCertTeachers from './pages/admin/AdminCertTeachers'
 import AdminExperienceCases from './pages/admin/AdminExperienceCases'
 import AdminResearch from './pages/admin/AdminResearch'
 import AdminFaqs from './pages/admin/AdminFaqs'
-import AdminEducations from './pages/admin/AdminEducations'
 import AdminDegreePage from './pages/admin/AdminDegreePage'
 import AdminLevelPage from './pages/admin/AdminLevelPage'
 import AdminInquiries from './pages/admin/AdminInquiries'
@@ -123,7 +122,7 @@ export default function App() {
         <Route path="experience-cases" element={<AdminExperienceCases />} />
         <Route path="research" element={<AdminResearch />} />
         <Route path="faqs" element={<AdminFaqs />} />
-        <Route path="educations" element={<AdminEducations />} />
+        <Route path="educations" element={<Navigate to="/admin/level-pages" replace />} />
         <Route path="degree-page" element={<AdminDegreePage />} />
         <Route path="level-pages" element={<AdminLevelPage />} />
         <Route path="inquiries" element={<AdminInquiries />} />
